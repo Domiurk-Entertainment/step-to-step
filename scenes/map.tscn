@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://diqfykc226d21"]
 
-[ext_resource type="Texture2D" uid="uid://b0k8jct3ojy3n" path="res://icon.svg" id="1_3jjsl"]
-[ext_resource type="PackedScene" uid="uid://dcdunrca624v3" path="res://Point.tscn" id="2_7npno"]
-[ext_resource type="PackedScene" uid="uid://dljwnkfdxe6dw" path="res://Character.tscn" id="3_vq45o"]
+[ext_resource type="Texture2D" uid="uid://b0k8jct3ojy3n" path="res://sprites/icon.svg" id="1_a10x2"]
+[ext_resource type="PackedScene" uid="uid://dcdunrca624v3" path="res://scenes/Point.tscn" id="2_7npno"]
+[ext_resource type="PackedScene" uid="uid://dljwnkfdxe6dw" path="res://scenes/Character.tscn" id="3_vq45o"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.4, 0.4, 0.4, 0.403922)
 scale = Vector2(2.42188, 4.84375)
-texture = ExtResource("1_3jjsl")
+texture = ExtResource("1_a10x2")
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -37,4 +37,4 @@ position = Vector2(244, 201)
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 position = Vector2(257, -171)
-texture_normal = ExtResource("1_3jjsl")
+texture_normal = ExtResource("1_a10x2")

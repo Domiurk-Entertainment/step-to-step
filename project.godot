@@ -12,8 +12,12 @@ config_version=5
 
 config/name="Step To Step"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://sprites/icon.svg"
 
 [dotnet]
 
 project/assembly_name="Step To Step"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
