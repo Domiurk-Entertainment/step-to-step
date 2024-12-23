@@ -1,12 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://di4mft2i2j7yn"]
+[gd_scene load_steps=18 format=3 uid="uid://di4mft2i2j7yn"]
 
 [ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/the front lower part of the cave.png" id="1_bes3c"]
-[ext_resource type="Script" path="res://scenes/Anim_Blum.gd" id="1_mb4x4"]
+[ext_resource type="Script" path="res://Demo/Anim_Blum.gd" id="1_bro66"]
 [ext_resource type="Texture2D" uid="uid://5c0u7thmvt0g" path="res://sprites/front upper part of the cave.png" id="2_i7vgh"]
 [ext_resource type="Texture2D" uid="uid://bfdu30qcxdvj5" path="res://sprites/TilemapCave.png" id="3_b4aos"]
+[ext_resource type="Texture2D" uid="uid://ci2p0yqc435sn" path="res://sprites/tile.png" id="3_edaoj"]
 [ext_resource type="Texture2D" uid="uid://ck3t7x12t4klr" path="res://sprites/blum.png" id="4_1goqc"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="5_4y1k6"]
 [ext_resource type="Texture2D" uid="uid://7s5uw7p7xydu" path="res://sprites/the right wall of the cave.png" id="7_7iuju"]
+[ext_resource type="PackedScene" uid="uid://dljwnkfdxe6dw" path="res://scenes/Character.tscn" id="9_7yotn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6pai"]
 texture = ExtResource("3_b4aos")
@@ -73,88 +75,60 @@ animations = [{
 }]
 
 [node name="MapSprite" type="Node2D"]
-script = ExtResource("1_mb4x4")
+script = ExtResource("1_bro66")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(7, 82)
 rotation = 0.0033744
 tile_set = SubResource("TileSet_c0n3n")
 format = 2
+layer_0/modulate = Color(0.745098, 0.745098, 0.745098, 1)
 layer_0/tile_data = PackedInt32Array(-262145, 65536, 0, -196609, 65536, 0, -131073, 65536, 0, -65537, 65536, 0, -1, 65536, 0, 65535, 65536, 0, 131071, 65536, 0, 196607, 65536, 0, 262143, 65536, 0, -327680, 131072, 0, -262144, 131072, 1, -196608, 131072, 2, -131072, 65536, 0, -65536, 65536, 0, 0, 65536, 0, 65536, 0, 0, 131072, 65536, 0, 196608, 65536, 0, -327679, 0, 1, -262143, 196608, 1, -196607, 196608, 2, -131071, 131072, 0, 65537, 65536, 0, 131073, 0, 0, 196609, 65536, 0, -327678, 262144, 1, -262142, 65536, 1, -196606, 0, 2, -131070, 0, 1, 65538, 131072, 1, 131074, 131072, 2, 196610, 65536, 0, -327677, 65536, 0, -262141, 196608, 0, -196605, 196608, 1, -131069, 65536, 2, -65533, 262144, 1, 3, 65536, 1, 65539, 196608, 1, 131075, 196608, 2, 196611, 65536, 0, -327676, 65536, 0, -262140, 196608, 0, -196604, 196608, 1, -131068, 0, 2, -65532, 131072, 1, 4, 0, 1, 65540, 196608, 1, 131076, 196608, 2, 196612, 65536, 0, -327675, 131072, 1, -262139, 0, 1, -196603, 65536, 2, -131067, 65536, 1, -65531, 196608, 1, 5, 65536, 2, 65541, 262144, 1, 131077, 262144, 2, 196613, 65536, 0, -327674, 65536, 1, -262138, 196608, 1, -196602, 196608, 2, -131066, 262144, 0, -65530, 262144, 1, 6, 262144, 2, 65542, 65536, 0, 131078, 65536, 0, 196614, 65536, 0, -327673, 262144, 0, -262137, 262144, 1, -65529, 65536, 0, 7, 65536, 0, 65543, 65536, 0, 196615, 65536, 0, -327672, 65536, 0, -262136, 65536, 0, -196600, 65536, 0, 8, 65536, 0, 65544, 65536, 0, 131080, 65536, 0, 196616, 65536, 0, 2, 0, 2, 1, 131072, 2, -65535, 131072, 1, -65534, 196608, 1, 131079, 0, 0, -65528, 0, 0, -131064, 65536, 0, -131065, 65536, 0, -196601, 262144, 2, -589825, 65536, 0, -524289, 65536, 0, -458753, 65536, 0, -393217, 65536, 0, -327681, 65536, 0, -655360, 65536, 0, -589824, 65536, 0, -524288, 65536, 0, -458752, 65536, 0, -393216, 0, 0, -655359, 65536, 0, -589823, 65536, 0, -524287, 0, 0, -458751, 131072, 0, -393215, 131072, 1, -655358, 65536, 0, -589822, 65536, 0, -524286, 131072, 0, -458750, 0, 1, -393214, 65536, 2, -655357, 65536, 0, -589821, 65536, 0, -524285, 196608, 0, -458749, 196608, 1, -393213, 196608, 2, -655356, 65536, 0, -589820, 65536, 0, -524284, 196608, 0, -458748, 196608, 1, -393212, 196608, 2, -655355, 65536, 0, -589819, 0, 0, -524283, 262144, 0, -458747, 65536, 1, -393211, 0, 2, -655354, 65536, 0, -589818, 65536, 0, -524282, 65536, 0, -458746, 262144, 0, -393210, 262144, 1, -655353, 65536, 0, -589817, 65536, 0, -524281, 65536, 0, -458745, 0, 0, -393209, 65536, 0, -655352, 65536, 0, -589816, 65536, 0, -524280, 65536, 0, -458744, 65536, 0, -393208, 65536, 0)
-layer_1/name = ""
-layer_1/enabled = true
-layer_1/modulate = Color(1, 1, 1, 1)
-layer_1/y_sort_enabled = false
-layer_1/y_sort_origin = 0
-layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array()
 
 [node name="point" type="Node2D" parent="TileMap"]
+modulate = Color(0.745098, 0.745098, 0.745098, 1)
 position = Vector2(-4.98985, 3.01686)
 rotation = -0.0033744
-scale = Vector2(1, 1)
 
-[node name="ColorRect" type="ColorRect" parent="TileMap/point"]
-offset_left = 64.0
-offset_top = 16.0
-offset_right = 80.0
-offset_bottom = 31.0
-scale = Vector2(0.63, 0.67)
-color = Color(0.14902, 0.164706, 0.262745, 1)
+[node name="Tile" type="Sprite2D" parent="TileMap/point"]
+position = Vector2(69, 20)
+scale = Vector2(0.84375, 0.71875)
+texture = ExtResource("3_edaoj")
 
-[node name="ColorRect3" type="ColorRect" parent="TileMap/point"]
-offset_left = 39.0
-offset_top = -14.0
-offset_right = 55.0
-offset_bottom = 0.999992
-scale = Vector2(0.63, 0.67)
-color = Color(0.14902, 0.164706, 0.262745, 1)
+[node name="Tile2" type="Sprite2D" parent="TileMap/point"]
+position = Vector2(94, -10)
+scale = Vector2(0.84375, 0.71875)
+texture = ExtResource("3_edaoj")
 
-[node name="ColorRect5" type="ColorRect" parent="TileMap/point"]
-offset_left = 89.0
-offset_top = -14.0
-offset_right = 105.0
-offset_bottom = 1.0
-scale = Vector2(0.63, 0.67)
-color = Color(0.14902, 0.164706, 0.262745, 1)
+[node name="Tile3" type="Sprite2D" parent="TileMap/point"]
+position = Vector2(44, -10)
+scale = Vector2(0.84375, 0.71875)
+texture = ExtResource("3_edaoj")
 
-[node name="ColorRect7" type="ColorRect" parent="TileMap/point"]
-offset_left = 64.0
-offset_top = -48.0
-offset_right = 80.0
-offset_bottom = -33.0
-scale = Vector2(0.63, 0.67)
-color = Color(0.14902, 0.164706, 0.262745, 1)
+[node name="Tile4" type="Sprite2D" parent="TileMap/point"]
+position = Vector2(69, -44)
+scale = Vector2(0.84375, 0.71875)
+texture = ExtResource("3_edaoj")
 
-[node name="ColorRect8" type="ColorRect" parent="TileMap/point"]
-offset_left = 24.0
-offset_top = -65.0
-offset_right = 40.0
-offset_bottom = -50.0
-scale = Vector2(0.63, 0.67)
-color = Color(0.14902, 0.164706, 0.262745, 1)
+[node name="Tile5" type="Sprite2D" parent="TileMap/point"]
+position = Vector2(110, -62)
+scale = Vector2(0.84375, 0.71875)
+texture = ExtResource("3_edaoj")
 
-[node name="ColorRect9" type="ColorRect" parent="TileMap/point"]
-offset_left = 105.0
-offset_top = -66.0
-offset_right = 121.0
-offset_bottom = -51.0
-scale = Vector2(0.63, 0.67)
-color = Color(0.14902, 0.164706, 0.262745, 1)
+[node name="Tile6" type="Sprite2D" parent="TileMap/point"]
+position = Vector2(29, -61)
+scale = Vector2(0.84375, 0.71875)
+texture = ExtResource("3_edaoj")
 
-[node name="ColorRect10" type="ColorRect" parent="TileMap/point"]
-offset_left = 61.0
-offset_top = -115.0
-offset_right = 87.0
-offset_bottom = -92.0
-scale = Vector2(0.63, 0.67)
-color = Color(0.14902, 0.164706, 0.262745, 1)
+[node name="Tile7" type="Sprite2D" parent="TileMap/point"]
+position = Vector2(69.5906, -107.533)
+scale = Vector2(1.07382, 0.941683)
+texture = ExtResource("3_edaoj")
 
 [node name="Blum_anim" type="Node2D" parent="TileMap"]
 z_index = 1
 position = Vector2(-4.98985, 3.01686)
 rotation = -0.0033744
-scale = Vector2(1, 1)
 
 [node name="Animatedblum" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
 position = Vector2(42, 39)
@@ -382,6 +356,7 @@ position = Vector2(70, 35)
 zoom = Vector2(7.68, 2.85)
 
 [node name="wallCave" type="Node2D" parent="."]
+light_mask = 2
 
 [node name="TheRightWallOfTheCave" type="Sprite2D" parent="wallCave"]
 z_index = 6
@@ -404,3 +379,7 @@ z_index = 6
 position = Vector2(2, 87)
 texture = ExtResource("7_7iuju")
 flip_h = true
+
+[node name="PlayerStepToStep" parent="." instance=ExtResource("9_7yotn")]
+modulate = Color(1, 1, 0.815686, 1)
+position = Vector2(69, 96)
