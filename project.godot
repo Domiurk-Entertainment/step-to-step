@@ -10,19 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Step To Step"
+config/name="StepToStep"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://sprites/icon.svg"
-
-[display]
-
-window/stretch/mode="canvas_items"
-window/stretch/aspect="ignore"
+config/icon="res://icon.svg"
 
 [dotnet]
 
-project/assembly_name="Step To Step"
-
-[rendering]
-
-textures/canvas_textures/default_texture_filter=0
+project/assembly_name="StepToStep"
