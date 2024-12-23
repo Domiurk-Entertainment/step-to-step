@@ -378,29 +378,29 @@ texture_scale = 0.02
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 10
-position = Vector2(72, 35)
-zoom = Vector2(6.79, 2.85)
+position = Vector2(70, 35)
+zoom = Vector2(7.68, 2.85)
 
 [node name="wallCave" type="Node2D" parent="."]
 
 [node name="TheRightWallOfTheCave" type="Sprite2D" parent="wallCave"]
 z_index = 6
-position = Vector2(151, -27)
+position = Vector2(139, -27)
 texture = ExtResource("7_7iuju")
 
 [node name="TheRightWallOfTheCave2" type="Sprite2D" parent="wallCave"]
 z_index = 6
-position = Vector2(151, 87)
+position = Vector2(139, 87)
 texture = ExtResource("7_7iuju")
 
 [node name="TheRightWallOfTheCave3" type="Sprite2D" parent="wallCave"]
 z_index = 6
-position = Vector2(-6, -28)
+position = Vector2(2, -27)
 texture = ExtResource("7_7iuju")
 flip_h = true
 
 [node name="TheRightWallOfTheCave4" type="Sprite2D" parent="wallCave"]
 z_index = 6
-position = Vector2(-6, 86)
+position = Vector2(2, 87)
 texture = ExtResource("7_7iuju")
 flip_h = true
