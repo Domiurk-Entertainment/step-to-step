@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Step To Step"
+config/name="StepToStep"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
 
-project/assembly_name="Step To Step"
+project/assembly_name="StepToStep"
