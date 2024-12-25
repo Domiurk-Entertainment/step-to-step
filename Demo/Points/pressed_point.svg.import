@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://nk2fsdfhq3q0"
-path="res://.godot/imported/pressed_point.svg-8c3fcc19a6a75dc7bd121e018c128831.ctex"
+path="res://.godot/imported/pressed_point.svg-889babddcc181e9f45817440170332c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://demo/points/pressed_point.svg"
-dest_files=["res://.godot/imported/pressed_point.svg-8c3fcc19a6a75dc7bd121e018c128831.ctex"]
+source_file="res://Demo/points/pressed_point.svg"
+dest_files=["res://.godot/imported/pressed_point.svg-889babddcc181e9f45817440170332c5.ctex"]
 
 [params]
 
