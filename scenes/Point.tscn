@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcdunrca624v3"]
+[gd_scene load_steps=3 format=3 uid="uid://kug8pkgs6abm"]
 
 [ext_resource type="Texture2D" uid="uid://b0k8jct3ojy3n" path="res://sprites/icon.svg" id="1_dlmol"]
-[ext_resource type="Texture2D" uid="uid://nk2fsdfhq3q0" path="res://Demo/Points/pressed_point.svg" id="2_8wo22"]
+[ext_resource type="Texture2D" uid="uid://nk2fsdfhq3q0" path="res://demo/Points/pressed_point.svg" id="2_i8o08"]
 
 [node name="Point" type="TouchScreenButton"]
 texture_normal = ExtResource("1_dlmol")
-texture_pressed = ExtResource("2_8wo22")
+texture_pressed = ExtResource("2_i8o08")
 
 [node name="Visual" type="Node" parent="."]
 
