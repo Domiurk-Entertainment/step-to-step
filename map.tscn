@@ -34,7 +34,3 @@ position = Vector2(95, -125)
 
 [node name="Icon" parent="." instance=ExtResource("3_vq45o")]
 position = Vector2(244, 201)
-
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2(257, -171)
-texture_normal = ExtResource("1_3jjsl")
