@@ -1,0 +1,385 @@
+[gd_scene load_steps=18 format=3 uid="uid://di4mft2i2j7yn"]
+
+[ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/the front lower part of the cave.png" id="1_bes3c"]
+[ext_resource type="Script" path="res://Demo/Anim_Blum.gd" id="1_bro66"]
+[ext_resource type="Texture2D" uid="uid://5c0u7thmvt0g" path="res://sprites/front upper part of the cave.png" id="2_i7vgh"]
+[ext_resource type="Texture2D" uid="uid://bfdu30qcxdvj5" path="res://sprites/TilemapCave.png" id="3_b4aos"]
+[ext_resource type="Texture2D" uid="uid://ci2p0yqc435sn" path="res://sprites/tile.png" id="3_edaoj"]
+[ext_resource type="Texture2D" uid="uid://ck3t7x12t4klr" path="res://sprites/blum.png" id="4_1goqc"]
+[ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="5_4y1k6"]
+[ext_resource type="Texture2D" uid="uid://7s5uw7p7xydu" path="res://sprites/the right wall of the cave.png" id="7_7iuju"]
+[ext_resource type="PackedScene" uid="uid://dljwnkfdxe6dw" path="res://scenes/Character.tscn" id="9_7yotn"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6pai"]
+texture = ExtResource("3_b4aos")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_c0n3n"]
+sources/0 = SubResource("TileSetAtlasSource_e6pai")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhrgb"]
+atlas = ExtResource("4_1goqc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67rtl"]
+atlas = ExtResource("4_1goqc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pn5bg"]
+atlas = ExtResource("4_1goqc")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xchk8"]
+atlas = ExtResource("4_1goqc")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dky8"]
+atlas = ExtResource("4_1goqc")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8koel"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhrgb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67rtl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pn5bg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xchk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dky8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MapSprite" type="Node2D"]
+script = ExtResource("1_bro66")
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(7, 82)
+rotation = 0.0033744
+tile_set = SubResource("TileSet_c0n3n")
+format = 2
+layer_0/modulate = Color(0.745098, 0.745098, 0.745098, 1)
+layer_0/tile_data = PackedInt32Array(-262145, 65536, 0, -196609, 65536, 0, -131073, 65536, 0, -65537, 65536, 0, -1, 65536, 0, 65535, 65536, 0, 131071, 65536, 0, 196607, 65536, 0, 262143, 65536, 0, -327680, 131072, 0, -262144, 131072, 1, -196608, 131072, 2, -131072, 65536, 0, -65536, 65536, 0, 0, 65536, 0, 65536, 0, 0, 131072, 65536, 0, 196608, 65536, 0, -327679, 0, 1, -262143, 196608, 1, -196607, 196608, 2, -131071, 131072, 0, 65537, 65536, 0, 131073, 0, 0, 196609, 65536, 0, -327678, 262144, 1, -262142, 65536, 1, -196606, 0, 2, -131070, 0, 1, 65538, 131072, 1, 131074, 131072, 2, 196610, 65536, 0, -327677, 65536, 0, -262141, 196608, 0, -196605, 196608, 1, -131069, 65536, 2, -65533, 262144, 1, 3, 65536, 1, 65539, 196608, 1, 131075, 196608, 2, 196611, 65536, 0, -327676, 65536, 0, -262140, 196608, 0, -196604, 196608, 1, -131068, 0, 2, -65532, 131072, 1, 4, 0, 1, 65540, 196608, 1, 131076, 196608, 2, 196612, 65536, 0, -327675, 131072, 1, -262139, 0, 1, -196603, 65536, 2, -131067, 65536, 1, -65531, 196608, 1, 5, 65536, 2, 65541, 262144, 1, 131077, 262144, 2, 196613, 65536, 0, -327674, 65536, 1, -262138, 196608, 1, -196602, 196608, 2, -131066, 262144, 0, -65530, 262144, 1, 6, 262144, 2, 65542, 65536, 0, 131078, 65536, 0, 196614, 65536, 0, -327673, 262144, 0, -262137, 262144, 1, -65529, 65536, 0, 7, 65536, 0, 65543, 65536, 0, 196615, 65536, 0, -327672, 65536, 0, -262136, 65536, 0, -196600, 65536, 0, 8, 65536, 0, 65544, 65536, 0, 131080, 65536, 0, 196616, 65536, 0, 2, 0, 2, 1, 131072, 2, -65535, 131072, 1, -65534, 196608, 1, 131079, 0, 0, -65528, 0, 0, -131064, 65536, 0, -131065, 65536, 0, -196601, 262144, 2, -589825, 65536, 0, -524289, 65536, 0, -458753, 65536, 0, -393217, 65536, 0, -327681, 65536, 0, -655360, 65536, 0, -589824, 65536, 0, -524288, 65536, 0, -458752, 65536, 0, -393216, 0, 0, -655359, 65536, 0, -589823, 65536, 0, -524287, 0, 0, -458751, 131072, 0, -393215, 131072, 1, -655358, 65536, 0, -589822, 65536, 0, -524286, 131072, 0, -458750, 0, 1, -393214, 65536, 2, -655357, 65536, 0, -589821, 65536, 0, -524285, 196608, 0, -458749, 196608, 1, -393213, 196608, 2, -655356, 65536, 0, -589820, 65536, 0, -524284, 196608, 0, -458748, 196608, 1, -393212, 196608, 2, -655355, 65536, 0, -589819, 0, 0, -524283, 262144, 0, -458747, 65536, 1, -393211, 0, 2, -655354, 65536, 0, -589818, 65536, 0, -524282, 65536, 0, -458746, 262144, 0, -393210, 262144, 1, -655353, 65536, 0, -589817, 65536, 0, -524281, 65536, 0, -458745, 0, 0, -393209, 65536, 0, -655352, 65536, 0, -589816, 65536, 0, -524280, 65536, 0, -458744, 65536, 0, -393208, 65536, 0, 327679, 65536, 0, 262144, 65536, 0, 262145, 65536, 0, 262146, 65536, 0, 262147, 65536, 0, 262148, 65536, 0, 262149, 65536, 0, 262150, 65536, 0, 262151, 65536, 0, 262152, 65536, 0, -589826, 65536, 0, -524290, 65536, 0, -458754, 65536, 0, -393218, 65536, 0, -327682, 65536, 0, -262146, 65536, 0, -196610, 65536, 0, -131074, 65536, 0, -65538, 65536, 0, -2, 65536, 0, 65534, 65536, 0, 131070, 65536, 0, 196606, 65536, 0, 262142, 65536, 0, 327678, 65536, 0, -655362, 65536, 0, -655361, 65536, 0, -720896, 65536, 0, -720895, 65536, 0, -720894, 65536, 0, -720893, 65536, 0, -720892, 65536, 0, -720891, 65536, 0, -720890, 65536, 0, -720889, 65536, 0, -720888, 65536, 0, -720887, 65536, 0, -655351, 65536, 0, -589815, 65536, 0, -524279, 65536, 0, -458743, 65536, 0, -393207, 65536, 0, -327671, 65536, 0, -262135, 65536, 0, -196599, 65536, 0, -131063, 65536, 0, -65527, 65536, 0, 9, 65536, 0, 65545, 65536, 0, 131081, 65536, 0, 196617, 65536, 0, 262153, 65536, 0)
+
+[node name="point" type="Node2D" parent="TileMap"]
+modulate = Color(0.745098, 0.745098, 0.745098, 1)
+position = Vector2(-4.98985, 3.01686)
+rotation = -0.0033744
+
+[node name="Tile" type="Sprite2D" parent="TileMap/point"]
+position = Vector2(69, 20)
+scale = Vector2(0.84375, 0.71875)
+texture = ExtResource("3_edaoj")
+
+[node name="Tile2" type="Sprite2D" parent="TileMap/point"]
+position = Vector2(94, -10)
+scale = Vector2(0.84375, 0.71875)
+texture = ExtResource("3_edaoj")
+
+[node name="Tile3" type="Sprite2D" parent="TileMap/point"]
+position = Vector2(44, -10)
+scale = Vector2(0.84375, 0.71875)
+texture = ExtResource("3_edaoj")
+
+[node name="Tile4" type="Sprite2D" parent="TileMap/point"]
+position = Vector2(69, -44)
+scale = Vector2(0.84375, 0.71875)
+texture = ExtResource("3_edaoj")
+
+[node name="Tile5" type="Sprite2D" parent="TileMap/point"]
+position = Vector2(110, -62)
+scale = Vector2(0.84375, 0.71875)
+texture = ExtResource("3_edaoj")
+
+[node name="Tile6" type="Sprite2D" parent="TileMap/point"]
+position = Vector2(29, -61)
+scale = Vector2(0.84375, 0.71875)
+texture = ExtResource("3_edaoj")
+
+[node name="Tile7" type="Sprite2D" parent="TileMap/point"]
+position = Vector2(69.5906, -107.533)
+scale = Vector2(1.07382, 0.941683)
+texture = ExtResource("3_edaoj")
+
+[node name="Blum_anim" type="Node2D" parent="TileMap"]
+z_index = 1
+position = Vector2(-4.98985, 3.01686)
+rotation = -0.0033744
+
+[node name="Animatedblum" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+position = Vector2(42, 39)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.356979
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum"]
+position = Vector2(-5, -5)
+energy = 1.69
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum3" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+position = Vector2(125, -102)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.19797
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum3"]
+position = Vector2(-5, -5)
+energy = 1.69
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum4" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+position = Vector2(19, -87)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.19797
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum4"]
+position = Vector2(-5, -5)
+energy = 1.69
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum5" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+position = Vector2(42, -121)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.19797
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum5"]
+position = Vector2(-5, -5)
+energy = 1.69
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum9" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+position = Vector2(99, -134)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.19797
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum9"]
+position = Vector2(-5, -5)
+energy = 1.69
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum6" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+position = Vector2(140, -7)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.19797
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum6"]
+position = Vector2(-5, -5)
+energy = 1.69
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum7" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+position = Vector2(130, 42)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.19797
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum7"]
+position = Vector2(-5, -5)
+energy = 1.69
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum8" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+position = Vector2(19, 25)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.19797
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum8"]
+position = Vector2(-5, -5)
+energy = 1.69
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="front_top_bottom_cave" type="Node2D" parent="."]
+light_mask = 2
+
+[node name="TheFrontLowerPartOfTheCave" type="Sprite2D" parent="front_top_bottom_cave"]
+z_index = 5
+position = Vector2(43, 143)
+texture = ExtResource("1_bes3c")
+
+[node name="TheFrontLowerPartOfTheCave2" type="Sprite2D" parent="front_top_bottom_cave"]
+z_index = 5
+position = Vector2(104, 143)
+texture = ExtResource("1_bes3c")
+
+[node name="FrontUpperPartOfTheCave" type="Sprite2D" parent="front_top_bottom_cave"]
+z_index = 5
+position = Vector2(35, -72)
+texture = ExtResource("2_i7vgh")
+
+[node name="FrontUpperPartOfTheCave2" type="Sprite2D" parent="front_top_bottom_cave"]
+z_index = 5
+position = Vector2(100, -72)
+texture = ExtResource("2_i7vgh")
+flip_h = true
+
+[node name="Animatedblum10" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
+z_index = 6
+position = Vector2(46, 151)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.19797
+
+[node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum10"]
+position = Vector2(-5, -5)
+energy = 1.69
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum13" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
+z_index = 6
+position = Vector2(143, 144)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.19797
+
+[node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum13"]
+position = Vector2(-5, -5)
+energy = 1.69
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum12" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
+z_index = 6
+position = Vector2(120, 147)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.19797
+
+[node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum12"]
+position = Vector2(-5, -5)
+energy = 1.69
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum11" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
+z_index = 6
+position = Vector2(22, 145)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.19797
+
+[node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum11"]
+position = Vector2(-5, -5)
+energy = 1.69
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum9" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
+z_index = 6
+position = Vector2(84, 143)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.19797
+
+[node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum9"]
+position = Vector2(-5, -5)
+energy = 1.69
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum5" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
+z_index = 6
+position = Vector2(24, -64)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.19797
+
+[node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum5"]
+position = Vector2(-5, -5)
+energy = 1.69
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum14" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
+z_index = 6
+position = Vector2(123, -64)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.19797
+
+[node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum14"]
+position = Vector2(-5, -5)
+energy = 1.69
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum2" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
+z_index = 6
+position = Vector2(85, -63)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.464069
+
+[node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum2"]
+position = Vector2(-5, -5)
+energy = 1.69
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum4" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
+z_index = 6
+position = Vector2(61, -64)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.19797
+
+[node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum4"]
+position = Vector2(-5, -5)
+energy = 1.69
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 10
+position = Vector2(70, 35)
+zoom = Vector2(7.68, 2.85)
+
+[node name="wallCave" type="Node2D" parent="."]
+light_mask = 2
+
+[node name="TheRightWallOfTheCave" type="Sprite2D" parent="wallCave"]
+z_index = 6
+position = Vector2(139, -27)
+texture = ExtResource("7_7iuju")
+
+[node name="TheRightWallOfTheCave2" type="Sprite2D" parent="wallCave"]
+z_index = 6
+position = Vector2(139, 87)
+texture = ExtResource("7_7iuju")
+
+[node name="TheRightWallOfTheCave3" type="Sprite2D" parent="wallCave"]
+z_index = 6
+position = Vector2(2, -27)
+texture = ExtResource("7_7iuju")
+flip_h = true
+
+[node name="TheRightWallOfTheCave4" type="Sprite2D" parent="wallCave"]
+z_index = 6
+position = Vector2(2, 87)
+texture = ExtResource("7_7iuju")
+flip_h = true
+
+[node name="PlayerStepToStep" parent="." instance=ExtResource("9_7yotn")]
+modulate = Color(1, 1, 0.815686, 1)
+position = Vector2(69, 96)

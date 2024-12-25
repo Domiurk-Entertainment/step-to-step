@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dljwnkfdxe6dw"]
+
+[ext_resource type="Texture2D" uid="uid://dc8ihajbkv0ri" path="res://sprites/playerStepToStep.png" id="1_ryt7w"]
+[ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="2_g178e"]
+
+[node name="PlayerStepToStep" type="Sprite2D"]
+light_mask = 2
+visibility_layer = 2
+texture = ExtResource("1_ryt7w")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(2, 1)
+scale = Vector2(1.36, 1.36)
+color = Color(1, 0.945098, 0.419608, 1)
+energy = 1.91
+texture = ExtResource("2_g178e")
