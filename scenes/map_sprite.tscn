@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Demo/Anim_Blum.gd" id="1_bro66"]
 [ext_resource type="Texture2D" uid="uid://5c0u7thmvt0g" path="res://sprites/front upper part of the cave.png" id="2_i7vgh"]
 [ext_resource type="Texture2D" uid="uid://bfdu30qcxdvj5" path="res://sprites/TilemapCave.png" id="3_b4aos"]
-[ext_resource type="Texture2D" uid="uid://ci2p0yqc435sn" path="res://sprites/tile.png" id="3_edaoj"]
+[ext_resource type="PackedScene" uid="uid://bste1dma5c0dp" path="res://scenes/point.tscn" id="3_gt0uk"]
 [ext_resource type="Texture2D" uid="uid://ck3t7x12t4klr" path="res://sprites/blum.png" id="4_1goqc"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="5_4y1k6"]
 [ext_resource type="Texture2D" uid="uid://7s5uw7p7xydu" path="res://sprites/the right wall of the cave.png" id="7_7iuju"]
@@ -90,40 +90,26 @@ modulate = Color(0.745098, 0.745098, 0.745098, 1)
 position = Vector2(-4.98985, 3.01686)
 rotation = -0.0033744
 
-[node name="Tile" type="Sprite2D" parent="TileMap/point"]
-position = Vector2(69, 20)
-scale = Vector2(0.84375, 0.71875)
-texture = ExtResource("3_edaoj")
+[node name="Point" parent="TileMap/point" instance=ExtResource("3_gt0uk")]
+position = Vector2(60, 12)
 
-[node name="Tile2" type="Sprite2D" parent="TileMap/point"]
-position = Vector2(94, -10)
-scale = Vector2(0.84375, 0.71875)
-texture = ExtResource("3_edaoj")
+[node name="Point2" parent="TileMap/point" instance=ExtResource("3_gt0uk")]
+position = Vector2(37, -18)
 
-[node name="Tile3" type="Sprite2D" parent="TileMap/point"]
-position = Vector2(44, -10)
-scale = Vector2(0.84375, 0.71875)
-texture = ExtResource("3_edaoj")
+[node name="Point3" parent="TileMap/point" instance=ExtResource("3_gt0uk")]
+position = Vector2(85, -19)
 
-[node name="Tile4" type="Sprite2D" parent="TileMap/point"]
-position = Vector2(69, -44)
-scale = Vector2(0.84375, 0.71875)
-texture = ExtResource("3_edaoj")
+[node name="Point4" parent="TileMap/point" instance=ExtResource("3_gt0uk")]
+position = Vector2(61, -51)
 
-[node name="Tile5" type="Sprite2D" parent="TileMap/point"]
-position = Vector2(110, -62)
-scale = Vector2(0.84375, 0.71875)
-texture = ExtResource("3_edaoj")
+[node name="Point5" parent="TileMap/point" instance=ExtResource("3_gt0uk")]
+position = Vector2(101, -71)
 
-[node name="Tile6" type="Sprite2D" parent="TileMap/point"]
-position = Vector2(29, -61)
-scale = Vector2(0.84375, 0.71875)
-texture = ExtResource("3_edaoj")
+[node name="Point6" parent="TileMap/point" instance=ExtResource("3_gt0uk")]
+position = Vector2(21, -70)
 
-[node name="Tile7" type="Sprite2D" parent="TileMap/point"]
-position = Vector2(69.5906, -107.533)
-scale = Vector2(1.07382, 0.941683)
-texture = ExtResource("3_edaoj")
+[node name="Point7" parent="TileMap/point" instance=ExtResource("3_gt0uk")]
+position = Vector2(62, -117)
 
 [node name="Blum_anim" type="Node2D" parent="TileMap"]
 z_index = 1
@@ -350,11 +336,6 @@ energy = 1.69
 texture = ExtResource("5_4y1k6")
 texture_scale = 0.02
 
-[node name="Camera2D" type="Camera2D" parent="."]
-z_index = 10
-position = Vector2(70, 35)
-zoom = Vector2(7.68, 2.85)
-
 [node name="wallCave" type="Node2D" parent="."]
 light_mask = 2
 
@@ -383,3 +364,7 @@ flip_h = true
 [node name="PlayerStepToStep" parent="." instance=ExtResource("9_7yotn")]
 modulate = Color(1, 1, 0.815686, 1)
 position = Vector2(69, 96)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(69, 35)
+zoom = Vector2(4, 4)
