@@ -1,12 +1,61 @@
-[gd_scene load_steps=3 format=3 uid="uid://dljwnkfdxe6dw"]
+[gd_scene load_steps=10 format=3 uid="uid://dljwnkfdxe6dw"]
 
-[ext_resource type="Texture2D" uid="uid://dc8ihajbkv0ri" path="res://sprites/playerStepToStep.png" id="1_ryt7w"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="2_g178e"]
+[ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="2_v4bmy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pw5i8"]
+atlas = ExtResource("2_v4bmy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1t4ej"]
+atlas = ExtResource("2_v4bmy")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7knyj"]
+atlas = ExtResource("2_v4bmy")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c8nc"]
+atlas = ExtResource("2_v4bmy")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gc6eg"]
+atlas = ExtResource("2_v4bmy")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ygbr"]
+atlas = ExtResource("2_v4bmy")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1jh8v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pw5i8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1t4ej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7knyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c8nc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gc6eg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ygbr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
 
 [node name="PlayerStepToStep" type="Sprite2D"]
 light_mask = 2
 visibility_layer = 2
-texture = ExtResource("1_ryt7w")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(2, 1)
@@ -14,3 +63,7 @@ scale = Vector2(1.36, 1.36)
 color = Color(1, 0.945098, 0.419608, 1)
 energy = 1.91
 texture = ExtResource("2_g178e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1jh8v")
+animation = &"idle"
