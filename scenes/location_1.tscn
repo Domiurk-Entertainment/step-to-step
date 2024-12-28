@@ -1,6 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://b1pvhrsob4vlw"]
 
 [ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/the front lower part of the cave.png" id="1_0mw86"]
+[ext_resource type="Script" path="res://scenes/location_1.gd" id="1_o83h5"]
 [ext_resource type="Texture2D" uid="uid://5c0u7thmvt0g" path="res://sprites/front upper part of the cave.png" id="2_5ia3i"]
 [ext_resource type="Texture2D" uid="uid://ck3t7x12t4klr" path="res://sprites/blum.png" id="3_ls4xf"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="4_l8xwe"]
@@ -8,24 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://c7skxpom30yda" path="res://sprites/bgcave.png" id="6_iiv8j"]
 [ext_resource type="Texture2D" uid="uid://bfdu30qcxdvj5" path="res://sprites/TilemapCave.png" id="7_cul2c"]
 [ext_resource type="PackedScene" uid="uid://dljwnkfdxe6dw" path="res://scenes/Character.tscn" id="8_c8kg3"]
-
-[sub_resource type="CSharpScript" id="CSharpScript_5nrlm"]
-script/source = "using Godot;
-using System;
-
-public partial class location_1 : Node2D
-{
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-}
-"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhrgb"]
 atlas = ExtResource("3_ls4xf")
@@ -92,7 +75,7 @@ texture = ExtResource("7_cul2c")
 sources/0 = SubResource("TileSetAtlasSource_bgyct")
 
 [node name="location1" type="Node2D"]
-script = SubResource("CSharpScript_5nrlm")
+script = ExtResource("1_o83h5")
 
 [node name="front_top_bottom_cave2" type="Node2D" parent="."]
 z_index = 5
@@ -278,7 +261,7 @@ texture = ExtResource("6_iiv8j")
 flip_h = true
 
 [node name="TileMap" type="TileMap" parent="."]
-modulate = Color(0.647059, 0.647059, 0.647059, 1)
+modulate = Color(0.505882, 0.505882, 0.505882, 1)
 z_index = 4
 position = Vector2(-8, -22)
 tile_set = SubResource("TileSet_hak2u")
@@ -291,10 +274,11 @@ position = Vector2(76, 36)
 zoom = Vector2(7.68, 2.85)
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_top = -78.0
-offset_right = 152.0
-offset_bottom = 168.0
-color = Color(0.27451, 0.301961, 0.447059, 1)
+offset_left = -252.0
+offset_top = -175.0
+offset_right = 398.0
+offset_bottom = 306.0
+color = Color(0.262745, 0.290196, 0.431373, 1)
 
 [node name="PlayerStepToStep" parent="." instance=ExtResource("8_c8kg3")]
 visible = false

@@ -21,3 +21,9 @@ func _ready():
 	$front_top_bottom_cave/Animatedblum2.play("default")
 	$front_top_bottom_cave/Animatedblum4.play("default")
 	
+func _process(delta):
+	if position.x == 0:
+		$PlayerMenu/PlayerAnimMenu.play("idle")
+		
+	if position.y == 0:
+		$PlayerMenu/PlayerAnimMenu.play("idle")
