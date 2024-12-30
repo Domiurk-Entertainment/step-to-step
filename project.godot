@@ -26,6 +26,10 @@ window/handheld/orientation=1
 
 project/assembly_name="StepToStep"
 
+[import]
+
+enable_blend_file_import=false
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

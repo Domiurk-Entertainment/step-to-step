@@ -1,16 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bste1dma5c0dp"]
+[gd_scene load_steps=3 format=3 uid="uid://bste1dma5c0dp"]
 
 [ext_resource type="Texture2D" uid="uid://ci2p0yqc435sn" path="res://sprites/tile.png" id="1_77c2x"]
-[ext_resource type="Script" path="res://scripts/points/Point.cs" id="2_ke0nj"]
 [ext_resource type="Texture2D" uid="uid://b0k8jct3ojy3n" path="res://icon.svg" id="3_7c48m"]
 
-[node name="Point" type="Sprite2D"]
-texture = ExtResource("1_77c2x")
-region_rect = Rect2(0.00100327, 1, 15.999, 16)
-script = ExtResource("2_ke0nj")
+[node name="Point" type="Button"]
+icon = ExtResource("1_77c2x")
+flat = true
 
 [node name="Visual" type="Node2D" parent="."]
-position = Vector2(4.76837e-07, -6)
+position = Vector2(12, 5)
 scale = Vector2(0.1, 0.1)
 
 [node name="Icon" type="Sprite2D" parent="Visual"]
