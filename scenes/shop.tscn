@@ -89,3 +89,8 @@ color = Color(1, 1, 0.243137, 1)
 energy = 4.59
 texture = ExtResource("5_wu0as")
 texture_scale = 0.01
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 15
+position = Vector2(82, 35)
+zoom = Vector2(4.35, 4.35)

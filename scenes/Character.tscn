@@ -152,5 +152,3 @@ color = Color(1, 1, 0.243137, 1)
 energy = 4.59
 texture = ExtResource("4_vrrox")
 texture_scale = 0.01
-
-[node name="Camera2D" type="Camera2D" parent="."]

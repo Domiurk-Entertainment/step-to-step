@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b0k8jct3ojy3n" path="res://icon.svg" id="3_7c48m"]
 
 [node name="Point" type="Sprite2D"]
+modulate = Color(0.882353, 0.882353, 0.882353, 1)
 texture = ExtResource("1_77c2x")
 region_rect = Rect2(0.00100327, 1, 15.999, 16)
 script = ExtResource("2_ke0nj")
