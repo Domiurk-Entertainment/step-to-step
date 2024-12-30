@@ -1,6 +1,5 @@
 [gd_scene load_steps=21 format=3 uid="uid://dljwnkfdxe6dw"]
 
-[ext_resource type="Script" path="res://script/Character.gd" id="1_34tv5"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="2_g178e"]
 [ext_resource type="Texture2D" uid="uid://dr1ine2qikvux" path="res://sprites/idleanimplayerandstick.png" id="2_kpjut"]
 [ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="2_v4bmy"]
@@ -112,7 +111,6 @@ bg_color = Color(0.113725, 0.666667, 0.231373, 1)
 [node name="PlayerStepToStep" type="Node2D"]
 light_mask = 2
 visibility_layer = 2
-script = ExtResource("1_34tv5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
