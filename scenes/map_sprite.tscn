@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://di4mft2i2j7yn"]
+[gd_scene load_steps=27 format=3 uid="uid://di4mft2i2j7yn"]
 
 [ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/the front lower part of the cave.png" id="1_bes3c"]
 [ext_resource type="Script" path="res://Demo/map_sprite.tres.gd" id="1_y4k12"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://7s5uw7p7xydu" path="res://sprites/the right wall of the cave.png" id="7_7iuju"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="8_iohnm"]
 [ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="8_oyity"]
+[ext_resource type="PackedScene" uid="uid://bste1dma5c0dp" path="res://scenes/point.tscn" id="11_sgnt7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6pai"]
 texture = ExtResource("3_b4aos")
@@ -131,6 +132,7 @@ script = ExtResource("1_y4k12")
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(7, 82)
 rotation = 0.0033744
+scale = Vector2(4, 4)
 tile_set = SubResource("TileSet_c0n3n")
 format = 2
 layer_0/modulate = Color(0.745098, 0.745098, 0.745098, 1)
@@ -271,6 +273,8 @@ texture_scale = 0.02
 
 [node name="front_top_bottom_cave" type="Node2D" parent="."]
 light_mask = 2
+position = Vector2(-17, -263)
+scale = Vector2(4, 4)
 
 [node name="TheFrontLowerPartOfTheCave" type="Sprite2D" parent="front_top_bottom_cave"]
 z_index = 5
@@ -401,13 +405,10 @@ energy = 1.69
 texture = ExtResource("5_4y1k6")
 texture_scale = 0.02
 
-[node name="Camera2D" type="Camera2D" parent="."]
-z_index = 10
-position = Vector2(70, 35)
-zoom = Vector2(7.68, 2.85)
-
 [node name="wallCave" type="Node2D" parent="."]
 light_mask = 2
+position = Vector2(-11, -249)
+scale = Vector2(4, 4)
 
 [node name="TheRightWallOfTheCave" type="Sprite2D" parent="wallCave"]
 z_index = 6
@@ -432,9 +433,10 @@ texture = ExtResource("7_7iuju")
 flip_h = true
 
 [node name="PlayerMenu" type="CharacterBody2D" parent="."]
+position = Vector2(260, 150)
+scale = Vector2(4, 4)
 
 [node name="PointLight2D" type="PointLight2D" parent="PlayerMenu"]
-position = Vector2(71, 102)
 scale = Vector2(1.36, 1.36)
 color = Color(1, 0.945098, 0.419608, 1)
 texture = ExtResource("8_iohnm")
@@ -443,16 +445,43 @@ texture = ExtResource("8_iohnm")
 modulate = Color(0.992157, 1, 0.866667, 1)
 light_mask = 2
 z_index = 6
-position = Vector2(70, 100)
 sprite_frames = SubResource("SpriteFrames_a15pq")
 animation = &"idle"
 frame_progress = 0.656961
 
 [node name="PointLight2D2" type="PointLight2D" parent="PlayerMenu"]
 light_mask = 2
-position = Vector2(65, 105)
+position = Vector2(-5.75, 4.25)
 scale = Vector2(1.69893, 1.68039)
 color = Color(1, 1, 0.243137, 1)
 energy = 4.59
 texture = ExtResource("5_4y1k6")
 texture_scale = 0.01
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(267, -112)
+
+[node name="Points" type="Node2D" parent="."]
+position = Vector2(263, 178)
+scale = Vector2(4, 4)
+
+[node name="Point" parent="Points" instance=ExtResource("11_sgnt7")]
+position = Vector2(0.25, -1)
+
+[node name="Point2" parent="Points" instance=ExtResource("11_sgnt7")]
+position = Vector2(25, -32)
+
+[node name="Point3" parent="Points" instance=ExtResource("11_sgnt7")]
+position = Vector2(-26.25, -32.75)
+
+[node name="Point4" parent="Points" instance=ExtResource("11_sgnt7")]
+position = Vector2(0, -66.25)
+
+[node name="Point5" parent="Points" instance=ExtResource("11_sgnt7")]
+position = Vector2(40.5, -83.5)
+
+[node name="Point6" parent="Points" instance=ExtResource("11_sgnt7")]
+position = Vector2(-40.5, -82.75)
+
+[node name="Point7" parent="Points" instance=ExtResource("11_sgnt7")]
+position = Vector2(0.5, -128.5)
