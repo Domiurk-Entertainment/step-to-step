@@ -1,5 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://dljwnkfdxe6dw"]
 
+[ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_mxhar"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="2_g178e"]
 [ext_resource type="Texture2D" uid="uid://dr1ine2qikvux" path="res://sprites/idleanimplayerandstick.png" id="2_kpjut"]
 [ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="2_v4bmy"]
@@ -111,12 +112,17 @@ bg_color = Color(0.113725, 0.666667, 0.231373, 1)
 [node name="PlayerStepToStep" type="Node2D"]
 light_mask = 2
 visibility_layer = 2
+script = ExtResource("1_mxhar")
+node_paths = {
+NodePath("AnimatedSprite2D"): "animIdleandStik"
+}
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
 sprite_frames = SubResource("SpriteFrames_1jh8v")
 animation = &"animIdleandStik"
-frame_progress = 0.146442
+frame = 3
+frame_progress = 0.128718
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 light_mask = 2
@@ -146,3 +152,5 @@ color = Color(1, 1, 0.243137, 1)
 energy = 4.59
 texture = ExtResource("4_vrrox")
 texture_scale = 0.01
+
+[node name="Camera2D" type="Camera2D" parent="."]
