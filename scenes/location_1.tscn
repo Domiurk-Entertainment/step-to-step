@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dwvhlj2ouj5t6"]
+[gd_scene load_steps=17 format=3 uid="uid://dwvhlj2ouj5t6"]
 
 [ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/the front lower part of the cave.png" id="1_0mw86"]
 [ext_resource type="Texture2D" uid="uid://5c0u7thmvt0g" path="res://sprites/front upper part of the cave.png" id="2_5ia3i"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b8db8r613nqa2" path="res://sprites/penultimate part of the cave.png" id="5_guvte"]
 [ext_resource type="Texture2D" uid="uid://c7skxpom30yda" path="res://sprites/bgcave.png" id="6_iiv8j"]
 [ext_resource type="Texture2D" uid="uid://bfdu30qcxdvj5" path="res://sprites/TilemapCave.png" id="7_cul2c"]
-[ext_resource type="PackedScene" uid="uid://dljwnkfdxe6dw" path="res://scenes/Character.tscn" id="8_c8kg3"]
+[ext_resource type="PackedScene" uid="uid://dljwnkfdxe6dw" path="res://scenes/character.tscn" id="8_c8kg3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhrgb"]
 atlas = ExtResource("3_ls4xf")
