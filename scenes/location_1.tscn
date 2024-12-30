@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b1pvhrsob4vlw"]
+[gd_scene load_steps=18 format=3 uid="uid://dwvhlj2ouj5t6"]
 
 [ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/the front lower part of the cave.png" id="1_0mw86"]
 [ext_resource type="Script" path="res://scenes/location_1.gd" id="1_o83h5"]

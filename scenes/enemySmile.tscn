@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmx326dmg3wok"]
+[gd_scene load_steps=9 format=3 uid="uid://c0tod7yw4sold"]
 
 [ext_resource type="Script" path="res://scenes/enemySmile.gd" id="1_anyer"]
 [ext_resource type="Texture2D" uid="uid://xh7ql7nmox2b" path="res://sprites/smileAnimIdle.png" id="1_e1xpn"]

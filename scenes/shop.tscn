@@ -1,8 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cgyhfnsx8g6er"]
+[gd_scene load_steps=14 format=3 uid="uid://dvjyvgcb54dff"]
 
 [ext_resource type="Script" path="res://scenes/shop.gd" id="1_lsrgc"]
-[ext_resource type="PackedScene" uid="uid://b1pvhrsob4vlw" path="res://scenes/location_1.tscn" id="1_s2mdu"]
-[ext_resource type="PackedScene" uid="uid://byqlsd2r2q86a" path="res://scenes/goblinshop.tscn" id="3_50xft"]
+[ext_resource type="PackedScene" uid="uid://dwvhlj2ouj5t6" path="res://scenes/location_1.tscn" id="1_s2mdu"]
+[ext_resource type="PackedScene" uid="uid://fp1u0lj51jap" path="res://scenes/goblinshop.tscn" id="3_50xft"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="3_v0oyx"]
 [ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="4_gx4c3"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="5_wu0as"]

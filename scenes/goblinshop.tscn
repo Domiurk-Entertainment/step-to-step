@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://byqlsd2r2q86a"]
+[gd_scene load_steps=12 format=3 uid="uid://fp1u0lj51jap"]
 
 [ext_resource type="Script" path="res://scenes/goblinshop.gd" id="1_b6rmd"]
 [ext_resource type="Texture2D" uid="uid://3mauypfs3f4j" path="res://sprites/goblinShopAnimidle.png" id="1_ba3fb"]
