@@ -1,7 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://b1pvhrsob4vlw"]
+[gd_scene load_steps=18 format=3 uid="uid://dwvhlj2ouj5t6"]
 
 [ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/the front lower part of the cave.png" id="1_0mw86"]
-[ext_resource type="Script" path="res://scenes/location_1.gd" id="1_o83h5"]
+[ext_resource type="Script" path="res://scripts/location_1.gd" id="1_pi8og"]
 [ext_resource type="Texture2D" uid="uid://5c0u7thmvt0g" path="res://sprites/front upper part of the cave.png" id="2_5ia3i"]
 [ext_resource type="Texture2D" uid="uid://ck3t7x12t4klr" path="res://sprites/blum.png" id="3_ls4xf"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="4_l8xwe"]
@@ -75,7 +75,7 @@ texture = ExtResource("7_cul2c")
 sources/0 = SubResource("TileSetAtlasSource_bgyct")
 
 [node name="location1" type="Node2D"]
-script = ExtResource("1_o83h5")
+script = ExtResource("1_pi8og")
 
 [node name="front_top_bottom_cave2" type="Node2D" parent="."]
 z_index = 5

@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cheqbxreehi40"]
+[gd_scene load_steps=5 format=3 uid="uid://blkmjkllufijl"]
 
-[ext_resource type="PackedScene" uid="uid://b1pvhrsob4vlw" path="res://scenes/location_1.tscn" id="1_qefxh"]
+[ext_resource type="PackedScene" uid="uid://dwvhlj2ouj5t6" path="res://scenes/location_1.tscn" id="1_qefxh"]
 [ext_resource type="PackedScene" uid="uid://dljwnkfdxe6dw" path="res://scenes/Character.tscn" id="2_tsiya"]
-[ext_resource type="PackedScene" uid="uid://dmx326dmg3wok" path="res://scenes/enemySmile.tscn" id="3_844v0"]
+[ext_resource type="PackedScene" uid="uid://c0tod7yw4sold" path="res://scenes/enemySmile.tscn" id="3_844v0"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="4_sw3sc"]
 
 [node name="BattleLvl1" type="Node2D"]
