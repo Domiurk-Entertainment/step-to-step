@@ -1,7 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://di4mft2i2j7yn"]
+[gd_scene load_steps=26 format=3 uid="uid://di4mft2i2j7yn"]
 
 [ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/the front lower part of the cave.png" id="1_bes3c"]
-[ext_resource type="Script" path="res://Demo/map_sprite.tres.gd" id="1_y4k12"]
 [ext_resource type="Texture2D" uid="uid://5c0u7thmvt0g" path="res://sprites/front upper part of the cave.png" id="2_i7vgh"]
 [ext_resource type="Texture2D" uid="uid://bfdu30qcxdvj5" path="res://sprites/TilemapCave.png" id="3_b4aos"]
 [ext_resource type="Texture2D" uid="uid://ci2p0yqc435sn" path="res://sprites/tile.png" id="3_edaoj"]
@@ -127,7 +126,6 @@ animations = [{
 }]
 
 [node name="MapSprite" type="Node2D"]
-script = ExtResource("1_y4k12")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(7, 82)
