@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://blkmjkllufijl"]
+[gd_scene load_steps=6 format=3 uid="uid://blkmjkllufijl"]
 
+[ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_mwllj"]
 [ext_resource type="PackedScene" uid="uid://dwvhlj2ouj5t6" path="res://scenes/location_1.tscn" id="1_qefxh"]
 [ext_resource type="PackedScene" uid="uid://dljwnkfdxe6dw" path="res://scenes/Character.tscn" id="2_tsiya"]
 [ext_resource type="PackedScene" uid="uid://c0tod7yw4sold" path="res://scenes/enemySmile.tscn" id="3_844v0"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="4_sw3sc"]
 
 [node name="BattleLvl1" type="Node2D"]
+script = ExtResource("1_mwllj")
 
 [node name="location1" parent="." instance=ExtResource("1_qefxh")]
 
@@ -39,3 +41,8 @@ scale = Vector2(0.28, 0.28)
 theme_override_fonts/font = ExtResource("4_sw3sc")
 theme_override_font_sizes/font_size = 21
 text = "Try to escape"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 10
+position = Vector2(80, 36)
+zoom = Vector2(4.35, 4.35)

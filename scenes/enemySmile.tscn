@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c0tod7yw4sold"]
 
 [ext_resource type="Texture2D" uid="uid://xh7ql7nmox2b" path="res://sprites/smileAnimIdle.png" id="1_e1xpn"]
-[ext_resource type="Script" path="res://script/enemySmile.gd" id="1_oart5"]
+[ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_r15wu"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="2_vtf8y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mats"]
@@ -33,7 +33,10 @@ animations = [{
 }]
 
 [node name="EnemySmile" type="CharacterBody2D"]
-script = ExtResource("1_oart5")
+script = ExtResource("1_r15wu")
+node_paths = {
+NodePath("AnimatedSprite2D"): "idle"
+}
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 light_mask = 2
