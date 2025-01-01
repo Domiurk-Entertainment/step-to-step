@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://di4mft2i2j7yn"]
+[gd_scene load_steps=20 format=3 uid="uid://di4mft2i2j7yn"]
 
 [ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/the front lower part of the cave.png" id="1_bes3c"]
 [ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_nmtdw"]
@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://ck3t7x12t4klr" path="res://sprites/blum.png" id="4_1goqc"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="5_4y1k6"]
 [ext_resource type="Texture2D" uid="uid://7s5uw7p7xydu" path="res://sprites/the right wall of the cave.png" id="7_7iuju"]
-[ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="8_iohnm"]
-[ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="8_oyity"]
-[ext_resource type="PackedScene" uid="uid://bste1dma5c0dp" path="res://scenes/Point.tscn" id="11_sgnt7"]
+[ext_resource type="Script" path="res://scripts/points/Points.cs" id="11_1e8ai"]
+[ext_resource type="PackedScene" uid="uid://dffvutpwgv0aw" path="res://scenes/point.tscn" id="11_7xcum"]
+[ext_resource type="PackedScene" uid="uid://dljwnkfdxe6dw" path="res://scenes/character.tscn" id="13_1lhll"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6pai"]
 texture = ExtResource("3_b4aos")
@@ -76,76 +76,26 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5uihl"]
-atlas = ExtResource("8_oyity")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ppaes"]
-atlas = ExtResource("8_oyity")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oeayw"]
-atlas = ExtResource("8_oyity")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2db3l"]
-atlas = ExtResource("8_oyity")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o54qc"]
-atlas = ExtResource("8_oyity")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w5mbc"]
-atlas = ExtResource("8_oyity")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_a15pq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5uihl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ppaes")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oeayw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2db3l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o54qc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w5mbc")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
-
 [node name="MapSprite" type="Node2D"]
 script = ExtResource("1_nmtdw")
 node_paths = {
-NodePath("front_top_bottom_cave/Animatedblum4"): "default",
-NodePath("front_top_bottom_cave/Animatedblum2"): "default",
-NodePath("front_top_bottom_cave/Animatedblum14"): "default",
-NodePath("front_top_bottom_cave/Animatedblum5"): "default",
-NodePath("front_top_bottom_cave/Animatedblum9"): "default",
-NodePath("front_top_bottom_cave/Animatedblum11"): "default",
-NodePath("front_top_bottom_cave/Animatedblum12"): "default",
-NodePath("front_top_bottom_cave/Animatedblum13"): "default",
-NodePath("front_top_bottom_cave/Animatedblum10"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum8"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum7"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum6"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum9"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum5"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum4"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum"): "default",
 NodePath("TileMap/Blum_anim/Animatedblum3"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum"): "default"
+NodePath("TileMap/Blum_anim/Animatedblum4"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum5"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum9"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum6"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum7"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum8"): "default",
+NodePath("front_top_bottom_cave/Animatedblum10"): "default",
+NodePath("front_top_bottom_cave/Animatedblum13"): "default",
+NodePath("front_top_bottom_cave/Animatedblum12"): "default",
+NodePath("front_top_bottom_cave/Animatedblum11"): "default",
+NodePath("front_top_bottom_cave/Animatedblum9"): "default",
+NodePath("front_top_bottom_cave/Animatedblum5"): "default",
+NodePath("front_top_bottom_cave/Animatedblum14"): "default",
+NodePath("front_top_bottom_cave/Animatedblum2"): "default",
+NodePath("front_top_bottom_cave/Animatedblum4"): "default"
 }
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -458,58 +408,37 @@ position = Vector2(-5.75, 87)
 texture = ExtResource("7_7iuju")
 flip_h = true
 
-[node name="PlayerMenu" type="CharacterBody2D" parent="."]
-position = Vector2(260, 150)
-scale = Vector2(4, 4)
-
-[node name="PointLight2D" type="PointLight2D" parent="PlayerMenu"]
-scale = Vector2(1.36, 1.36)
-color = Color(1, 0.945098, 0.419608, 1)
-texture = ExtResource("8_iohnm")
-
-[node name="PlayerAnimMenu" type="AnimatedSprite2D" parent="PlayerMenu"]
-modulate = Color(0.992157, 1, 0.866667, 1)
-light_mask = 2
-z_index = 6
-sprite_frames = SubResource("SpriteFrames_a15pq")
-animation = &"idle"
-frame_progress = 0.656961
-
-[node name="PointLight2D2" type="PointLight2D" parent="PlayerMenu"]
-light_mask = 2
-position = Vector2(-5.75, 4.25)
-scale = Vector2(1.69893, 1.68039)
-color = Color(1, 1, 0.243137, 1)
-energy = 4.59
-texture = ExtResource("5_4y1k6")
-texture_scale = 0.01
-
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 6
 position = Vector2(267, -112)
 zoom = Vector2(1.06, 1.06)
 
-[node name="Points" type="Node2D" parent="."]
-position = Vector2(263, 178)
+[node name="Points" type="Node2D" parent="." node_paths=PackedStringArray("Player")]
+position = Vector2(250, 200)
+script = ExtResource("11_1e8ai")
+Player = NodePath("../PlayerStepToStep")
+
+[node name="Point" parent="Points" instance=ExtResource("11_7xcum")]
+
+[node name="Point2" parent="Points" instance=ExtResource("11_7xcum")]
+position = Vector2(-80, -125)
+
+[node name="Point3" parent="Points" instance=ExtResource("11_7xcum")]
+position = Vector2(112, -127)
+
+[node name="Point4" parent="Points" instance=ExtResource("11_7xcum")]
+position = Vector2(13, -245)
+
+[node name="Point5" parent="Points" instance=ExtResource("11_7xcum")]
+position = Vector2(-151, -330)
+
+[node name="Point6" parent="Points" instance=ExtResource("11_7xcum")]
+position = Vector2(172, -324)
+
+[node name="Point7" parent="Points" instance=ExtResource("11_7xcum")]
+modulate = Color(0.760784, 0.807843, 1, 1)
+position = Vector2(10, -515)
+
+[node name="PlayerStepToStep" parent="." instance=ExtResource("13_1lhll")]
+position = Vector2(262, 179)
 scale = Vector2(4, 4)
-
-[node name="Point" parent="Points" instance=ExtResource("11_sgnt7")]
-position = Vector2(0.25, -1)
-
-[node name="Point2" parent="Points" instance=ExtResource("11_sgnt7")]
-position = Vector2(25, -32)
-
-[node name="Point3" parent="Points" instance=ExtResource("11_sgnt7")]
-position = Vector2(-26.25, -32.75)
-
-[node name="Point4" parent="Points" instance=ExtResource("11_sgnt7")]
-position = Vector2(0, -66.25)
-
-[node name="Point5" parent="Points" instance=ExtResource("11_sgnt7")]
-position = Vector2(40.5, -83.5)
-
-[node name="Point6" parent="Points" instance=ExtResource("11_sgnt7")]
-position = Vector2(-40.5, -82.75)
-
-[node name="Point7" parent="Points" instance=ExtResource("11_sgnt7")]
-position = Vector2(-2.75, -130.75)

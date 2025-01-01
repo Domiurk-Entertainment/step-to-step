@@ -119,17 +119,18 @@ NodePath("AnimatedSprite2D"): "animIdleandStik"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
+position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_1jh8v")
-animation = &"animIdleandStik"
-frame = 3
-frame_progress = 0.128718
+animation = &"idle_notWeapon"
+frame = 1
+frame_progress = 0.114962
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 light_mask = 2
-offset_left = -17.0
-offset_top = -15.0
-offset_right = 4.0
-offset_bottom = -12.0
+offset_left = -10.0
+offset_top = -21.0
+offset_right = 11.0
+offset_bottom = -18.0
 rotation = -0.00068116
 theme_override_styles/background = SubResource("StyleBoxFlat_igk4g")
 theme_override_styles/fill = SubResource("StyleBoxFlat_yp88j")
