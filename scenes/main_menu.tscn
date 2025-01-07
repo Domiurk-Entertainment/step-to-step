@@ -64,16 +64,15 @@ offset_right = 85.0
 offset_bottom = 228.0
 theme_override_fonts/font = ExtResource("2_rd6an")
 theme_override_font_sizes/font_size = 7
-text = "Romoshka and Domiurk"
 
 [node name="vers" type="Label" parent="."]
-offset_left = 138.0
-offset_top = 218.0
-offset_right = 219.0
-offset_bottom = 228.0
+offset_left = 118.0
+offset_top = 219.0
+offset_right = 199.0
+offset_bottom = 229.0
 theme_override_fonts/font = ExtResource("2_rd6an")
 theme_override_font_sizes/font_size = 7
-text = "v 0.1"
+text = "Demo v 0.1"
 
 [node name="Settings" type="Sprite2D" parent="."]
 position = Vector2(143, 19)
