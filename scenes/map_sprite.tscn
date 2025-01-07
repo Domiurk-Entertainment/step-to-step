@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://di4mft2i2j7yn"]
+[gd_scene load_steps=24 format=3 uid="uid://di4mft2i2j7yn"]
 
 [ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/the front lower part of the cave.png" id="1_bes3c"]
 [ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_nmtdw"]
@@ -79,31 +79,29 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Resource" id="Resource_u0v7y"]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pxa0j"]
 shader = ExtResource("12_5q7q4")
 
 [node name="MapSprite" type="Node2D"]
 script = ExtResource("1_nmtdw")
 node_paths = {
-NodePath("TileMap/Blum_anim/Animatedblum"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum3"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum4"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum5"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum9"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum6"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum7"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum8"): "default",
-NodePath("front_top_bottom_cave/Animatedblum10"): "default",
-NodePath("front_top_bottom_cave/Animatedblum13"): "default",
-NodePath("front_top_bottom_cave/Animatedblum12"): "default",
-NodePath("front_top_bottom_cave/Animatedblum11"): "default",
-NodePath("front_top_bottom_cave/Animatedblum9"): "default",
-NodePath("front_top_bottom_cave/Animatedblum5"): "default",
-NodePath("front_top_bottom_cave/Animatedblum14"): "default",
+NodePath("front_top_bottom_cave/Animatedblum4"): "default",
 NodePath("front_top_bottom_cave/Animatedblum2"): "default",
-NodePath("front_top_bottom_cave/Animatedblum4"): "default"
+NodePath("front_top_bottom_cave/Animatedblum14"): "default",
+NodePath("front_top_bottom_cave/Animatedblum5"): "default",
+NodePath("front_top_bottom_cave/Animatedblum9"): "default",
+NodePath("front_top_bottom_cave/Animatedblum11"): "default",
+NodePath("front_top_bottom_cave/Animatedblum12"): "default",
+NodePath("front_top_bottom_cave/Animatedblum13"): "default",
+NodePath("front_top_bottom_cave/Animatedblum10"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum8"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum7"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum6"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum9"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum5"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum4"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum3"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum"): "default"
 }
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -424,7 +422,6 @@ position = Vector2(267, -112)
 position = Vector2(250, 200)
 script = ExtResource("9_rl8f2")
 Player = NodePath("../PlayerStepToStep")
-actions = Array[Resource]([SubResource("Resource_u0v7y")])
 
 [node name="Point" parent="Points" instance=ExtResource("11_7xcum")]
 
@@ -464,7 +461,6 @@ offset_left = -99.0
 offset_top = -98.0
 offset_right = 101.0
 offset_bottom = 102.0
-mouse_filter = 2
 color = Color(0.137255, 0.137255, 0.137255, 1)
 
 [node name="Circle Mask" type="Sprite2D" parent="BackBufferCopy" node_paths=PackedStringArray("player")]
@@ -476,3 +472,5 @@ scale = Vector2(3.5, 2.5)
 texture = ExtResource("12_5w85j")
 script = ExtResource("12_e7e7c")
 player = NodePath("../../PlayerStepToStep")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

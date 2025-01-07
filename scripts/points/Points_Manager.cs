@@ -7,7 +7,6 @@ namespace StepToStep;
 public partial class Points_Manager : Node2D
 {
     [Export] private Node2D Player;
-    [Export] private Points.Point_Action[] actions;
     [Export] private Node2D nodeToScenes;
     private Point[] points;
 
@@ -26,8 +25,6 @@ public partial class Points_Manager : Node2D
     {
         Player.GlobalPosition = position;
         Random random = new Random();
-        
-        actions[random.Next(0,actions.Length)].Select(nodeToScenes);
     }
 
     public override void _ExitTree()

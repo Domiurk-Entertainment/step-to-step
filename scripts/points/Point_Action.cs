@@ -6,7 +6,7 @@ namespace StepToStep.Points;
 public partial class Point_Action : Resource
 {
     [Export] private NodePath sceneToLoad;
-
+    // видалити разом з Point Manager
     /// <summary>
     /// Void for selected point
     /// </summary>
