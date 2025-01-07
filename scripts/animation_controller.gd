@@ -22,3 +22,5 @@ func check(node) -> bool:
 func play(node, animation_name):
 	var animation_node:AnimatedSprite2D = node as AnimatedSprite2D
 	animation_node.play(animation_name)
+
+
