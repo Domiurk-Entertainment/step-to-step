@@ -3,13 +3,12 @@ using System;
 
 namespace StepToStep;
 
+[GlobalClass]
 public partial class Point : Node2D
 {
     public event Action<Vector2> ClickedToPoint;
-    [Export]
-    private Button button;
-    [Export]
-    private Vector2 offset = new Vector2(30, -25);
+    [Export] private Button button;
+    [Export] private Vector2 offset = new Vector2(30, -25);
 
     private void OnPressed()
     {
