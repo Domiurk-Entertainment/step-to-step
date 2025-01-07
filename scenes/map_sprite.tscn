@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://di4mft2i2j7yn"]
+[gd_scene load_steps=25 format=3 uid="uid://di4mft2i2j7yn"]
 
 [ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/the front lower part of the cave.png" id="1_bes3c"]
 [ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_nmtdw"]
@@ -8,8 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://ck3t7x12t4klr" path="res://sprites/blum.png" id="4_1goqc"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="5_4y1k6"]
 [ext_resource type="Texture2D" uid="uid://7s5uw7p7xydu" path="res://sprites/the right wall of the cave.png" id="7_7iuju"]
-[ext_resource type="Script" path="res://scripts/points/Points.cs" id="11_1e8ai"]
+[ext_resource type="Script" path="res://scripts/points/Points_Manager.cs" id="9_rl8f2"]
 [ext_resource type="PackedScene" uid="uid://dffvutpwgv0aw" path="res://scenes/point.tscn" id="11_7xcum"]
+[ext_resource type="Shader" path="res://scripts/mask.gdshader" id="12_5q7q4"]
+[ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="12_5w85j"]
+[ext_resource type="Script" path="res://scripts/Mask.cs" id="12_e7e7c"]
 [ext_resource type="PackedScene" uid="uid://dljwnkfdxe6dw" path="res://scenes/character.tscn" id="13_1lhll"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6pai"]
@@ -75,6 +78,11 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Resource" id="Resource_u0v7y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pxa0j"]
+shader = ExtResource("12_5q7q4")
 
 [node name="MapSprite" type="Node2D"]
 script = ExtResource("1_nmtdw")
@@ -411,12 +419,12 @@ flip_h = true
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 6
 position = Vector2(267, -112)
-zoom = Vector2(1.06, 1.06)
 
 [node name="Points" type="Node2D" parent="." node_paths=PackedStringArray("Player")]
 position = Vector2(250, 200)
-script = ExtResource("11_1e8ai")
+script = ExtResource("9_rl8f2")
 Player = NodePath("../PlayerStepToStep")
+actions = Array[Resource]([SubResource("Resource_u0v7y")])
 
 [node name="Point" parent="Points" instance=ExtResource("11_7xcum")]
 
@@ -442,3 +450,29 @@ position = Vector2(10, -515)
 [node name="PlayerStepToStep" parent="." instance=ExtResource("13_1lhll")]
 position = Vector2(262, 179)
 scale = Vector2(4, 4)
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+light_mask = 512
+visibility_layer = 512
+z_index = 10
+position = Vector2(268, -116.5)
+scale = Vector2(3.49, 4.975)
+copy_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="BackBufferCopy"]
+offset_left = -99.0
+offset_top = -98.0
+offset_right = 101.0
+offset_bottom = 102.0
+mouse_filter = 2
+color = Color(0.137255, 0.137255, 0.137255, 1)
+
+[node name="Circle Mask" type="Sprite2D" parent="BackBufferCopy" node_paths=PackedStringArray("player")]
+light_mask = 512
+visibility_layer = 512
+material = SubResource("ShaderMaterial_pxa0j")
+position = Vector2(0.287, 56)
+scale = Vector2(3.5, 2.5)
+texture = ExtResource("12_5w85j")
+script = ExtResource("12_e7e7c")
+player = NodePath("../../PlayerStepToStep")

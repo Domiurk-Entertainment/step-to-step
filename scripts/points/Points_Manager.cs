@@ -1,13 +1,14 @@
 using Godot;
+using System;
 using System.Linq;
 
 namespace StepToStep;
 
-public partial class Points : Node2D
+public partial class Points_Manager : Node2D
 {
-    [Export]
-    private Node2D Player;
-
+    [Export] private Node2D Player;
+    [Export] private Points.Point_Action[] actions;
+    [Export] private Node2D nodeToScenes;
     private Point[] points;
 
     public override void _EnterTree()
@@ -24,6 +25,9 @@ public partial class Points : Node2D
     private void OnClickedToPoint(Vector2 position)
     {
         Player.GlobalPosition = position;
+        Random random = new Random();
+        
+        actions[random.Next(0,actions.Length)].Select(nodeToScenes);
     }
 
     public override void _ExitTree()

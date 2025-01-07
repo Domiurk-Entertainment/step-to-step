@@ -21,3 +21,8 @@ func check(node) -> bool:
 func play(node, animation_name):
 	var animation_node:AnimatedSprite2D = node as AnimatedSprite2D
 	animation_node.play(animation_name)
+	
+func _input(_event):
+	var input_vector = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
+	position += input_vector * 5
+	
