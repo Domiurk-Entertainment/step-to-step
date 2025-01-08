@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://0nonp1drios7"]
+
+[ext_resource type="Script" path="res://Demo/Demo_Battle.cs" id="1_3uwss"]
+[ext_resource type="PackedScene" uid="uid://dwvhlj2ouj5t6" path="res://scenes/location_1.tscn" id="2_k0eff"]
+[ext_resource type="PackedScene" uid="uid://dljwnkfdxe6dw" path="res://scenes/character.tscn" id="3_4bf57"]
+[ext_resource type="PackedScene" uid="uid://c0tod7yw4sold" path="res://scenes/enemySmile.tscn" id="4_m5vym"]
+[ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="5_3q6e7"]
+
+[node name="BattleLvl1" type="Node2D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_3uwss")
+player = NodePath("PlayerStepToStep")
+forceText = NodePath("")
+
+[node name="location1" parent="." instance=ExtResource("2_k0eff")]
+
+[node name="PlayerStepToStep" parent="." instance=ExtResource("3_4bf57")]
+visibility_layer = 1
+z_index = 6
+position = Vector2(27, 51)
+
+[node name="EnemySmile" parent="." instance=ExtResource("4_m5vym")]
+z_index = 6
+position = Vector2(104, 52)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 10
+position = Vector2(80, 36)
+zoom = Vector2(4.35, 4.35)
+
+[node name="Attack Panel" type="PanelContainer" parent="."]
+z_index = 10
+offset_top = 74.0
+offset_right = 158.0
+offset_bottom = 133.0
+
+[node name="Attack" type="Button" parent="Attack Panel"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("5_3q6e7")
+theme_override_font_sizes/font_size = 21
+text = "Attack"
+
+[node name="Try Exit" type="Button" parent="Attack Panel"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("5_3q6e7")
+theme_override_font_sizes/font_size = 21
+text = "Try to escape"

@@ -1,22 +1,22 @@
 [gd_scene load_steps=24 format=3 uid="uid://di4mft2i2j7yn"]
 
-[ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/the front lower part of the cave.png" id="1_bes3c"]
-[ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_nmtdw"]
-[ext_resource type="Texture2D" uid="uid://5c0u7thmvt0g" path="res://sprites/front upper part of the cave.png" id="2_i7vgh"]
-[ext_resource type="Texture2D" uid="uid://bfdu30qcxdvj5" path="res://sprites/TilemapCave.png" id="3_b4aos"]
-[ext_resource type="Texture2D" uid="uid://ci2p0yqc435sn" path="res://sprites/tile.png" id="3_edaoj"]
-[ext_resource type="Texture2D" uid="uid://ck3t7x12t4klr" path="res://sprites/blum.png" id="4_1goqc"]
-[ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="5_4y1k6"]
-[ext_resource type="Texture2D" uid="uid://7s5uw7p7xydu" path="res://sprites/the right wall of the cave.png" id="7_7iuju"]
-[ext_resource type="Script" path="res://scripts/points/Points_Manager.cs" id="9_rl8f2"]
-[ext_resource type="PackedScene" uid="uid://bste1dma5c0dp" path="res://scenes/point.tscn" id="11_7xcum"]
-[ext_resource type="Shader" path="res://scripts/mask.gdshader" id="12_5q7q4"]
-[ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="12_5w85j"]
-[ext_resource type="Script" path="res://scripts/Mask.cs" id="12_e7e7c"]
-[ext_resource type="PackedScene" uid="uid://dljwnkfdxe6dw" path="res://scenes/Character.tscn" id="13_1lhll"]
+[ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_8l20r"]
+[ext_resource type="Texture2D" uid="uid://bfdu30qcxdvj5" path="res://sprites/TilemapCave.png" id="2_7g0r0"]
+[ext_resource type="Texture2D" uid="uid://ci2p0yqc435sn" path="res://sprites/tile.png" id="3_bx4o8"]
+[ext_resource type="Texture2D" uid="uid://ck3t7x12t4klr" path="res://sprites/blum.png" id="4_8ao7d"]
+[ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="5_2u0ac"]
+[ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/the front lower part of the cave.png" id="6_hrgyn"]
+[ext_resource type="Texture2D" uid="uid://5c0u7thmvt0g" path="res://sprites/front upper part of the cave.png" id="7_445el"]
+[ext_resource type="Texture2D" uid="uid://7s5uw7p7xydu" path="res://sprites/the right wall of the cave.png" id="8_3d5nc"]
+[ext_resource type="Script" path="res://scripts/points/Points_Manager.cs" id="9_dqmqu"]
+[ext_resource type="PackedScene" uid="uid://bste1dma5c0dp" path="res://scenes/Point.tscn" id="10_yho8j"]
+[ext_resource type="PackedScene" uid="uid://dljwnkfdxe6dw" path="res://scenes/Character.tscn" id="11_sv213"]
+[ext_resource type="Shader" path="res://scripts/mask.gdshader" id="12_0e7je"]
+[ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="13_sdhit"]
+[ext_resource type="Script" path="res://scripts/Mask.cs" id="14_n4d8y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6pai"]
-texture = ExtResource("3_b4aos")
+texture = ExtResource("2_7g0r0")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -37,23 +37,23 @@ texture = ExtResource("3_b4aos")
 sources/0 = SubResource("TileSetAtlasSource_e6pai")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhrgb"]
-atlas = ExtResource("4_1goqc")
+atlas = ExtResource("4_8ao7d")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_67rtl"]
-atlas = ExtResource("4_1goqc")
+atlas = ExtResource("4_8ao7d")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pn5bg"]
-atlas = ExtResource("4_1goqc")
+atlas = ExtResource("4_8ao7d")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xchk8"]
-atlas = ExtResource("4_1goqc")
+atlas = ExtResource("4_8ao7d")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1dky8"]
-atlas = ExtResource("4_1goqc")
+atlas = ExtResource("4_8ao7d")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8koel"]
@@ -80,28 +80,28 @@ animations = [{
 }]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pxa0j"]
-shader = ExtResource("12_5q7q4")
+shader = ExtResource("12_0e7je")
 
 [node name="MapSprite" type="Node2D"]
-script = ExtResource("1_nmtdw")
+script = ExtResource("1_8l20r")
 node_paths = {
-NodePath("front_top_bottom_cave/Animatedblum4"): "default",
-NodePath("front_top_bottom_cave/Animatedblum2"): "default",
-NodePath("front_top_bottom_cave/Animatedblum14"): "default",
-NodePath("front_top_bottom_cave/Animatedblum5"): "default",
-NodePath("front_top_bottom_cave/Animatedblum9"): "default",
-NodePath("front_top_bottom_cave/Animatedblum11"): "default",
-NodePath("front_top_bottom_cave/Animatedblum12"): "default",
-NodePath("front_top_bottom_cave/Animatedblum13"): "default",
-NodePath("front_top_bottom_cave/Animatedblum10"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum8"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum7"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum6"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum9"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum5"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum4"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum"): "default",
 NodePath("TileMap/Blum_anim/Animatedblum3"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum"): "default"
+NodePath("TileMap/Blum_anim/Animatedblum4"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum5"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum9"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum6"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum7"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum8"): "default",
+NodePath("front_top_bottom_cave/Animatedblum10"): "default",
+NodePath("front_top_bottom_cave/Animatedblum13"): "default",
+NodePath("front_top_bottom_cave/Animatedblum12"): "default",
+NodePath("front_top_bottom_cave/Animatedblum11"): "default",
+NodePath("front_top_bottom_cave/Animatedblum9"): "default",
+NodePath("front_top_bottom_cave/Animatedblum5"): "default",
+NodePath("front_top_bottom_cave/Animatedblum14"): "default",
+NodePath("front_top_bottom_cave/Animatedblum2"): "default",
+NodePath("front_top_bottom_cave/Animatedblum4"): "default"
 }
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -122,43 +122,43 @@ rotation = -0.0033744
 visible = false
 position = Vector2(69, 20)
 scale = Vector2(0.84375, 0.71875)
-texture = ExtResource("3_edaoj")
+texture = ExtResource("3_bx4o8")
 
 [node name="Tile2" type="Sprite2D" parent="TileMap/point"]
 visible = false
 position = Vector2(94, -10)
 scale = Vector2(0.84375, 0.71875)
-texture = ExtResource("3_edaoj")
+texture = ExtResource("3_bx4o8")
 
 [node name="Tile3" type="Sprite2D" parent="TileMap/point"]
 visible = false
 position = Vector2(44, -10)
 scale = Vector2(0.84375, 0.71875)
-texture = ExtResource("3_edaoj")
+texture = ExtResource("3_bx4o8")
 
 [node name="Tile4" type="Sprite2D" parent="TileMap/point"]
 visible = false
 position = Vector2(69, -44)
 scale = Vector2(0.84375, 0.71875)
-texture = ExtResource("3_edaoj")
+texture = ExtResource("3_bx4o8")
 
 [node name="Tile5" type="Sprite2D" parent="TileMap/point"]
 visible = false
 position = Vector2(110, -62)
 scale = Vector2(0.84375, 0.71875)
-texture = ExtResource("3_edaoj")
+texture = ExtResource("3_bx4o8")
 
 [node name="Tile6" type="Sprite2D" parent="TileMap/point"]
 visible = false
 position = Vector2(29, -61)
 scale = Vector2(0.84375, 0.71875)
-texture = ExtResource("3_edaoj")
+texture = ExtResource("3_bx4o8")
 
 [node name="Tile7" type="Sprite2D" parent="TileMap/point"]
 visible = false
 position = Vector2(69.5906, -107.533)
 scale = Vector2(1.07382, 0.941683)
-texture = ExtResource("3_edaoj")
+texture = ExtResource("3_bx4o8")
 
 [node name="Blum_anim" type="Node2D" parent="TileMap"]
 z_index = 1
@@ -173,7 +173,7 @@ frame_progress = 0.356979
 [node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum"]
 position = Vector2(-5, -5)
 energy = 1.69
-texture = ExtResource("5_4y1k6")
+texture = ExtResource("5_2u0ac")
 texture_scale = 0.02
 
 [node name="Animatedblum3" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
@@ -184,7 +184,7 @@ frame_progress = 0.19797
 [node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum3"]
 position = Vector2(-5, -5)
 energy = 1.69
-texture = ExtResource("5_4y1k6")
+texture = ExtResource("5_2u0ac")
 texture_scale = 0.02
 
 [node name="Animatedblum4" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
@@ -195,7 +195,7 @@ frame_progress = 0.19797
 [node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum4"]
 position = Vector2(-5, -5)
 energy = 1.69
-texture = ExtResource("5_4y1k6")
+texture = ExtResource("5_2u0ac")
 texture_scale = 0.02
 
 [node name="Animatedblum5" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
@@ -206,7 +206,7 @@ frame_progress = 0.19797
 [node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum5"]
 position = Vector2(-5, -5)
 energy = 1.69
-texture = ExtResource("5_4y1k6")
+texture = ExtResource("5_2u0ac")
 texture_scale = 0.02
 
 [node name="Animatedblum9" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
@@ -217,7 +217,7 @@ frame_progress = 0.19797
 [node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum9"]
 position = Vector2(-5, -5)
 energy = 1.69
-texture = ExtResource("5_4y1k6")
+texture = ExtResource("5_2u0ac")
 texture_scale = 0.02
 
 [node name="Animatedblum6" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
@@ -228,7 +228,7 @@ frame_progress = 0.19797
 [node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum6"]
 position = Vector2(-5, -5)
 energy = 1.69
-texture = ExtResource("5_4y1k6")
+texture = ExtResource("5_2u0ac")
 texture_scale = 0.02
 
 [node name="Animatedblum7" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
@@ -239,7 +239,7 @@ frame_progress = 0.19797
 [node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum7"]
 position = Vector2(-5, -5)
 energy = 1.69
-texture = ExtResource("5_4y1k6")
+texture = ExtResource("5_2u0ac")
 texture_scale = 0.02
 
 [node name="Animatedblum8" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
@@ -250,7 +250,7 @@ frame_progress = 0.19797
 [node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum8"]
 position = Vector2(-5, -5)
 energy = 1.69
-texture = ExtResource("5_4y1k6")
+texture = ExtResource("5_2u0ac")
 texture_scale = 0.02
 
 [node name="front_top_bottom_cave" type="Node2D" parent="."]
@@ -261,12 +261,12 @@ scale = Vector2(4, 4)
 [node name="TheFrontLowerPartOfTheCave" type="Sprite2D" parent="front_top_bottom_cave"]
 z_index = 5
 position = Vector2(43, 143)
-texture = ExtResource("1_bes3c")
+texture = ExtResource("6_hrgyn")
 
 [node name="TheFrontLowerPartOfTheCave2" type="Sprite2D" parent="front_top_bottom_cave"]
 z_index = 5
 position = Vector2(104, 143)
-texture = ExtResource("1_bes3c")
+texture = ExtResource("6_hrgyn")
 
 [node name="Animatedblum10" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
 z_index = 6
@@ -277,7 +277,7 @@ frame_progress = 0.19797
 [node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum10"]
 position = Vector2(-5, -5)
 energy = 1.69
-texture = ExtResource("5_4y1k6")
+texture = ExtResource("5_2u0ac")
 texture_scale = 0.02
 
 [node name="Animatedblum13" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
@@ -289,7 +289,7 @@ frame_progress = 0.19797
 [node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum13"]
 position = Vector2(-5, -5)
 energy = 1.69
-texture = ExtResource("5_4y1k6")
+texture = ExtResource("5_2u0ac")
 texture_scale = 0.02
 
 [node name="Animatedblum12" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
@@ -301,7 +301,7 @@ frame_progress = 0.19797
 [node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum12"]
 position = Vector2(-5, -5)
 energy = 1.69
-texture = ExtResource("5_4y1k6")
+texture = ExtResource("5_2u0ac")
 texture_scale = 0.02
 
 [node name="Animatedblum11" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
@@ -313,7 +313,7 @@ frame_progress = 0.19797
 [node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum11"]
 position = Vector2(-5, -5)
 energy = 1.69
-texture = ExtResource("5_4y1k6")
+texture = ExtResource("5_2u0ac")
 texture_scale = 0.02
 
 [node name="Animatedblum9" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
@@ -325,7 +325,7 @@ frame_progress = 0.19797
 [node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum9"]
 position = Vector2(-5, -5)
 energy = 1.69
-texture = ExtResource("5_4y1k6")
+texture = ExtResource("5_2u0ac")
 texture_scale = 0.02
 
 [node name="Animatedblum5" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
@@ -337,7 +337,7 @@ frame_progress = 0.19797
 [node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum5"]
 position = Vector2(-5, -5)
 energy = 1.69
-texture = ExtResource("5_4y1k6")
+texture = ExtResource("5_2u0ac")
 texture_scale = 0.02
 
 [node name="Animatedblum14" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
@@ -349,7 +349,7 @@ frame_progress = 0.19797
 [node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum14"]
 position = Vector2(-5, -5)
 energy = 1.69
-texture = ExtResource("5_4y1k6")
+texture = ExtResource("5_2u0ac")
 texture_scale = 0.02
 
 [node name="Animatedblum2" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
@@ -361,7 +361,7 @@ frame_progress = 0.464069
 [node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum2"]
 position = Vector2(-5, -5)
 energy = 1.69
-texture = ExtResource("5_4y1k6")
+texture = ExtResource("5_2u0ac")
 texture_scale = 0.02
 
 [node name="Animatedblum4" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
@@ -373,18 +373,18 @@ frame_progress = 0.19797
 [node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum4"]
 position = Vector2(-5, -5)
 energy = 1.69
-texture = ExtResource("5_4y1k6")
+texture = ExtResource("5_2u0ac")
 texture_scale = 0.02
 
 [node name="FrontUpperPartOfTheCave" type="Sprite2D" parent="front_top_bottom_cave"]
 z_index = 5
 position = Vector2(35, -76.75)
-texture = ExtResource("2_i7vgh")
+texture = ExtResource("7_445el")
 
 [node name="FrontUpperPartOfTheCave2" type="Sprite2D" parent="front_top_bottom_cave"]
 z_index = 5
 position = Vector2(100, -76.75)
-texture = ExtResource("2_i7vgh")
+texture = ExtResource("7_445el")
 flip_h = true
 
 [node name="wallCave" type="Node2D" parent="."]
@@ -395,23 +395,23 @@ scale = Vector2(4, 4)
 [node name="TheRightWallOfTheCave" type="Sprite2D" parent="wallCave"]
 z_index = 6
 position = Vector2(146.5, -27)
-texture = ExtResource("7_7iuju")
+texture = ExtResource("8_3d5nc")
 
 [node name="TheRightWallOfTheCave2" type="Sprite2D" parent="wallCave"]
 z_index = 6
 position = Vector2(146.25, 87)
-texture = ExtResource("7_7iuju")
+texture = ExtResource("8_3d5nc")
 
 [node name="TheRightWallOfTheCave3" type="Sprite2D" parent="wallCave"]
 z_index = 6
 position = Vector2(-6, -26.75)
-texture = ExtResource("7_7iuju")
+texture = ExtResource("8_3d5nc")
 flip_h = true
 
 [node name="TheRightWallOfTheCave4" type="Sprite2D" parent="wallCave"]
 z_index = 6
 position = Vector2(-5.75, 87)
-texture = ExtResource("7_7iuju")
+texture = ExtResource("8_3d5nc")
 flip_h = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -420,30 +420,30 @@ position = Vector2(267, -112)
 
 [node name="Points" type="Node2D" parent="."]
 position = Vector2(250, 200)
-script = ExtResource("9_rl8f2")
+script = ExtResource("9_dqmqu")
 
-[node name="Point" parent="Points" instance=ExtResource("11_7xcum")]
+[node name="Point" parent="Points" instance=ExtResource("10_yho8j")]
 
-[node name="Point2" parent="Points" instance=ExtResource("11_7xcum")]
+[node name="Point2" parent="Points" instance=ExtResource("10_yho8j")]
 position = Vector2(-80, -125)
 
-[node name="Point3" parent="Points" instance=ExtResource("11_7xcum")]
+[node name="Point3" parent="Points" instance=ExtResource("10_yho8j")]
 position = Vector2(112, -127)
 
-[node name="Point4" parent="Points" instance=ExtResource("11_7xcum")]
+[node name="Point4" parent="Points" instance=ExtResource("10_yho8j")]
 position = Vector2(13, -245)
 
-[node name="Point5" parent="Points" instance=ExtResource("11_7xcum")]
+[node name="Point5" parent="Points" instance=ExtResource("10_yho8j")]
 position = Vector2(-151, -330)
 
-[node name="Point6" parent="Points" instance=ExtResource("11_7xcum")]
+[node name="Point6" parent="Points" instance=ExtResource("10_yho8j")]
 position = Vector2(172, -324)
 
-[node name="Point7" parent="Points" instance=ExtResource("11_7xcum")]
+[node name="Point7" parent="Points" instance=ExtResource("10_yho8j")]
 modulate = Color(0.760784, 0.807843, 1, 1)
 position = Vector2(10, -515)
 
-[node name="PlayerStepToStep" parent="." instance=ExtResource("13_1lhll")]
+[node name="PlayerStepToStep" parent="." instance=ExtResource("11_sv213")]
 position = Vector2(262, 179)
 scale = Vector2(4, 4)
 
@@ -468,7 +468,7 @@ visibility_layer = 512
 material = SubResource("ShaderMaterial_pxa0j")
 position = Vector2(0.287, 56)
 scale = Vector2(3.5, 2.5)
-texture = ExtResource("12_5w85j")
-script = ExtResource("12_e7e7c")
+texture = ExtResource("13_sdhit")
+script = ExtResource("14_n4d8y")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
