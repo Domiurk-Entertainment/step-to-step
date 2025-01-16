@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_8l20r"]
 [ext_resource type="Texture2D" uid="uid://bfdu30qcxdvj5" path="res://sprites/TilemapCave.png" id="2_7g0r0"]
-[ext_resource type="Texture2D" uid="uid://ci2p0yqc435sn" path="res://sprites/tile.png" id="3_bx4o8"]
 [ext_resource type="Texture2D" uid="uid://ck3t7x12t4klr" path="res://sprites/blum.png" id="4_8ao7d"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="5_2u0ac"]
 [ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/the front lower part of the cave.png" id="6_hrgyn"]
@@ -13,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dljwnkfdxe6dw" path="res://scenes/Character.tscn" id="11_sv213"]
 [ext_resource type="Shader" path="res://scripts/mask.gdshader" id="12_0e7je"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="13_sdhit"]
+[ext_resource type="Script" path="res://scripts/PausedControl.cs" id="14_cpwb3"]
 [ext_resource type="Script" path="res://scripts/Mask.cs" id="14_n4d8y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6pai"]
@@ -85,23 +85,23 @@ shader = ExtResource("12_0e7je")
 [node name="MapSprite" type="Node2D"]
 script = ExtResource("1_8l20r")
 node_paths = {
-NodePath("TileMap/Blum_anim/Animatedblum"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum3"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum4"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum5"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum9"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum6"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum7"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum8"): "default",
-NodePath("front_top_bottom_cave/Animatedblum10"): "default",
-NodePath("front_top_bottom_cave/Animatedblum13"): "default",
-NodePath("front_top_bottom_cave/Animatedblum12"): "default",
-NodePath("front_top_bottom_cave/Animatedblum11"): "default",
-NodePath("front_top_bottom_cave/Animatedblum9"): "default",
-NodePath("front_top_bottom_cave/Animatedblum5"): "default",
-NodePath("front_top_bottom_cave/Animatedblum14"): "default",
+NodePath("front_top_bottom_cave/Animatedblum4"): "default",
 NodePath("front_top_bottom_cave/Animatedblum2"): "default",
-NodePath("front_top_bottom_cave/Animatedblum4"): "default"
+NodePath("front_top_bottom_cave/Animatedblum14"): "default",
+NodePath("front_top_bottom_cave/Animatedblum5"): "default",
+NodePath("front_top_bottom_cave/Animatedblum9"): "default",
+NodePath("front_top_bottom_cave/Animatedblum11"): "default",
+NodePath("front_top_bottom_cave/Animatedblum12"): "default",
+NodePath("front_top_bottom_cave/Animatedblum13"): "default",
+NodePath("front_top_bottom_cave/Animatedblum10"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum8"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum7"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum6"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum9"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum5"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum4"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum3"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum"): "default"
 }
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -112,53 +112,6 @@ tile_set = SubResource("TileSet_c0n3n")
 format = 2
 layer_0/modulate = Color(0.745098, 0.745098, 0.745098, 1)
 layer_0/tile_data = PackedInt32Array(-262145, 65536, 0, -196609, 65536, 0, -131073, 65536, 0, -65537, 65536, 0, -1, 65536, 0, 65535, 65536, 0, 131071, 65536, 0, 196607, 65536, 0, 262143, 65536, 0, -327680, 131072, 0, -262144, 131072, 1, -196608, 131072, 2, -131072, 65536, 0, -65536, 65536, 0, 0, 65536, 0, 65536, 0, 0, 131072, 65536, 0, 196608, 65536, 0, -327679, 0, 1, -262143, 196608, 1, -196607, 196608, 2, -131071, 131072, 0, 65537, 65536, 0, 131073, 0, 0, 196609, 65536, 0, -327678, 262144, 1, -262142, 65536, 1, -196606, 0, 2, -131070, 0, 1, 65538, 131072, 1, 131074, 131072, 2, 196610, 65536, 0, -327677, 65536, 0, -262141, 196608, 0, -196605, 196608, 1, -131069, 65536, 2, -65533, 262144, 1, 3, 65536, 1, 65539, 196608, 1, 131075, 196608, 2, 196611, 65536, 0, -327676, 65536, 0, -262140, 196608, 0, -196604, 196608, 1, -131068, 0, 2, -65532, 131072, 1, 4, 0, 1, 65540, 196608, 1, 131076, 196608, 2, 196612, 65536, 0, -327675, 131072, 1, -262139, 0, 1, -196603, 65536, 2, -131067, 65536, 1, -65531, 196608, 1, 5, 65536, 2, 65541, 262144, 1, 131077, 262144, 2, 196613, 65536, 0, -327674, 65536, 1, -262138, 196608, 1, -196602, 196608, 2, -131066, 262144, 0, -65530, 262144, 1, 6, 262144, 2, 65542, 65536, 0, 131078, 65536, 0, 196614, 65536, 0, -327673, 262144, 0, -262137, 262144, 1, -65529, 65536, 0, 7, 65536, 0, 65543, 65536, 0, 196615, 65536, 0, -327672, 65536, 0, -262136, 65536, 0, -196600, 65536, 0, 8, 65536, 0, 65544, 65536, 0, 131080, 65536, 0, 196616, 65536, 0, 2, 0, 2, 1, 131072, 2, -65535, 131072, 1, -65534, 196608, 1, 131079, 0, 0, -65528, 0, 0, -131064, 65536, 0, -131065, 65536, 0, -196601, 262144, 2, -589825, 65536, 0, -524289, 65536, 0, -458753, 65536, 0, -393217, 65536, 0, -327681, 65536, 0, -655360, 65536, 0, -589824, 65536, 0, -524288, 65536, 0, -458752, 65536, 0, -393216, 0, 0, -655359, 65536, 0, -589823, 65536, 0, -524287, 0, 0, -458751, 131072, 0, -393215, 131072, 1, -655358, 65536, 0, -589822, 65536, 0, -524286, 131072, 0, -458750, 0, 1, -393214, 65536, 2, -655357, 65536, 0, -589821, 65536, 0, -524285, 196608, 0, -458749, 196608, 1, -393213, 196608, 2, -655356, 65536, 0, -589820, 65536, 0, -524284, 196608, 0, -458748, 196608, 1, -393212, 196608, 2, -655355, 65536, 0, -589819, 0, 0, -524283, 262144, 0, -458747, 65536, 1, -393211, 0, 2, -655354, 65536, 0, -589818, 65536, 0, -524282, 65536, 0, -458746, 262144, 0, -393210, 262144, 1, -655353, 65536, 0, -589817, 65536, 0, -524281, 65536, 0, -458745, 0, 0, -393209, 65536, 0, -655352, 65536, 0, -589816, 65536, 0, -524280, 65536, 0, -458744, 65536, 0, -393208, 65536, 0, 327679, 65536, 0, 262144, 65536, 0, 262145, 65536, 0, 262146, 65536, 0, 262147, 65536, 0, 262148, 65536, 0, 262149, 65536, 0, 262150, 65536, 0, 262151, 65536, 0, 262152, 65536, 0, -589826, 65536, 0, -524290, 65536, 0, -458754, 65536, 0, -393218, 65536, 0, -327682, 65536, 0, -262146, 65536, 0, -196610, 65536, 0, -131074, 65536, 0, -65538, 65536, 0, -2, 65536, 0, 65534, 65536, 0, 131070, 65536, 0, 196606, 65536, 0, 262142, 65536, 0, 327678, 65536, 0, -655362, 65536, 0, -655361, 65536, 0, -720896, 65536, 0, -720895, 65536, 0, -720894, 65536, 0, -720893, 65536, 0, -720892, 65536, 0, -720891, 65536, 0, -720890, 65536, 0, -720889, 65536, 0, -720888, 65536, 0, -720887, 65536, 0, -655351, 65536, 0, -589815, 65536, 0, -524279, 65536, 0, -458743, 65536, 0, -393207, 65536, 0, -327671, 65536, 0, -262135, 65536, 0, -196599, 65536, 0, -131063, 65536, 0, -65527, 65536, 0, 9, 65536, 0, 65545, 65536, 0, 131081, 65536, 0, 196617, 65536, 0, 262153, 65536, 0)
-
-[node name="point" type="Node2D" parent="TileMap"]
-modulate = Color(0.745098, 0.745098, 0.745098, 1)
-position = Vector2(-4.98985, 3.01686)
-rotation = -0.0033744
-
-[node name="Tile" type="Sprite2D" parent="TileMap/point"]
-visible = false
-position = Vector2(69, 20)
-scale = Vector2(0.84375, 0.71875)
-texture = ExtResource("3_bx4o8")
-
-[node name="Tile2" type="Sprite2D" parent="TileMap/point"]
-visible = false
-position = Vector2(94, -10)
-scale = Vector2(0.84375, 0.71875)
-texture = ExtResource("3_bx4o8")
-
-[node name="Tile3" type="Sprite2D" parent="TileMap/point"]
-visible = false
-position = Vector2(44, -10)
-scale = Vector2(0.84375, 0.71875)
-texture = ExtResource("3_bx4o8")
-
-[node name="Tile4" type="Sprite2D" parent="TileMap/point"]
-visible = false
-position = Vector2(69, -44)
-scale = Vector2(0.84375, 0.71875)
-texture = ExtResource("3_bx4o8")
-
-[node name="Tile5" type="Sprite2D" parent="TileMap/point"]
-visible = false
-position = Vector2(110, -62)
-scale = Vector2(0.84375, 0.71875)
-texture = ExtResource("3_bx4o8")
-
-[node name="Tile6" type="Sprite2D" parent="TileMap/point"]
-visible = false
-position = Vector2(29, -61)
-scale = Vector2(0.84375, 0.71875)
-texture = ExtResource("3_bx4o8")
-
-[node name="Tile7" type="Sprite2D" parent="TileMap/point"]
-visible = false
-position = Vector2(69.5906, -107.533)
-scale = Vector2(1.07382, 0.941683)
-texture = ExtResource("3_bx4o8")
 
 [node name="Blum_anim" type="Node2D" parent="TileMap"]
 z_index = 1
@@ -447,7 +400,8 @@ position = Vector2(10, -515)
 position = Vector2(262, 179)
 scale = Vector2(4, 4)
 
-[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+[node name="Frog" type="BackBufferCopy" parent="."]
+visible = false
 light_mask = 512
 visibility_layer = 512
 z_index = 10
@@ -455,14 +409,14 @@ position = Vector2(268, -116.5)
 scale = Vector2(3.49, 4.975)
 copy_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="BackBufferCopy"]
+[node name="ColorRect" type="ColorRect" parent="Frog"]
 offset_left = -99.0
 offset_top = -98.0
 offset_right = 101.0
 offset_bottom = 102.0
 color = Color(0.137255, 0.137255, 0.137255, 1)
 
-[node name="Circle Mask" type="Sprite2D" parent="BackBufferCopy"]
+[node name="Circle Mask" type="Sprite2D" parent="Frog"]
 light_mask = 512
 visibility_layer = 512
 material = SubResource("ShaderMaterial_pxa0j")
@@ -472,3 +426,44 @@ texture = ExtResource("13_sdhit")
 script = ExtResource("14_n4d8y")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("pausedButton", "container", "resumeButton", "exitButton")]
+z_index = 50
+layout_direction = 2
+layout_mode = 3
+anchors_preset = 0
+offset_left = -80.0
+offset_top = -600.0
+offset_right = 620.0
+offset_bottom = 400.0
+mouse_default_cursor_shape = 2
+script = ExtResource("14_cpwb3")
+pausedButton = NodePath("PausedButton")
+container = NodePath("PausedMenu")
+resumeButton = NodePath("PausedMenu/Resume")
+exitButton = NodePath("PausedMenu/Exit")
+
+[node name="PausedButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 38.0
+offset_right = 142.0
+offset_bottom = 138.0
+text = "|| ||"
+
+[node name="PausedMenu" type="VBoxContainer" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 44.0
+offset_top = 140.0
+offset_right = 287.0
+offset_bottom = 213.0
+alignment = 1
+
+[node name="Resume" type="Button" parent="Control/PausedMenu"]
+layout_mode = 2
+text = "Resume"
+
+[node name="Exit" type="Button" parent="Control/PausedMenu"]
+layout_mode = 2
+text = "Exit"

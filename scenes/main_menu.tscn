@@ -1,15 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyvxfq8e528yy"]
+[gd_scene load_steps=2 format=3 uid="uid://cyvxfq8e528yy"]
 
-[ext_resource type="Texture2D" path="res://sprites/PixelMainMenu.png" id="1_bisl8"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="2_rd6an"]
-[ext_resource type="Texture2D" path="res://sprites/settings.png" id="3_jbijw"]
 
 [node name="MainMenu" type="Node2D"]
 
 [node name="PixelMainMenu" type="Sprite2D" parent="."]
 position = Vector2(81, 115)
 scale = Vector2(1.6875, 1.59722)
-texture = ExtResource("1_bisl8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 6
@@ -77,4 +74,3 @@ text = "Demo v 0.1"
 [node name="Settings" type="Sprite2D" parent="."]
 position = Vector2(143, 19)
 scale = Vector2(0.95, 0.95)
-texture = ExtResource("3_jbijw")
