@@ -9,6 +9,5 @@ public partial class Ball : RigidBody2D
     public void Throw(Vector2 direction, float force = FORCE)
     {
         LinearVelocity = direction.Normalized() * FORCE;
-        ApplyForce();
     }
 }

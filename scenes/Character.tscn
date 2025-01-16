@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dljwnkfdxe6dw"]
+[gd_scene load_steps=22 format=3 uid="uid://dljwnkfdxe6dw"]
 
 [ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_mxhar"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="2_g178e"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="2_v4bmy"]
 [ext_resource type="Script" path="res://scripts/Health.cs" id="4_qxmag"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="4_vrrox"]
-[ext_resource type="PackedScene" uid="uid://difadwed472d1" path="res://Demo/Ball.tscn" id="7_4nlic"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xyuuh"]
 atlas = ExtResource("2_kpjut")
@@ -157,6 +156,3 @@ color = Color(1, 1, 0.243137, 1)
 energy = 4.59
 texture = ExtResource("4_vrrox")
 texture_scale = 0.01
-
-[node name="Ball" parent="." instance=ExtResource("7_4nlic")]
-position = Vector2(11, -10)
