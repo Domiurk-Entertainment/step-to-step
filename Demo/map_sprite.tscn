@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://di4mft2i2j7yn"]
+[gd_scene load_steps=23 format=3 uid="uid://di4mft2i2j7yn"]
 
 [ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_8l20r"]
 [ext_resource type="Texture2D" uid="uid://bfdu30qcxdvj5" path="res://sprites/TilemapCave.png" id="2_7g0r0"]
@@ -7,9 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/the front lower part of the cave.png" id="6_hrgyn"]
 [ext_resource type="Texture2D" uid="uid://5c0u7thmvt0g" path="res://sprites/front upper part of the cave.png" id="7_445el"]
 [ext_resource type="Texture2D" uid="uid://7s5uw7p7xydu" path="res://sprites/the right wall of the cave.png" id="8_3d5nc"]
-[ext_resource type="Script" path="res://scripts/points/Points_Manager.cs" id="9_dqmqu"]
 [ext_resource type="PackedScene" uid="uid://bste1dma5c0dp" path="res://scenes/Point.tscn" id="10_yho8j"]
-[ext_resource type="PackedScene" uid="uid://dljwnkfdxe6dw" path="res://scenes/Character.tscn" id="11_sv213"]
+[ext_resource type="PackedScene" uid="uid://bduyh4f2jkotw" path="res://scenes/character.tscn" id="11_sv213"]
 [ext_resource type="Shader" path="res://scripts/mask.gdshader" id="12_0e7je"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="13_sdhit"]
 [ext_resource type="Script" path="res://scripts/PausedControl.cs" id="14_cpwb3"]
@@ -373,7 +372,6 @@ position = Vector2(267, -112)
 
 [node name="Points" type="Node2D" parent="."]
 position = Vector2(250, 200)
-script = ExtResource("9_dqmqu")
 
 [node name="Point" parent="Points" instance=ExtResource("10_yho8j")]
 
