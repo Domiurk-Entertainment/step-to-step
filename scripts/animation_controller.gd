@@ -2,6 +2,7 @@ extends Node2D
 
 @export var node_paths: Dictionary
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var child_with_scripts:Array[Node2D]
