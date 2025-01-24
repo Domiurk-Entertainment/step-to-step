@@ -10,4 +10,4 @@ func _on_quit_pressed():
 
 
 func _on_play_pressed():
-	SceneTransition.change_scene("res://scenes/map_sprite.tscn")
+	SceneTransition.change_scene("res://Demo_Scenes/map_sprite.tscn")
