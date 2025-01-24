@@ -1,0 +1,93 @@
+[gd_scene load_steps=12 format=3 uid="uid://fp1u0lj51jap"]
+
+[ext_resource type="Texture2D" uid="uid://3mauypfs3f4j" path="res://sprites/goblinShopAnimidle.png" id="1_ba3fb"]
+[ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="2_qxa8s"]
+[ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="4_42ja5"]
+
+[sub_resource type="GDScript" id="GDScript_s71o6"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	$goblinShop.play(\"idle\")
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmqs3"]
+atlas = ExtResource("1_ba3fb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kl615"]
+atlas = ExtResource("1_ba3fb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acsdi"]
+atlas = ExtResource("1_ba3fb")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjsgd"]
+atlas = ExtResource("1_ba3fb")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0wup"]
+atlas = ExtResource("1_ba3fb")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dl8ha"]
+atlas = ExtResource("1_ba3fb")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y68mm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmqs3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kl615")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acsdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjsgd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0wup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dl8ha")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}]
+
+[node name="Goblinshop" type="Node2D"]
+script = SubResource("GDScript_s71o6")
+
+[node name="goblinShop" type="AnimatedSprite2D" parent="."]
+light_mask = 2
+sprite_frames = SubResource("SpriteFrames_y68mm")
+animation = &"idle"
+frame_progress = 0.586486
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1, 2)
+scale = Vector2(1.36, 1.36)
+color = Color(1, 0.945098, 0.419608, 1)
+texture = ExtResource("2_qxa8s")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+light_mask = 2
+position = Vector2(-6, 4)
+scale = Vector2(1.69893, 1.68039)
+color = Color(1, 1, 0.243137, 1)
+energy = 4.59
+texture = ExtResource("4_42ja5")
+texture_scale = 0.01
