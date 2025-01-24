@@ -152,7 +152,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("point2/ButtonbattleRight:disabled")
+tracks/1/path = NodePath("point2/ButtonbattleRigh2t:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -164,7 +164,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("point2/ButtonbattleLeft2:disabled")
+tracks/2/path = NodePath("point2/ButtonSunduk:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -188,7 +188,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("point2/ButtontreasureRight:disabled")
+tracks/4/path = NodePath("point2/ButtontRight:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -240,7 +240,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("point2/ButtontreasureRight:disabled")
+tracks/1/path = NodePath("point2/ButtontRight:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -264,7 +264,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("point2/ButtonbattleLeft2:disabled")
+tracks/3/path = NodePath("point2/ButtonSunduk:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -276,7 +276,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("point2/ButtonbattleRight:disabled")
+tracks/4/path = NodePath("point2/ButtonbattleRigh2t:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -328,7 +328,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("point2/ButtonbattleRight:disabled")
+tracks/1/path = NodePath("point2/ButtonbattleRigh2t:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -340,7 +340,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("point2/ButtonbattleLeft2:disabled")
+tracks/2/path = NodePath("point2/ButtonSunduk:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -404,7 +404,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("point2/ButtonbattleLeft2:disabled")
+tracks/2/path = NodePath("point2/ButtonSunduk:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -416,7 +416,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("point2/ButtonbattleRight:disabled")
+tracks/3/path = NodePath("point2/ButtonbattleRigh2t:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -468,7 +468,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("point2/ButtonbattleRight:disabled")
+tracks/2/path = NodePath("point2/ButtonbattleRigh2t:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -492,7 +492,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("point2/ButtonbattleLeft2:disabled")
+tracks/4/path = NodePath("point2/ButtonSunduk:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -544,7 +544,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("point2/ButtonbattleLeft2:disabled")
+tracks/3/path = NodePath("point2/ButtonSunduk:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -556,7 +556,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("point2/ButtonbattleRight:disabled")
+tracks/4/path = NodePath("point2/ButtonbattleRigh2t:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -608,7 +608,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("point2/ButtontreasureRight:disabled")
+tracks/2/path = NodePath("point2/ButtontRight:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -632,7 +632,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("point2/ButtonbattleLeft2:disabled")
+tracks/4/path = NodePath("point2/ButtonSunduk:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -644,7 +644,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("point2/ButtonbattleRight:disabled")
+tracks/5/path = NodePath("point2/ButtonbattleRigh2t:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -672,7 +672,7 @@ length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("point2/ButtontreasureRight:disabled")
+tracks/0/path = NodePath("point2/ButtontRight:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -708,7 +708,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("point2/ButtonbattleLeft2:disabled")
+tracks/3/path = NodePath("point2/ButtonSunduk:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -720,7 +720,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("point2/ButtonbattleRight:disabled")
+tracks/4/path = NodePath("point2/ButtonbattleRigh2t:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1100,7 +1100,7 @@ texture = ExtResource("7_7iuju")
 flip_h = true
 
 [node name="PlayerMenu" type="CharacterBody2D" parent="."]
-position = Vector2(260, 150)
+position = Vector2(100, -185)
 scale = Vector2(4, 4)
 
 [node name="PointLight2D" type="PointLight2D" parent="PlayerMenu"]
@@ -1167,12 +1167,14 @@ offset_left = 124.0
 offset_top = 21.0
 offset_right = 195.0
 offset_bottom = 78.0
+disabled = true
 
-[node name="ButtontreasureRight" type="Button" parent="point2"]
+[node name="ButtontRight" type="Button" parent="point2"]
 offset_left = 328.0
 offset_top = 21.0
 offset_right = 399.0
 offset_bottom = 78.0
+disabled = true
 
 [node name="Shop" type="Button" parent="point2"]
 offset_left = 228.0
@@ -1181,14 +1183,14 @@ offset_right = 299.0
 offset_bottom = -48.0
 disabled = true
 
-[node name="ButtonbattleLeft2" type="Button" parent="point2"]
+[node name="ButtonSunduk" type="Button" parent="point2"]
 offset_left = 69.0
 offset_top = -180.0
 offset_right = 140.0
 offset_bottom = -123.0
 disabled = true
 
-[node name="ButtonbattleRight" type="Button" parent="point2"]
+[node name="ButtonbattleRigh2t" type="Button" parent="point2"]
 offset_left = 390.0
 offset_top = -179.0
 offset_right = 461.0
@@ -1200,7 +1202,6 @@ offset_left = 223.0
 offset_top = -368.0
 offset_right = 294.0
 offset_bottom = -311.0
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1208,45 +1209,51 @@ libraries = {
 }
 
 [node name="Tile" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.733333, 0.733333, 0.733333, 1)
 position = Vector2(165.26, 45)
 scale = Vector2(4.8425, 4.06)
 texture = ExtResource("3_edaoj")
 
 [node name="Tile2" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.733333, 0.733333, 0.733333, 1)
 position = Vector2(365, 45)
 scale = Vector2(4.8425, 4.06)
 texture = ExtResource("3_edaoj")
 
 [node name="Tile3" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.733333, 0.733333, 0.733333, 1)
 position = Vector2(264, -82)
 scale = Vector2(4.8425, 4.06)
 texture = ExtResource("3_edaoj")
 
 [node name="Tile4" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.733333, 0.733333, 0.733333, 1)
 position = Vector2(425, -155)
 scale = Vector2(4.8425, 4.06)
 texture = ExtResource("3_edaoj")
 
 [node name="Tile5" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.733333, 0.733333, 0.733333, 1)
 position = Vector2(105, -154)
 scale = Vector2(4.8425, 4.06)
 texture = ExtResource("3_edaoj")
 
 [node name="Tile6" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.733333, 0.733333, 0.733333, 1)
 position = Vector2(261, -340)
 scale = Vector2(4.8425, 4.06)
 texture = ExtResource("3_edaoj")
 
 [connection signal="pressed" from="point2/ButtonbattleLeft" to="point2" method="_on_buttonbattle_left_pressed"]
-[connection signal="pressed" from="point2/ButtontreasureRight" to="point2" method="_on_buttontreasure_right_pressed"]
+[connection signal="pressed" from="point2/ButtontRight" to="point2" method="_on_buttontreasure_right_pressed"]
 [connection signal="pressed" from="point2/Shop" to="point2" method="_on_shop_pressed"]
-[connection signal="pressed" from="point2/ButtonbattleLeft2" to="point2" method="_on_buttonbattle_left_2_pressed"]
-[connection signal="pressed" from="point2/ButtonbattleRight" to="point2" method="_on_buttonbattle_right_pressed"]
+[connection signal="pressed" from="point2/ButtonSunduk" to="point2" method="_on_button_sunduk_pressed"]
+[connection signal="pressed" from="point2/ButtonbattleRigh2t" to="point2" method="_on_buttonbattle_right_pressed"]
 [connection signal="pressed" from="point2/ButtonBoss" to="point2" method="_on_button_boss_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="point2" method="_on_animation_player_animation_finished"]

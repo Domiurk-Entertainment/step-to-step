@@ -23,21 +23,28 @@ func _on_buttontreasure_right_pressed():
 
 func _on_animation_player_animation_finished(anim_name:):
 	if anim_name == "animButtonBattleLeft":
+		
 		ggL = true
 	if anim_name == "animButtonBattleLeft2":
 		ggr = true
-	
-
+		SceneTransition.change_scene("res://scenes/sunduk.tscn")
+	if anim_name == "ainimButtonShopLeft":
+		SceneTransition.change_scene("res://scenes/shop.tscn")
+	if anim_name == "animButtonBattleLeft":
+		SceneTransition.change_scene("res://scenes/battle_left_1.tscn")
+	if anim_name == "animButtonBattleRight":
+		SceneTransition.change_scene("res://scenes/battleright_2.tscn")
+	if anim_name == "animButtonTreasure":
+		SceneTransition.change_scene("res://scenes/battle_right_1.tscn")
+	if anim_name == "ainimButtonShopRight":
+		SceneTransition.change_scene("res://scenes/shop.tscn")
+	#if anim_name == "":
 
 func _on_shop_pressed():
 	if ggL == true:
 		$"../AnimationPlayer".play("ainimButtonShopLeft")
 	else:
 		$"../AnimationPlayer".play("animButtonShopRight")
-
-
-func _on_buttonbattle_left_2_pressed():
-	$"../AnimationPlayer".play("animButtonBattleLeft2")
 
 
 func _on_buttonbattle_right_pressed():
@@ -49,3 +56,7 @@ func _on_button_boss_pressed():
 		$"../AnimationPlayer".play("animButtonBossLeft")
 	else:
 		$"../AnimationPlayer".play("animButtonBossRight")
+
+
+func _on_button_sunduk_pressed():
+	$"../AnimationPlayer".play("animButtonBattleLeft2")
