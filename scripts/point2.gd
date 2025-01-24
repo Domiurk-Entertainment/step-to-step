@@ -27,17 +27,17 @@ func _on_animation_player_animation_finished(anim_name:):
 		ggL = true
 	if anim_name == "animButtonBattleLeft2":
 		ggr = true
-		SceneTransition.change_scene("res://Demo_Scenes/sunduk.tscn")
+		SceneTransition.change_scene("res://scenes/sunduk.tscn")
 	if anim_name == "ainimButtonShopLeft":
-		SceneTransition.change_scene("res://Demo_Scenes/shop.tscn")
+		SceneTransition.change_scene("res://scenes/shop.tscn")
 	if anim_name == "animButtonBattleLeft":
-		SceneTransition.change_scene("res://Demo_Scenes/battle_left_1.tscn")
+		SceneTransition.change_scene("res://scenes/battle_left_1.tscn")
 	if anim_name == "animButtonBattleRight":
-		SceneTransition.change_scene("res://Demo_Scenes/battleright_2.tscn")
+		SceneTransition.change_scene("res://scenes/battleright_2.tscn")
 	if anim_name == "animButtonTreasure":
-		SceneTransition.change_scene("res://Demo_Scenes/battle_right_1.tscn")
+		SceneTransition.change_scene("res://scenes/battle_right_1.tscn")
 	if anim_name == "ainimButtonShopRight":
-		SceneTransition.change_scene("res://Demo_Scenes/shop.tscn")
+		SceneTransition.change_scene("res://scenes/shop.tscn")
 	#if anim_name == "":
 
 func _on_shop_pressed():
