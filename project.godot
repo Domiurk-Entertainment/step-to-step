@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="StepToStep"
-run/main_scene="res://scenes/map_sprite.tscn"
+run/main_scene="res://Demo_Scenes/map_sprite.tscn"
 config/features=PackedStringArray("4.1", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-SceneTransition="*res://scenes/SceneTransition.tscn"
+SceneTransition="*res://Demo_Scenes/SceneTransition.tscn"
 
 [display]
 
