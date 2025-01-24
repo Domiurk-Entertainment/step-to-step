@@ -1,0 +1,148 @@
+[gd_scene load_steps=8 format=3 uid="uid://0nonp1drios7"]
+
+[ext_resource type="Script" path="res://Demo/demo_battle.cs" id="1_jdiwp"]
+[ext_resource type="Texture2D" uid="uid://csvp54a8tx1sl" path="res://sprites/Black.png" id="6_xsf3f"]
+[ext_resource type="PackedScene" uid="uid://difadwed472d1" path="res://Demo/Ball.tscn" id="7_nil13"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cgpwn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2d8g"]
+size = Vector2(49.8976, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6g045"]
+size = Vector2(50.5489, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cx1sd"]
+size = Vector2(51.4371, 20)
+
+[node name="BattleLvl1" type="Node2D" node_paths=PackedStringArray("player", "x", "y", "force", "labelx", "labely")]
+script = ExtResource("1_jdiwp")
+player = NodePath("")
+x = NodePath("x")
+y = NodePath("y")
+force = NodePath("TextEdit")
+labelx = NodePath("Labelx")
+labely = NodePath("Labely")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 10
+position = Vector2(68, -39)
+zoom = Vector2(4.35, 4.35)
+
+[node name="Ball" parent="." instance=ExtResource("7_nil13")]
+position = Vector2(38, -42)
+motion_mode = 1
+floor_block_on_wall = false
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(18, -7)
+scale = Vector2(0.711689, 0.757628)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
+position = Vector2(69, 12)
+scale = Vector2(4.31438, 0.508661)
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_cgpwn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/StaticBody2D"]
+position = Vector2(0, 8)
+scale = Vector2(1.52446, 0.5)
+texture = ExtResource("6_xsf3f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_p2d8g")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="Node2D"]
+position = Vector2(68, -127)
+scale = Vector2(4.31438, 0.508661)
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_cgpwn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/StaticBody2D8"]
+position = Vector2(0.197084, 8.35223)
+scale = Vector2(1.57965, 0.5)
+texture = ExtResource("6_xsf3f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D8"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_6g045")
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="Node2D"]
+position = Vector2(-22.2953, -2.78104)
+rotation = 0.862389
+scale = Vector2(0.414452, 0.244834)
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_cgpwn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/StaticBody2D9"]
+position = Vector2(0, 8)
+scale = Vector2(1.57965, 0.5)
+texture = ExtResource("6_xsf3f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D9"]
+position = Vector2(1.90735e-06, 8)
+shape = SubResource("RectangleShape2D_cx1sd")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Node2D"]
+position = Vector2(187.722, -50.1666)
+rotation = 1.5708
+scale = Vector2(2.70598, 0.565961)
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_cgpwn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/StaticBody2D6"]
+position = Vector2(0, 8)
+scale = Vector2(1.53671, 0.5)
+texture = ExtResource("6_xsf3f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D6"]
+position = Vector2(0, 8)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_p2d8g")
+
+[node name="x" type="HSlider" parent="."]
+offset_left = 3.0
+offset_top = -153.0
+offset_right = 148.0
+offset_bottom = -137.0
+min_value = -1.0
+max_value = 1.0
+step = 0.1
+
+[node name="y" type="HSlider" parent="."]
+offset_left = 3.0
+offset_top = -137.0
+offset_right = 148.0
+offset_bottom = -121.0
+min_value = -1.0
+max_value = 1.0
+step = 0.1
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 7.0
+offset_top = 24.0
+offset_right = 113.0
+offset_bottom = 57.0
+text = "10"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+
+[node name="Labelx" type="Label" parent="."]
+offset_left = -13.0
+offset_top = -155.0
+offset_right = 27.0
+offset_bottom = -132.0
+text = "0"
+
+[node name="Labely" type="Label" parent="."]
+offset_left = -13.0
+offset_top = -137.0
+offset_right = 3.0
+offset_bottom = -111.0
+text = "0"
