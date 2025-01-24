@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 namespace StepToStep.Stats;
 
@@ -8,12 +7,11 @@ public partial class UIScripts : VBoxContainer
     [Export] private string template = "{0}:{1}";
     [Export] private Font font;
     [Export] private int size = 12;
+    [Export] private StatHandler stats;
 
     public override void _Ready()
     {
-        var handler = GetNode<StatHandler>("%StatHandler");
-
-        foreach(Stat stat in handler.All()){
+        foreach(Stat stat in stats.All()){
             var label = new Label();
             label.LabelSettings = new LabelSettings();
             label.LabelSettings.Font = font;

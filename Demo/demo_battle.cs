@@ -1,6 +1,5 @@
 using Godot;
 using StepToStep;
-using System;
 
 public partial class demo_battle : Node2D
 {
