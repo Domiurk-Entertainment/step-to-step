@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bduyh4f2jkotw"]
+[gd_scene load_steps=30 format=3 uid="uid://bduyh4f2jkotw"]
 
 [ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_mxhar"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="2_g178e"]
@@ -9,6 +9,9 @@
 [ext_resource type="Script" path="res://scripts/stats/StatHandler.cs" id="7_q77xg"]
 [ext_resource type="Script" path="res://scripts/stats/Stat.cs" id="8_6j1gn"]
 [ext_resource type="Script" path="res://scenes/UIScripts.cs" id="9_4qn3f"]
+[ext_resource type="Script" path="res://scripts/inventory/ItemContainer.cs" id="10_xn815"]
+[ext_resource type="Texture2D" uid="uid://ci2p0yqc435sn" path="res://sprites/tile.png" id="11_iuh25"]
+[ext_resource type="Script" path="res://scripts/inventory/ItemResource.cs" id="12_4fws0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xyuuh"]
 atlas = ExtResource("2_kpjut")
@@ -114,12 +117,22 @@ bg_color = Color(0, 0, 0, 0.560784)
 bg_color = Color(0.113725, 0.666667, 0.231373, 1)
 
 [sub_resource type="FontFile" id="FontFile_qc82u"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_s2xjq"]
+script = ExtResource("12_4fws0")
+name = "<Item Name>"
+description = "<Item Description>"
+maxAmount = 1
+icon = ExtResource("11_iuh25")
 
 [node name="Player" type="Node2D"]
 light_mask = 2
@@ -131,19 +144,18 @@ NodePath("AnimatedSprite2D"): "animIdleandStik"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
-position = Vector2(6.88124, -7.9857)
+position = Vector2(26, -32)
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_1jh8v")
 animation = &"animIdleandStik"
-frame = 3
-frame_progress = 0.128718
 
 [node name="Health" type="ProgressBar" parent="."]
 unique_name_in_owner = true
 light_mask = 2
-offset_left = -10.1188
-offset_top = -22.9857
-offset_right = 10.8812
-offset_bottom = -19.9857
+offset_left = -25.0
+offset_top = -80.0
+offset_right = 25.0
+offset_bottom = -71.0
 rotation = -0.00068116
 theme_override_styles/background = SubResource("StyleBoxFlat_igk4g")
 theme_override_styles/fill = SubResource("StyleBoxFlat_yp88j")
@@ -168,22 +180,28 @@ energy = 4.59
 texture = ExtResource("4_vrrox")
 texture_scale = 0.01
 
-[node name="StatHandler" type="Node" parent="."]
+[node name="Stats" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("7_q77xg")
 
-[node name="Damage" type="Node" parent="StatHandler"]
+[node name="Damage" type="Node" parent="Stats"]
 script = ExtResource("8_6j1gn")
 
-[node name="Speed" type="Node" parent="StatHandler"]
+[node name="Speed" type="Node" parent="Stats"]
 script = ExtResource("8_6j1gn")
 value = 3
 
-[node name="StatsContainer" type="VBoxContainer" parent="."]
-offset_left = -20.0
-offset_top = -58.0
-offset_right = 20.0
-offset_bottom = -18.0
+[node name="StatsContainer" type="VBoxContainer" parent="." node_paths=PackedStringArray("stats")]
+offset_left = -80.0
+offset_top = -170.0
+offset_right = 80.0
+offset_bottom = -67.0
 script = ExtResource("9_4qn3f")
 font = SubResource("FontFile_qc82u")
 size = 8
+stats = NodePath("../Stats")
+
+[node name="Inventory" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("10_xn815")
+demo_resource = SubResource("Resource_s2xjq")
