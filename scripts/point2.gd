@@ -23,7 +23,6 @@ func _on_buttontreasure_right_pressed():
 
 func _on_animation_player_animation_finished(anim_name:):
 	if anim_name == "animButtonBattleLeft":
-		
 		ggL = true
 	if anim_name == "animButtonBattleLeft2":
 		ggr = true
@@ -38,7 +37,10 @@ func _on_animation_player_animation_finished(anim_name:):
 		SceneTransition.change_scene("res://scenes/battle_right_1.tscn")
 	if anim_name == "ainimButtonShopRight":
 		SceneTransition.change_scene("res://scenes/shop.tscn")
-	#if anim_name == "":
+	if anim_name == "animButtonBossLeft":
+		SceneTransition.change_scene("res://scenes/battle_boss.tscn")
+	if anim_name == "animButtonBossRight":
+		SceneTransition.change_scene("res://scenes/battle_boss.tscn")
 
 func _on_shop_pressed():
 	if ggL == true:

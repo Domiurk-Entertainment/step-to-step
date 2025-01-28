@@ -23,3 +23,23 @@ func check(node) -> bool:
 func play(node, animation_name):
 	var animation_node:AnimatedSprite2D = node as AnimatedSprite2D
 	animation_node.play(animation_name)
+
+
+func _on_paus_pressed():
+	$pausBlur.show()
+
+func _on_button_pressed():
+	$pausBlur.hide()
+
+
+func _on_button_2_pressed():
+	SceneTransition.change_scene("res://scenes/main_menu.tscn")
+
+
+func _on_ff_pressed():
+	$pausBlur.hide()
+
+
+
+func _on_ff_2_pressed():
+	SceneTransition.change_scene("res://scenes/main_menu.tscn")

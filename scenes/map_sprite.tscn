@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://di4mft2i2j7yn"]
+[gd_scene load_steps=41 format=3 uid="uid://di4mft2i2j7yn"]
 
 [ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/the front lower part of the cave.png" id="1_bes3c"]
 [ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_nmtdw"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="8_oyity"]
 [ext_resource type="PackedScene" uid="uid://bste1dma5c0dp" path="res://scenes/Point.tscn" id="11_sgnt7"]
 [ext_resource type="Script" path="res://scripts/point2.gd" id="12_cta3l"]
+[ext_resource type="Shader" path="res://scenes/blur.gdshader" id="13_tmlm8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6pai"]
 texture = ExtResource("3_b4aos")
@@ -767,26 +768,30 @@ _data = {
 "animButtonTreasure": SubResource("Animation_j2yln")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n14jh"]
+shader = ExtResource("13_tmlm8")
+shader_parameter/amount = 3.118
+
 [node name="MapSprite" type="Node2D"]
 script = ExtResource("1_nmtdw")
 node_paths = {
-NodePath("front_top_bottom_cave/Animatedblum4"): "default",
-NodePath("front_top_bottom_cave/Animatedblum2"): "default",
-NodePath("front_top_bottom_cave/Animatedblum14"): "default",
-NodePath("front_top_bottom_cave/Animatedblum5"): "default",
-NodePath("front_top_bottom_cave/Animatedblum9"): "default",
-NodePath("front_top_bottom_cave/Animatedblum11"): "default",
-NodePath("front_top_bottom_cave/Animatedblum12"): "default",
-NodePath("front_top_bottom_cave/Animatedblum13"): "default",
-NodePath("front_top_bottom_cave/Animatedblum10"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum8"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum7"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum6"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum9"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum5"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum4"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum"): "default",
 NodePath("TileMap/Blum_anim/Animatedblum3"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum"): "default"
+NodePath("TileMap/Blum_anim/Animatedblum4"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum5"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum9"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum6"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum7"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum8"): "default",
+NodePath("front_top_bottom_cave/Animatedblum10"): "default",
+NodePath("front_top_bottom_cave/Animatedblum13"): "default",
+NodePath("front_top_bottom_cave/Animatedblum12"): "default",
+NodePath("front_top_bottom_cave/Animatedblum11"): "default",
+NodePath("front_top_bottom_cave/Animatedblum9"): "default",
+NodePath("front_top_bottom_cave/Animatedblum5"): "default",
+NodePath("front_top_bottom_cave/Animatedblum14"): "default",
+NodePath("front_top_bottom_cave/Animatedblum2"): "default",
+NodePath("front_top_bottom_cave/Animatedblum4"): "default"
 }
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1100,7 +1105,7 @@ texture = ExtResource("7_7iuju")
 flip_h = true
 
 [node name="PlayerMenu" type="CharacterBody2D" parent="."]
-position = Vector2(256, 152)
+position = Vector2(260, 150)
 scale = Vector2(4, 4)
 
 [node name="PointLight2D" type="PointLight2D" parent="PlayerMenu"]
@@ -1167,14 +1172,12 @@ offset_left = 124.0
 offset_top = 21.0
 offset_right = 195.0
 offset_bottom = 78.0
-disabled = true
 
 [node name="ButtontRight" type="Button" parent="point2"]
 offset_left = 328.0
 offset_top = 21.0
 offset_right = 399.0
 offset_bottom = 78.0
-disabled = true
 
 [node name="Shop" type="Button" parent="point2"]
 offset_left = 228.0
@@ -1202,6 +1205,7 @@ offset_left = 223.0
 offset_top = -368.0
 offset_right = 294.0
 offset_bottom = -311.0
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1250,6 +1254,38 @@ position = Vector2(261, -340)
 scale = Vector2(4.8425, 4.06)
 texture = ExtResource("3_edaoj")
 
+[node name="pausBlur" type="ColorRect" parent="."]
+visible = false
+z_index = 63
+material = SubResource("ShaderMaterial_n14jh")
+offset_left = -197.0
+offset_top = -633.0
+offset_right = 719.0
+offset_bottom = 397.0
+
+[node name="Button" type="Button" parent="pausBlur"]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 454.0
+offset_right = 571.0
+offset_bottom = 501.0
+text = "Retrum"
+
+[node name="Button2" type="Button" parent="pausBlur"]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 517.0
+offset_right = 571.0
+offset_bottom = 564.0
+text = "Back to menu"
+
+[node name="paus" type="Button" parent="."]
+z_index = 40
+offset_left = 497.0
+offset_top = -535.0
+offset_right = 566.0
+offset_bottom = -463.0
+
 [connection signal="pressed" from="point2/ButtonbattleLeft" to="point2" method="_on_buttonbattle_left_pressed"]
 [connection signal="pressed" from="point2/ButtontRight" to="point2" method="_on_buttontreasure_right_pressed"]
 [connection signal="pressed" from="point2/Shop" to="point2" method="_on_shop_pressed"]
@@ -1257,3 +1293,6 @@ texture = ExtResource("3_edaoj")
 [connection signal="pressed" from="point2/ButtonbattleRigh2t" to="point2" method="_on_buttonbattle_right_pressed"]
 [connection signal="pressed" from="point2/ButtonBoss" to="point2" method="_on_button_boss_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="point2" method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="pausBlur/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="pausBlur/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="paus" to="." method="_on_paus_pressed"]
