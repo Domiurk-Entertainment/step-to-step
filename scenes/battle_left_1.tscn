@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_sspim"]
 [ext_resource type="PackedScene" uid="uid://dwvhlj2ouj5t6" path="res://scenes/location_1.tscn" id="2_aih25"]
 [ext_resource type="PackedScene" uid="uid://dljwnkfdxe6dw" path="res://scenes/Character.tscn" id="3_xbjvx"]
-[ext_resource type="PackedScene" uid="uid://c0tod7yw4sold" path="res://scenes/enemySmile.tscn" id="4_gg428"]
+[ext_resource type="PackedScene" uid="uid://bv13h00py03ka" path="res://scenes/enemySmile.tscn" id="4_gg428"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="5_5sqi1"]
 
 [node name="BattleLeft1" type="Node2D"]

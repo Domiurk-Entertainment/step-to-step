@@ -1,3 +1,41 @@
-[gd_scene format=3 uid="uid://cimwavhv2g0h7"]
+[gd_scene load_steps=4 format=3 uid="uid://cimwavhv2g0h7"]
+
+[ext_resource type="PackedScene" uid="uid://dwvhlj2ouj5t6" path="res://scenes/location_1.tscn" id="1_el73e"]
+[ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="2_bfbts"]
+[ext_resource type="PackedScene" uid="uid://dljwnkfdxe6dw" path="res://scenes/Character.tscn" id="3_7ckfu"]
 
 [node name="battleright2" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 10
+position = Vector2(80, 36)
+zoom = Vector2(4.35, 4.35)
+
+[node name="location1" parent="." instance=ExtResource("1_el73e")]
+
+[node name="Attack" type="Button" parent="."]
+z_index = 7
+offset_left = 46.0
+offset_top = 83.0
+offset_right = 205.0
+offset_bottom = 112.0
+scale = Vector2(0.41, 0.41)
+theme_override_fonts/font = ExtResource("2_bfbts")
+theme_override_font_sizes/font_size = 14
+text = "Attack"
+
+[node name="try to escape" type="Button" parent="."]
+z_index = 7
+offset_left = 38.0
+offset_top = 101.0
+offset_right = 342.0
+offset_bottom = 147.0
+scale = Vector2(0.28, 0.28)
+theme_override_fonts/font = ExtResource("2_bfbts")
+theme_override_font_sizes/font_size = 21
+text = "Try to escape"
+
+[node name="PlayerStepToStep" parent="." instance=ExtResource("3_7ckfu")]
+visibility_layer = 1
+z_index = 6
+position = Vector2(27, 51)
