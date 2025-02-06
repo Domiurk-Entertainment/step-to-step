@@ -1,6 +1,6 @@
-[gd_scene load_steps=30 format=3 uid="uid://bduyh4f2jkotw"]
+[gd_scene load_steps=29 format=3 uid="uid://c0vlu6mogmo1c"]
 
-[ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_mxhar"]
+[ext_resource type="Script" path="res://scripts/Player.cs" id="1_8sdka"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="2_g178e"]
 [ext_resource type="Texture2D" uid="uid://dr1ine2qikvux" path="res://sprites/idleanimplayerandstick.png" id="2_kpjut"]
 [ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="2_v4bmy"]
@@ -10,8 +10,8 @@
 [ext_resource type="Script" path="res://scripts/stats/Stat.cs" id="8_6j1gn"]
 [ext_resource type="Script" path="res://scenes/UIScripts.cs" id="9_4qn3f"]
 [ext_resource type="Script" path="res://scripts/inventory/ItemContainer.cs" id="10_xn815"]
-[ext_resource type="Texture2D" uid="uid://ci2p0yqc435sn" path="res://sprites/tile.png" id="11_iuh25"]
-[ext_resource type="Script" path="res://scripts/inventory/ItemResource.cs" id="12_4fws0"]
+[ext_resource type="PackedScene" uid="uid://difadwed472d1" path="res://Demo/ball.tscn" id="11_4vtmn"]
+[ext_resource type="PackedScene" uid="uid://lbnk8d8uawap" path="res://Demo/sight.tscn" id="12_uubtq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xyuuh"]
 atlas = ExtResource("2_kpjut")
@@ -127,20 +127,11 @@ cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="Resource" id="Resource_s2xjq"]
-script = ExtResource("12_4fws0")
-name = "<Item Name>"
-description = "<Item Description>"
-maxAmount = 1
-icon = ExtResource("11_iuh25")
-
-[node name="Player" type="Node2D"]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("sight")]
 light_mask = 2
 visibility_layer = 2
-script = ExtResource("1_mxhar")
-node_paths = {
-NodePath("AnimatedSprite2D"): "animIdleandStik"
-}
+script = ExtResource("1_8sdka")
+sight = NodePath("sight")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
@@ -191,17 +182,20 @@ script = ExtResource("8_6j1gn")
 script = ExtResource("8_6j1gn")
 value = 3
 
-[node name="StatsContainer" type="VBoxContainer" parent="." node_paths=PackedStringArray("stats")]
+[node name="StatsContainer" type="VBoxContainer" parent="."]
 offset_left = -80.0
 offset_top = -170.0
-offset_right = 80.0
-offset_bottom = -67.0
+offset_right = -80.0
+offset_bottom = -170.0
 script = ExtResource("9_4qn3f")
 font = SubResource("FontFile_qc82u")
-size = 8
-stats = NodePath("../Stats")
 
 [node name="Inventory" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("10_xn815")
-demo_resource = SubResource("Resource_s2xjq")
+
+[node name="Ball" parent="." instance=ExtResource("11_4vtmn")]
+position = Vector2(26, -45)
+
+[node name="sight" parent="." instance=ExtResource("12_uubtq")]
+position = Vector2(36, -40)
