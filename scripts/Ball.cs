@@ -24,7 +24,6 @@ public partial class Ball : CharacterBody2D
         if(collision != null){
             Vector2 normal = collision.GetNormal();
             Velocity = Velocity.Bounce(normal.Normalized());
-            GD.Print(normal);
         }
     }
 
