@@ -23,6 +23,4 @@ public partial class Player : Entity
             instance.Throw(direction, force);
         }
     }
-
-    public override void Attack() { }
 }
