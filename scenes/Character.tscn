@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c0vlu6mogmo1c"]
+[gd_scene load_steps=26 format=3 uid="uid://c0vlu6mogmo1c"]
 
 [ext_resource type="Script" path="res://scripts/Player.cs" id="1_8sdka"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="2_g178e"]
@@ -8,10 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="4_vrrox"]
 [ext_resource type="Script" path="res://scripts/stats/StatHandler.cs" id="7_q77xg"]
 [ext_resource type="Script" path="res://scripts/stats/Stat.cs" id="8_6j1gn"]
-[ext_resource type="Script" path="res://scenes/UIScripts.cs" id="9_4qn3f"]
 [ext_resource type="Script" path="res://scripts/inventory/ItemContainer.cs" id="10_xn815"]
-[ext_resource type="PackedScene" uid="uid://difadwed472d1" path="res://Demo/ball.tscn" id="11_4vtmn"]
-[ext_resource type="PackedScene" uid="uid://lbnk8d8uawap" path="res://Demo/sight.tscn" id="12_uubtq"]
+[ext_resource type="PackedScene" uid="uid://lbnk8d8uawap" path="res://scenes/sight.tscn" id="12_uubtq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xyuuh"]
 atlas = ExtResource("2_kpjut")
@@ -116,22 +114,13 @@ bg_color = Color(0, 0, 0, 0.560784)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yp88j"]
 bg_color = Color(0.113725, 0.666667, 0.231373, 1)
 
-[sub_resource type="FontFile" id="FontFile_qc82u"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-
-[node name="Player" type="Node2D" node_paths=PackedStringArray("sight")]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("spawnBalls", "sight")]
 light_mask = 2
 visibility_layer = 2
 script = ExtResource("1_8sdka")
+spawnBalls = NodePath("Node2D")
 sight = NodePath("sight")
+ballScene = "res://scenes/ball.tscn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
@@ -187,15 +176,13 @@ offset_left = -80.0
 offset_top = -170.0
 offset_right = -80.0
 offset_bottom = -170.0
-script = ExtResource("9_4qn3f")
-font = SubResource("FontFile_qc82u")
 
 [node name="Inventory" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("10_xn815")
 
-[node name="Ball" parent="." instance=ExtResource("11_4vtmn")]
-position = Vector2(26, -45)
-
 [node name="sight" parent="." instance=ExtResource("12_uubtq")]
+position = Vector2(36, -40)
+
+[node name="Node2D" type="Node2D" parent="."]
 position = Vector2(36, -40)
