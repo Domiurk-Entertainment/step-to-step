@@ -5,8 +5,4 @@ namespace StepToStep.scripts;
 
 public partial class Entity : Node2D
 {
-    public virtual void Attack()
-    {
-        
-    }
 }
