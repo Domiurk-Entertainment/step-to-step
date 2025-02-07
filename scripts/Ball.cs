@@ -4,15 +4,11 @@ namespace StepToStep;
 
 public partial class Ball : CharacterBody2D
 {
-    private const float FORCE = 500;
-    private float force = 500;
-
-    public void Throw(Vector2 direction, float force = FORCE)
+    public void Throw(Vector2 direction, float force)
     {
-        direction = direction.Normalized() +
-                    ProjectSettings.GetSetting("physics/2d/default_gravity_vector").AsVector2();
+        direction = direction.Normalized();
+                    // + ProjectSettings.GetSetting("physics/2d/default_gravity_vector").AsVector2();
         Velocity = direction * force;
-        this.force = force;
     }
 
     public override void _PhysicsProcess(double delta)
@@ -21,10 +17,10 @@ public partial class Ball : CharacterBody2D
             return;
         KinematicCollision2D collision = MoveAndCollide(Velocity * (float)delta);
 
-        if(collision != null){
-            Vector2 normal = collision.GetNormal();
-            Velocity = Velocity.Bounce(normal.Normalized());
-        }
+        if(collision == null)
+            return;
+        Vector2 normal = collision.GetNormal();
+        Velocity = Velocity.Bounce(normal.Normalized());
     }
 
     private void OnVisibilityNotifier2DScreenExited()

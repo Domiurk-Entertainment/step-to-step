@@ -14,12 +14,12 @@ public partial class Sight : Node2D
     public event Action<Vector2> CalculatedDirection;
 
     [Export, ExportCategory("Settings")] private float minValue = -60;
-    [Export, ExportCategory("Settings")] private float maxValue = 60;
-    [Export, ExportCategory("Settings")] private float duration = 1;
-    [Export, ExportCategory("Settings")] private Tween.TransitionType transition = Tween.TransitionType.Linear;
+    [Export] private float maxValue = 60;
+    [Export] private float duration = 1;
+    [Export] private Tween.TransitionType transition = Tween.TransitionType.Linear;
 
     [Export, ExportCategory("Settings/Nodes")] public Node2D StartPoint;
-    [Export, ExportCategory("Settings/Nodes")] public Node2D EndPoint;
+    [Export] public Node2D EndPoint;
 
     private int state;
     private int direction;
