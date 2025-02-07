@@ -5,49 +5,81 @@ namespace StepToStep.Battle;
 
 public partial class Sight : Node2D
 {
+    private const int UP = 1;
+    private const int DOWN = -1;
+    private const int STOP = 0;
+    private const int PLAY = 1;
+
+    private const string PROPERTY_NAME = "rotation_degrees";
     public event Action<Vector2> CalculatedDirection;
 
-    [Export] private float minValue = -90;
-    [Export] private float maxValue = 0;
-    [Export] private float duration = 1;
-    [Export] private Tween.TransitionType transition = Tween.TransitionType.Linear;
-    [Export] public Node2D StartPoint;
-    [Export] public Node2D EndPoint;
+    [Export, ExportCategory("Settings")] private float minValue = -60;
+    [Export, ExportCategory("Settings")] private float maxValue = 60;
+    [Export, ExportCategory("Settings")] private float duration = 1;
+    [Export, ExportCategory("Settings")] private Tween.TransitionType transition = Tween.TransitionType.Linear;
+
+    [Export, ExportCategory("Settings/Nodes")] public Node2D StartPoint;
+    [Export, ExportCategory("Settings/Nodes")] public Node2D EndPoint;
+
     private int state;
+    private int direction;
+
     private Tween tween;
+
+    public override void _Ready()
+    {
+        RotationDegrees = minValue;
+        state = STOP;
+        direction = UP;
+    }
+
     private Vector2 Calculate() => (EndPoint.GlobalPosition - StartPoint.GlobalPosition).Normalized();
 
     public void Starting()
     {
-        if(state == 1){
+        if(state == PLAY){
             EndRotation();
             return;
         }
 
-        tween = CreateNewTween();
-        state = 1;
+        tween = ContinueTween();
+        state = PLAY;
     }
 
     private void EndRotation()
     {
-        state = 0;
+        state = STOP;
         tween?.Kill();
         CalculatedDirection?.Invoke(Calculate());
     }
 
     private Tween CreateNewTween()
     {
-        const string property_name = "rotation_degrees";
         Tween result = CreateTween();
-        if(RotationDegrees <= minValue)
-            result.TweenProperty(this, property_name, maxValue, duration)
-                  .From(minValue)
-                  .SetTrans(transition);
-        else
-            result.TweenProperty(this, property_name, minValue, duration)
-                  .From(maxValue)
-                  .SetTrans(transition);
+
+        if(RotationDegrees <= minValue){
+            SetProperty(result, minValue, maxValue);
+            direction = UP;
+        }
+        else{
+            SetProperty(result, maxValue, minValue);
+            direction = DOWN;
+        }
+
         result.Finished += () => tween = CreateNewTween();
         return result;
     }
+
+    private Tween ContinueTween()
+    {
+        Tween result = CreateTween();
+        SetProperty(result, RotationDegrees, direction == DOWN ? minValue : maxValue);
+        result.Finished += () => tween = CreateNewTween();
+        return result;
+    }
+
+    private void SetProperty(Tween tween, float from, float to) => tween
+                                                                   .TweenProperty(this, PROPERTY_NAME, to, duration)
+                                                                   .From(from)
+                                                                   .SetTrans(transition);
 }
