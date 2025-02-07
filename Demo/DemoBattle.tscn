@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://h8mi3kmucs6v"]
+
+[ext_resource type="PackedScene" uid="uid://c0vlu6mogmo1c" path="res://scenes/character.tscn" id="1_wu163"]
+[ext_resource type="PackedScene" uid="uid://c0tod7yw4sold" path="res://scenes/enemySmile.tscn" id="2_n2nw5"]
+[ext_resource type="Texture2D" uid="uid://csvp54a8tx1sl" path="res://sprites/Black.png" id="3_ekohk"]
+[ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="4_o46bu"]
+[ext_resource type="Texture2D" uid="uid://ci2p0yqc435sn" path="res://sprites/tile.png" id="5_piia0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2d2t"]
+size = Vector2(32, 32)
+
+[node name="DemoBattle" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_wu163")]
+position = Vector2(97, 171)
+
+[node name="EnemySmile" parent="." instance=ExtResource("2_n2nw5")]
+position = Vector2(584, 169)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(354, 186)
+scale = Vector2(25.56, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("3_ekohk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_e2d2t")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(350, 210)
+
+[node name="Attack" type="Button" parent="."]
+offset_left = 251.0
+offset_top = 243.0
+offset_right = 422.0
+offset_bottom = 349.0
+focus_mode = 0
+theme_override_constants/h_separation = 45
+theme_override_fonts/font = ExtResource("4_o46bu")
+theme_override_font_sizes/font_size = 66
+text = "Attack"
+icon = ExtResource("5_piia0")

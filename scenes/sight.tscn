@@ -6,7 +6,6 @@
 [node name="sight" type="Node2D" node_paths=PackedStringArray("StartPoint", "EndPoint")]
 rotation = -1.5708
 script = ExtResource("1_1nrio")
-transition = 7
 StartPoint = NodePath("StartPoint")
 EndPoint = NodePath("EndPoint")
 
