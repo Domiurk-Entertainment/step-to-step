@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://ct1n8m7uafsk3"]
+[gd_scene load_steps=11 format=3 uid="uid://ct1n8m7uafsk3"]
 
 [ext_resource type="Texture2D" uid="uid://dbyrkdcqorm7n" path="res://sprites/midleBG.png" id="1_vnl2b"]
 [ext_resource type="Texture2D" uid="uid://cpd86ba5txyk0" path="res://sprites/bottom.png" id="3_fu2nr"]
 [ext_resource type="Texture2D" uid="uid://b3ew8w0gexdkq" path="res://sprites/Tilemap.png" id="3_q3scr"]
+[ext_resource type="Texture2D" uid="uid://25v7258uxqef" path="res://sprites/SmallButtonGreen.png" id="4_6fy47"]
+[ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="5_ues4e"]
+[ext_resource type="Texture2D" uid="uid://dssgaqodgixcx" path="res://sprites/GREENBUTTUNBIG.png" id="6_c1n63"]
+[ext_resource type="Texture2D" uid="uid://cw7fnbcsld1pd" path="res://sprites/settings.png" id="7_6fgoo"]
+[ext_resource type="Texture2D" uid="uid://71vkxx7am28p" path="res://sprites/ButtonPausGreeen.png" id="8_5cd6j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_em74d"]
 texture = ExtResource("3_q3scr")
@@ -155,3 +160,59 @@ flip_v = true
 z_index = 10
 position = Vector2(80, 36)
 zoom = Vector2(4.35, 4.35)
+
+[node name="SmallButton" type="Sprite2D" parent="."]
+z_index = 8
+position = Vector2(70, 115.5)
+texture = ExtResource("4_6fy47")
+flip_h = true
+flip_v = true
+
+[node name="Attack" type="Button" parent="."]
+z_index = 8
+offset_left = 51.0
+offset_top = 84.0
+offset_right = 176.0
+offset_bottom = 106.0
+scale = Vector2(0.41, 0.41)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_ues4e")
+theme_override_font_sizes/font_size = 14
+text = "Attack"
+
+[node name="BigButton" type="Sprite2D" parent="."]
+z_index = 7
+position = Vector2(77, 88)
+scale = Vector2(0.93662, 1)
+texture = ExtResource("6_c1n63")
+
+[node name="try to escape" type="Button" parent="."]
+z_index = 9
+offset_left = 53.0
+offset_top = 111.0
+offset_right = 174.0
+offset_bottom = 143.0
+scale = Vector2(0.28, 0.28)
+theme_override_fonts/font = ExtResource("5_ues4e")
+theme_override_font_sizes/font_size = 21
+
+[node name="paus" type="Button" parent="."]
+z_index = 40
+offset_left = 128.0
+offset_top = -58.0
+offset_right = 141.0
+offset_bottom = -44.0
+scale = Vector2(0.78, 0.69)
+
+[node name="Settings" type="Sprite2D" parent="."]
+z_index = 41
+position = Vector2(133, -54)
+scale = Vector2(0.625, 0.562501)
+texture = ExtResource("7_6fgoo")
+
+[node name="ButtonPaus" type="Sprite2D" parent="."]
+z_index = 39
+position = Vector2(133, -53)
+scale = Vector2(0.689655, 0.6875)
+texture = ExtResource("8_5cd6j")

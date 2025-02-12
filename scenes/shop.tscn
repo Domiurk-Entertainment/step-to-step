@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dvjyvgcb54dff"]
+[gd_scene load_steps=15 format=3 uid="uid://dvjyvgcb54dff"]
 
 [ext_resource type="PackedScene" uid="uid://dwvhlj2ouj5t6" path="res://scenes/location_1.tscn" id="1_s2mdu"]
 [ext_resource type="PackedScene" uid="uid://fp1u0lj51jap" path="res://scenes/goblinshop.tscn" id="3_50xft"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="4_gx4c3"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="5_wu0as"]
 [ext_resource type="Script" path="res://scripts/Camera2D.gd" id="6_3qxd1"]
+[ext_resource type="Texture2D" uid="uid://dslaqll0yjmml" path="res://sprites/ShopBackPack.png" id="7_37j4e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5uihl"]
 atlas = ExtResource("4_gx4c3")
@@ -63,7 +64,7 @@ animations = [{
 
 [node name="Goblinshop" parent="." instance=ExtResource("3_50xft")]
 z_index = 6
-position = Vector2(119, 52)
+position = Vector2(143, 52)
 
 [node name="PlayerMenu" type="CharacterBody2D" parent="."]
 position = Vector2(-43, -48)
@@ -96,3 +97,12 @@ z_index = 15
 position = Vector2(82, 35)
 zoom = Vector2(4.35, 4.35)
 script = ExtResource("6_3qxd1")
+
+[node name="ShopBackPack" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.839216, 0.839216, 0.839216, 1)
+light_mask = 2
+z_index = 29
+position = Vector2(85, 30)
+scale = Vector2(1.10294, 1.12981)
+texture = ExtResource("7_37j4e")

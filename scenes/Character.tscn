@@ -114,15 +114,14 @@ light_mask = 2
 visibility_layer = 2
 script = ExtResource("1_mxhar")
 node_paths = {
-NodePath("AnimatedSprite2D"): "animIdleandStik"
+NodePath("AnimatedSprite2D"): "idle_notWeapon"
 }
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
+position = Vector2(-6, 0)
 sprite_frames = SubResource("SpriteFrames_1jh8v")
-animation = &"animIdleandStik"
-frame = 3
-frame_progress = 0.128718
+animation = &"idle_notWeapon"
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 light_mask = 2
@@ -137,12 +136,6 @@ max_value = 60.0
 value = 60.0
 show_percentage = false
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(1, 2)
-scale = Vector2(1.36, 1.36)
-color = Color(1, 0.945098, 0.419608, 1)
-texture = ExtResource("2_g178e")
-
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 light_mask = 7
 visibility_layer = 7
@@ -152,3 +145,9 @@ color = Color(1, 1, 0.243137, 1)
 energy = 4.59
 texture = ExtResource("4_vrrox")
 texture_scale = 0.01
+
+[node name="PixelLight" type="Sprite2D" parent="."]
+modulate = Color(1, 0.909804, 0.494118, 0.121569)
+position = Vector2(-4, 1)
+scale = Vector2(1.15, 1.15)
+texture = ExtResource("2_g178e")

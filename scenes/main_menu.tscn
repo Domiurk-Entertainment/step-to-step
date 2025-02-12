@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://v1bwsg58hh8u"]
+[gd_scene load_steps=6 format=3 uid="uid://v1bwsg58hh8u"]
 
 [ext_resource type="Texture2D" uid="uid://cu4we4jjrtiid" path="res://sprites/PixelMainMenu.png" id="1_bisl8"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_f54t6"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="2_rd6an"]
 [ext_resource type="Texture2D" uid="uid://cw7fnbcsld1pd" path="res://sprites/settings.png" id="3_jbijw"]
+[ext_resource type="Texture2D" uid="uid://cxakb86cebaqy" path="res://sprites/ButtonPaus.png" id="4_go363"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_f54t6")
@@ -41,17 +42,6 @@ theme_override_font_sizes/font_size = 14
 disabled = true
 text = "Return"
 
-[node name="settings" type="Button" parent="."]
-offset_left = 134.0
-offset_top = 10.0
-offset_right = 164.0
-offset_bottom = 41.0
-scale = Vector2(0.62, 0.62)
-theme_override_fonts/font = ExtResource("2_rd6an")
-theme_override_font_sizes/font_size = 14
-text = "
-"
-
 [node name="Developers" type="Label" parent="."]
 offset_left = 4.0
 offset_top = 218.0
@@ -68,11 +58,6 @@ offset_bottom = 229.0
 theme_override_fonts/font = ExtResource("2_rd6an")
 theme_override_font_sizes/font_size = 7
 text = "Demo v 0.1"
-
-[node name="Settings" type="Sprite2D" parent="."]
-position = Vector2(143, 19)
-scale = Vector2(0.95, 0.95)
-texture = ExtResource("3_jbijw")
 
 [node name="SettingsMenu" type="ColorRect" parent="."]
 visible = false
@@ -91,6 +76,27 @@ scale = Vector2(0.62, 0.62)
 theme_override_fonts/font = ExtResource("2_rd6an")
 theme_override_font_sizes/font_size = 14
 text = "Quit"
+
+[node name="ButtonPaus" type="Sprite2D" parent="."]
+position = Vector2(142.25, 19.5)
+scale = Vector2(1.05172, 1.03125)
+texture = ExtResource("4_go363")
+
+[node name="settings" type="Button" parent="."]
+offset_left = 134.0
+offset_top = 10.0
+offset_right = 164.0
+offset_bottom = 41.0
+scale = Vector2(0.62, 0.62)
+theme_override_fonts/font = ExtResource("2_rd6an")
+theme_override_font_sizes/font_size = 14
+text = "
+"
+
+[node name="Settings" type="Sprite2D" parent="."]
+position = Vector2(143, 19)
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("3_jbijw")
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
