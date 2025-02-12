@@ -298,6 +298,7 @@ offset_top = -189.0
 offset_right = 417.0
 offset_bottom = 292.0
 color = Color(0.258824, 0.290196, 0.435294, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="PlayerStepToStep" parent="." instance=ExtResource("8_c8kg3")]
 visible = false
@@ -310,6 +311,7 @@ offset_left = 139.0
 offset_top = -62.0
 offset_right = 155.0
 offset_bottom = -45.0
+metadata/_edit_use_anchors_ = true
 
 [node name="pausBlur" type="ColorRect" parent="."]
 visible = false
