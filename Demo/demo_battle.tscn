@@ -52,3 +52,4 @@ theme_override_fonts/font = ExtResource("4_o46bu")
 theme_override_font_sizes/font_size = 66
 text = "Attack"
 icon = ExtResource("5_piia0")
+metadata/_edit_use_anchors_ = true
