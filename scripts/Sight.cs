@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.ComponentModel;
 
 namespace StepToStep.Battle;
 
@@ -15,10 +16,12 @@ public partial class Sight : Node2D
 
     [Export, ExportCategory("Settings")] private float minValue = -60;
     [Export] private float maxValue = 60;
+    [Category("Tween")]
     [Export] private float duration = 1;
     [Export] private Tween.TransitionType transition = Tween.TransitionType.Linear;
 
-    [Export, ExportCategory("Settings/Nodes")] public Node2D StartPoint;
+    [Export, ExportCategory("Settings/Nodes")]
+    public Node2D StartPoint;
     [Export] public Node2D EndPoint;
 
     private int state;
@@ -35,15 +38,16 @@ public partial class Sight : Node2D
 
     private Vector2 Calculate() => (EndPoint.GlobalPosition - StartPoint.GlobalPosition).Normalized();
 
-    public void Starting()
+    public bool TryShoot()
     {
         if(state == PLAY){
             EndRotation();
-            return;
+            return true;
         }
 
         tween = ContinueTween();
         state = PLAY;
+        return false;
     }
 
     private void EndRotation()

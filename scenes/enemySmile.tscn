@@ -61,7 +61,8 @@ position = Vector2(-6, -32)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_pkpm7")
 animation = &"idle"
-frame_progress = 0.908437
+frame = 1
+frame_progress = 0.613635
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(1, 4)
@@ -75,3 +76,4 @@ texture_scale = 0.01
 position = Vector2(2, -14)
 rotation = 1.57464
 shape = SubResource("CapsuleShape2D_23ccu")
+one_way_collision = true
