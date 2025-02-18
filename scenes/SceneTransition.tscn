@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://h5gujhqc4xd8"]
 
-[ext_resource type="Script" path="res://scripts/scene_transition.gd" id="1_7o8gk"]
+[ext_resource type="Script" path="res://scripts/roma/scene_transition.gd" id="1_7o8gk"]
 
 [sub_resource type="Animation" id="Animation_s7sad"]
 resource_name = "animation_finished"

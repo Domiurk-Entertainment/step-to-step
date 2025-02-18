@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="8_iohnm"]
 [ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="8_oyity"]
 [ext_resource type="PackedScene" uid="uid://bste1dma5c0dp" path="res://scenes/Point.tscn" id="11_sgnt7"]
-[ext_resource type="Script" path="res://scripts/point2.gd" id="12_cta3l"]
+[ext_resource type="Script" path="res://scripts/roma/point2.gd" id="12_cta3l"]
 [ext_resource type="Shader" path="res://scenes/blur.gdshader" id="13_tmlm8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6pai"]

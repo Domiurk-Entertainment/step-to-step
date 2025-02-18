@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="4_vrrox"]
 [ext_resource type="Script" path="res://scripts/stats/StatHandler.cs" id="7_q77xg"]
 [ext_resource type="Script" path="res://scripts/stats/Stat.cs" id="8_6j1gn"]
+[ext_resource type="PackedScene" uid="uid://bwixc66257oaw" path="res://scenes/sight.tscn" id="10_8va8p"]
 [ext_resource type="Script" path="res://scripts/inventory/ItemContainer.cs" id="10_xn815"]
-[ext_resource type="PackedScene" uid="uid://lbnk8d8uawap" path="res://scenes/sight.tscn" id="12_uubtq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xyuuh"]
 atlas = ExtResource("2_kpjut")
@@ -175,8 +175,8 @@ value = 3
 unique_name_in_owner = true
 script = ExtResource("10_xn815")
 
-[node name="sight" parent="." instance=ExtResource("12_uubtq")]
-position = Vector2(36, -40)
-
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(36, -40)
+
+[node name="sight" parent="." instance=ExtResource("10_8va8p")]
+position = Vector2(26, -28)
