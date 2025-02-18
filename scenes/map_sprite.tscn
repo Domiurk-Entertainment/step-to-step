@@ -795,6 +795,7 @@ NodePath("front_top_bottom_cave/Animatedblum4"): "default"
 }
 
 [node name="TileMap" type="TileMap" parent="."]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
 position = Vector2(7, 82)
 rotation = 0.0033744
 scale = Vector2(4, 4)
@@ -862,7 +863,7 @@ frame_progress = 0.356979
 
 [node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum"]
 position = Vector2(-5, -5)
-energy = 1.69
+energy = 4.0
 texture = ExtResource("5_4y1k6")
 texture_scale = 0.02
 
@@ -873,7 +874,7 @@ frame_progress = 0.19797
 
 [node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum3"]
 position = Vector2(-5, -5)
-energy = 1.69
+energy = 4.0
 texture = ExtResource("5_4y1k6")
 texture_scale = 0.02
 
@@ -884,7 +885,7 @@ frame_progress = 0.19797
 
 [node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum4"]
 position = Vector2(-5, -5)
-energy = 1.69
+energy = 4.0
 texture = ExtResource("5_4y1k6")
 texture_scale = 0.02
 
@@ -895,7 +896,7 @@ frame_progress = 0.19797
 
 [node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum5"]
 position = Vector2(-5, -5)
-energy = 1.69
+energy = 4.0
 texture = ExtResource("5_4y1k6")
 texture_scale = 0.02
 
@@ -906,7 +907,7 @@ frame_progress = 0.19797
 
 [node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum9"]
 position = Vector2(-5, -5)
-energy = 1.69
+energy = 4.0
 texture = ExtResource("5_4y1k6")
 texture_scale = 0.02
 
@@ -917,7 +918,7 @@ frame_progress = 0.19797
 
 [node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum6"]
 position = Vector2(-5, -5)
-energy = 1.69
+energy = 4.0
 texture = ExtResource("5_4y1k6")
 texture_scale = 0.02
 
@@ -928,7 +929,7 @@ frame_progress = 0.19797
 
 [node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum7"]
 position = Vector2(-5, -5)
-energy = 1.69
+energy = 4.0
 texture = ExtResource("5_4y1k6")
 texture_scale = 0.02
 
@@ -939,7 +940,7 @@ frame_progress = 0.19797
 
 [node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum8"]
 position = Vector2(-5, -5)
-energy = 1.69
+energy = 4.0
 texture = ExtResource("5_4y1k6")
 texture_scale = 0.02
 
@@ -949,11 +950,13 @@ position = Vector2(-17, -244)
 scale = Vector2(4, 4)
 
 [node name="TheFrontLowerPartOfTheCave" type="Sprite2D" parent="front_top_bottom_cave"]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
 z_index = 5
 position = Vector2(43, 143)
 texture = ExtResource("1_bes3c")
 
 [node name="TheFrontLowerPartOfTheCave2" type="Sprite2D" parent="front_top_bottom_cave"]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
 z_index = 5
 position = Vector2(104, 143)
 texture = ExtResource("1_bes3c")
@@ -966,7 +969,7 @@ frame_progress = 0.19797
 
 [node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum10"]
 position = Vector2(-5, -5)
-energy = 1.69
+energy = 4.0
 texture = ExtResource("5_4y1k6")
 texture_scale = 0.02
 
@@ -978,7 +981,7 @@ frame_progress = 0.19797
 
 [node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum13"]
 position = Vector2(-5, -5)
-energy = 1.69
+energy = 4.0
 texture = ExtResource("5_4y1k6")
 texture_scale = 0.02
 
@@ -990,7 +993,7 @@ frame_progress = 0.19797
 
 [node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum12"]
 position = Vector2(-5, -5)
-energy = 1.69
+energy = 4.0
 texture = ExtResource("5_4y1k6")
 texture_scale = 0.02
 
@@ -1002,7 +1005,7 @@ frame_progress = 0.19797
 
 [node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum11"]
 position = Vector2(-5, -5)
-energy = 1.69
+energy = 4.0
 texture = ExtResource("5_4y1k6")
 texture_scale = 0.02
 
@@ -1014,7 +1017,7 @@ frame_progress = 0.19797
 
 [node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum9"]
 position = Vector2(-5, -5)
-energy = 1.69
+energy = 4.0
 texture = ExtResource("5_4y1k6")
 texture_scale = 0.02
 
@@ -1026,7 +1029,7 @@ frame_progress = 0.19797
 
 [node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum5"]
 position = Vector2(-5, -5)
-energy = 1.69
+energy = 4.0
 texture = ExtResource("5_4y1k6")
 texture_scale = 0.02
 
@@ -1038,7 +1041,7 @@ frame_progress = 0.19797
 
 [node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum14"]
 position = Vector2(-5, -5)
-energy = 1.69
+energy = 4.0
 texture = ExtResource("5_4y1k6")
 texture_scale = 0.02
 
@@ -1050,7 +1053,7 @@ frame_progress = 0.464069
 
 [node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum2"]
 position = Vector2(-5, -5)
-energy = 1.69
+energy = 4.0
 texture = ExtResource("5_4y1k6")
 texture_scale = 0.02
 
@@ -1062,16 +1065,18 @@ frame_progress = 0.19797
 
 [node name="PointLight2D" type="PointLight2D" parent="front_top_bottom_cave/Animatedblum4"]
 position = Vector2(-5, -5)
-energy = 1.69
+energy = 4.0
 texture = ExtResource("5_4y1k6")
 texture_scale = 0.02
 
 [node name="FrontUpperPartOfTheCave" type="Sprite2D" parent="front_top_bottom_cave"]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
 z_index = 5
 position = Vector2(35, -76.75)
 texture = ExtResource("2_i7vgh")
 
 [node name="FrontUpperPartOfTheCave2" type="Sprite2D" parent="front_top_bottom_cave"]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
 z_index = 5
 position = Vector2(100, -76.75)
 texture = ExtResource("2_i7vgh")
@@ -1083,22 +1088,26 @@ position = Vector2(-11, -249)
 scale = Vector2(4, 4)
 
 [node name="TheRightWallOfTheCave" type="Sprite2D" parent="wallCave"]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
 z_index = 6
 position = Vector2(146.5, -27)
 texture = ExtResource("7_7iuju")
 
 [node name="TheRightWallOfTheCave2" type="Sprite2D" parent="wallCave"]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
 z_index = 6
 position = Vector2(146.25, 87)
 texture = ExtResource("7_7iuju")
 
 [node name="TheRightWallOfTheCave3" type="Sprite2D" parent="wallCave"]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
 z_index = 6
 position = Vector2(-6, -26.75)
 texture = ExtResource("7_7iuju")
 flip_h = true
 
 [node name="TheRightWallOfTheCave4" type="Sprite2D" parent="wallCave"]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
 z_index = 6
 position = Vector2(-5.75, 87)
 texture = ExtResource("7_7iuju")
@@ -1110,7 +1119,7 @@ scale = Vector2(4, 4)
 
 [node name="PointLight2D" type="PointLight2D" parent="PlayerMenu"]
 scale = Vector2(1.36, 1.36)
-color = Color(1, 0.945098, 0.419608, 1)
+color = Color(1, 0.94902, 0.298039, 1)
 texture = ExtResource("8_iohnm")
 
 [node name="PlayerAnimMenu" type="AnimatedSprite2D" parent="PlayerMenu"]
@@ -1126,7 +1135,7 @@ light_mask = 2
 position = Vector2(-5.75, 4.25)
 scale = Vector2(1.69893, 1.68039)
 color = Color(1, 1, 0.243137, 1)
-energy = 4.59
+energy = 7.87
 texture = ExtResource("5_4y1k6")
 texture_scale = 0.01
 
