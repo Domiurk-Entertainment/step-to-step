@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://lbnk8d8uawap"]
+
+[ext_resource type="Script" path="res://scripts/Sight.cs" id="1_1nrio"]
+[ext_resource type="Texture2D" uid="uid://c5bjo478isdk2" path="res://sprites/White.png" id="1_8na3h"]
+
+[node name="sight" type="Node2D" node_paths=PackedStringArray("StartPoint", "EndPoint")]
+rotation = -1.5708
+script = ExtResource("1_1nrio")
+StartPoint = NodePath("StartPoint")
+EndPoint = NodePath("EndPoint")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16, 0)
+scale = Vector2(1, 0.25)
+texture = ExtResource("1_8na3h")
+
+[node name="StartPoint" type="Node2D" parent="."]
+
+[node name="EndPoint" type="Node2D" parent="."]
+position = Vector2(32, 0)

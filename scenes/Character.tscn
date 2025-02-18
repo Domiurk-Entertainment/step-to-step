@@ -1,10 +1,15 @@
-[gd_scene load_steps=21 format=3 uid="uid://dljwnkfdxe6dw"]
+[gd_scene load_steps=26 format=3 uid="uid://c0vlu6mogmo1c"]
 
-[ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_mxhar"]
+[ext_resource type="Script" path="res://scripts/Player.cs" id="1_8sdka"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="2_g178e"]
 [ext_resource type="Texture2D" uid="uid://dr1ine2qikvux" path="res://sprites/idleanimplayerandstick.png" id="2_kpjut"]
 [ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="2_v4bmy"]
+[ext_resource type="Script" path="res://scripts/Health.cs" id="4_qxmag"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="4_vrrox"]
+[ext_resource type="Script" path="res://scripts/stats/StatHandler.cs" id="7_q77xg"]
+[ext_resource type="Script" path="res://scripts/stats/Stat.cs" id="8_6j1gn"]
+[ext_resource type="Script" path="res://scripts/inventory/ItemContainer.cs" id="10_xn815"]
+[ext_resource type="PackedScene" uid="uid://lbnk8d8uawap" path="res://scenes/sight.tscn" id="12_uubtq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xyuuh"]
 atlas = ExtResource("2_kpjut")
@@ -109,45 +114,69 @@ bg_color = Color(0, 0, 0, 0.560784)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yp88j"]
 bg_color = Color(0.113725, 0.666667, 0.231373, 1)
 
-[node name="PlayerStepToStep" type="Node2D"]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("spawnBalls", "sight")]
 light_mask = 2
 visibility_layer = 2
-script = ExtResource("1_mxhar")
-node_paths = {
-NodePath("AnimatedSprite2D"): "idle_notWeapon"
-}
+script = ExtResource("1_8sdka")
+spawnBalls = NodePath("Node2D")
+sight = NodePath("sight")
+ballScene = "res://scenes/ball.tscn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
-position = Vector2(-6, 0)
+position = Vector2(26, -32)
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_1jh8v")
-animation = &"idle_notWeapon"
+animation = &"animIdleandStik"
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="Health" type="ProgressBar" parent="."]
+unique_name_in_owner = true
 light_mask = 2
-offset_left = -17.0
-offset_top = -15.0
-offset_right = 4.0
-offset_bottom = -12.0
+offset_left = -25.0
+offset_top = -80.0
+offset_right = 25.0
+offset_bottom = -71.0
 rotation = -0.00068116
 theme_override_styles/background = SubResource("StyleBoxFlat_igk4g")
 theme_override_styles/fill = SubResource("StyleBoxFlat_yp88j")
 max_value = 60.0
 value = 60.0
 show_percentage = false
+script = ExtResource("4_qxmag")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(7.88124, -5.9857)
+scale = Vector2(1.36, 1.36)
+color = Color(1, 0.945098, 0.419608, 1)
+texture = ExtResource("2_g178e")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 light_mask = 7
 visibility_layer = 7
-position = Vector2(-14, 4)
+position = Vector2(-7.11876, -3.98569)
 scale = Vector2(1.69893, 1.68039)
 color = Color(1, 1, 0.243137, 1)
 energy = 4.59
 texture = ExtResource("4_vrrox")
 texture_scale = 0.01
 
-[node name="PixelLight" type="Sprite2D" parent="."]
-modulate = Color(1, 0.909804, 0.494118, 0.121569)
-position = Vector2(-4, 1)
-scale = Vector2(1.15, 1.15)
-texture = ExtResource("2_g178e")
+[node name="Stats" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("7_q77xg")
+
+[node name="Damage" type="Node" parent="Stats"]
+script = ExtResource("8_6j1gn")
+
+[node name="Speed" type="Node" parent="Stats"]
+script = ExtResource("8_6j1gn")
+value = 3
+
+[node name="Inventory" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("10_xn815")
+
+[node name="sight" parent="." instance=ExtResource("12_uubtq")]
+position = Vector2(36, -40)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(36, -40)

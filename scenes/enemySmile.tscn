@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bv13h00py03ka"]
+[gd_scene load_steps=10 format=3 uid="uid://c0tod7yw4sold"]
 
 [ext_resource type="Texture2D" uid="uid://xh7ql7nmox2b" path="res://sprites/smileAnimIdle.png" id="1_e1xpn"]
 [ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_r15wu"]
@@ -32,6 +32,10 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_23ccu"]
+radius = 13.9999
+height = 48.0
+
 [node name="EnemySmile" type="CharacterBody2D"]
 script = ExtResource("1_r15wu")
 node_paths = {
@@ -40,10 +44,10 @@ NodePath("AnimatedSprite2D"): "idle"
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 light_mask = 2
-offset_left = -9.0
-offset_top = -9.0
-offset_right = 12.0
-offset_bottom = -6.0
+offset_left = -22.0
+offset_top = -41.0
+offset_right = 26.0
+offset_bottom = -34.0
 rotation = -0.00068116
 theme_override_styles/background = SubResource("StyleBoxFlat_4mats")
 theme_override_styles/fill = SubResource("StyleBoxFlat_06usy")
@@ -53,9 +57,12 @@ show_percentage = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.741176, 0.741176, 0.741176, 1)
+position = Vector2(-6, -32)
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_pkpm7")
 animation = &"idle"
-frame_progress = 0.908437
+frame = 1
+frame_progress = 0.613635
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(1, 4)
@@ -64,3 +71,9 @@ color = Color(0.258824, 0.678431, 1, 1)
 energy = 2.45
 texture = ExtResource("2_vtf8y")
 texture_scale = 0.01
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -14)
+rotation = 1.57464
+shape = SubResource("CapsuleShape2D_23ccu")
+one_way_collision = true
