@@ -18,10 +18,10 @@ player = NodePath("Player")
 enemy = NodePath("EnemySmile")
 
 [node name="Player" parent="." instance=ExtResource("1_wu163")]
-position = Vector2(97, 171)
+position = Vector2(97, 162)
 
 [node name="EnemySmile" parent="." instance=ExtResource("2_n2nw5")]
-position = Vector2(584, 169)
+position = Vector2(584, 163)
 script = ExtResource("7_41vt4")
 duration = 1.0
 transitionType = 0
