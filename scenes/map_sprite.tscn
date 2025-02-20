@@ -801,52 +801,45 @@ rotation = 0.0033744
 scale = Vector2(4, 4)
 tile_set = SubResource("TileSet_c0n3n")
 format = 2
-layer_0/modulate = Color(0.745098, 0.745098, 0.745098, 1)
 layer_0/tile_data = PackedInt32Array(-262145, 65536, 0, -196609, 65536, 0, -131073, 65536, 0, -65537, 65536, 0, -1, 65536, 0, 65535, 65536, 0, 131071, 65536, 0, 196607, 65536, 0, 262143, 65536, 0, -327680, 131072, 0, -262144, 131072, 1, -196608, 131072, 2, -131072, 65536, 0, -65536, 65536, 0, 0, 65536, 0, 65536, 0, 0, 131072, 65536, 0, 196608, 65536, 0, -327679, 0, 1, -262143, 196608, 1, -196607, 196608, 2, -131071, 131072, 0, 65537, 65536, 0, 131073, 0, 0, 196609, 65536, 0, -327678, 262144, 1, -262142, 65536, 1, -196606, 0, 2, -131070, 0, 1, 65538, 131072, 1, 131074, 131072, 2, 196610, 65536, 0, -327677, 65536, 0, -262141, 196608, 0, -196605, 196608, 1, -131069, 65536, 2, -65533, 262144, 1, 3, 65536, 1, 65539, 196608, 1, 131075, 196608, 2, 196611, 65536, 0, -327676, 65536, 0, -262140, 196608, 0, -196604, 196608, 1, -131068, 0, 2, -65532, 131072, 1, 4, 0, 1, 65540, 196608, 1, 131076, 196608, 2, 196612, 65536, 0, -327675, 131072, 1, -262139, 0, 1, -196603, 65536, 2, -131067, 65536, 1, -65531, 196608, 1, 5, 65536, 2, 65541, 262144, 1, 131077, 262144, 2, 196613, 65536, 0, -327674, 65536, 1, -262138, 196608, 1, -196602, 196608, 2, -131066, 262144, 0, -65530, 262144, 1, 6, 262144, 2, 65542, 65536, 0, 131078, 65536, 0, 196614, 65536, 0, -327673, 262144, 0, -262137, 262144, 1, -65529, 65536, 0, 7, 65536, 0, 65543, 65536, 0, 196615, 65536, 0, -327672, 65536, 0, -262136, 65536, 0, -196600, 65536, 0, 8, 65536, 0, 65544, 65536, 0, 131080, 65536, 0, 196616, 65536, 0, 2, 0, 2, 1, 131072, 2, -65535, 131072, 1, -65534, 196608, 1, 131079, 0, 0, -65528, 0, 0, -131064, 65536, 0, -131065, 65536, 0, -196601, 262144, 2, -589825, 65536, 0, -524289, 65536, 0, -458753, 65536, 0, -393217, 65536, 0, -327681, 65536, 0, -655360, 65536, 0, -589824, 65536, 0, -524288, 65536, 0, -458752, 65536, 0, -393216, 0, 0, -655359, 65536, 0, -589823, 65536, 0, -524287, 0, 0, -458751, 131072, 0, -393215, 131072, 1, -655358, 65536, 0, -589822, 65536, 0, -524286, 131072, 0, -458750, 0, 1, -393214, 65536, 2, -655357, 65536, 0, -589821, 65536, 0, -524285, 196608, 0, -458749, 196608, 1, -393213, 196608, 2, -655356, 65536, 0, -589820, 65536, 0, -524284, 196608, 0, -458748, 196608, 1, -393212, 196608, 2, -655355, 65536, 0, -589819, 0, 0, -524283, 262144, 0, -458747, 65536, 1, -393211, 0, 2, -655354, 65536, 0, -589818, 65536, 0, -524282, 65536, 0, -458746, 262144, 0, -393210, 262144, 1, -655353, 65536, 0, -589817, 65536, 0, -524281, 65536, 0, -458745, 0, 0, -393209, 65536, 0, -655352, 65536, 0, -589816, 65536, 0, -524280, 65536, 0, -458744, 65536, 0, -393208, 65536, 0, 327679, 65536, 0, 262144, 65536, 0, 262145, 65536, 0, 262146, 65536, 0, 262147, 65536, 0, 262148, 65536, 0, 262149, 65536, 0, 262150, 65536, 0, 262151, 65536, 0, 262152, 65536, 0, -589826, 65536, 0, -524290, 65536, 0, -458754, 65536, 0, -393218, 65536, 0, -327682, 65536, 0, -262146, 65536, 0, -196610, 65536, 0, -131074, 65536, 0, -65538, 65536, 0, -2, 65536, 0, 65534, 65536, 0, 131070, 65536, 0, 196606, 65536, 0, 262142, 65536, 0, 327678, 65536, 0, -655362, 65536, 0, -655361, 65536, 0, -720896, 65536, 0, -720895, 65536, 0, -720894, 65536, 0, -720893, 65536, 0, -720892, 65536, 0, -720891, 65536, 0, -720890, 65536, 0, -720889, 65536, 0, -720888, 65536, 0, -720887, 65536, 0, -655351, 65536, 0, -589815, 65536, 0, -524279, 65536, 0, -458743, 65536, 0, -393207, 65536, 0, -327671, 65536, 0, -262135, 65536, 0, -196599, 65536, 0, -131063, 65536, 0, -65527, 65536, 0, 9, 65536, 0, 65545, 65536, 0, 131081, 65536, 0, 196617, 65536, 0, 262153, 65536, 0)
 
 [node name="point" type="Node2D" parent="TileMap"]
+visible = false
 modulate = Color(0.745098, 0.745098, 0.745098, 1)
 position = Vector2(-4.98985, 3.01686)
 rotation = -0.0033744
 
 [node name="Tile" type="Sprite2D" parent="TileMap/point"]
-visible = false
 position = Vector2(69, 20)
 scale = Vector2(0.84375, 0.71875)
 texture = ExtResource("3_edaoj")
 
 [node name="Tile2" type="Sprite2D" parent="TileMap/point"]
-visible = false
 position = Vector2(94, -10)
 scale = Vector2(0.84375, 0.71875)
 texture = ExtResource("3_edaoj")
 
 [node name="Tile3" type="Sprite2D" parent="TileMap/point"]
-visible = false
 position = Vector2(44, -10)
 scale = Vector2(0.84375, 0.71875)
 texture = ExtResource("3_edaoj")
 
 [node name="Tile4" type="Sprite2D" parent="TileMap/point"]
-visible = false
 position = Vector2(69, -44)
 scale = Vector2(0.84375, 0.71875)
 texture = ExtResource("3_edaoj")
 
 [node name="Tile5" type="Sprite2D" parent="TileMap/point"]
-visible = false
 position = Vector2(110, -62)
 scale = Vector2(0.84375, 0.71875)
 texture = ExtResource("3_edaoj")
 
 [node name="Tile6" type="Sprite2D" parent="TileMap/point"]
-visible = false
 position = Vector2(29, -61)
 scale = Vector2(0.84375, 0.71875)
 texture = ExtResource("3_edaoj")
 
 [node name="Tile7" type="Sprite2D" parent="TileMap/point"]
-visible = false
 position = Vector2(69.5906, -107.533)
 scale = Vector2(1.07382, 0.941683)
 texture = ExtResource("3_edaoj")
@@ -867,7 +860,200 @@ energy = 4.0
 texture = ExtResource("5_4y1k6")
 texture_scale = 0.02
 
+[node name="Animatedblum2" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+visible = false
+position = Vector2(5.25, 15.25)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.356979
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum2"]
+position = Vector2(-5, -5)
+energy = 4.0
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum10" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+visible = false
+position = Vector2(4.75, -0.750004)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.356979
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum10"]
+position = Vector2(-5, -5)
+energy = 4.0
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum11" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+visible = false
+position = Vector2(147.25, 15.5)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.356979
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum11"]
+position = Vector2(-5, -5)
+energy = 4.0
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum12" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+visible = false
+position = Vector2(3.50002, 47.5)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.356979
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum12"]
+position = Vector2(-5, -5)
+energy = 4.0
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum13" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+visible = false
+position = Vector2(6.5, -30.75)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.356979
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum13"]
+position = Vector2(-5, -5)
+energy = 4.0
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum14" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+visible = false
+position = Vector2(0.250002, -39.25)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.356979
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum14"]
+position = Vector2(-5, -5)
+energy = 4.0
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum16" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+visible = false
+position = Vector2(146.5, -30.25)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.356979
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum16"]
+position = Vector2(-5, -5)
+energy = 4.0
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum17" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+visible = false
+position = Vector2(148.25, -49.25)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.356979
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum17"]
+position = Vector2(-5, -5)
+energy = 4.0
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum18" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+visible = false
+position = Vector2(149.5, -66.75)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.356979
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum18"]
+position = Vector2(-5, -5)
+energy = 4.0
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum19" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+visible = false
+position = Vector2(146.75, -98.5)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.356979
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum19"]
+position = Vector2(-5, -5)
+energy = 4.0
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum20" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+visible = false
+position = Vector2(147.75, -116)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.356979
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum20"]
+position = Vector2(-5, -5)
+energy = 4.0
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum21" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+visible = false
+position = Vector2(4.50002, -97.75)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.356979
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum21"]
+position = Vector2(-5, -5)
+energy = 4.0
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum22" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+visible = false
+position = Vector2(3.25, -66.25)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.356979
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum22"]
+position = Vector2(-5, -5)
+energy = 4.0
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum23" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+visible = false
+position = Vector2(6.5, -130.5)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.356979
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum23"]
+position = Vector2(-5, -5)
+energy = 4.0
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum24" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+visible = false
+position = Vector2(3.75, -144.5)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.356979
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum24"]
+position = Vector2(-5, -5)
+energy = 4.0
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
+[node name="Animatedblum25" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+visible = false
+position = Vector2(147, -144.25)
+sprite_frames = SubResource("SpriteFrames_8koel")
+frame_progress = 0.356979
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMap/Blum_anim/Animatedblum25"]
+position = Vector2(-5, -5)
+energy = 4.0
+texture = ExtResource("5_4y1k6")
+texture_scale = 0.02
+
 [node name="Animatedblum3" type="AnimatedSprite2D" parent="TileMap/Blum_anim"]
+visible = false
 position = Vector2(125, -102)
 sprite_frames = SubResource("SpriteFrames_8koel")
 frame_progress = 0.19797

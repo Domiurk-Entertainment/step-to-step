@@ -102,31 +102,37 @@ z_index = 5
 position = Vector2(15, 0)
 
 [node name="TheFrontLowerPartOfTheCave" type="Sprite2D" parent="front_top_bottom_cave2"]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
 z_index = 5
 position = Vector2(43, 143)
 texture = ExtResource("1_0mw86")
 
 [node name="TheFrontLowerPartOfTheCave3" type="Sprite2D" parent="front_top_bottom_cave2"]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
 z_index = 5
 position = Vector2(-48, 143)
 texture = ExtResource("1_0mw86")
 
 [node name="TheFrontLowerPartOfTheCave2" type="Sprite2D" parent="front_top_bottom_cave2"]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
 z_index = 5
 position = Vector2(104, 143)
 texture = ExtResource("1_0mw86")
 
 [node name="FrontUpperPartOfTheCave" type="Sprite2D" parent="front_top_bottom_cave2"]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
 z_index = 5
 position = Vector2(35, -72)
 texture = ExtResource("2_5ia3i")
 
 [node name="FrontUpperPartOfTheCave3" type="Sprite2D" parent="front_top_bottom_cave2"]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
 z_index = 5
 position = Vector2(-57, -72)
 texture = ExtResource("2_5ia3i")
 
 [node name="FrontUpperPartOfTheCave2" type="Sprite2D" parent="front_top_bottom_cave2"]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
 z_index = 5
 position = Vector2(100, -72)
 texture = ExtResource("2_5ia3i")
@@ -232,32 +238,34 @@ texture = ExtResource("4_l8xwe")
 texture_scale = 0.02
 
 [node name="PenultimatePartOfTheCave" type="Sprite2D" parent="."]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
 z_index = 3
 position = Vector2(87.5, 22.5)
 scale = Vector2(0.95625, 0.528409)
 texture = ExtResource("5_guvte")
 
 [node name="PenultimatePartOfTheCave2" type="Sprite2D" parent="."]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
 z_index = 3
 position = Vector2(11, 21.5)
 scale = Vector2(0.95625, 0.505682)
 texture = ExtResource("5_guvte")
 
 [node name="Bgcave" type="Sprite2D" parent="."]
-modulate = Color(0.909804, 0.882353, 0.909804, 1)
+modulate = Color(0.572549, 0.556863, 0.615686, 1)
 z_index = 1
 position = Vector2(140, 42)
 texture = ExtResource("6_iiv8j")
 
 [node name="Bgcave3" type="Sprite2D" parent="."]
-modulate = Color(0.909804, 0.882353, 0.909804, 1)
+modulate = Color(0.572549, 0.556863, 0.615686, 1)
 z_index = 1
-position = Vector2(103, -13)
+position = Vector2(103, -6)
 texture = ExtResource("6_iiv8j")
 flip_v = true
 
 [node name="Bgcave6" type="Sprite2D" parent="."]
-modulate = Color(0.909804, 0.882353, 0.909804, 1)
+modulate = Color(0.572549, 0.556863, 0.615686, 1)
 z_index = 1
 position = Vector2(174, -12.7499)
 scale = Vector2(1, 1.34615)
@@ -265,22 +273,22 @@ texture = ExtResource("6_iiv8j")
 flip_v = true
 
 [node name="Bgcave4" type="Sprite2D" parent="."]
-modulate = Color(0.909804, 0.882353, 0.909804, 1)
+modulate = Color(0.572549, 0.556863, 0.615686, 1)
 z_index = 1
-position = Vector2(12, -12)
+position = Vector2(12, -10)
 scale = Vector2(1, 1.14103)
 texture = ExtResource("6_iiv8j")
 flip_v = true
 
 [node name="Bgcave2" type="Sprite2D" parent="."]
-modulate = Color(0.909804, 0.882353, 0.909804, 1)
+modulate = Color(0.572549, 0.556863, 0.615686, 1)
 z_index = 1
 position = Vector2(50, 43.5)
 texture = ExtResource("6_iiv8j")
 flip_h = true
 
 [node name="Bgcave5" type="Sprite2D" parent="."]
-modulate = Color(0.909804, 0.882353, 0.909804, 1)
+modulate = Color(0.572549, 0.556863, 0.615686, 1)
 z_index = 1
 position = Vector2(-23, 53.5)
 texture = ExtResource("6_iiv8j")
@@ -299,7 +307,7 @@ offset_left = -233.0
 offset_top = -189.0
 offset_right = 417.0
 offset_bottom = 292.0
-color = Color(0.258824, 0.290196, 0.435294, 1)
+color = Color(0.164706, 0.188235, 0.294118, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="PlayerStepToStep" parent="." instance=ExtResource("8_c8kg3")]
