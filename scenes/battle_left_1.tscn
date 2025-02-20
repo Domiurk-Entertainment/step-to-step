@@ -1,15 +1,18 @@
 [gd_scene load_steps=8 format=3 uid="uid://blkmjkllufijl"]
 
-[ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_sspim"]
+[ext_resource type="Script" path="res://Demo/DemoBattle.cs" id="1_ajywq"]
 [ext_resource type="PackedScene" uid="uid://dwvhlj2ouj5t6" path="res://scenes/location_1.tscn" id="2_aih25"]
 [ext_resource type="PackedScene" uid="uid://c0vlu6mogmo1c" path="res://scenes/Character.tscn" id="3_xbjvx"]
-[ext_resource type="PackedScene" uid="uid://c0tod7yw4sold" path="res://scenes/enemySmile.tscn" id="4_gg428"]
+[ext_resource type="PackedScene" uid="uid://c0tod7yw4sold" path="res://scenes/enemy_smile.tscn" id="4_gg428"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="5_5sqi1"]
 [ext_resource type="Texture2D" uid="uid://dagjp57mc74my" path="res://sprites/SmallButton.png" id="5_71era"]
 [ext_resource type="Texture2D" uid="uid://bkn15av8my80s" path="res://sprites/bigButton.png" id="7_dme63"]
 
-[node name="BattleLeft1" type="Node2D"]
-script = ExtResource("1_sspim")
+[node name="BattleLeft1" type="Node2D" node_paths=PackedStringArray("playerAttackButton", "player", "enemy")]
+script = ExtResource("1_ajywq")
+playerAttackButton = NodePath("Attack2")
+player = NodePath("PlayerStepToStep")
+enemy = NodePath("EnemySmile")
 
 [node name="location1" parent="." instance=ExtResource("2_aih25")]
 

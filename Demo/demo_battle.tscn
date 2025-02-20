@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://h8mi3kmucs6v"]
 
 [ext_resource type="Script" path="res://Demo/DemoBattle.cs" id="1_uhltu"]
-[ext_resource type="PackedScene" uid="uid://c0vlu6mogmo1c" path="res://scenes/Character.tscn" id="1_wu163"]
-[ext_resource type="PackedScene" uid="uid://c0tod7yw4sold" path="res://scenes/enemySmile.tscn" id="2_n2nw5"]
+[ext_resource type="PackedScene" uid="uid://c0vlu6mogmo1c" path="res://scenes/character.tscn" id="1_wu163"]
+[ext_resource type="PackedScene" uid="uid://c0tod7yw4sold" path="res://scenes/enemy_smile.tscn" id="2_n2nw5"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="4_o46bu"]
 [ext_resource type="Texture2D" uid="uid://dslaqll0yjmml" path="res://sprites/ShopBackPack.png" id="5_fle2h"]
 [ext_resource type="Texture2D" uid="uid://ci2p0yqc435sn" path="res://sprites/tile.png" id="5_piia0"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://v1bwsg58hh8u"]
+[gd_scene load_steps=8 format=3 uid="uid://v1bwsg58hh8u"]
 
 [ext_resource type="Texture2D" uid="uid://cu4we4jjrtiid" path="res://sprites/PixelMainMenu.png" id="1_bisl8"]
 [ext_resource type="Script" path="res://scripts/roma/main_menu.gd" id="1_f54t6"]
@@ -6,6 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://cw7fnbcsld1pd" path="res://sprites/settings.png" id="3_jbijw"]
 [ext_resource type="Texture2D" uid="uid://dnjxmb3w8e2m4" path="res://sprites/ButtonPaus.png" id="4_go363"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="6_vmf7i"]
+
+[sub_resource type="Curve" id="Curve_vhq72"]
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0893372, 195.789), 0.0, 0.0, 0, 0, Vector2(0.331412, 14.7368), 0.0, 0.0, 0, 0, Vector2(0.472622, 193.684), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 5
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_f54t6")
@@ -275,21 +280,25 @@ anim_speed_max = 1.29
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
 position = Vector2(74, 99)
 rotation = 1.2525
-amount = 9
-lifetime = 5.0
+amount = 100
+lifetime = 2.5
 speed_scale = 0.2
+randomness = 0.24
+lifetime_randomness = 0.1
 gravity = Vector2(2.08165e-12, -140.47)
-initial_velocity_max = 101.01
+initial_velocity_max = 546.96
 angular_velocity_max = 6.0
 orbit_velocity_min = -1.0
 orbit_velocity_max = 2.0
 linear_accel_min = -1.01
 linear_accel_max = 1.01
 radial_accel_max = 2.02
-damping_max = 0.14
+damping_max = 63.536
 scale_amount_max = 1.5
 color = Color(0.862745, 1, 1, 1)
-anim_speed_max = 1.29
+anim_speed_min = 0.71
+anim_speed_max = 2.83
+anim_speed_curve = SubResource("Curve_vhq72")
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
