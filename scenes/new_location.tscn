@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ct1n8m7uafsk3"]
+[gd_scene load_steps=12 format=3 uid="uid://ct1n8m7uafsk3"]
 
 [ext_resource type="Texture2D" uid="uid://dbyrkdcqorm7n" path="res://sprites/midleBG.png" id="1_vnl2b"]
 [ext_resource type="Texture2D" uid="uid://cpd86ba5txyk0" path="res://sprites/bottom.png" id="3_fu2nr"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dssgaqodgixcx" path="res://sprites/GREENBUTTUNBIG.png" id="6_c1n63"]
 [ext_resource type="Texture2D" uid="uid://cw7fnbcsld1pd" path="res://sprites/settings.png" id="7_6fgoo"]
 [ext_resource type="Texture2D" uid="uid://71vkxx7am28p" path="res://sprites/ButtonPausGreeen.png" id="8_5cd6j"]
+[ext_resource type="AudioStream" uid="uid://dk4q3cp1xe864" path="res://sound/Pixel Music Pack/Wav/Pixel 2.wav" id="9_tj72i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_em74d"]
 texture = ExtResource("3_q3scr")
@@ -216,3 +217,7 @@ z_index = 39
 position = Vector2(133, -53)
 scale = Vector2(0.689655, 0.6875)
 texture = ExtResource("8_5cd6j")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_tj72i")
+autoplay = true

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ccl3b785xcg0o"
+path="res://.godot/imported/Pixel 3.wav-d525b0d3f0a57a8bdfaba2f1be97cc56.sample"
+
+[deps]
+
+source_file="res://sound/Pixel Music Pack/Wav/Pixel 3.wav"
+dest_files=["res://.godot/imported/Pixel 3.wav-d525b0d3f0a57a8bdfaba2f1be97cc56.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
