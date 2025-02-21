@@ -12,7 +12,6 @@ func _ready():
 	for node_path in node_paths:
 		var node = get_node(node_path)
 		if check(node) and not node_paths[node_path] == "":
-			print("played to node")
 			play(node,node_paths[node_path])
 	for child in child_with_scripts:
 		child.request_ready()

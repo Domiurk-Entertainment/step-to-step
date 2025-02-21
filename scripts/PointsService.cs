@@ -11,6 +11,9 @@ public partial class PointsService : Node2D
     [Export] private Node2D miniPlayer;
     [Export] private Point startPoint;
     [Export] private float duration = 1;
+    [Export] private Vector2 pointOffset = new Vector2(50, 50);
+
+    private Point lastPoint;
 
     public override void _Ready()
     {
@@ -30,8 +33,12 @@ public partial class PointsService : Node2D
 
             void PointOnPressed()
             {
+                foreach(Point lastPointChild in lastPoint.Points)
+                    lastPointChild.ChangePointVisible(false);
+                GD.Print(point.PivotOffset);
                 Tween tween =
-                    miniPlayer.CreateToTween(miniPlayer.GlobalPosition, point.GlobalPosition, "global_position",
+                    miniPlayer.CreateToTween(miniPlayer.GlobalPosition, point.GlobalPosition + pointOffset,
+                                             "global_position",
                                              duration);
                 tween.Finished += TweenOnFinished;
                 return;
@@ -39,15 +46,16 @@ public partial class PointsService : Node2D
                 void TweenOnFinished()
                 {
                     point.ActivePoint();
+                    lastPoint = point;
                     tween.Kill();
                 }
             }
         }
 
         startPoint ??= points[0];
-
-        miniPlayer.GlobalPosition = startPoint.GlobalPosition;
-        startPoint.ChangePointVisible(true);
+        lastPoint = startPoint;
+        miniPlayer.GlobalPosition = startPoint.GlobalPosition + pointOffset;
+        startPoint.ChangePointVisible(false);
         startPoint.ActivePoint();
     }
 }

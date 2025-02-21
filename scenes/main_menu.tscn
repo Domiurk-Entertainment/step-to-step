@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://v1bwsg58hh8u"]
+[gd_scene load_steps=13 format=3 uid="uid://v1bwsg58hh8u"]
 
 [ext_resource type="Texture2D" uid="uid://cu4we4jjrtiid" path="res://sprites/PixelMainMenu.png" id="1_bisl8"]
 [ext_resource type="Script" path="res://scripts/roma/main_menu.gd" id="1_f54t6"]
@@ -20,6 +20,8 @@ particles_anim_loop = true
 max_value = 200.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0893372, 195.789), 0.0, 0.0, 0, 0, Vector2(0.331412, 14.7368), 0.0, 0.0, 0, 0, Vector2(0.472622, 193.684), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hp82c"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_f54t6")
@@ -156,282 +158,11 @@ z_index = 6
 position = Vector2(81, 115)
 zoom = Vector2(4.35, 4.35)
 
-[node name="PointLight2D" type="DirectionalLight2D" parent="."]
-position = Vector2(75, 156)
-scale = Vector2(3.1829, 1.45431)
-energy = 0.22
-blend_mode = 1
-
-[node name="play" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = 49.0
-offset_top = 149.0
-offset_right = 138.0
-offset_bottom = 171.0
-scale = Vector2(0.62, 0.62)
-theme_override_fonts/font = ExtResource("2_rd6an")
-theme_override_font_sizes/font_size = 14
-text = "Play"
-
-[node name="PointLight2D" type="PointLight2D" parent="play"]
-visible = false
-light_mask = 3
-visibility_layer = 3
-position = Vector2(39.5161, 9.67725)
-scale = Vector2(0.129492, 0.033)
-energy = 4.66
-texture = ExtResource("6_vmf7i")
-
-[node name="return" type="Button" parent="."]
-offset_left = 44.0
-offset_top = 167.0
-offset_right = 149.0
-offset_bottom = 189.0
-scale = Vector2(0.62, 0.62)
-theme_override_fonts/font = ExtResource("2_rd6an")
-theme_override_font_sizes/font_size = 14
-disabled = true
-text = "Return"
-
-[node name="quit" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = 57.0
-offset_top = 185.0
-offset_right = 120.0
-offset_bottom = 207.0
-scale = Vector2(0.62, 0.62)
-theme_override_fonts/font = ExtResource("2_rd6an")
-theme_override_font_sizes/font_size = 14
-text = "Quit"
-
-[node name="PointLight2D2" type="PointLight2D" parent="quit"]
-visible = false
-light_mask = 3
-visibility_layer = 3
-position = Vector2(25.8064, 9.67676)
-scale = Vector2(0.129492, 0.033)
-energy = 4.66
-texture = ExtResource("6_vmf7i")
-
-[node name="Quit" type="Label" parent="."]
-offset_left = 67.0
-offset_top = 187.0
-offset_right = 145.42
-offset_bottom = 197.0
-scale = Vector2(1.27, 1.27)
-theme_override_fonts/font = ExtResource("2_rd6an")
-theme_override_font_sizes/font_size = 7
-text = "Quit"
-
-[node name="Developers" type="Label" parent="."]
-offset_left = 4.0
-offset_top = 218.0
-offset_right = 85.0
-offset_bottom = 228.0
-theme_override_fonts/font = ExtResource("2_rd6an")
-theme_override_font_sizes/font_size = 7
-
-[node name="vers" type="Label" parent="."]
-offset_left = 118.0
-offset_top = 219.0
-offset_right = 199.0
-offset_bottom = 229.0
-theme_override_fonts/font = ExtResource("2_rd6an")
-theme_override_font_sizes/font_size = 7
-text = "Demo v 0.1"
-
-[node name="Play" type="Label" parent="."]
-offset_left = 62.0
-offset_top = 151.0
-offset_right = 140.42
-offset_bottom = 161.0
-scale = Vector2(1.27, 1.27)
-theme_override_fonts/font = ExtResource("2_rd6an")
-theme_override_font_sizes/font_size = 7
-text = "Player"
-
-[node name="SettingsMenu" type="ColorRect" parent="."]
-visible = false
-offset_left = 40.0
-offset_top = 55.0
-offset_right = 116.0
-offset_bottom = 144.0
-color = Color(0, 0, 0, 0.545098)
-
-[node name="quit2" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = 57.0
-offset_top = 185.0
-offset_right = 120.0
-offset_bottom = 207.0
-scale = Vector2(0.62, 0.62)
-theme_override_fonts/font = ExtResource("2_rd6an")
-theme_override_font_sizes/font_size = 14
-text = "Quit"
-
-[node name="Quit2" type="Label" parent="."]
-offset_left = 67.0
-offset_top = 187.0
-offset_right = 145.42
-offset_bottom = 197.0
-scale = Vector2(1.27, 1.27)
-theme_override_fonts/font = ExtResource("2_rd6an")
-theme_override_font_sizes/font_size = 7
-text = "Quit"
-
-[node name="ButtonPaus" type="Sprite2D" parent="."]
+[node name="SettingFrame" type="Sprite2D" parent="."]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
 position = Vector2(142.25, 19.5)
 scale = Vector2(1.05172, 1.03125)
 texture = ExtResource("4_go363")
-
-[node name="settings" type="Button" parent="."]
-offset_left = 134.0
-offset_top = 10.0
-offset_right = 164.0
-offset_bottom = 41.0
-scale = Vector2(0.62, 0.62)
-theme_override_fonts/font = ExtResource("2_rd6an")
-theme_override_font_sizes/font_size = 14
-text = "
-"
-
-[node name="Settings" type="Sprite2D" parent="."]
-position = Vector2(143, 19)
-scale = Vector2(0.95, 0.95)
-texture = ExtResource("3_jbijw")
-
-[node name="PointLight2D2" type="PointLight2D" parent="."]
-position = Vector2(143, 21)
-energy = 3.88
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D3" type="PointLight2D" parent="."]
-position = Vector2(131, 90)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D4" type="PointLight2D" parent="."]
-position = Vector2(44, 72)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D5" type="PointLight2D" parent="."]
-position = Vector2(37, 38)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D6" type="PointLight2D" parent="."]
-position = Vector2(12, 112)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D7" type="PointLight2D" parent="."]
-position = Vector2(74, 34)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D8" type="PointLight2D" parent="."]
-position = Vector2(32, 45)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D9" type="PointLight2D" parent="."]
-position = Vector2(144, 144)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D10" type="PointLight2D" parent="."]
-position = Vector2(28, 191)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D11" type="PointLight2D" parent="."]
-position = Vector2(148, 65)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D13" type="PointLight2D" parent="."]
-position = Vector2(53, 208)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D14" type="PointLight2D" parent="."]
-position = Vector2(76, 17)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D15" type="PointLight2D" parent="."]
-position = Vector2(100, 12)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D16" type="PointLight2D" parent="."]
-position = Vector2(96, 200)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D17" type="PointLight2D" parent="."]
-position = Vector2(80, 211)
-scale = Vector2(0.33076, 0.313573)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D18" type="PointLight2D" parent="."]
-position = Vector2(51, 205)
-scale = Vector2(0.596793, 0.466148)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D19" type="PointLight2D" parent="."]
-position = Vector2(28, 191)
-scale = Vector2(0.425772, 0.402575)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D20" type="PointLight2D" parent="."]
-position = Vector2(154, 107)
-scale = Vector2(0.416271, 0.415289)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D21" type="PointLight2D" parent="."]
-position = Vector2(126, 155)
-scale = Vector2(0.416271, 0.415289)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_ar43w")
@@ -469,13 +200,255 @@ volume_db = 8.418
 [node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_7ggnn")
 
-[connection signal="mouse_entered" from="play" to="." method="_on_play_mouse_entered"]
-[connection signal="mouse_exited" from="play" to="." method="_on_play_mouse_exited"]
-[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
-[connection signal="mouse_entered" from="return" to="." method="_on_return_mouse_entered"]
-[connection signal="pressed" from="return" to="." method="_on_return_pressed"]
-[connection signal="mouse_entered" from="quit" to="." method="_on_quit_mouse_entered"]
-[connection signal="mouse_exited" from="quit" to="." method="_on_quit_mouse_exited"]
-[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
-[connection signal="mouse_entered" from="settings" to="." method="_on_settings_mouse_entered"]
-[connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="PointLight2D2" type="PointLight2D" parent="Lights"]
+position = Vector2(143, 21)
+energy = 3.88
+texture = ExtResource("6_vmf7i")
+texture_scale = 0.05
+
+[node name="PointLight2D3" type="PointLight2D" parent="Lights"]
+position = Vector2(131, 90)
+scale = Vector2(0.699525, 0.652575)
+energy = 3.65
+texture = ExtResource("6_vmf7i")
+texture_scale = 0.05
+
+[node name="PointLight2D4" type="PointLight2D" parent="Lights"]
+position = Vector2(44, 72)
+scale = Vector2(0.699525, 0.652575)
+energy = 3.65
+texture = ExtResource("6_vmf7i")
+texture_scale = 0.05
+
+[node name="PointLight2D5" type="PointLight2D" parent="Lights"]
+position = Vector2(37, 38)
+scale = Vector2(0.699525, 0.652575)
+energy = 3.65
+texture = ExtResource("6_vmf7i")
+texture_scale = 0.05
+
+[node name="PointLight2D6" type="PointLight2D" parent="Lights"]
+position = Vector2(12, 112)
+scale = Vector2(0.699525, 0.652575)
+energy = 3.65
+texture = ExtResource("6_vmf7i")
+texture_scale = 0.05
+
+[node name="PointLight2D7" type="PointLight2D" parent="Lights"]
+position = Vector2(74, 34)
+scale = Vector2(0.699525, 0.652575)
+energy = 3.65
+texture = ExtResource("6_vmf7i")
+texture_scale = 0.05
+
+[node name="PointLight2D8" type="PointLight2D" parent="Lights"]
+position = Vector2(32, 45)
+scale = Vector2(0.699525, 0.652575)
+energy = 3.65
+texture = ExtResource("6_vmf7i")
+texture_scale = 0.05
+
+[node name="PointLight2D9" type="PointLight2D" parent="Lights"]
+position = Vector2(144, 144)
+scale = Vector2(0.699525, 0.652575)
+energy = 3.65
+texture = ExtResource("6_vmf7i")
+texture_scale = 0.05
+
+[node name="PointLight2D10" type="PointLight2D" parent="Lights"]
+position = Vector2(28, 191)
+scale = Vector2(0.699525, 0.652575)
+energy = 3.65
+texture = ExtResource("6_vmf7i")
+texture_scale = 0.05
+
+[node name="PointLight2D11" type="PointLight2D" parent="Lights"]
+position = Vector2(148, 65)
+scale = Vector2(0.699525, 0.652575)
+energy = 3.65
+texture = ExtResource("6_vmf7i")
+texture_scale = 0.05
+
+[node name="PointLight2D13" type="PointLight2D" parent="Lights"]
+position = Vector2(53, 208)
+scale = Vector2(0.699525, 0.652575)
+energy = 3.65
+texture = ExtResource("6_vmf7i")
+texture_scale = 0.05
+
+[node name="PointLight2D14" type="PointLight2D" parent="Lights"]
+position = Vector2(76, 17)
+scale = Vector2(0.699525, 0.652575)
+energy = 3.65
+texture = ExtResource("6_vmf7i")
+texture_scale = 0.05
+
+[node name="PointLight2D15" type="PointLight2D" parent="Lights"]
+position = Vector2(100, 12)
+scale = Vector2(0.699525, 0.652575)
+energy = 3.65
+texture = ExtResource("6_vmf7i")
+texture_scale = 0.05
+
+[node name="PointLight2D16" type="PointLight2D" parent="Lights"]
+position = Vector2(96, 200)
+scale = Vector2(0.699525, 0.652575)
+energy = 3.65
+texture = ExtResource("6_vmf7i")
+texture_scale = 0.05
+
+[node name="PointLight2D17" type="PointLight2D" parent="Lights"]
+position = Vector2(80, 211)
+scale = Vector2(0.33076, 0.313573)
+energy = 3.65
+texture = ExtResource("6_vmf7i")
+texture_scale = 0.05
+
+[node name="PointLight2D18" type="PointLight2D" parent="Lights"]
+position = Vector2(51, 205)
+scale = Vector2(0.596793, 0.466148)
+energy = 3.65
+texture = ExtResource("6_vmf7i")
+texture_scale = 0.05
+
+[node name="PointLight2D19" type="PointLight2D" parent="Lights"]
+position = Vector2(28, 191)
+scale = Vector2(0.425772, 0.402575)
+energy = 3.65
+texture = ExtResource("6_vmf7i")
+texture_scale = 0.05
+
+[node name="PointLight2D20" type="PointLight2D" parent="Lights"]
+position = Vector2(154, 107)
+scale = Vector2(0.416271, 0.415289)
+energy = 3.65
+texture = ExtResource("6_vmf7i")
+texture_scale = 0.05
+
+[node name="PointLight2D21" type="PointLight2D" parent="Lights"]
+position = Vector2(126, 155)
+scale = Vector2(0.416271, 0.415289)
+energy = 3.65
+texture = ExtResource("6_vmf7i")
+texture_scale = 0.05
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 161.0
+offset_bottom = 230.0
+
+[node name="Return" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.155
+anchor_top = 0.791
+anchor_right = 0.775
+anchor_bottom = 0.851
+offset_left = 0.0449982
+offset_top = 0.0700073
+offset_right = 61.225
+offset_bottom = 8.27002
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.62, 0.62)
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_rd6an")
+theme_override_font_sizes/font_size = 14
+text = "Return"
+flat = true
+
+[node name="Settings" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.839
+anchor_top = 0.057
+anchor_right = 0.939
+anchor_bottom = 0.121
+offset_left = -0.07901
+offset_top = -0.110001
+offset_right = 9.82098
+offset_bottom = 9.17
+scale = Vector2(0.62, 0.62)
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_rd6an")
+theme_override_font_sizes/font_size = 14
+text = "
+"
+icon = ExtResource("3_jbijw")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Version" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.758
+anchor_top = 0.957
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.038002
+offset_top = -0.110001
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_rd6an")
+theme_override_font_sizes/font_size = 7
+text = "Demo v 0.1"
+
+[node name="Play" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.168
+anchor_top = 0.696
+anchor_right = 0.783
+anchor_bottom = 0.791
+offset_left = -0.0480022
+offset_top = -0.0800018
+offset_right = -0.0630112
+offset_bottom = 0.0699921
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_rd6an")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hp82c")
+text = "Play"
+flat = true
+text_overrun_behavior = 2
+
+[node name="Quit" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.155
+anchor_top = 0.843
+anchor_right = 0.77
+anchor_bottom = 0.939
+offset_left = 0.0450001
+offset_top = 0.109985
+offset_right = 0.0299911
+offset_bottom = 0.0299835
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_rd6an")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hp82c")
+text = "Exit"
+flat = true
+text_overrun_behavior = 2
+
+[node name="SettingsMenu" type="ColorRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 40.0
+offset_top = 42.0
+offset_right = 116.0
+offset_bottom = 131.0
+color = Color(0, 0, 0, 0.545098)
+
+[connection signal="mouse_entered" from="Control/Return" to="." method="_on_return_mouse_entered"]
+[connection signal="pressed" from="Control/Return" to="." method="_on_return_pressed"]
+[connection signal="mouse_entered" from="Control/Settings" to="." method="_on_settings_mouse_entered"]
+[connection signal="pressed" from="Control/Settings" to="." method="_on_settings_pressed"]
+[connection signal="mouse_entered" from="Control/Play" to="." method="_on_play_mouse_entered"]
+[connection signal="pressed" from="Control/Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="Control/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]

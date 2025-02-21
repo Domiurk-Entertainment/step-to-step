@@ -1,10 +1,13 @@
 ﻿using Godot;
 using System;
+using System.Collections.Generic;
 
 namespace StepToStep.scripts;
 
 public partial class Point : Button
 {
+    public IReadOnlyCollection<Point> Points => pointsUnlock;
+    
     [Export] private Point[] pointsUnlock = Array.Empty<Point>();
     [Export(PropertyHint.Dir)] private PackedScene sceneToLoad;
 

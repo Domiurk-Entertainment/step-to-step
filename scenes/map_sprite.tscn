@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://di4mft2i2j7yn"]
+[gd_scene load_steps=33 format=3 uid="uid://di4mft2i2j7yn"]
 
 [ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/the front lower part of the cave.png" id="1_bes3c"]
 [ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_nmtdw"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="5_4y1k6"]
 [ext_resource type="Script" path="res://scripts/PointsService.cs" id="6_44mf3"]
 [ext_resource type="Texture2D" uid="uid://7s5uw7p7xydu" path="res://sprites/the right wall of the cave.png" id="7_7iuju"]
-[ext_resource type="PackedScene" uid="uid://dvjyvgcb54dff" path="res://scenes/shop.tscn" id="8_45myx"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="8_iohnm"]
 [ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="8_oyity"]
 [ext_resource type="PackedScene" uid="uid://bnmrpc3reumda" path="res://scenes/battle_boss.tscn" id="8_rdooe"]
@@ -147,23 +146,23 @@ shader_parameter/amount = 3.118
 [node name="MapSprite" type="Node2D"]
 script = ExtResource("1_nmtdw")
 node_paths = {
-NodePath("TileMap/Blum_anim/Animatedblum"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum3"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum4"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum5"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum9"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum6"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum7"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum8"): "default",
-NodePath("front_top_bottom_cave/Animatedblum10"): "default",
-NodePath("front_top_bottom_cave/Animatedblum13"): "default",
-NodePath("front_top_bottom_cave/Animatedblum12"): "default",
-NodePath("front_top_bottom_cave/Animatedblum11"): "default",
-NodePath("front_top_bottom_cave/Animatedblum9"): "default",
-NodePath("front_top_bottom_cave/Animatedblum5"): "default",
-NodePath("front_top_bottom_cave/Animatedblum14"): "default",
+NodePath("front_top_bottom_cave/Animatedblum4"): "default",
 NodePath("front_top_bottom_cave/Animatedblum2"): "default",
-NodePath("front_top_bottom_cave/Animatedblum4"): "default"
+NodePath("front_top_bottom_cave/Animatedblum14"): "default",
+NodePath("front_top_bottom_cave/Animatedblum5"): "default",
+NodePath("front_top_bottom_cave/Animatedblum9"): "default",
+NodePath("front_top_bottom_cave/Animatedblum11"): "default",
+NodePath("front_top_bottom_cave/Animatedblum12"): "default",
+NodePath("front_top_bottom_cave/Animatedblum13"): "default",
+NodePath("front_top_bottom_cave/Animatedblum10"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum8"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum7"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum6"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum9"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum5"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum4"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum3"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum"): "default"
 }
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -509,9 +508,9 @@ script = ExtResource("6_44mf3")
 miniPlayer = NodePath("../PlayerMenu")
 
 [node name="Point" parent="Points" node_paths=PackedStringArray("pointsUnlock") instance=ExtResource("11_sgnt7")]
-offset_left = 0.25
+offset_left = 0.0
 offset_top = -1.0
-offset_right = 24.25
+offset_right = 24.0
 offset_bottom = 23.0
 pointsUnlock = [NodePath("../Point2"), NodePath("../Point3")]
 
@@ -535,13 +534,13 @@ offset_top = -66.25
 offset_right = 24.0
 offset_bottom = -42.25
 pointsUnlock = [NodePath("../Point5"), NodePath("../Point6")]
-sceneToLoad = ExtResource("8_45myx")
 
 [node name="Point5" parent="Points" node_paths=PackedStringArray("pointsUnlock") instance=ExtResource("11_sgnt7")]
 offset_left = 40.5
 offset_top = -83.5
 offset_right = 64.5
 offset_bottom = -59.5
+pivot_offset = Vector2(13.25, 12)
 pointsUnlock = [NodePath("../Point7")]
 
 [node name="Point6" parent="Points" node_paths=PackedStringArray("pointsUnlock") instance=ExtResource("11_sgnt7")]
@@ -549,6 +548,7 @@ offset_left = -40.5
 offset_top = -82.75
 offset_right = -16.5
 offset_bottom = -58.75
+pivot_offset = Vector2(11.5, 12)
 pointsUnlock = [NodePath("../Point7")]
 
 [node name="Point7" parent="Points" instance=ExtResource("11_sgnt7")]
@@ -556,6 +556,7 @@ offset_left = -2.75
 offset_top = -130.75
 offset_right = 21.25
 offset_bottom = -106.75
+pivot_offset = Vector2(11.25, 12)
 sceneToLoad = ExtResource("8_rdooe")
 
 [node name="front_top_bottom_cave" type="Node2D" parent="."]
@@ -728,10 +729,11 @@ texture = ExtResource("7_7iuju")
 flip_h = true
 
 [node name="PlayerMenu" type="CharacterBody2D" parent="."]
-position = Vector2(361.6, -146.2)
+position = Vector2(264, -80)
 scale = Vector2(4, 4)
 
 [node name="PointLight2D" type="PointLight2D" parent="PlayerMenu"]
+position = Vector2(-0.618771, -4.18)
 scale = Vector2(1.36, 1.36)
 color = Color(1, 0.94902, 0.298039, 1)
 texture = ExtResource("8_iohnm")
@@ -740,13 +742,13 @@ texture = ExtResource("8_iohnm")
 modulate = Color(0.992157, 1, 0.866667, 1)
 light_mask = 2
 z_index = 6
-position = Vector2(-0.75, 0)
+position = Vector2(-1.36877, -7.93)
 sprite_frames = SubResource("SpriteFrames_a15pq")
 animation = &"idle"
 
 [node name="PointLight2D2" type="PointLight2D" parent="PlayerMenu"]
 light_mask = 2
-position = Vector2(-5.75, 4.25)
+position = Vector2(-6.36877, -3.68)
 scale = Vector2(1.69893, 1.68039)
 color = Color(1, 1, 0.243137, 1)
 energy = 7.87
@@ -754,54 +756,13 @@ texture = ExtResource("5_4y1k6")
 texture_scale = 0.01
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerMenu"]
+position = Vector2(-0.618771, -8.18)
 shape = SubResource("CapsuleShape2D_fbg0t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 6
 position = Vector2(267, -112)
 zoom = Vector2(1.06, 1.06)
-
-[node name="Tile" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(0.733333, 0.733333, 0.733333, 1)
-position = Vector2(165.26, 45)
-scale = Vector2(4.8425, 4.06)
-texture = ExtResource("3_edaoj")
-
-[node name="Tile2" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(0.733333, 0.733333, 0.733333, 1)
-position = Vector2(365, 45)
-scale = Vector2(4.8425, 4.06)
-texture = ExtResource("3_edaoj")
-
-[node name="Tile3" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(0.733333, 0.733333, 0.733333, 1)
-position = Vector2(264, -82)
-scale = Vector2(4.8425, 4.06)
-texture = ExtResource("3_edaoj")
-
-[node name="Tile4" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(0.733333, 0.733333, 0.733333, 1)
-position = Vector2(425, -155)
-scale = Vector2(4.8425, 4.06)
-texture = ExtResource("3_edaoj")
-
-[node name="Tile5" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(0.733333, 0.733333, 0.733333, 1)
-position = Vector2(105, -154)
-scale = Vector2(4.8425, 4.06)
-texture = ExtResource("3_edaoj")
-
-[node name="Tile6" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(0.733333, 0.733333, 0.733333, 1)
-position = Vector2(261, -340)
-scale = Vector2(4.8425, 4.06)
-texture = ExtResource("3_edaoj")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(497, -535)
