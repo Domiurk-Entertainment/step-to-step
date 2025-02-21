@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b8db8r613nqa2" path="res://sprites/penultimate part of the cave.png" id="5_guvte"]
 [ext_resource type="Texture2D" uid="uid://c7skxpom30yda" path="res://sprites/bgcave.png" id="6_iiv8j"]
 [ext_resource type="Texture2D" uid="uid://bfdu30qcxdvj5" path="res://sprites/TilemapCave.png" id="7_cul2c"]
-[ext_resource type="PackedScene" uid="uid://c0vlu6mogmo1c" path="res://scenes/Character.tscn" id="8_c8kg3"]
+[ext_resource type="PackedScene" uid="uid://c0vlu6mogmo1c" path="res://scenes/character.tscn" id="8_c8kg3"]
 [ext_resource type="Texture2D" uid="uid://dnjxmb3w8e2m4" path="res://sprites/ButtonPaus.png" id="10_euyso"]
 [ext_resource type="Shader" path="res://scenes/blur.gdshader" id="10_hl2t8"]
 [ext_resource type="Texture2D" uid="uid://cw7fnbcsld1pd" path="res://sprites/settings.png" id="12_nle3d"]
@@ -87,7 +87,6 @@ script = ExtResource("1_tah2i")
 node_paths = {
 NodePath("front_top_bottom_cave2/Animatedblum10"): "default",
 NodePath("front_top_bottom_cave2/Animatedblum13"): "default",
-NodePath(""): "default",
 NodePath("front_top_bottom_cave2/Animatedblum11"): "default",
 NodePath("front_top_bottom_cave2/Animatedblum9"): "default",
 NodePath("front_top_bottom_cave2/Animatedblum5"): "default",

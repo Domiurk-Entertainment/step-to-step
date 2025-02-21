@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://di4mft2i2j7yn"]
+[gd_scene load_steps=31 format=3 uid="uid://di4mft2i2j7yn"]
 
 [ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/the front lower part of the cave.png" id="1_bes3c"]
 [ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_nmtdw"]
@@ -10,8 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://7s5uw7p7xydu" path="res://sprites/the right wall of the cave.png" id="7_7iuju"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="8_iohnm"]
 [ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="8_oyity"]
-[ext_resource type="Script" path="res://scripts/roma/player.gd" id="9_d8ami"]
-[ext_resource type="PackedScene" uid="uid://bste1dma5c0dp" path="res://scenes/Point.tscn" id="11_sgnt7"]
+[ext_resource type="PackedScene" uid="uid://bste1dma5c0dp" path="res://scenes/point.tscn" id="11_sgnt7"]
 [ext_resource type="Script" path="res://scripts/roma/point2.gd" id="12_cta3l"]
 [ext_resource type="Shader" path="res://scenes/blur.gdshader" id="13_tmlm8"]
 
@@ -672,7 +671,6 @@ flip_h = true
 [node name="PlayerMenu" type="CharacterBody2D" parent="."]
 position = Vector2(361.6, -146.2)
 scale = Vector2(4, 4)
-script = ExtResource("9_d8ami")
 
 [node name="PointLight2D" type="PointLight2D" parent="PlayerMenu"]
 scale = Vector2(1.36, 1.36)
@@ -683,8 +681,9 @@ texture = ExtResource("8_iohnm")
 modulate = Color(0.992157, 1, 0.866667, 1)
 light_mask = 2
 z_index = 6
+position = Vector2(-0.75, 0)
 sprite_frames = SubResource("SpriteFrames_a15pq")
-animation = &"run"
+animation = &"idle"
 
 [node name="PointLight2D2" type="PointLight2D" parent="PlayerMenu"]
 light_mask = 2
@@ -709,25 +708,46 @@ position = Vector2(263, 178)
 scale = Vector2(4, 4)
 
 [node name="Point" parent="Points" instance=ExtResource("11_sgnt7")]
-position = Vector2(0.25, -1)
+offset_left = 0.25
+offset_top = -1.0
+offset_right = 24.25
+offset_bottom = 23.0
 
 [node name="Point2" parent="Points" instance=ExtResource("11_sgnt7")]
-position = Vector2(25, -32)
+offset_left = 25.0
+offset_top = -32.0
+offset_right = 49.0
+offset_bottom = -8.0
 
 [node name="Point3" parent="Points" instance=ExtResource("11_sgnt7")]
-position = Vector2(-26.25, -32.75)
+offset_left = -26.25
+offset_top = -32.75
+offset_right = -2.25
+offset_bottom = -8.75
 
 [node name="Point4" parent="Points" instance=ExtResource("11_sgnt7")]
-position = Vector2(0, -66.25)
+offset_left = 0.0
+offset_top = -66.25
+offset_right = 24.0
+offset_bottom = -42.25
 
 [node name="Point5" parent="Points" instance=ExtResource("11_sgnt7")]
-position = Vector2(40.5, -83.5)
+offset_left = 40.5
+offset_top = -83.5
+offset_right = 64.5
+offset_bottom = -59.5
 
 [node name="Point6" parent="Points" instance=ExtResource("11_sgnt7")]
-position = Vector2(-40.5, -82.75)
+offset_left = -40.5
+offset_top = -82.75
+offset_right = -16.5
+offset_bottom = -58.75
 
 [node name="Point7" parent="Points" instance=ExtResource("11_sgnt7")]
-position = Vector2(-2.75, -130.75)
+offset_left = -2.75
+offset_top = -130.75
+offset_right = 21.25
+offset_bottom = -106.75
 
 [node name="point2" type="Node2D" parent="."]
 script = ExtResource("12_cta3l")

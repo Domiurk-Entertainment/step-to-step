@@ -1,39 +1,38 @@
-[gd_scene load_steps=26 format=3 uid="uid://c0vlu6mogmo1c"]
+[gd_scene load_steps=26 format=3 uid="uid://qxp1xt6p3mcx"]
 
 [ext_resource type="Script" path="res://scripts/Player.cs" id="1_8sdka"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="2_g178e"]
-[ext_resource type="Texture2D" uid="uid://dr1ine2qikvux" path="res://sprites/idleanimplayerandstick.png" id="2_kpjut"]
 [ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="2_v4bmy"]
-[ext_resource type="Script" path="res://scripts/Health.cs" id="4_qxmag"]
+[ext_resource type="Script" path="res://scripts/stats/Health.cs" id="3_p1h7q"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="4_vrrox"]
 [ext_resource type="Script" path="res://scripts/stats/StatHandler.cs" id="7_q77xg"]
 [ext_resource type="Script" path="res://scripts/stats/Stat.cs" id="8_6j1gn"]
 [ext_resource type="PackedScene" uid="uid://bwixc66257oaw" path="res://scenes/sight.tscn" id="10_8va8p"]
 [ext_resource type="Script" path="res://scripts/inventory/ItemContainer.cs" id="10_xn815"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xyuuh"]
-atlas = ExtResource("2_kpjut")
-region = Rect2(0, 0, 32, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_amdg8"]
+atlas = ExtResource("2_v4bmy")
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mi5pu"]
-atlas = ExtResource("2_kpjut")
-region = Rect2(32, 0, 32, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8aby"]
+atlas = ExtResource("2_v4bmy")
+region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kiqm8"]
-atlas = ExtResource("2_kpjut")
-region = Rect2(64, 0, 32, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6wi4"]
+atlas = ExtResource("2_v4bmy")
+region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_68hvb"]
-atlas = ExtResource("2_kpjut")
-region = Rect2(96, 0, 32, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_imb1v"]
+atlas = ExtResource("2_v4bmy")
+region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xvebr"]
-atlas = ExtResource("2_kpjut")
-region = Rect2(128, 0, 32, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3lkc"]
+atlas = ExtResource("2_v4bmy")
+region = Rect2(64, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m3coy"]
-atlas = ExtResource("2_kpjut")
-region = Rect2(160, 0, 32, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1h68"]
+atlas = ExtResource("2_v4bmy")
+region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pw5i8"]
 atlas = ExtResource("2_v4bmy")
@@ -63,22 +62,22 @@ region = Rect2(80, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xyuuh")
+"texture": SubResource("AtlasTexture_amdg8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mi5pu")
+"texture": SubResource("AtlasTexture_p8aby")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kiqm8")
+"texture": SubResource("AtlasTexture_h6wi4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_68hvb")
+"texture": SubResource("AtlasTexture_imb1v")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xvebr")
+"texture": SubResource("AtlasTexture_k3lkc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m3coy")
+"texture": SubResource("AtlasTexture_s1h68")
 }],
 "loop": true,
 "name": &"animIdleandStik",
@@ -114,9 +113,14 @@ bg_color = Color(0, 0, 0, 0.560784)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yp88j"]
 bg_color = Color(0.113725, 0.666667, 0.231373, 1)
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("spawnBalls", "sight")]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qyung"]
+radius = 5.0
+height = 16.0
+
+[node name="Player" type="StaticBody2D" node_paths=PackedStringArray("spawnBalls", "sight")]
 light_mask = 2
 visibility_layer = 2
+collision_layer = 512
 script = ExtResource("1_8sdka")
 spawnBalls = NodePath("Node2D")
 sight = NodePath("sight")
@@ -124,23 +128,24 @@ ballScene = "res://scenes/ball.tscn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
+position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_1jh8v")
 animation = &"animIdleandStik"
 
 [node name="Health" type="ProgressBar" parent="."]
 unique_name_in_owner = true
 light_mask = 2
-offset_left = -20.0
-offset_top = -15.0
-offset_right = 6.0
-offset_bottom = -12.0
+offset_left = -12.0
+offset_top = -20.0
+offset_right = 14.0
+offset_bottom = -17.0
 rotation = -0.00068116
 theme_override_styles/background = SubResource("StyleBoxFlat_igk4g")
 theme_override_styles/fill = SubResource("StyleBoxFlat_yp88j")
 max_value = 60.0
 value = 60.0
 show_percentage = false
-script = ExtResource("4_qxmag")
+script = ExtResource("3_p1h7q")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-4, 1)
@@ -177,4 +182,10 @@ script = ExtResource("10_xn815")
 position = Vector2(18, -10)
 
 [node name="sight" parent="." instance=ExtResource("10_8va8p")]
-position = Vector2(8, 2)
+visible = false
+position = Vector2(9, -6)
+duration = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -8)
+shape = SubResource("CapsuleShape2D_qyung")

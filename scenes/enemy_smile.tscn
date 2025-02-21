@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://c0tod7yw4sold"]
+[gd_scene load_steps=11 format=3 uid="uid://c0tod7yw4sold"]
 
 [ext_resource type="Texture2D" uid="uid://xh7ql7nmox2b" path="res://sprites/smileAnimIdle.png" id="1_e1xpn"]
-[ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_r15wu"]
+[ext_resource type="Script" path="res://scripts/Enemy.cs" id="1_g11nf"]
+[ext_resource type="Script" path="res://scripts/stats/Health.cs" id="2_fi316"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="2_vtf8y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mats"]
@@ -36,34 +37,35 @@ animations = [{
 radius = 5.99996
 height = 15.9999
 
-[node name="EnemySmile" type="CharacterBody2D"]
-script = ExtResource("1_r15wu")
-node_paths = {
-NodePath("AnimatedSprite2D"): "idle"
-}
+[node name="EnemySmile" type="CharacterBody2D" node_paths=PackedStringArray("rayCast2D")]
+collision_layer = 256
+script = ExtResource("1_g11nf")
+rayCast2D = NodePath("RayCast2D")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 light_mask = 2
-offset_left = -11.0
-offset_top = -11.0
-offset_right = 15.0
-offset_bottom = -7.0
+offset_left = -12.0
+offset_top = -15.0
+offset_right = 14.0
+offset_bottom = -11.0
 rotation = -0.00068116
 theme_override_styles/background = SubResource("StyleBoxFlat_4mats")
 theme_override_styles/fill = SubResource("StyleBoxFlat_06usy")
 max_value = 60.0
 value = 60.0
 show_percentage = false
+script = ExtResource("2_fi316")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.741176, 0.741176, 0.741176, 1)
+position = Vector2(-1, -8)
 sprite_frames = SubResource("SpriteFrames_pkpm7")
 animation = &"idle"
 frame = 1
 frame_progress = 0.613635
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(2, 4)
+position = Vector2(-3, -1)
 scale = Vector2(2.53029, 1.96647)
 color = Color(0.258824, 0.678431, 1, 1)
 energy = 2.45
@@ -71,7 +73,12 @@ texture = ExtResource("2_vtf8y")
 texture_scale = 0.01
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 3)
+position = Vector2(1, -6)
 rotation = 1.57464
 shape = SubResource("CapsuleShape2D_23ccu")
 one_way_collision = true
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -5)
+target_position = Vector2(-22, 0)
+collision_mask = 512

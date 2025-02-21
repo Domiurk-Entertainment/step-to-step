@@ -1,55 +1,61 @@
 using Godot;
+using StepToStep.Battle;
 using StepToStep.scripts;
 using System;
 
 public partial class DemoBattle : Node
 {
-	[Export] private Button playerAttackButton;
-	[Export] private Player player;
-	[Export] private Enemy enemy;
+    [Export] private Button playerAttackButton;
+    [Export] private Player player;
+    [Export] private Enemy enemy;
+    [Export] private Label debugLabel;
 
-	private bool playerTurn = true;
+    private bool playerTurn = true;
+    private Sight node;
 
-	public override void _Ready()
-	{
-		playerAttackButton.Pressed += player.Attack;
+    public override void _Ready()
+    {
+        playerAttackButton.Pressed += player.Attack;
 
-		enemy.ChangeStep += EnemyOnChangeStep;
-		player.ChangeStep += PlayerOnChangeStep;
-	}
+        enemy.ChangeStep += EnemyOnChangeStep;
+        player.ChangeStep += PlayerOnChangeStep;
+        node = player.FindChild("sight") as Sight;
+    }
 
-	private void PlayerOnChangeStep(StepType stepType)
-	{
-		GD.Print($"Player is {stepType}");
-		switch(stepType){
-			case StepType.Start:
-				break;
-			case StepType.End:
-				playerAttackButton.Disabled = true;
-				SceneTreeTimer timer = GetTree().CreateTimer(2);
-				timer.Timeout += () => enemy.TryAttack(player.GlobalPosition);
-				break;
-			case StepType.Attacked:
-				break;
-			default:
-				throw new ArgumentOutOfRangeException(nameof(stepType), stepType, null);
-		}
-	}
+    public override void _Process(double delta)
+    {
+        debugLabel.Text = $"Rotation({node}):{node.RotationDegrees}";
+    }
 
-	private void EnemyOnChangeStep(StepType stepType)
-	{
-		GD.Print($"Enemy is {stepType}");
-		switch(stepType){
-			case StepType.Start:
-				break;
-			case StepType.End:
-				playerAttackButton.Disabled = false;
-				break;
-			case StepType.Attacked:
-				break;
-			default:
-				throw new ArgumentOutOfRangeException(nameof(stepType), stepType, null);
-		}
-	}
+    private void PlayerOnChangeStep(StepType stepType)
+    {
+        switch(stepType){
+            case StepType.Start:
+                break;
+            case StepType.End:
+                playerAttackButton.Disabled = true;
+                SceneTreeTimer timer = GetTree().CreateTimer(2);
+                timer.Timeout += () => enemy.TryAttack(player.GlobalPosition);
+                break;
+            case StepType.Attacked:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(stepType), stepType, null);
+        }
+    }
 
+    private void EnemyOnChangeStep(StepType stepType)
+    {
+        switch(stepType){
+            case StepType.Start:
+                break;
+            case StepType.End:
+                playerAttackButton.Disabled = false;
+                break;
+            case StepType.Attacked:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(stepType), stepType, null);
+        }
+    }
 }

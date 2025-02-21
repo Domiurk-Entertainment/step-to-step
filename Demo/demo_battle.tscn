@@ -1,30 +1,27 @@
-[gd_scene load_steps=9 format=3 uid="uid://h8mi3kmucs6v"]
+[gd_scene load_steps=8 format=3 uid="uid://h8mi3kmucs6v"]
 
 [ext_resource type="Script" path="res://Demo/DemoBattle.cs" id="1_uhltu"]
-[ext_resource type="PackedScene" uid="uid://c0vlu6mogmo1c" path="res://scenes/character.tscn" id="1_wu163"]
+[ext_resource type="PackedScene" uid="uid://qxp1xt6p3mcx" path="res://scenes/character.tscn" id="1_wu163"]
 [ext_resource type="PackedScene" uid="uid://c0tod7yw4sold" path="res://scenes/enemy_smile.tscn" id="2_n2nw5"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="4_o46bu"]
 [ext_resource type="Texture2D" uid="uid://dslaqll0yjmml" path="res://sprites/ShopBackPack.png" id="5_fle2h"]
 [ext_resource type="Texture2D" uid="uid://ci2p0yqc435sn" path="res://sprites/tile.png" id="5_piia0"]
-[ext_resource type="Script" path="res://scripts/Enemy.cs" id="7_41vt4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2d2t"]
 size = Vector2(32, 32)
 
-[node name="DemoBattle" type="Node2D" node_paths=PackedStringArray("playerAttackButton", "player", "enemy")]
+[node name="DemoBattle" type="Node2D" node_paths=PackedStringArray("playerAttackButton", "player", "enemy", "debugLabel")]
 script = ExtResource("1_uhltu")
 playerAttackButton = NodePath("Attack2")
 player = NodePath("Player")
 enemy = NodePath("EnemySmile")
+debugLabel = NodePath("Label")
 
 [node name="Player" parent="." instance=ExtResource("1_wu163")]
-position = Vector2(97, 162)
+position = Vector2(195, 162)
 
 [node name="EnemySmile" parent="." instance=ExtResource("2_n2nw5")]
-position = Vector2(584, 163)
-script = ExtResource("7_41vt4")
-duration = 1.0
-transitionType = 0
+position = Vector2(387, 163)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(354, 186)
@@ -53,3 +50,9 @@ theme_override_font_sizes/font_size = 66
 text = "Attack"
 icon = ExtResource("5_piia0")
 metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 314.0
+offset_top = 1.0
+offset_right = 354.0
+offset_bottom = 24.0

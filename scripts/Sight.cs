@@ -1,89 +1,89 @@
 using Godot;
 using System;
-using System.ComponentModel;
 
 namespace StepToStep.Battle;
 
 public partial class Sight : Node2D
 {
-	private const int UP = 1;
-	private const int DOWN = -1;
-	private const int STOP = 0;
-	private const int PLAY = 1;
+    private const int UP = 1;
+    private const int DOWN = -1;
 
-	private const string PROPERTY_NAME = "rotation_degrees";
-	public event Action<Vector2> CalculatedDirection;
+    private const int STOP = 0;
+    private const int PLAY = 1;
 
-	[Export, ExportCategory("Settings")] private float minValue = -60;
-	[Export] private float maxValue = 60;
-	[Category("Tween")]
-	[Export] private float duration = 1;
-	[Export] private Tween.TransitionType transition = Tween.TransitionType.Linear;
+    private const string PROPERTY_NAME = "rotation_degrees";
+    public event Action<Vector2> CalculatedDirection;
 
-	[Export, ExportCategory("Settings/Nodes")]
-	public Node2D StartPoint;
-	[Export] public Node2D EndPoint;
+    [ExportCategory("Settings")]
+    [Export] private float minValue = -70;
+    [Export] private float maxValue = 70;
+    [Export] private float duration = 1;
+    [Export] private Tween.TransitionType transition = Tween.TransitionType.Linear;
 
-	private int state;
-	private int direction;
+    [ExportCategory("Nodes")]
+    [Export] private Node2D startPoint;
+    [Export] private Node2D endPoint;
 
-	private Tween tween;
+    private int state;
+    private int direction;
 
-	public override void _Ready()
-	{
-		RotationDegrees = minValue;
-		state = STOP;
-		direction = UP;
-	}
+    private Tween tween;
 
-	private Vector2 Calculate() => (EndPoint.GlobalPosition - StartPoint.GlobalPosition).Normalized();
+    public override void _Ready()
+    {
+        RotationDegrees = minValue;
+        state = STOP;
+        direction = UP;
+    }
 
-	public bool TryShoot()
-	{
-		if(state == PLAY){
-			EndRotation();
-			return true;
-		}
+    private Vector2 Calculate() => (endPoint.GlobalPosition - startPoint.GlobalPosition).Normalized();
 
-		tween = ContinueTween();
-		state = PLAY;
-		return false;
-	}
+    public bool TryShoot()
+    {
+        if(state == PLAY){
+            EndRotation();
+            return true;
+        }
 
-	private void EndRotation()
-	{
-		state = STOP;
-		tween?.Kill();
-		CalculatedDirection?.Invoke(Calculate());
-	}
+        tween = ContinueTween();
+        state = PLAY;
+        return false;
+    }
 
-	private Tween CreateNewTween()
-	{
-		Tween result = CreateTween();
+    private void EndRotation()
+    {
+        state = STOP;
+        tween.Pause();
+        CalculatedDirection?.Invoke(Calculate());
+    }
 
-		if(RotationDegrees <= minValue){
-			SetProperty(result, minValue, maxValue);
-			direction = UP;
-		}
-		else{
-			SetProperty(result, maxValue, minValue);
-			direction = DOWN;
-		}
+    private Tween CreateNewTween()
+    {
+        Tween result = CreateTween();
 
-		result.Finished += () => tween = CreateNewTween();
-		return result;
-	}
+        if(RotationDegrees <= minValue){
+            SetProperty(result, minValue, maxValue);
+            direction = UP;
+        }
+        else{
+            SetProperty(result, maxValue, minValue);
+            direction = DOWN;
+        }
 
-	private Tween ContinueTween()
-	{
-		Tween result = CreateTween();
-		SetProperty(result, RotationDegrees, direction == DOWN ? minValue : maxValue);
-		result.Finished += () => tween = CreateNewTween();
-		return result;
-	}
+        result.Finished += () => tween = CreateNewTween();
+        return result;
+    }
 
-	private void SetProperty(Tween tween, float from, float to) => tween
-																   .TweenProperty(this, PROPERTY_NAME, to, duration)
-																   .From(from)
-																   .SetTrans(transition);
+    private Tween ContinueTween()
+    {
+        Tween result = CreateTween();
+        SetProperty(result, RotationDegrees, direction == DOWN ? minValue : maxValue);
+        result.Finished += () => tween = CreateNewTween();
+        return result;
+    }
+
+    private void SetProperty(Tween tween, float from, float to) => tween
+                                                                   .TweenProperty(this, PROPERTY_NAME, to, duration)
+                                                                   .From(from)
+                                                                   .SetTrans(transition);
 }

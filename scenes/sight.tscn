@@ -1,18 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://bwixc66257oaw"]
 
 [ext_resource type="Script" path="res://scripts/Sight.cs" id="1_1nrio"]
-[ext_resource type="Texture2D" uid="uid://dslaqll0yjmml" path="res://sprites/ShopBackPack.png" id="2_1gifq"]
+[ext_resource type="Texture2D" uid="uid://c7skxpom30yda" path="res://sprites/bgcave.png" id="2_c85kr"]
 
-[node name="sight" type="Node2D" node_paths=PackedStringArray("StartPoint", "EndPoint")]
+[node name="sight" type="Node2D" node_paths=PackedStringArray("startPoint", "endPoint")]
 rotation = -1.5708
 script = ExtResource("1_1nrio")
-StartPoint = NodePath("StartPoint")
-EndPoint = NodePath("EndPoint")
+maxValue = 45.0
+startPoint = NodePath("StartPoint")
+endPoint = NodePath("EndPoint")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(15.7981, 8.01086e-05)
-scale = Vector2(0.470778, 0.25)
-texture = ExtResource("2_1gifq")
+position = Vector2(15.8973, 8.01086e-05)
+scale = Vector2(0.332294, 0.25)
+texture = ExtResource("2_c85kr")
 
 [node name="StartPoint" type="Node2D" parent="."]
 
