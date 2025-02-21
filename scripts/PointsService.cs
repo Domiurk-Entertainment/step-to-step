@@ -10,6 +10,7 @@ public partial class PointsService : Node2D
     private Point[] points;
     [Export] private Node2D miniPlayer;
     [Export] private Point startPoint;
+    [Export] private float duration = 1;
 
     public override void _Ready()
     {
@@ -30,7 +31,8 @@ public partial class PointsService : Node2D
             void PointOnPressed()
             {
                 Tween tween =
-                    miniPlayer.CreateToTween(miniPlayer.GlobalPosition, point.GlobalPosition, "global_position");
+                    miniPlayer.CreateToTween(miniPlayer.GlobalPosition, point.GlobalPosition, "global_position",
+                                             duration);
                 tween.Finished += TweenOnFinished;
                 return;
 
@@ -43,7 +45,7 @@ public partial class PointsService : Node2D
         }
 
         startPoint ??= points[0];
-        
+
         miniPlayer.GlobalPosition = startPoint.GlobalPosition;
         startPoint.ChangePointVisible(true);
         startPoint.ActivePoint();

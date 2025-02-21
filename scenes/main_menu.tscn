@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://v1bwsg58hh8u"]
+[gd_scene load_steps=12 format=3 uid="uid://v1bwsg58hh8u"]
 
 [ext_resource type="Texture2D" uid="uid://cu4we4jjrtiid" path="res://sprites/PixelMainMenu.png" id="1_bisl8"]
 [ext_resource type="Script" path="res://scripts/roma/main_menu.gd" id="1_f54t6"]
@@ -9,6 +9,12 @@
 [ext_resource type="AudioStream" uid="uid://ccy1cdibnmy84" path="res://sound/Pixel Music Pack/Wav/Pixel 1.wav" id="7_spd18"]
 [ext_resource type="AudioStream" uid="uid://3ei5c4shcb46" path="res://sound/UI Soundpack/WAV/Minimalist7.wav" id="8_54d0m"]
 [ext_resource type="AudioStream" uid="uid://bsnbaujlbcd2h" path="res://sound/UI Soundpack/WAV/Retro4.wav" id="9_7ggnn"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ar43w"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = true
 
 [sub_resource type="Curve" id="Curve_vhq72"]
 max_value = 200.0
@@ -252,7 +258,7 @@ offset_right = 116.0
 offset_bottom = 144.0
 color = Color(0, 0, 0, 0.545098)
 
-[node name="quit" type="Button" parent="."]
+[node name="quit2" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
 offset_left = 57.0
 offset_top = 185.0
@@ -263,7 +269,7 @@ theme_override_fonts/font = ExtResource("2_rd6an")
 theme_override_font_sizes/font_size = 14
 text = "Quit"
 
-[node name="Quit" type="Label" parent="."]
+[node name="Quit2" type="Label" parent="."]
 offset_left = 67.0
 offset_top = 187.0
 offset_right = 145.42
@@ -295,69 +301,69 @@ position = Vector2(143, 19)
 scale = Vector2(0.95, 0.95)
 texture = ExtResource("3_jbijw")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D2" type="PointLight2D" parent="."]
 position = Vector2(143, 21)
 energy = 3.88
 texture = ExtResource("6_vmf7i")
 texture_scale = 0.05
 
-[node name="PointLight2D2" type="PointLight2D" parent="."]
+[node name="PointLight2D3" type="PointLight2D" parent="."]
 position = Vector2(131, 90)
 scale = Vector2(0.699525, 0.652575)
 energy = 3.65
 texture = ExtResource("6_vmf7i")
 texture_scale = 0.05
 
-[node name="PointLight2D3" type="PointLight2D" parent="."]
+[node name="PointLight2D4" type="PointLight2D" parent="."]
 position = Vector2(44, 72)
 scale = Vector2(0.699525, 0.652575)
 energy = 3.65
 texture = ExtResource("6_vmf7i")
 texture_scale = 0.05
 
-[node name="PointLight2D4" type="PointLight2D" parent="."]
+[node name="PointLight2D5" type="PointLight2D" parent="."]
 position = Vector2(37, 38)
 scale = Vector2(0.699525, 0.652575)
 energy = 3.65
 texture = ExtResource("6_vmf7i")
 texture_scale = 0.05
 
-[node name="PointLight2D5" type="PointLight2D" parent="."]
+[node name="PointLight2D6" type="PointLight2D" parent="."]
 position = Vector2(12, 112)
 scale = Vector2(0.699525, 0.652575)
 energy = 3.65
 texture = ExtResource("6_vmf7i")
 texture_scale = 0.05
 
-[node name="PointLight2D6" type="PointLight2D" parent="."]
+[node name="PointLight2D7" type="PointLight2D" parent="."]
 position = Vector2(74, 34)
 scale = Vector2(0.699525, 0.652575)
 energy = 3.65
 texture = ExtResource("6_vmf7i")
 texture_scale = 0.05
 
-[node name="PointLight2D7" type="PointLight2D" parent="."]
+[node name="PointLight2D8" type="PointLight2D" parent="."]
 position = Vector2(32, 45)
 scale = Vector2(0.699525, 0.652575)
 energy = 3.65
 texture = ExtResource("6_vmf7i")
 texture_scale = 0.05
 
-[node name="PointLight2D8" type="PointLight2D" parent="."]
+[node name="PointLight2D9" type="PointLight2D" parent="."]
 position = Vector2(144, 144)
 scale = Vector2(0.699525, 0.652575)
 energy = 3.65
 texture = ExtResource("6_vmf7i")
 texture_scale = 0.05
 
-[node name="PointLight2D9" type="PointLight2D" parent="."]
+[node name="PointLight2D10" type="PointLight2D" parent="."]
 position = Vector2(28, 191)
 scale = Vector2(0.699525, 0.652575)
 energy = 3.65
 texture = ExtResource("6_vmf7i")
 texture_scale = 0.05
 
-[node name="PointLight2D10" type="PointLight2D" parent="."]
+[node name="PointLight2D11" type="PointLight2D" parent="."]
 position = Vector2(148, 65)
 scale = Vector2(0.699525, 0.652575)
 energy = 3.65
@@ -427,26 +433,8 @@ energy = 3.65
 texture = ExtResource("6_vmf7i")
 texture_scale = 0.05
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-visible = false
-position = Vector2(76, 113)
-amount = 6
-lifetime = 9.0
-speed_scale = 0.2
-gravity = Vector2(2.08165e-12, -140.47)
-initial_velocity_max = 101.01
-angular_velocity_max = 3.0
-orbit_velocity_min = -1.0
-orbit_velocity_max = 1.5
-linear_accel_max = 2.02
-radial_accel_min = -4.04
-radial_accel_max = -1.01
-damping_max = 0.14
-scale_amount_max = 1.5
-color = Color(0.862745, 1, 1, 1)
-anim_speed_max = 1.29
-
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_ar43w")
 position = Vector2(74, 99)
 rotation = 1.2525
 amount = 100
