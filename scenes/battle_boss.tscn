@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dwvhlj2ouj5t6" path="res://scenes/location_1.tscn" id="1_05db3"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="2_ejp4t"]
 [ext_resource type="Texture2D" uid="uid://dagjp57mc74my" path="res://sprites/SmallButton.png" id="3_0akeq"]
-[ext_resource type="PackedScene" uid="uid://qxp1xt6p3mcx" path="res://scenes/Character.tscn" id="3_a0861"]
+[ext_resource type="PackedScene" uid="uid://c0vlu6mogmo1c" path="res://scenes/Character.tscn" id="3_a0861"]
 [ext_resource type="Texture2D" uid="uid://bkn15av8my80s" path="res://sprites/bigButton.png" id="5_hrybs"]
 
 [node name="BattleBoss" type="Node2D"]
