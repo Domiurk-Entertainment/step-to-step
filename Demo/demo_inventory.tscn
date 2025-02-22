@@ -1,10 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dedigbri6dlvc"]
+[gd_scene load_steps=4 format=3 uid="uid://dedigbri6dlvc"]
 
 [ext_resource type="Script" path="res://Demo/DemoInventory.cs" id="1_so0f4"]
-[ext_resource type="Script" path="res://scripts/inventory/Inventory.cs" id="2_fs7cf"]
-[ext_resource type="PackedScene" uid="uid://mtgnpgp1qnb7" path="res://scenes/item_in_inventory.tscn" id="3_o712e"]
-[ext_resource type="Resource" uid="uid://cap5872uxghgs" path="res://Demo/items/ball.tres" id="3_tre6s"]
-[ext_resource type="Resource" uid="uid://uevbbfoqa5wv" path="res://Demo/items/ice_ball.tres" id="3_vm47s"]
+[ext_resource type="PackedScene" uid="uid://c4nbdoxbpqjuh" path="res://scenes/inventory.tscn" id="2_vytga"]
 [ext_resource type="PackedScene" uid="uid://qxp1xt6p3mcx" path="res://scenes/character.tscn" id="6_myr8e"]
 
 [node name="Inventory" type="Node2D"]
@@ -24,24 +21,8 @@ offset_right = 347.0
 offset_bottom = 399.0
 text = "Attack"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="UI" node_paths=PackedStringArray("_vBoxContainer", "_player")]
+[node name="ScrollContainer" parent="UI" instance=ExtResource("2_vytga")]
 layout_mode = 0
-offset_right = 128.0
-offset_bottom = 363.0
-mouse_filter = 2
-follow_focus = true
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 3
-script = ExtResource("2_fs7cf")
-_vBoxContainer = NodePath("VBoxContainer")
-_itemTemplateScene = ExtResource("3_o712e")
-_itemsTemplate = Array[Object]([ExtResource("3_tre6s"), ExtResource("3_vm47s")])
-_player = NodePath("../../Player")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-alignment = 1
 
 [node name="Player" parent="." instance=ExtResource("6_myr8e")]
 position = Vector2(150, 131)

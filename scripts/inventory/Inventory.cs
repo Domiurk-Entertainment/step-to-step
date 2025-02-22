@@ -13,11 +13,13 @@ namespace StepToStep.Inventory
         [Export] private Array<BallResource> _itemsTemplate;
         [Export] private int capacity = 5;
         [Export] private Vector2I amountRange = new Vector2I(1, 5);
-        [Export] private Player _player;
+        
+        private Player _player;
         private Array<Item> _items;
 
         public override void _Ready()
         {
+            _player = GetTree().CurrentScene.FindChild("Player") as Player;
             _items = new Array<Item>();
             _player.ChangeStep += PlayerOnChangedStep;
 

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4nbdoxbpqjuh"]
+
+[ext_resource type="Script" path="res://scripts/inventory/Inventory.cs" id="1_wheak"]
+[ext_resource type="PackedScene" uid="uid://mtgnpgp1qnb7" path="res://scenes/item_in_inventory.tscn" id="2_riv7b"]
+[ext_resource type="Resource" uid="uid://cap5872uxghgs" path="res://Demo/items/ball.tres" id="3_lj4o1"]
+[ext_resource type="Resource" uid="uid://uevbbfoqa5wv" path="res://Demo/items/ice_ball.tres" id="4_fg1ll"]
+
+[node name="ScrollContainer" type="ScrollContainer" node_paths=PackedStringArray("_vBoxContainer", "_player")]
+offset_right = 70.0
+offset_bottom = 69.0
+mouse_filter = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("1_wheak")
+_vBoxContainer = NodePath("")
+_itemTemplateScene = ExtResource("2_riv7b")
+_itemsTemplate = Array[Object]([ExtResource("3_lj4o1"), ExtResource("4_fg1ll")])
+_player = NodePath("")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
