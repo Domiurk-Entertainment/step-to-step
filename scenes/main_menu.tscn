@@ -34,125 +34,6 @@ position = Vector2(81, 115)
 scale = Vector2(1.6875, 1.59722)
 texture = ExtResource("1_bisl8")
 
-[node name="PointLight2D" type="PointLight2D" parent="PixelMainMenu"]
-position = Vector2(36.7407, -58.8523)
-scale = Vector2(0.592593, 0.626088)
-energy = 3.88
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D2" type="PointLight2D" parent="PixelMainMenu"]
-position = Vector2(29.6296, -15.6522)
-scale = Vector2(0.414533, 0.408569)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D3" type="PointLight2D" parent="PixelMainMenu"]
-position = Vector2(-21.9259, -26.9218)
-scale = Vector2(0.414533, 0.408569)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D4" type="PointLight2D" parent="PixelMainMenu"]
-position = Vector2(-26.0741, -48.2088)
-scale = Vector2(0.414533, 0.408569)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D5" type="PointLight2D" parent="PixelMainMenu"]
-position = Vector2(-40.8889, -1.87826)
-scale = Vector2(0.414533, 0.408569)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D6" type="PointLight2D" parent="PixelMainMenu"]
-position = Vector2(-4.14815, -50.7131)
-scale = Vector2(0.414533, 0.408569)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D8" type="PointLight2D" parent="PixelMainMenu"]
-position = Vector2(37.3333, 18.1565)
-scale = Vector2(0.414533, 0.408569)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D9" type="PointLight2D" parent="PixelMainMenu"]
-position = Vector2(-31.4074, 47.5827)
-scale = Vector2(0.414533, 0.408569)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D10" type="PointLight2D" parent="PixelMainMenu"]
-position = Vector2(39.7037, -31.3044)
-scale = Vector2(0.414533, 0.408569)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D13" type="PointLight2D" parent="PixelMainMenu"]
-position = Vector2(-16.5926, 58.2262)
-scale = Vector2(0.414533, 0.408569)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D15" type="PointLight2D" parent="PixelMainMenu"]
-position = Vector2(8.88889, -63.861)
-scale = Vector2(0.414533, 0.408569)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D16" type="PointLight2D" parent="PixelMainMenu"]
-position = Vector2(8.88889, 53.2175)
-scale = Vector2(0.414533, 0.408569)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D17" type="PointLight2D" parent="PixelMainMenu"]
-position = Vector2(-0.59259, 60.1044)
-scale = Vector2(0.196006, 0.196324)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D18" type="PointLight2D" parent="PixelMainMenu"]
-position = Vector2(-17.7778, 56.3479)
-scale = Vector2(0.353655, 0.29185)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D19" type="PointLight2D" parent="PixelMainMenu"]
-position = Vector2(-31.4074, 47.5827)
-scale = Vector2(0.252309, 0.252047)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D20" type="PointLight2D" parent="PixelMainMenu"]
-position = Vector2(43.2593, -5.0087)
-scale = Vector2(0.246679, 0.260007)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
-[node name="PointLight2D21" type="PointLight2D" parent="PixelMainMenu"]
-position = Vector2(26.6667, 25.0435)
-scale = Vector2(0.246679, 0.260007)
-energy = 3.65
-texture = ExtResource("6_vmf7i")
-texture_scale = 0.05
-
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 6
 position = Vector2(81, 115)
@@ -168,7 +49,7 @@ texture = ExtResource("4_go363")
 material = SubResource("CanvasItemMaterial_ar43w")
 position = Vector2(74, 99)
 rotation = 1.2525
-amount = 100
+amount = 20
 lifetime = 2.5
 speed_scale = 0.2
 randomness = 0.24
@@ -340,38 +221,13 @@ anchors_preset = 0
 offset_right = 161.0
 offset_bottom = 230.0
 
-[node name="Return" type="Button" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.155
-anchor_top = 0.791
-anchor_right = 0.775
-anchor_bottom = 0.851
-offset_left = 0.0449982
-offset_top = 0.0700073
-offset_right = 61.225
-offset_bottom = 8.27002
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.62, 0.62)
-focus_mode = 0
-theme_override_fonts/font = ExtResource("2_rd6an")
-theme_override_font_sizes/font_size = 14
-text = "Return"
-flat = true
-
 [node name="Settings" type="Button" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.839
-anchor_top = 0.057
-anchor_right = 0.939
-anchor_bottom = 0.121
-offset_left = -0.07901
-offset_top = -0.110001
-offset_right = 9.82098
-offset_bottom = 9.17
-scale = Vector2(0.62, 0.62)
+layout_mode = 2
+offset_left = 125.0
+offset_top = 5.0
+offset_right = 153.0
+offset_bottom = 27.0
+scale = Vector2(1.3, 1.3)
 focus_mode = 0
 theme_override_fonts/font = ExtResource("2_rd6an")
 theme_override_font_sizes/font_size = 14
@@ -397,44 +253,6 @@ theme_override_fonts/font = ExtResource("2_rd6an")
 theme_override_font_sizes/font_size = 7
 text = "Demo v 0.1"
 
-[node name="Play" type="Button" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.168
-anchor_top = 0.696
-anchor_right = 0.783
-anchor_bottom = 0.791
-offset_left = -0.0480022
-offset_top = -0.0800018
-offset_right = -0.0630112
-offset_bottom = 0.0699921
-focus_mode = 0
-theme_override_fonts/font = ExtResource("2_rd6an")
-theme_override_font_sizes/font_size = 14
-theme_override_styles/focus = SubResource("StyleBoxEmpty_hp82c")
-text = "Play"
-flat = true
-text_overrun_behavior = 2
-
-[node name="Quit" type="Button" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.155
-anchor_top = 0.843
-anchor_right = 0.77
-anchor_bottom = 0.939
-offset_left = 0.0450001
-offset_top = 0.109985
-offset_right = 0.0299911
-offset_bottom = 0.0299835
-focus_mode = 0
-theme_override_fonts/font = ExtResource("2_rd6an")
-theme_override_font_sizes/font_size = 14
-theme_override_styles/focus = SubResource("StyleBoxEmpty_hp82c")
-text = "Exit"
-flat = true
-text_overrun_behavior = 2
-
 [node name="SettingsMenu" type="ColorRect" parent="Control"]
 visible = false
 layout_mode = 0
@@ -444,11 +262,45 @@ offset_right = 116.0
 offset_bottom = 131.0
 color = Color(0, 0, 0, 0.545098)
 
-[connection signal="mouse_entered" from="Control/Return" to="." method="_on_return_mouse_entered"]
-[connection signal="pressed" from="Control/Return" to="." method="_on_return_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_top = 137.0
+offset_right = 161.0
+offset_bottom = 366.0
+
+[node name="Play" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_rd6an")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hp82c")
+text = "Play"
+flat = true
+text_overrun_behavior = 2
+
+[node name="Return" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_rd6an")
+theme_override_font_sizes/font_size = 14
+text = "Return"
+flat = true
+
+[node name="Quit" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_rd6an")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hp82c")
+text = "Exit"
+flat = true
+text_overrun_behavior = 2
+
 [connection signal="mouse_entered" from="Control/Settings" to="." method="_on_settings_mouse_entered"]
 [connection signal="pressed" from="Control/Settings" to="." method="_on_settings_pressed"]
-[connection signal="mouse_entered" from="Control/Play" to="." method="_on_play_mouse_entered"]
-[connection signal="pressed" from="Control/Play" to="." method="_on_play_pressed"]
-[connection signal="mouse_entered" from="Control/Quit" to="." method="_on_quit_mouse_entered"]
-[connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/Play" to="." method="_on_play_mouse_entered"]
+[connection signal="pressed" from="Control/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/Return" to="." method="_on_return_mouse_entered"]
+[connection signal="pressed" from="Control/VBoxContainer/Return" to="." method="_on_return_pressed"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="Control/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

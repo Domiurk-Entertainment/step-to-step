@@ -119,6 +119,7 @@ height = 16.0
 [node name="Player" type="StaticBody2D" node_paths=PackedStringArray("_spawnBalls", "_sight")]
 light_mask = 2
 visibility_layer = 2
+position = Vector2(0, 8)
 collision_layer = 512
 script = ExtResource("1_8sdka")
 _spawnBalls = NodePath("Node2D")
@@ -126,7 +127,6 @@ _sight = NodePath("sight")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
-position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_1jh8v")
 animation = &"animIdleandStik"
 
@@ -134,9 +134,9 @@ animation = &"animIdleandStik"
 unique_name_in_owner = true
 light_mask = 2
 offset_left = -12.0
-offset_top = -20.0
+offset_top = -16.0
 offset_right = 14.0
-offset_bottom = -17.0
+offset_bottom = -13.0
 rotation = -0.00068116
 theme_override_styles/background = SubResource("StyleBoxFlat_igk4g")
 theme_override_styles/fill = SubResource("StyleBoxFlat_yp88j")
@@ -146,7 +146,7 @@ show_percentage = false
 script = ExtResource("3_p1h7q")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-4, 1)
+position = Vector2(-2.38419e-07, 1)
 scale = Vector2(1.43, 1.36)
 color = Color(1, 0.945098, 0.419608, 1)
 texture = ExtResource("2_g178e")
@@ -154,7 +154,7 @@ texture = ExtResource("2_g178e")
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 light_mask = 7
 visibility_layer = 7
-position = Vector2(-14, 4)
+position = Vector2(-5, 4)
 scale = Vector2(1.69893, 1.68039)
 color = Color(1, 1, 0.243137, 1)
 energy = 4.59
@@ -176,7 +176,7 @@ value = 3
 unique_name_in_owner = true
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(11, -37)
+position = Vector2(10, -8)
 
 [node name="sight" parent="." instance=ExtResource("10_8va8p")]
 visible = false
@@ -184,5 +184,5 @@ position = Vector2(9, -6)
 duration = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -8)
+position = Vector2(1, 0)
 shape = SubResource("CapsuleShape2D_qyung")

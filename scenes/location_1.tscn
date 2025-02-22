@@ -331,6 +331,7 @@ texture = ExtResource("10_euyso")
 
 [node name="pausBlur" type="ColorRect" parent="."]
 visible = false
+light_mask = 2
 z_index = 80
 material = SubResource("ShaderMaterial_2pnyb")
 offset_left = -197.0

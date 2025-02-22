@@ -26,19 +26,24 @@ func play(node, animation_name):
 
 func _on_paus_pressed():
 	$pausBlur.show()
+	$AudioStreamPlayer2D3.play()
 
 func _on_button_pressed():
 	$pausBlur.hide()
-
+	$AudioStreamPlayer2D3.play()
 
 func _on_button_2_pressed():
 	SceneTransition.change_scene("res://scenes/main_menu.tscn")
+	$AudioStreamPlayer2D3.play()
 
 
-func _on_ff_pressed():
-	$pausBlur.hide()
+func _on_button_mouse_entered():
+	$AudioStreamPlayer2D2.play()
 
 
+func _on_button_2_mouse_entered():
+	$AudioStreamPlayer2D2.play()
 
-func _on_ff_2_pressed():
-	SceneTransition.change_scene("res://scenes/main_menu.tscn")
+
+func _on_paus_mouse_entered():
+	$AudioStreamPlayer2D2.play()
