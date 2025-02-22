@@ -24,6 +24,9 @@ public partial class DemoBattle : Node
 
 	public override void _Process(double delta)
 	{
+		if(debugLabel == null){
+			return;
+		}
 		debugLabel.Text = $"Rotation({node}):{node.RotationDegrees}";
 	}
 

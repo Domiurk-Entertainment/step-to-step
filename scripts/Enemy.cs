@@ -74,10 +74,10 @@ public partial class Enemy : Node2D, IHealth
 			case StepType.Start:
 				break;
 			case StepType.Attacked:
-				if(rayCast2D.IsColliding()){
-					var target = rayCast2D.GetCollider().GetScript();
-					GD.Print("Target: " + target);
-				}
+				// if(rayCast2D.IsColliding()){
+					// var target = rayCast2D.GetCollider().GetScript();
+					// GD.Print("Target: " + target);
+				// }
 
 				break;
 			case StepType.End:

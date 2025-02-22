@@ -22,6 +22,9 @@ position = Vector2(195, 162)
 
 [node name="EnemySmile" parent="." instance=ExtResource("2_n2nw5")]
 position = Vector2(387, 163)
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(354, 186)

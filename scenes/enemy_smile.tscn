@@ -42,7 +42,8 @@ collision_layer = 256
 script = ExtResource("1_g11nf")
 rayCast2D = NodePath("RayCast2D")
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="Health" type="ProgressBar" parent="."]
+unique_name_in_owner = true
 light_mask = 2
 offset_left = -12.0
 offset_top = -15.0

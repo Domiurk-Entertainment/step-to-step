@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv78u22wa61n7"]
+
+[ext_resource type="Script" path="res://Demo/demo.cs" id="1_s3oek"]
+[ext_resource type="Texture2D" uid="uid://b0k8jct3ojy3n" path="res://icon.svg" id="2_wl3q2"]
+
+[node name="demo" type="Node2D" node_paths=PackedStringArray("experimentObject")]
+script = ExtResource("1_s3oek")
+positions = PackedVector3Array(20, -5, 0, 10, -30, 0, 0, 10, 0)
+experimentObject = NodePath("Icon")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-194, 2)
+texture = ExtResource("2_wl3q2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(209, 40)
