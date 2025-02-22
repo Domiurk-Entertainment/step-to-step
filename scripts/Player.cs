@@ -6,43 +6,45 @@ namespace StepToStep.scripts;
 
 public partial class Player : StaticBody2D, IHealth
 {
-	public event Action<StepType> ChangeStep;
+    public event Action<StepType> ChangeStep;
 
-	[Export] private Node2D spawnBalls;
-	[Export] private Sight sight;
-	[Export(PropertyHint.File)] private string ballScene;
-	[Export] private float force = 500;
+    public string BallScene = "res://scenes/balls/base_ball.tscn";
+    public bool CanShoot;
 
-	private Health health;
+    [Export] private Node2D _spawnBalls;
+    [Export] private Sight _sight;
+    [Export] private float _force = 500;
 
-	public override void _Ready()
-	{
-		sight.CalculatedDirection += OnSightOnCalculatedDirection;
-		health = GetNode<Health>("%Health");
+    private Health _health;
 
-		return;
+    public override void _Ready()
+    {
+        _sight.CalculatedDirection += OnSightOnCalculatedDirection;
+        _health = GetNode<Health>("%Health");
 
-		void OnSightOnCalculatedDirection(Vector2 direction)
-		{
-			Ball instance = GD.Load<PackedScene>(ballScene).Instantiate() as Ball;
-			spawnBalls.AddChild(instance);
-			instance.Position = Vector2.Zero;
-			instance.Throw(direction, force);
-			ChangeStep?.Invoke(StepType.Attacked);
-			sight.Visible = false;
-		}
-	}
+        return;
 
-	public void Attack()
-	{
-		sight.Visible = true;
-		ChangeStep?.Invoke(sight.TryShoot() ? StepType.End : StepType.Start);
-	}
+        void OnSightOnCalculatedDirection(Vector2 direction)
+        {
+            Ball instance = GD.Load<PackedScene>(BallScene).Instantiate() as Ball;
+            _spawnBalls.AddChild(instance);
+            instance.Position = Vector2.Zero;
+            instance.Throw(direction, _force);
+            ChangeStep?.Invoke(StepType.Attacked);
+            _sight.Visible = false;
+        }
+    }
 
-	public void TakeDamage(object sender, float damage)
-	{
-		if(damage <= 0)
-			return;
-		health.Subtract(sender, damage);
-	}
+    public void Attack()
+    {
+        _sight.Visible = true;
+        ChangeStep?.Invoke(_sight.TryShoot() ? StepType.End : StepType.Start);
+    }
+
+    public void TakeDamage(object sender, float damage)
+    {
+        if(damage <= 0)
+            return;
+        _health.Subtract(sender, damage);
+    }
 }

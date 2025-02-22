@@ -5,11 +5,18 @@ namespace StepToStep.Inventory;
 [GlobalClass]
 public partial class ItemResource : Resource
 {
-    public string ID => Id;
-    public string Description => description;
-    public Texture Icon => icon;
+    public string ID => _id;
+    public string Description => _description;
+    public Texture2D Icon => _icon;
 
-    [Export] public string Id;
-    [Export] public string description;
-    [Export] public Texture icon;
+    [Export] private string _id;
+    [Export] private string _description;
+    [Export] private Texture2D _icon;
+
+    public ItemResource()
+    {
+        _id = "";
+        _description = "";
+        _icon = null;
+    }
 }

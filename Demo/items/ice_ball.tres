@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("2_nnsog")
-damage = 3.0
-PackedScene = "res://scenes/balls"
-Id = "ice_ball"
-description = "Ball is make with ice and freeze target"
-icon = ExtResource("1_qjui1")
+_damage = 1.0
+PackedScene = "res://scenes/balls/ice_ball.tscn"
+_id = "Ice Ball"
+_description = "This Ball is freeze enemy"
+_icon = ExtResource("1_qjui1")

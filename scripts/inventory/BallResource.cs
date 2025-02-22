@@ -5,8 +5,8 @@ namespace StepToStep.Inventory;
 [GlobalClass]
 public partial class BallResource : ItemResource
 {
-    [Export] private float damage = 1;
+    [Export] private float _damage = 1;
 
-    [Export(PropertyHint.Dir)] public string PackedScene { get; private set; }
-    public float Damage => damage;
+    [Export(PropertyHint.File)] public string PackedScene { get; private set; }
+    public float Damage => _damage;
 }

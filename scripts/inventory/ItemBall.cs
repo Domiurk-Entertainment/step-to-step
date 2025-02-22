@@ -1,9 +1,12 @@
-﻿namespace StepToStep.Inventory;
+﻿using Godot;
 
-public class Item
+namespace StepToStep.Inventory;
+
+[GlobalClass]
+public partial class Item : Resource
 {
-    public ItemResource Resource;
-    public int Amount;
+    [Export] public BallResource Resource;
+    [Export] public int Amount;
     public override string ToString() => $"{Resource.ID}:{Amount}";
     public bool IsEmpty() => Resource == null;
 
@@ -20,9 +23,15 @@ public class Item
         return new Item(Resource, Amount);
     }
 
-    public Item(ItemResource resource, int amount)
+    public Item(BallResource resource, int amount)
     {
         Resource = resource;
         Amount = amount;
+    }
+
+    public Item()
+    {
+        Resource = null;
+        Amount = 0;
     }
 }

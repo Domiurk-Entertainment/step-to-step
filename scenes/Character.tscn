@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://qxp1xt6p3mcx"]
+[gd_scene load_steps=25 format=3 uid="uid://qxp1xt6p3mcx"]
 
 [ext_resource type="Script" path="res://scripts/Player.cs" id="1_8sdka"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="2_g178e"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://scripts/stats/StatHandler.cs" id="7_q77xg"]
 [ext_resource type="Script" path="res://scripts/stats/Stat.cs" id="8_6j1gn"]
 [ext_resource type="PackedScene" uid="uid://bwixc66257oaw" path="res://scenes/sight.tscn" id="10_8va8p"]
-[ext_resource type="Script" path="res://scripts/inventory/ItemContainer.cs" id="10_xn815"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_amdg8"]
 atlas = ExtResource("2_v4bmy")
@@ -117,14 +116,13 @@ bg_color = Color(0.113725, 0.666667, 0.231373, 1)
 radius = 5.0
 height = 16.0
 
-[node name="Player" type="StaticBody2D" node_paths=PackedStringArray("spawnBalls", "sight")]
+[node name="Player" type="StaticBody2D" node_paths=PackedStringArray("_spawnBalls", "_sight")]
 light_mask = 2
 visibility_layer = 2
 collision_layer = 512
 script = ExtResource("1_8sdka")
-spawnBalls = NodePath("Node2D")
-sight = NodePath("sight")
-ballScene = "res://scenes/ball.tscn"
+_spawnBalls = NodePath("Node2D")
+_sight = NodePath("sight")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
@@ -176,10 +174,9 @@ value = 3
 
 [node name="Inventory" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("10_xn815")
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(18, -10)
+position = Vector2(11, -37)
 
 [node name="sight" parent="." instance=ExtResource("10_8va8p")]
 visible = false
