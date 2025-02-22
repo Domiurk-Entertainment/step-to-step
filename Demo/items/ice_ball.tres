@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BallResource" load_steps=3 format=3 uid="uid://uevbbfoqa5wv"]
+
+[ext_resource type="Texture2D" uid="uid://csyj57hj33op7" path="res://sprites/IceBall.png" id="1_qjui1"]
+[ext_resource type="Script" path="res://scripts/inventory/BallResource.cs" id="2_nnsog"]
+
+[resource]
+script = ExtResource("2_nnsog")
+damage = 3.0
+PackedScene = "res://scenes/balls"
+Id = "ice_ball"
+description = "Ball is make with ice and freeze target"
+icon = ExtResource("1_qjui1")

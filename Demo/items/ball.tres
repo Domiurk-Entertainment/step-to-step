@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://cap5872uxghgs"]
+
+[ext_resource type="Script" path="res://scripts/inventory/ItemResource.cs" id="1_kujmi"]
+[ext_resource type="Texture2D" uid="uid://c0iblicaaxwue" path="res://sprites/Ball.png" id="1_q171c"]
+
+[resource]
+script = ExtResource("1_kujmi")
+Id = "base_ball"
+description = "This Ball is based"
+icon = ExtResource("1_q171c")
