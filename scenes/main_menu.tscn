@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://v1bwsg58hh8u"]
+[gd_scene load_steps=14 format=3 uid="uid://v1bwsg58hh8u"]
 
 [ext_resource type="Texture2D" uid="uid://cu4we4jjrtiid" path="res://sprites/PixelMainMenu.png" id="1_bisl8"]
 [ext_resource type="Script" path="res://scripts/roma/main_menu.gd" id="1_f54t6"]
+[ext_resource type="PackedScene" uid="uid://c3745i6iabcxo" path="res://scenes/map_sprite.tscn" id="2_aioc1"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="2_rd6an"]
 [ext_resource type="Texture2D" uid="uid://cw7fnbcsld1pd" path="res://sprites/settings.png" id="3_jbijw"]
 [ext_resource type="Texture2D" uid="uid://dnjxmb3w8e2m4" path="res://sprites/ButtonPaus.png" id="4_go363"]
@@ -25,6 +26,7 @@ point_count = 5
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_f54t6")
+map = ExtResource("2_aioc1")
 
 [node name="PixelMainMenu" type="Sprite2D" parent="."]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
@@ -307,14 +309,14 @@ flat = true
 text_overrun_behavior = 2
 
 [connection signal="mouse_entered" from="Control/Settings" to="." method="_button_hover_sound"]
-[connection signal="pressed" from="Control/Settings" to="." method="_opened_settings"]
 [connection signal="pressed" from="Control/Settings" to="." method="_button_pressed_sound"]
+[connection signal="pressed" from="Control/Settings" to="." method="_opened_settings"]
 [connection signal="mouse_entered" from="Control/SettingsMenu/Button" to="." method="_button_hover_sound"]
-[connection signal="pressed" from="Control/SettingsMenu/Button" to="." method="_closed_settings"]
 [connection signal="pressed" from="Control/SettingsMenu/Button" to="." method="_button_pressed_sound"]
+[connection signal="pressed" from="Control/SettingsMenu/Button" to="." method="_closed_settings"]
 [connection signal="mouse_entered" from="Control/VBoxContainer/Play" to="." method="_button_hover_sound"]
-[connection signal="pressed" from="Control/VBoxContainer/Play" to="." method="_button_pressed_sound"]
 [connection signal="pressed" from="Control/VBoxContainer/Play" to="." method="_play_game"]
+[connection signal="pressed" from="Control/VBoxContainer/Play" to="." method="_button_pressed_sound"]
 [connection signal="mouse_entered" from="Control/VBoxContainer/Return" to="." method="_button_hover_sound"]
 [connection signal="pressed" from="Control/VBoxContainer/Return" to="." method="_button_pressed_sound"]
 [connection signal="mouse_entered" from="Control/VBoxContainer/Quit" to="." method="_button_hover_sound"]

@@ -32,8 +32,8 @@ public partial class PointsService : Node2D
         Point[] points = GetTree().GetNodesInGroup(GROUP).Cast<Point>().ToArray();
 
         foreach(Point point in points){
-            point.ChangePointVisible(false);
             point.Pressed += () => PointOnPressed(point);
+            point.ChangePointVisible(false);
         }
 
         startPoint ??= points[0];
@@ -45,6 +45,8 @@ public partial class PointsService : Node2D
 
     private void PointOnPressed(Point point)
     {
+        GD.Print($"Pressed:{point.Name}");
+
         foreach(Point lastPointChild in lastPoint.Points)
             lastPointChild.ChangePointVisible(false);
 
@@ -66,26 +68,11 @@ public partial class PointsService : Node2D
 
     private void ActivateClickedPoint(Point point)
     {
-        var data = _sceneTransition.Get("data");
-        var dictionary = data.AsGodotDictionary();
-        dictionary.Add(GetNamePackedScene(point.SceneToLoad), point.Config);
-        // GetNode("/root/SceneTransition")
-        // .Get("data")
-        // .AsGodotDictionary();
-        // .Add(GetNamePackedScene(point.SceneToLoad), point.Config);
-
         if(point.SceneToLoad != null){
-            _sceneTransition.Call("change_scene", point.SceneToLoad);
+            _sceneTransition.Call("ChangeScene", point.SceneToLoad);
         }
 
         foreach(Point childPoint in point.Points)
             childPoint.ChangePointVisible(true);
-    }
-
-    private string GetNamePackedScene(PackedScene scene)
-    {
-        string result = scene.ResourceName;
-        GD.Print(result);
-        return result;
     }
 }

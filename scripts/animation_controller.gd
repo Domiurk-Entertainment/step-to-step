@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var node_paths: Dictionary
-
+@export var main_menu: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,7 +31,7 @@ func _on_unpause_pressed():
 	$"Control/Pause Panel".hide()
 
 func _on_menu_pressed():
-	SceneTransition.change_scene("res://scenes/main_menu.tscn")
+	SceneTransition.ChangeScene(main_menu)
 
 func _on_button_hover_sound():
 	$"Sounds/Hover".play()

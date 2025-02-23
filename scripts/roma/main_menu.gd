@@ -1,10 +1,13 @@
 extends Node2D
 
+@export var map: PackedScene
+
+
 func _quit_game():
 	get_tree().quit()
 
 func _play_game():
-	SceneTransition.change_scene("res://scenes/map_sprite.tscn")
+	SceneTransition.ChangeScene(map)
 
 func _button_hover_sound():
 	$"Hover Sound".play()

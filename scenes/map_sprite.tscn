@@ -1,8 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://c3745i6iabcxo"]
+[gd_scene load_steps=36 format=3 uid="uid://c3745i6iabcxo"]
 
 [ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/the front lower part of the cave.png" id="1_bes3c"]
 [ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_nmtdw"]
 [ext_resource type="Texture2D" uid="uid://5c0u7thmvt0g" path="res://sprites/front upper part of the cave.png" id="2_i7vgh"]
+[ext_resource type="PackedScene" uid="uid://v1bwsg58hh8u" path="res://scenes/main_menu.tscn" id="2_ud1eh"]
 [ext_resource type="Texture2D" uid="uid://bfdu30qcxdvj5" path="res://sprites/TilemapCave.png" id="3_b4aos"]
 [ext_resource type="Texture2D" uid="uid://ck3t7x12t4klr" path="res://sprites/blum.png" id="4_1goqc"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="5_4y1k6"]
@@ -14,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="8_oyity"]
 [ext_resource type="PackedScene" uid="uid://bste1dma5c0dp" path="res://scenes/point.tscn" id="11_sgnt7"]
 [ext_resource type="AudioStream" uid="uid://cgbx3x6pnvhqn" path="res://sound/Pixel Music Pack/Wav/Pixel 7.wav" id="13_hky7r"]
-[ext_resource type="Shader" path="res://scenes/blur.gdshader" id="13_tmlm8"]
+[ext_resource type="Shader" path="res://scripts/utilities/blur.gdshader" id="13_tmlm8"]
 [ext_resource type="AudioStream" uid="uid://3ei5c4shcb46" path="res://sound/UI Soundpack/WAV/Minimalist7.wav" id="19_inug1"]
 [ext_resource type="AudioStream" uid="uid://bsnbaujlbcd2h" path="res://sound/UI Soundpack/WAV/Retro4.wav" id="20_88xn3"]
 
@@ -147,25 +148,7 @@ shader_parameter/amount = 3.118
 
 [node name="MapSprite" type="Node2D"]
 script = ExtResource("1_nmtdw")
-node_paths = {
-NodePath("front_top_bottom_cave/Animatedblum4"): "default",
-NodePath("front_top_bottom_cave/Animatedblum2"): "default",
-NodePath("front_top_bottom_cave/Animatedblum14"): "default",
-NodePath("front_top_bottom_cave/Animatedblum5"): "default",
-NodePath("front_top_bottom_cave/Animatedblum9"): "default",
-NodePath("front_top_bottom_cave/Animatedblum11"): "default",
-NodePath("front_top_bottom_cave/Animatedblum12"): "default",
-NodePath("front_top_bottom_cave/Animatedblum13"): "default",
-NodePath("front_top_bottom_cave/Animatedblum10"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum8"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum7"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum6"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum9"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum5"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum4"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum3"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum"): "default"
-}
+main_menu = ExtResource("2_ud1eh")
 
 [node name="TileMap" type="TileMap" parent="."]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
@@ -462,12 +445,13 @@ energy = 4.0
 texture = ExtResource("5_4y1k6")
 texture_scale = 0.02
 
-[node name="Points" type="Node2D" parent="." node_paths=PackedStringArray("miniPlayer")]
+[node name="Points" type="Node2D" parent="." node_paths=PackedStringArray("miniPlayer", "startPoint")]
 modulate = Color(0.807843, 0.807843, 0.807843, 1)
 position = Vector2(217, 139)
 scale = Vector2(4, 4)
 script = ExtResource("6_44mf3")
 miniPlayer = NodePath("../PlayerMenu")
+startPoint = NodePath("Point")
 
 [node name="Point" parent="Points" node_paths=PackedStringArray("_pointsUnlock") groups=["Points"] instance=ExtResource("11_sgnt7")]
 offset_left = 0.0
@@ -751,6 +735,7 @@ offset_left = -61.0
 offset_top = -582.0
 offset_right = 596.0
 offset_bottom = 363.0
+mouse_filter = 2
 
 [node name="Pause Panel" type="ColorRect" parent="Control"]
 visible = false
@@ -799,11 +784,11 @@ grow_horizontal = 0
 text = "dssd"
 
 [connection signal="mouse_entered" from="Control/Pause Panel/Return" to="." method="_on_button_hover_sound"]
-[connection signal="pressed" from="Control/Pause Panel/Return" to="." method="_on_button_pressed_sound"]
 [connection signal="pressed" from="Control/Pause Panel/Return" to="." method="_on_unpause_pressed"]
+[connection signal="pressed" from="Control/Pause Panel/Return" to="." method="_on_button_pressed_sound"]
 [connection signal="mouse_entered" from="Control/Pause Panel/MainMenu" to="." method="_on_button_hover_sound"]
-[connection signal="pressed" from="Control/Pause Panel/MainMenu" to="." method="_on_button_pressed_sound"]
 [connection signal="pressed" from="Control/Pause Panel/MainMenu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Control/Pause Panel/MainMenu" to="." method="_on_button_pressed_sound"]
 [connection signal="mouse_entered" from="Control/Pause" to="." method="_on_button_hover_sound"]
-[connection signal="pressed" from="Control/Pause" to="." method="_on_button_pressed_sound"]
 [connection signal="pressed" from="Control/Pause" to="." method="_on_paus_pressed"]
+[connection signal="pressed" from="Control/Pause" to="." method="_on_button_pressed_sound"]
