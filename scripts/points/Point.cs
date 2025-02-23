@@ -12,12 +12,6 @@ public partial class Point : Button
     
     [Export] private Point[] _pointsUnlock = Array.Empty<Point>();
 
-    private Node _sceneTransition;
-    public override void _Ready()
-    {
-        _sceneTransition = GetNode("/root/SceneTransition");
-    }
-
     public void ChangePointVisible(bool visible)
     {
         Disabled = !visible;

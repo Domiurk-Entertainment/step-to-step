@@ -45,7 +45,6 @@ public partial class PointsService : Node2D
 
     private void PointOnPressed(Point point)
     {
-        GD.Print($"Pressed:{point.Name}");
 
         foreach(Point lastPointChild in lastPoint.Points)
             lastPointChild.ChangePointVisible(false);
@@ -68,6 +67,9 @@ public partial class PointsService : Node2D
 
     private void ActivateClickedPoint(Point point)
     {
+        if(point.SceneToLoad != null)
+            SceneTransition.Data.Add(point.SceneToLoad.ResourcePath, point.Config);
+        
         if(point.SceneToLoad != null){
             _sceneTransition.Call("ChangeScene", point.SceneToLoad);
         }

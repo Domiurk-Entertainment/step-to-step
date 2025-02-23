@@ -1,6 +1,7 @@
 using Godot;
 using StepToStep.Level;
 using StepToStep.scripts;
+using StepToStep.Utils;
 
 namespace StepToStep.Battle
 {
@@ -15,28 +16,39 @@ namespace StepToStep.Battle
 
         private Enemy _enemy;
 
-        public void InitializeLevel(BattleConfig config)
+        public override void _Ready()
         {
-            GD.Print(GetNode("/root/SceneTransition")
-                     .Get("data")
-                     .AsGodotDictionary()[Name]);
-
-            if(_player != null || _enemy != null)
-                return;
-            // _player = GD.Load<Player>(config.PlayerPackedScene.ResourcePath);
-            // _enemy = GD.Load<Enemy>(config.EnemiesPackedScene.ResourcePath);
+            BattleConfig config = SceneTransition.Data[GetTree().CurrentScene.SceneFilePath].As<BattleConfig>();
             _player = config.PlayerPackedScene.Instantiate<Player>();
             _enemy = config.EnemiesPackedScene.Instantiate<Enemy>();
 
+            AddChild(_player);
+            AddChild(_enemy);
+
             _player.GlobalPosition = playerSpawnPoint.GlobalPosition;
             _enemy.GlobalPosition = enemySpawnPoint.GlobalPosition;
-            GD.Print($"{_player.Name}:{_player.GlobalPosition}");
-            GD.Print($"{_enemy.Name}:{_enemy.GlobalPosition}");
         }
 
-        public void TryRunOff()
+        private bool tryingRunOff = false;
+        [Export] private int chanceToRunOff = 4;
+
+        public async void TryRunOff()
         {
-            GetNode("/root/SceneTransition").Call("change_scene", "res://scenes/map_sprite.tscn");
+            if(tryingRunOff)
+                return;
+
+            tryingRunOff = true;
+
+            for(int i = chanceToRunOff; i > 0; i--){
+                SceneTreeTimer timer = GetTree().CreateTimer(1);
+                await ToSignal(timer, "timeout");
+                GD.Print(i + "...");
+            }
+
+            SceneTreeTimer timerAfter = GetTree().CreateTimer(1);
+            await ToSignal(timerAfter, "timeout");
+            GD.Print("Ви спробували втікти але натрапили на пастку");
+            tryingRunOff = false;
         }
 
         public void PlayerAttack() { }
