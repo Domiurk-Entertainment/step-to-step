@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://cimwavhv2g0h7"]
 
 [ext_resource type="Script" path="res://Demo/DemoBattle.cs" id="1_6uirv"]
-[ext_resource type="PackedScene" uid="uid://dwvhlj2ouj5t6" path="res://scenes/location_1.tscn" id="1_el73e"]
+[ext_resource type="PackedScene" uid="uid://dwvhlj2ouj5t6" path="res://scenes/cave_location.tscn" id="1_el73e"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="2_bfbts"]
-[ext_resource type="PackedScene" uid="uid://c0vlu6mogmo1c" path="res://scenes/Character.tscn" id="3_7ckfu"]
+[ext_resource type="PackedScene" uid="uid://qxp1xt6p3mcx" path="res://scenes/player.tscn" id="3_7ckfu"]
 [ext_resource type="Texture2D" uid="uid://dagjp57mc74my" path="res://sprites/SmallButton.png" id="3_46bx1"]
 [ext_resource type="Texture2D" uid="uid://bkn15av8my80s" path="res://sprites/bigButton.png" id="5_tsh25"]
-[ext_resource type="PackedScene" uid="uid://c0tod7yw4sold" path="res://scenes/enemySmile.tscn" id="6_btrie"]
+[ext_resource type="PackedScene" uid="uid://c0tod7yw4sold" path="res://scenes/enemy_smile.tscn" id="6_btrie"]
 [ext_resource type="Script" path="res://scripts/Enemy.cs" id="7_7lq5f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w01jv"]

@@ -29,7 +29,10 @@ public partial class Battle : Node2D
         _enemy.GlobalPosition = enemySpawnPoint.GlobalPosition;
     }
 
-    public void TryRunOff() { }
+    public void TryRunOff()
+    {
+        GetNode("/root/SceneTransition").Call("change_scene", "res://scenes/map_sprite.tscn");
+    }
 
     public void PlayerAttack() { }
 }

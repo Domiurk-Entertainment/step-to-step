@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://h8mi3kmucs6v"]
 
 [ext_resource type="Script" path="res://Demo/DemoBattle.cs" id="1_uhltu"]
-[ext_resource type="PackedScene" uid="uid://qxp1xt6p3mcx" path="res://scenes/character.tscn" id="1_wu163"]
+[ext_resource type="PackedScene" uid="uid://qxp1xt6p3mcx" path="res://scenes/player.tscn" id="1_wu163"]
 [ext_resource type="PackedScene" uid="uid://c0tod7yw4sold" path="res://scenes/enemy_smile.tscn" id="2_n2nw5"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="4_o46bu"]
 [ext_resource type="Texture2D" uid="uid://dslaqll0yjmml" path="res://sprites/ShopBackPack.png" id="5_fle2h"]
@@ -22,9 +22,6 @@ position = Vector2(195, 162)
 
 [node name="EnemySmile" parent="." instance=ExtResource("2_n2nw5")]
 position = Vector2(387, 163)
-slide_on_ceiling = false
-floor_stop_on_slope = false
-floor_block_on_wall = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(354, 186)

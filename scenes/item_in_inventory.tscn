@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c0iblicaaxwue" path="res://sprites/Ball.png" id="1_lgfwb"]
 [ext_resource type="Script" path="res://scripts/inventory/ItemInInventory.cs" id="2_vp1j8"]
 
-[node name="Button" type="Button"]
+[node name="Ball" type="Button"]
 focus_mode = 0
 button_mask = 0
 text = "(0)"

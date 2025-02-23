@@ -266,7 +266,8 @@ color = Color(0, 0, 0, 0.545098)
 layout_mode = 0
 offset_top = 137.0
 offset_right = 161.0
-offset_bottom = 366.0
+offset_bottom = 229.0
+alignment = 1
 
 [node name="Play" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2

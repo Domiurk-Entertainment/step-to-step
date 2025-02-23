@@ -7,14 +7,14 @@ namespace StepToStep.scripts;
 public partial class Point : Button
 {
     public IReadOnlyCollection<Point> Points => pointsUnlock;
-    
+
     [Export] private Point[] pointsUnlock = Array.Empty<Point>();
     [Export(PropertyHint.Dir)] private PackedScene sceneToLoad;
 
     public void ActivePoint()
     {
         if(sceneToLoad != null){
-            GetTree().ChangeSceneToPacked(sceneToLoad);
+            GetNode("/root/SceneTransition").Call("change_scene", sceneToLoad.ResourcePath);
         }
 
         foreach(Point point in pointsUnlock)

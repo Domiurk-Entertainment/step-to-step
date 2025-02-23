@@ -35,7 +35,6 @@ public partial class PointsService : Node2D
             {
                 foreach(Point lastPointChild in lastPoint.Points)
                     lastPointChild.ChangePointVisible(false);
-                GD.Print(point.PivotOffset);
                 Tween tween =
                     miniPlayer.CreateToTween(miniPlayer.GlobalPosition, point.GlobalPosition + pointOffset,
                                              "global_position",

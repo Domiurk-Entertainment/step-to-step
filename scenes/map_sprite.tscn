@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://di4mft2i2j7yn"]
+[gd_scene load_steps=35 format=3 uid="uid://di4mft2i2j7yn"]
 
 [ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/the front lower part of the cave.png" id="1_bes3c"]
 [ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_nmtdw"]
@@ -7,15 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://ck3t7x12t4klr" path="res://sprites/blum.png" id="4_1goqc"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="5_4y1k6"]
 [ext_resource type="Script" path="res://scripts/PointsService.cs" id="6_44mf3"]
+[ext_resource type="PackedScene" uid="uid://cmgwugih11gy2" path="res://Demo/Battle.tscn" id="7_4k3ay"]
 [ext_resource type="Texture2D" uid="uid://7s5uw7p7xydu" path="res://sprites/the right wall of the cave.png" id="7_7iuju"]
-[ext_resource type="PackedScene" uid="uid://kk6hn7a6yb16" path="res://scenes/battle_right_1.tscn" id="7_leybw"]
-[ext_resource type="PackedScene" uid="uid://blkmjkllufijl" path="res://scenes/battle_left_1.tscn" id="8_aohen"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="8_iohnm"]
 [ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="8_oyity"]
-[ext_resource type="PackedScene" uid="uid://bnmrpc3reumda" path="res://scenes/battle_boss.tscn" id="8_rdooe"]
 [ext_resource type="PackedScene" uid="uid://dvjyvgcb54dff" path="res://scenes/shop.tscn" id="9_edjyb"]
-[ext_resource type="PackedScene" uid="uid://cimwavhv2g0h7" path="res://scenes/battle_right_2.tscn" id="10_1kgkr"]
-[ext_resource type="PackedScene" uid="uid://bste1dma5c0dp" path="res://scenes/Point.tscn" id="11_sgnt7"]
+[ext_resource type="PackedScene" uid="uid://bste1dma5c0dp" path="res://scenes/point.tscn" id="11_sgnt7"]
 [ext_resource type="AudioStream" uid="uid://cgbx3x6pnvhqn" path="res://sound/Pixel Music Pack/Wav/Pixel 7.wav" id="13_hky7r"]
 [ext_resource type="Shader" path="res://scenes/blur.gdshader" id="13_tmlm8"]
 [ext_resource type="AudioStream" uid="uid://3ei5c4shcb46" path="res://sound/UI Soundpack/WAV/Minimalist7.wav" id="19_inug1"]
@@ -151,23 +148,23 @@ shader_parameter/amount = 3.118
 [node name="MapSprite" type="Node2D"]
 script = ExtResource("1_nmtdw")
 node_paths = {
-NodePath("front_top_bottom_cave/Animatedblum4"): "default",
-NodePath("front_top_bottom_cave/Animatedblum2"): "default",
-NodePath("front_top_bottom_cave/Animatedblum14"): "default",
-NodePath("front_top_bottom_cave/Animatedblum5"): "default",
-NodePath("front_top_bottom_cave/Animatedblum9"): "default",
-NodePath("front_top_bottom_cave/Animatedblum11"): "default",
-NodePath("front_top_bottom_cave/Animatedblum12"): "default",
-NodePath("front_top_bottom_cave/Animatedblum13"): "default",
-NodePath("front_top_bottom_cave/Animatedblum10"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum8"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum7"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum6"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum9"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum5"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum4"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum"): "default",
 NodePath("TileMap/Blum_anim/Animatedblum3"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum"): "default"
+NodePath("TileMap/Blum_anim/Animatedblum4"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum5"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum9"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum6"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum7"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum8"): "default",
+NodePath("front_top_bottom_cave/Animatedblum10"): "default",
+NodePath("front_top_bottom_cave/Animatedblum13"): "default",
+NodePath("front_top_bottom_cave/Animatedblum12"): "default",
+NodePath("front_top_bottom_cave/Animatedblum11"): "default",
+NodePath("front_top_bottom_cave/Animatedblum9"): "default",
+NodePath("front_top_bottom_cave/Animatedblum5"): "default",
+NodePath("front_top_bottom_cave/Animatedblum14"): "default",
+NodePath("front_top_bottom_cave/Animatedblum2"): "default",
+NodePath("front_top_bottom_cave/Animatedblum4"): "default"
 }
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -485,7 +482,7 @@ offset_top = -32.0
 offset_right = 49.0
 offset_bottom = -8.0
 pointsUnlock = [NodePath("../Point4")]
-sceneToLoad = ExtResource("7_leybw")
+sceneToLoad = ExtResource("7_4k3ay")
 
 [node name="Point3" parent="Points" node_paths=PackedStringArray("pointsUnlock") instance=ExtResource("11_sgnt7")]
 offset_left = -26.25
@@ -493,7 +490,7 @@ offset_top = -32.75
 offset_right = -2.25
 offset_bottom = -8.75
 pointsUnlock = [NodePath("../Point4")]
-sceneToLoad = ExtResource("8_aohen")
+sceneToLoad = ExtResource("7_4k3ay")
 
 [node name="Point4" parent="Points" node_paths=PackedStringArray("pointsUnlock") instance=ExtResource("11_sgnt7")]
 offset_left = 0.0
@@ -510,7 +507,7 @@ offset_right = 64.5
 offset_bottom = -59.5
 pivot_offset = Vector2(13.25, 12)
 pointsUnlock = [NodePath("../Point7")]
-sceneToLoad = ExtResource("10_1kgkr")
+sceneToLoad = ExtResource("7_4k3ay")
 
 [node name="Point6" parent="Points" node_paths=PackedStringArray("pointsUnlock") instance=ExtResource("11_sgnt7")]
 offset_left = -40.5
@@ -526,7 +523,7 @@ offset_top = -130.75
 offset_right = 21.25
 offset_bottom = -106.75
 pivot_offset = Vector2(11.25, 12)
-sceneToLoad = ExtResource("8_rdooe")
+sceneToLoad = ExtResource("7_4k3ay")
 
 [node name="front_top_bottom_cave" type="Node2D" parent="."]
 light_mask = 2

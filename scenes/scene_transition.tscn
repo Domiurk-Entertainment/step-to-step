@@ -1,25 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://h5gujhqc4xd8"]
 
-[ext_resource type="Script" path="res://scripts/roma/scene_transition.gd" id="1_7o8gk"]
-
-[sub_resource type="Animation" id="Animation_s7sad"]
-resource_name = "animation_finished"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
+[ext_resource type="Script" path="res://scripts/roma/scene_transition.gd" id="1_a6rbh"]
 
 [sub_resource type="Animation" id="Animation_fjvna"]
-resource_name = "whooot"
+resource_name = "enter"
 length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -34,14 +18,30 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_s7sad"]
+resource_name = "exit"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6os0m"]
 _data = {
-"animation_finished": SubResource("Animation_s7sad"),
-"whooot": SubResource("Animation_fjvna")
+"enter": SubResource("Animation_fjvna"),
+"exit": SubResource("Animation_s7sad")
 }
 
 [node name="SceneTransition" type="CanvasLayer"]
-script = ExtResource("1_7o8gk")
+script = ExtResource("1_a6rbh")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -369.0
