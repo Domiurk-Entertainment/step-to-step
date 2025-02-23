@@ -1,5 +1,6 @@
 using Godot;
 using StepToStep.Battle;
+using StepToStep.scripts;
 using StepToStep.Utilities;
 using StepToStep.Utils;
 using System;
@@ -31,7 +32,8 @@ public partial class Player : StaticBody2D, IHealth
             Ball instance = GD.Load<PackedScene>(BallScene).Instantiate() as Ball;
             _spawnBalls.AddChild(instance);
             instance.Position = Vector2.Zero;
-            instance.Throw(direction, _force);
+            instance.Throw(GetTree().CurrentScene.GetNode<Enemy>("EnemySmile").GlobalPosition - GlobalPosition, _force);
+            // instance.Throw(direction, _force);
             ChangeStep?.Invoke(StepType.Attacked);
             _sight.Visible = false;
         }

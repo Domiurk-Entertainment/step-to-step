@@ -51,6 +51,9 @@ namespace StepToStep.Battle
             tryingRunOff = false;
         }
 
-        public void PlayerAttack() { }
+        public void PlayerAttack()
+        {
+            _player.Attack();
+        }
     }
 }

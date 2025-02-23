@@ -20,12 +20,6 @@ namespace StepToStep.Utils
             _animationPlayer.AnimationFinished += OnAnimationFinished;
         }
 
-        public override void _Input(InputEvent @event)
-        {
-            if(Input.IsKeyPressed(Key.Space))
-                GD.Print($"{GetTree().CurrentScene.SceneFilePath}:\n{Data}");
-        }
-
         private void OnAnimationFinished(StringName animName)
         {
             if(animName == ANIMATION_NAME_EXIT)
