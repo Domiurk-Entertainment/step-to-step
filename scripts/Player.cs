@@ -1,8 +1,10 @@
 using Godot;
 using StepToStep.Battle;
+using StepToStep.Utilities;
+using StepToStep.Utils;
 using System;
 
-namespace StepToStep.scripts;
+namespace StepToStep;
 
 public partial class Player : StaticBody2D, IHealth
 {

@@ -1,6 +1,8 @@
 using Godot;
+using StepToStep;
 using StepToStep.Battle;
 using StepToStep.scripts;
+using StepToStep.Utilities;
 using System;
 
 public partial class DemoBattle : Node

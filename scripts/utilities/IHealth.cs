@@ -1,4 +1,4 @@
-﻿namespace StepToStep.scripts;
+﻿namespace StepToStep.Utils;
 
 public interface IHealth
 {

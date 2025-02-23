@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmgwugih11gy2"]
+
+[ext_resource type="Script" path="res://scripts/Battle.cs" id="1_jm0jn"]
+
+[node name="Battle" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "enemySpawnPoint")]
+position = Vector2(0, 1)
+script = ExtResource("1_jm0jn")
+playerSpawnPoint = NodePath("Player spawn")
+enemySpawnPoint = NodePath("Enemy Spawn")
+
+[node name="Run Off" type="Button" parent="."]
+offset_left = 277.0
+offset_top = 52.0
+offset_right = 344.0
+offset_bottom = 83.0
+text = "Run Off"
+
+[node name="Player spawn" type="Node2D" parent="."]
+position = Vector2(115, 154)
+
+[node name="Enemy Spawn" type="Node2D" parent="."]
+position = Vector2(465, 158)
+
+[connection signal="pressed" from="Run Off" to="." method="TryRunOff"]

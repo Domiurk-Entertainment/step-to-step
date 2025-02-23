@@ -1,6 +1,6 @@
 ﻿using Godot;
 
-namespace StepToStep.scripts;
+namespace StepToStep.Utils;
 
 public static class Utilities
 {

@@ -37,9 +37,8 @@ animations = [{
 radius = 5.99996
 height = 15.9999
 
-[node name="EnemySmile" type="StaticBody2D" node_paths=PackedStringArray("rayCast2D")]
+[node name="EnemySmile" type="StaticBody2D"]
 script = ExtResource("1_g11nf")
-rayCast2D = NodePath("RayCast2D")
 
 [node name="Health" type="ProgressBar" parent="."]
 unique_name_in_owner = true

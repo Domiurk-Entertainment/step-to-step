@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://di4mft2i2j7yn"]
+[gd_scene load_steps=35 format=3 uid="uid://c3745i6iabcxo"]
 
 [ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/the front lower part of the cave.png" id="1_bes3c"]
 [ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_nmtdw"]
@@ -6,12 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://bfdu30qcxdvj5" path="res://sprites/TilemapCave.png" id="3_b4aos"]
 [ext_resource type="Texture2D" uid="uid://ck3t7x12t4klr" path="res://sprites/blum.png" id="4_1goqc"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="5_4y1k6"]
-[ext_resource type="Script" path="res://scripts/PointsService.cs" id="6_44mf3"]
-[ext_resource type="PackedScene" uid="uid://cmgwugih11gy2" path="res://Demo/Battle.tscn" id="7_4k3ay"]
+[ext_resource type="Script" path="res://scripts/points/PointsService.cs" id="6_44mf3"]
 [ext_resource type="Texture2D" uid="uid://7s5uw7p7xydu" path="res://sprites/the right wall of the cave.png" id="7_7iuju"]
+[ext_resource type="Resource" uid="uid://j175cel0uce3" path="res://resources/battle_configs/first_battle.tres" id="7_jsnjo"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="8_iohnm"]
+[ext_resource type="PackedScene" uid="uid://cmgwugih11gy2" path="res://scenes/battle.tscn" id="8_jjjf4"]
 [ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="8_oyity"]
-[ext_resource type="PackedScene" uid="uid://dvjyvgcb54dff" path="res://scenes/shop.tscn" id="9_edjyb"]
 [ext_resource type="PackedScene" uid="uid://bste1dma5c0dp" path="res://scenes/point.tscn" id="11_sgnt7"]
 [ext_resource type="AudioStream" uid="uid://cgbx3x6pnvhqn" path="res://sound/Pixel Music Pack/Wav/Pixel 7.wav" id="13_hky7r"]
 [ext_resource type="Shader" path="res://scenes/blur.gdshader" id="13_tmlm8"]
@@ -148,23 +148,23 @@ shader_parameter/amount = 3.118
 [node name="MapSprite" type="Node2D"]
 script = ExtResource("1_nmtdw")
 node_paths = {
-NodePath("TileMap/Blum_anim/Animatedblum"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum3"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum4"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum5"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum9"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum6"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum7"): "default",
-NodePath("TileMap/Blum_anim/Animatedblum8"): "default",
-NodePath("front_top_bottom_cave/Animatedblum10"): "default",
-NodePath("front_top_bottom_cave/Animatedblum13"): "default",
-NodePath("front_top_bottom_cave/Animatedblum12"): "default",
-NodePath("front_top_bottom_cave/Animatedblum11"): "default",
-NodePath("front_top_bottom_cave/Animatedblum9"): "default",
-NodePath("front_top_bottom_cave/Animatedblum5"): "default",
-NodePath("front_top_bottom_cave/Animatedblum14"): "default",
+NodePath("front_top_bottom_cave/Animatedblum4"): "default",
 NodePath("front_top_bottom_cave/Animatedblum2"): "default",
-NodePath("front_top_bottom_cave/Animatedblum4"): "default"
+NodePath("front_top_bottom_cave/Animatedblum14"): "default",
+NodePath("front_top_bottom_cave/Animatedblum5"): "default",
+NodePath("front_top_bottom_cave/Animatedblum9"): "default",
+NodePath("front_top_bottom_cave/Animatedblum11"): "default",
+NodePath("front_top_bottom_cave/Animatedblum12"): "default",
+NodePath("front_top_bottom_cave/Animatedblum13"): "default",
+NodePath("front_top_bottom_cave/Animatedblum10"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum8"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum7"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum6"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum9"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum5"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum4"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum3"): "default",
+NodePath("TileMap/Blum_anim/Animatedblum"): "default"
 }
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -469,64 +469,56 @@ scale = Vector2(4, 4)
 script = ExtResource("6_44mf3")
 miniPlayer = NodePath("../PlayerMenu")
 
-[node name="Point" parent="Points" node_paths=PackedStringArray("pointsUnlock") instance=ExtResource("11_sgnt7")]
+[node name="Point" parent="Points" node_paths=PackedStringArray("_pointsUnlock") groups=["Points"] instance=ExtResource("11_sgnt7")]
 offset_left = 0.0
 offset_top = -1.0
 offset_right = 24.0
 offset_bottom = 23.0
-pointsUnlock = [NodePath("../Point2"), NodePath("../Point3")]
+_pointsUnlock = [NodePath("../Point2"), NodePath("../Point3")]
 
-[node name="Point2" parent="Points" node_paths=PackedStringArray("pointsUnlock") instance=ExtResource("11_sgnt7")]
+[node name="Point2" parent="Points" node_paths=PackedStringArray("_pointsUnlock") groups=["Points"] instance=ExtResource("11_sgnt7")]
 offset_left = 25.0
 offset_top = -32.0
 offset_right = 49.0
 offset_bottom = -8.0
-pointsUnlock = [NodePath("../Point4")]
-sceneToLoad = ExtResource("7_4k3ay")
+Config = ExtResource("7_jsnjo")
+SceneToLoad = ExtResource("8_jjjf4")
+_pointsUnlock = [NodePath("../Point4")]
 
-[node name="Point3" parent="Points" node_paths=PackedStringArray("pointsUnlock") instance=ExtResource("11_sgnt7")]
+[node name="Point3" parent="Points" groups=["Points"] instance=ExtResource("11_sgnt7")]
 offset_left = -26.25
 offset_top = -32.75
 offset_right = -2.25
 offset_bottom = -8.75
-pointsUnlock = [NodePath("../Point4")]
-sceneToLoad = ExtResource("7_4k3ay")
 
-[node name="Point4" parent="Points" node_paths=PackedStringArray("pointsUnlock") instance=ExtResource("11_sgnt7")]
+[node name="Point4" parent="Points" groups=["Points"] instance=ExtResource("11_sgnt7")]
 offset_left = 0.0
 offset_top = -66.25
 offset_right = 24.0
 offset_bottom = -42.25
-pointsUnlock = [NodePath("../Point5"), NodePath("../Point6")]
-sceneToLoad = ExtResource("9_edjyb")
 
-[node name="Point5" parent="Points" node_paths=PackedStringArray("pointsUnlock") instance=ExtResource("11_sgnt7")]
+[node name="Point5" parent="Points" groups=["Points"] instance=ExtResource("11_sgnt7")]
 offset_left = 40.5
 offset_top = -83.5
 offset_right = 64.5
 offset_bottom = -59.5
 pivot_offset = Vector2(13.25, 12)
-pointsUnlock = [NodePath("../Point7")]
-sceneToLoad = ExtResource("7_4k3ay")
 
-[node name="Point6" parent="Points" node_paths=PackedStringArray("pointsUnlock") instance=ExtResource("11_sgnt7")]
+[node name="Point6" parent="Points" groups=["Points"] instance=ExtResource("11_sgnt7")]
 offset_left = -40.5
 offset_top = -82.75
 offset_right = -16.5
 offset_bottom = -58.75
 pivot_offset = Vector2(11.5, 12)
-pointsUnlock = [NodePath("../Point7")]
 
-[node name="Point7" parent="Points" instance=ExtResource("11_sgnt7")]
+[node name="Point7" parent="Points" groups=["Points"] instance=ExtResource("11_sgnt7")]
 offset_left = -2.75
 offset_top = -130.75
 offset_right = 21.25
 offset_bottom = -106.75
 pivot_offset = Vector2(11.25, 12)
-sceneToLoad = ExtResource("7_4k3ay")
 
 [node name="front_top_bottom_cave" type="Node2D" parent="."]
-light_mask = 2
 position = Vector2(-17, -244)
 scale = Vector2(4, 4)
 
@@ -664,24 +656,27 @@ texture = ExtResource("2_i7vgh")
 flip_h = true
 
 [node name="wallCave" type="Node2D" parent="."]
-light_mask = 2
+light_mask = 3
 position = Vector2(-11, -249)
 scale = Vector2(4, 4)
 
 [node name="TheRightWallOfTheCave" type="Sprite2D" parent="wallCave"]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
+light_mask = 3
 z_index = 6
 position = Vector2(146.5, -27)
 texture = ExtResource("7_7iuju")
 
 [node name="TheRightWallOfTheCave2" type="Sprite2D" parent="wallCave"]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
+light_mask = 3
 z_index = 6
 position = Vector2(146.25, 87)
 texture = ExtResource("7_7iuju")
 
 [node name="TheRightWallOfTheCave3" type="Sprite2D" parent="wallCave"]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
+light_mask = 3
 z_index = 6
 position = Vector2(-6, -26.75)
 texture = ExtResource("7_7iuju")
@@ -689,6 +684,7 @@ flip_h = true
 
 [node name="TheRightWallOfTheCave4" type="Sprite2D" parent="wallCave"]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
+light_mask = 3
 z_index = 6
 position = Vector2(-5.75, 87)
 texture = ExtResource("7_7iuju")
@@ -699,6 +695,7 @@ position = Vector2(264, -80)
 scale = Vector2(4, 4)
 
 [node name="PointLight2D" type="PointLight2D" parent="PlayerMenu"]
+light_mask = 2
 position = Vector2(-0.618771, -4.18)
 scale = Vector2(1.36, 1.36)
 color = Color(1, 0.94902, 0.298039, 1)
@@ -730,22 +727,50 @@ z_index = 6
 position = Vector2(267, -112)
 zoom = Vector2(1.06, 1.06)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Music" type="AudioStreamPlayer2D" parent="Sounds"]
 position = Vector2(497, -535)
 stream = ExtResource("13_hky7r")
+volume_db = -80.0
 autoplay = true
 
-[node name="pausBlur" type="ColorRect" parent="."]
-visible = false
-light_mask = 2
-z_index = 63
-material = SubResource("ShaderMaterial_n14jh")
-offset_left = -197.0
-offset_top = -633.0
-offset_right = 719.0
-offset_bottom = 397.0
+[node name="Hover" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("19_inug1")
+volume_db = 8.418
 
-[node name="Button" type="Button" parent="pausBlur"]
+[node name="Click" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("20_88xn3")
+
+[node name="Control" type="Control" parent="."]
+light_mask = 0
+visibility_layer = 512
+layout_mode = 3
+anchors_preset = 0
+offset_left = -61.0
+offset_top = -582.0
+offset_right = 596.0
+offset_bottom = 363.0
+
+[node name="Pause Panel" type="ColorRect" parent="Control"]
+visible = false
+light_mask = 0
+visibility_layer = 512
+material = SubResource("ShaderMaterial_n14jh")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -458.0
+offset_top = -515.0
+offset_right = 458.0
+offset_bottom = 515.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Return" type="Button" parent="Control/Pause Panel"]
 layout_mode = 0
 offset_left = 349.0
 offset_top = 454.0
@@ -753,7 +778,7 @@ offset_right = 571.0
 offset_bottom = 501.0
 text = "Retrum"
 
-[node name="Button2" type="Button" parent="pausBlur"]
+[node name="MainMenu" type="Button" parent="Control/Pause Panel"]
 layout_mode = 0
 offset_left = 349.0
 offset_top = 517.0
@@ -761,23 +786,24 @@ offset_right = 571.0
 offset_bottom = 564.0
 text = "Back to menu"
 
-[node name="paus" type="Button" parent="."]
-z_index = 40
-offset_left = 497.0
-offset_top = -535.0
-offset_right = 566.0
-offset_bottom = -463.0
+[node name="Pause" type="Button" parent="Control"]
+light_mask = 16
+visibility_layer = 512
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -69.0
+offset_bottom = 72.0
+grow_horizontal = 0
+text = "dssd"
 
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("19_inug1")
-volume_db = 8.418
-
-[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("20_88xn3")
-
-[connection signal="mouse_entered" from="pausBlur/Button" to="." method="_on_button_mouse_entered"]
-[connection signal="pressed" from="pausBlur/Button" to="." method="_on_button_pressed"]
-[connection signal="mouse_entered" from="pausBlur/Button2" to="." method="_on_button_2_mouse_entered"]
-[connection signal="pressed" from="pausBlur/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="mouse_entered" from="paus" to="." method="_on_paus_mouse_entered"]
-[connection signal="pressed" from="paus" to="." method="_on_paus_pressed"]
+[connection signal="mouse_entered" from="Control/Pause Panel/Return" to="." method="_on_button_hover_sound"]
+[connection signal="pressed" from="Control/Pause Panel/Return" to="." method="_on_button_pressed_sound"]
+[connection signal="pressed" from="Control/Pause Panel/Return" to="." method="_on_unpause_pressed"]
+[connection signal="mouse_entered" from="Control/Pause Panel/MainMenu" to="." method="_on_button_hover_sound"]
+[connection signal="pressed" from="Control/Pause Panel/MainMenu" to="." method="_on_button_pressed_sound"]
+[connection signal="pressed" from="Control/Pause Panel/MainMenu" to="." method="_on_menu_pressed"]
+[connection signal="mouse_entered" from="Control/Pause" to="." method="_on_button_hover_sound"]
+[connection signal="pressed" from="Control/Pause" to="." method="_on_button_pressed_sound"]
+[connection signal="pressed" from="Control/Pause" to="." method="_on_paus_pressed"]

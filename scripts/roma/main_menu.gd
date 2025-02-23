@@ -1,27 +1,27 @@
 extends Node2D
 
-func _on_quit_pressed():
-	$AudioStreamPlayer2D3.play()
+func _quit_game():
 	get_tree().quit()
 
-func _on_play_pressed():
-	$AudioStreamPlayer2D3.play()
+func _play_game():
 	SceneTransition.change_scene("res://scenes/map_sprite.tscn")
 
-func _on_play_mouse_entered():
-	$AudioStreamPlayer2D2.play()
+func _button_hover_sound():
+	$"Hover Sound".play()
 
-func _on_quit_mouse_entered():
-	$AudioStreamPlayer2D2.play()
-	
-func _on_return_mouse_entered():
-	$AudioStreamPlayer2D2.play()
+func _button_pressed_sound():
+	$"Click Sound".play()
 
-func _on_settings_mouse_entered():
-	$AudioStreamPlayer2D2.play()
+func _opened_settings():
+	$Control/SettingsMenu.show()
+	$Control/Settings.disabled = true
+	$Control/VBoxContainer/Play.disabled = true
+	$Control/VBoxContainer/Return.disabled = true
+	$Control/VBoxContainer/Quit.disabled = true
 
-func _on_settings_pressed():
-	$AudioStreamPlayer2D3.play()
-
-func _on_return_pressed():
-	$AudioStreamPlayer2D3.play()
+func _closed_settings():
+	$Control/SettingsMenu.hide()
+	$Control/Settings.disabled = false
+	$Control/VBoxContainer/Play.disabled = false
+	$Control/VBoxContainer/Return.disabled = false
+	$Control/VBoxContainer/Quit.disabled = false

@@ -1,4 +1,4 @@
-﻿namespace StepToStep.scripts;
+﻿namespace StepToStep.Utilities;
 
 public enum StepType
 {

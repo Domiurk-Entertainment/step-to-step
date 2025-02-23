@@ -1,6 +1,7 @@
 using Godot;
 using StepToStep.Inventory;
 using StepToStep.scripts;
+using StepToStep.Utils;
 using System;
 
 namespace StepToStep;
