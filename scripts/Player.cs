@@ -31,7 +31,14 @@ public partial class Player : StaticBody2D, IHealth
 
         void OnSightOnCalculatedDirection(Vector2 direction)
         {
-            Ball instance = Inventory.GetBall().Resource.PackedScene.Instantiate<Ball>();
+            Item ball = Inventory.GetBall();
+
+            if(ball == null){
+                GD.Print("Fuck");
+                return;
+            }
+
+            Ball instance = ball.Resource.PackedScene.Instantiate<Ball>();
             _spawnBalls.AddChild(instance);
             instance.Position = Vector2.Zero;
             instance.Throw(direction, _force);

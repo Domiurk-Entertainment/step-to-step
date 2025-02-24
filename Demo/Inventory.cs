@@ -31,12 +31,14 @@ namespace StepToStep.InventorySpace
         {
             if(_currentBall == null || _currentBall.Amount == 0){
                 RemovedItem?.Invoke(_currentBall);
-                _currentBall = _balls.Dequeue();
-                TakenItem?.Invoke(_currentBall);
+
+                if(_balls.TryDequeue(out _currentBall)){
+                    GD.Print($"{Name}: Queue is Empty");
+                    return null;
+                }
             }
-            else{
-                TakenItem?.Invoke(_currentBall);
-            }
+
+            TakenItem?.Invoke(_currentBall);
 
             _currentBall.Amount--;
             return _currentBall;
