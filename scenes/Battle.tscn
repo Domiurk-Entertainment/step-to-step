@@ -8,17 +8,38 @@ script = ExtResource("1_jm0jn")
 playerSpawnPoint = NodePath("Player spawn")
 enemySpawnPoint = NodePath("Enemy Spawn")
 
-[node name="Run Off" type="Button" parent="."]
+[node name="Player spawn" type="Node2D" parent="."]
+position = Vector2(215, 154)
+
+[node name="Enemy Spawn" type="Node2D" parent="."]
+position = Vector2(408, 158)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 699.0
+offset_bottom = 987.0
+mouse_filter = 2
+
+[node name="Run Off" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 277.0
 offset_top = 52.0
 offset_right = 344.0
 offset_bottom = 83.0
 text = "Run Off"
 
-[node name="Player spawn" type="Node2D" parent="."]
-position = Vector2(115, 154)
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 254.0
+offset_right = 420.0
+offset_bottom = 331.0
+text = "Attack"
 
-[node name="Enemy Spawn" type="Node2D" parent="."]
-position = Vector2(465, 158)
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(304, 165)
+zoom = Vector2(3, 3)
 
-[connection signal="pressed" from="Run Off" to="." method="TryRunOff"]
+[connection signal="pressed" from="Control/Run Off" to="." method="TryRunOff"]
+[connection signal="pressed" from="Control/Button" to="." method="PlayerAttack"]

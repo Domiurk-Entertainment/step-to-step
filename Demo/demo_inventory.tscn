@@ -1,28 +1,57 @@
-[gd_scene load_steps=4 format=3 uid="uid://dedigbri6dlvc"]
+[gd_scene load_steps=11 format=3 uid="uid://dedigbri6dlvc"]
 
 [ext_resource type="Script" path="res://Demo/DemoInventory.cs" id="1_so0f4"]
+[ext_resource type="Resource" uid="uid://cap5872uxghgs" path="res://resources/balls/ball.tres" id="2_ck1ty"]
 [ext_resource type="PackedScene" uid="uid://c4nbdoxbpqjuh" path="res://scenes/inventory.tscn" id="2_vytga"]
-[ext_resource type="PackedScene" uid="uid://qxp1xt6p3mcx" path="res://scenes/character.tscn" id="6_myr8e"]
+[ext_resource type="Script" path="res://scripts/inventory/Item.cs" id="3_mkuyf"]
+[ext_resource type="Resource" uid="uid://uevbbfoqa5wv" path="res://resources/balls/ice_ball.tres" id="4_utr17"]
+[ext_resource type="PackedScene" uid="uid://qxp1xt6p3mcx" path="res://scenes/player.tscn" id="6_myr8e"]
 
-[node name="Inventory" type="Node2D"]
+[sub_resource type="Resource" id="Resource_2tvmh"]
+script = ExtResource("3_mkuyf")
+Resource = ExtResource("2_ck1ty")
+Amount = 2
+
+[sub_resource type="Resource" id="Resource_33f8s"]
+script = ExtResource("3_mkuyf")
+Resource = ExtResource("4_utr17")
+Amount = 4
+
+[sub_resource type="Resource" id="Resource_vqmwi"]
+script = ExtResource("3_mkuyf")
+Resource = ExtResource("4_utr17")
+Amount = 4
+
+[sub_resource type="Resource" id="Resource_qhkjd"]
+script = ExtResource("3_mkuyf")
+Resource = ExtResource("2_ck1ty")
+Amount = 1
+
+[node name="Inventory" type="Node2D" node_paths=PackedStringArray("_player")]
 script = ExtResource("1_so0f4")
+_player = NodePath("Player")
+_inventoryItems = Array[Object]([SubResource("Resource_2tvmh"), SubResource("Resource_33f8s"), SubResource("Resource_vqmwi"), SubResource("Resource_qhkjd")])
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 347.0
-offset_bottom = 155.0
+offset_bottom = 502.0
+mouse_filter = 2
 
 [node name="PlayerAttack" type="Button" parent="UI"]
 layout_mode = 0
 offset_left = -1.0
-offset_top = 367.0
+offset_top = 465.0
 offset_right = 347.0
-offset_bottom = 399.0
+offset_bottom = 497.0
 text = "Attack"
 
 [node name="ScrollContainer" parent="UI" instance=ExtResource("2_vytga")]
 layout_mode = 0
+offset_top = 1.0
+offset_right = 98.0
+offset_bottom = 213.0
 
 [node name="Player" parent="." instance=ExtResource("6_myr8e")]
 position = Vector2(150, 131)

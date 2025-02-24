@@ -788,5 +788,5 @@ text = "dssd"
 [connection signal="pressed" from="Control/Pause Panel/MainMenu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="Control/Pause Panel/MainMenu" to="." method="_on_button_pressed_sound"]
 [connection signal="mouse_entered" from="Control/Pause" to="." method="_on_button_hover_sound"]
-[connection signal="pressed" from="Control/Pause" to="." method="_on_paus_pressed"]
 [connection signal="pressed" from="Control/Pause" to="." method="_on_button_pressed_sound"]
+[connection signal="pressed" from="Control/Pause" to="." method="_on_paus_pressed"]

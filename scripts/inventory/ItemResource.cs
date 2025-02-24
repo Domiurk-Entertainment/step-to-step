@@ -1,6 +1,6 @@
 ﻿using Godot;
 
-namespace StepToStep.Inventory;
+namespace StepToStep.InventorySpace;
 
 [GlobalClass]
 public partial class ItemResource : Resource

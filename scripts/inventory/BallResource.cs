@@ -1,12 +1,11 @@
 using Godot;
 
-namespace StepToStep.Inventory;
+namespace StepToStep.InventorySpace;
 
 [GlobalClass]
 public partial class BallResource : ItemResource
 {
     [Export] private float _damage = 1;
-
-    [Export(PropertyHint.File)] public string PackedScene { get; private set; }
+    [Export]public PackedScene PackedScene { get; private set; }
     public float Damage => _damage;
 }

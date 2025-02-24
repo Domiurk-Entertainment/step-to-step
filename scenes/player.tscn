@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://qxp1xt6p3mcx"]
+[gd_scene load_steps=26 format=3 uid="uid://qxp1xt6p3mcx"]
 
 [ext_resource type="Script" path="res://scripts/Player.cs" id="1_8sdka"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="2_g178e"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="4_vrrox"]
 [ext_resource type="Script" path="res://scripts/stats/StatHandler.cs" id="7_q77xg"]
 [ext_resource type="Script" path="res://scripts/stats/Stat.cs" id="8_6j1gn"]
+[ext_resource type="Script" path="res://Demo/Inventory.cs" id="9_rvk2h"]
 [ext_resource type="PackedScene" uid="uid://bwixc66257oaw" path="res://scenes/sight.tscn" id="10_8va8p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_amdg8"]
@@ -124,6 +125,7 @@ collision_layer = 512
 script = ExtResource("1_8sdka")
 _spawnBalls = NodePath("Node2D")
 _sight = NodePath("sight")
+metadata/Test = ExtResource("9_rvk2h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
@@ -183,3 +185,7 @@ duration = 2.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0)
 shape = SubResource("CapsuleShape2D_qyung")
+
+[node name="Inventory" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("9_rvk2h")
