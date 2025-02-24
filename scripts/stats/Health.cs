@@ -6,17 +6,21 @@ namespace StepToStep;
 [GlobalClass]
 public partial class Health : ProgressBar
 {
-    public void Subtract(object self, double value)
+    public event Action<float> ChangedValue;
+
+    public void Subtract(object sender, double value)
     {
         if(value < 0)
-            throw new Exception($"{self} sending failure value ({value})");
+            throw new Exception($"{sender} sending failure value ({value})");
         Value -= (value);
+        ChangedValue?.Invoke((float)Value);
     }
 
-    public void Add(object self, double value)
+    public void Add(object sender, double value)
     {
         if(value < 0)
-            throw new Exception($"{self} sending failure value ({value})");
+            throw new Exception($"{sender} sending failure value ({value})");
         Value += value;
+        ChangedValue?.Invoke((float)Value);
     }
 }

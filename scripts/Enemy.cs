@@ -8,11 +8,12 @@ namespace StepToStep.scripts;
 
 public partial class Enemy : Node2D, IHealth
 {
-    public event Action<StepType> ChangeStep;
+    public event Action<AttackType> ChangeStep;
 
     [Export, Category("Tween")] private float _duration = 1;
     [Export] private Tween.TransitionType _transitionType = Tween.TransitionType.Linear;
     [Export] private float _attackRange = 15;
+    [Export] private float _damage = 10;
     [Export] private RayCast2D _rayCast2D;
 
     private Tween _movingTween;
@@ -25,24 +26,30 @@ public partial class Enemy : Node2D, IHealth
         ChangeStep += OnChangeStep;
     }
 
-    public bool TryAttack(Vector2 playerPosition)
+    public void Attack(Vector2 playerPosition)
     {
-        ChangeStep?.Invoke(StepType.Start);
+        Vector2 newPosition = new Vector2(playerPosition.X + _attackRange * 2, playerPosition.Y);
+        ChangeStep?.Invoke(AttackType.Start);
         _position = GlobalPosition;
+
+        _movingTween?.Kill();
+        _movingTween = CreateTween();
+
+        _movingTween.TweenProperty(this, "global_position", newPosition,
+                                   _duration)
+                    .From(GlobalPosition)
+                    .SetTrans(_transitionType);
 
         CreateToPlayer();
 
-        return true;
+        return;
 
         void CreateToPlayer()
         {
             _movingTween?.Kill();
             _movingTween = CreateTween();
 
-            _movingTween.TweenProperty(this, "global_position", playerPosition,
-                                       _duration)
-                        .From(GlobalPosition)
-                        .SetTrans(_transitionType);
+            MoveToPlayer(newPosition);
             _movingTween.Finished += Attacked;
         }
 
@@ -54,12 +61,12 @@ public partial class Enemy : Node2D, IHealth
             _movingTween.TweenProperty(this, "global_position", _position, _duration)
                         .From(GlobalPosition)
                         .SetTrans(_transitionType);
-            _movingTween.Finished += () => ChangeStep?.Invoke(StepType.End);
+            _movingTween.Finished += () => ChangeStep?.Invoke(AttackType.End);
         }
 
         void Attacked()
         {
-            ChangeStep?.Invoke(StepType.Attacked);
+            ChangeStep?.Invoke(AttackType.Attacked);
             CreateFromPlayer();
         }
     }
@@ -71,22 +78,20 @@ public partial class Enemy : Node2D, IHealth
                     .SetTrans(_transitionType);
     }
 
-    private void OnChangeStep(StepType stepType)
+    private void OnChangeStep(AttackType attackType)
     {
-        switch(stepType){
-            case StepType.Start:
+        switch(attackType){
+            case AttackType.Start:
                 break;
-            case StepType.Attacked:
-                // if(rayCast2D.IsColliding()){
-                // var target = rayCast2D.GetCollider().GetScript();
-                // GD.Print("Target: " + target);
-                // }
+            case AttackType.Attacked:
+                if(_rayCast2D.GetCollider() is IHealth health)
+                    health.TakeDamage(this, _damage);
 
                 break;
-            case StepType.End:
+            case AttackType.End:
                 break;
             default:
-                throw new ArgumentOutOfRangeException(nameof(stepType), stepType, null);
+                throw new ArgumentOutOfRangeException(nameof(attackType), attackType, null);
         }
     }
 

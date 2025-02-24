@@ -12,10 +12,11 @@ public partial class Ball : CharacterBody2D
 
     [Export] private float _damage = 1;
 
-    public void Throw(Vector2 direction, float force)
+    public void Throw(Vector2 direction, float force, float damage)
     {
         direction = direction.Normalized();
         Velocity = direction * force;
+        _damage = damage;
     }
 
     public override void _PhysicsProcess(double delta)
@@ -37,8 +38,9 @@ public partial class Ball : CharacterBody2D
 
     private void OnHit(Node2D body)
     {
-        if(body is not IHealth health)
+        if(body is not IHealth health){
             return;
+        }
 
         health.TakeDamage(this, _damage);
         Hit?.Invoke(body);

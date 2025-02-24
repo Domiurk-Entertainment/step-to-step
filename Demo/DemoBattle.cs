@@ -1,6 +1,7 @@
 using Godot;
 using StepToStep;
 using StepToStep.Battle;
+using StepToStep.InventorySpace;
 using StepToStep.scripts;
 using StepToStep.Utilities;
 using System;
@@ -11,16 +12,18 @@ public partial class DemoBattle : Node
 	[Export] private Player player;
 	[Export] private Enemy enemy;
 	[Export] private Label debugLabel;
+	[Export] private Item ball; 
 
-	private bool playerTurn = true;
 	private Sight node;
 
 	public override void _Ready()
 	{
 		playerAttackButton.Pressed += player.Attack;
+		player.Inventory.AddItem(ball);
 
 		enemy.ChangeStep += EnemyOnChangeStep;
-		player.ChangeStep += PlayerOnChangeStep;
+		player.AttackedStep += PlayerOnAttackedStep;
+		
 		node = player.FindChild("sight") as Sight;
 	}
 
@@ -32,35 +35,38 @@ public partial class DemoBattle : Node
 		debugLabel.Text = $"Rotation({node}):{node.RotationDegrees}";
 	}
 
-	private void PlayerOnChangeStep(StepType stepType)
+	private void PlayerOnAttackedStep(AttackType attackType)
 	{
-		switch(stepType){
-			case StepType.Start:
+		switch(attackType){
+			case AttackType.Start:
 				break;
-			case StepType.End:
+			case AttackType.End:
 				playerAttackButton.Disabled = true;
 				SceneTreeTimer timer = GetTree().CreateTimer(2);
-				timer.Timeout += () => enemy.TryAttack(player.GlobalPosition);
+				timer.Timeout += () => enemy.Attack(player.GlobalPosition);
 				break;
-			case StepType.Attacked:
+			case AttackType.Attacked:
 				break;
 			default:
-				throw new ArgumentOutOfRangeException(nameof(stepType), stepType, null);
+				throw new ArgumentOutOfRangeException(nameof(attackType), attackType, null);
 		}
 	}
 
-	private void EnemyOnChangeStep(StepType stepType)
+	private async void EnemyOnChangeStep(AttackType attackType)
 	{
-		switch(stepType){
-			case StepType.Start:
+		switch(attackType){
+			case AttackType.Start:
 				break;
-			case StepType.End:
+			case AttackType.End:
 				playerAttackButton.Disabled = false;
+				// SceneTreeTimer timer = GetTree().CreateTimer(1);
+				// await timer.ToSignal(timer,"timeout");
+				// enemy.Attack(player.GlobalPosition);
 				break;
-			case StepType.Attacked:
+			case AttackType.Attacked:
 				break;
 			default:
-				throw new ArgumentOutOfRangeException(nameof(stepType), stepType, null);
+				throw new ArgumentOutOfRangeException(nameof(attackType), attackType, null);
 		}
 	}
 }

@@ -1,6 +1,6 @@
 ﻿namespace StepToStep.Utilities;
 
-public enum StepType
+public enum AttackType
 {
     Start,
     Attacked,

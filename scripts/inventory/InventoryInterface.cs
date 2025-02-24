@@ -7,7 +7,7 @@ public partial class InventoryInterface : Control
 {
     private const string NODE_NAME = "Inventory";
 
-    [Export] private VBoxContainer _vBoxContainer;
+    [Export] private Container _container;
     [Export] private string _formatBall = "{0}";
 
     private readonly Vector2 _slotSizeConst = new Vector2(50, 31);
@@ -35,12 +35,12 @@ public partial class InventoryInterface : Control
 
     private void InventoryOnTakenItem(Item item)
     {
-        ((Button)_vBoxContainer.GetChildren()[0]).Text = string.Format(_formatBall, item.Amount);
+        ((Button)_container.GetChildren()[0]).Text = string.Format(_formatBall, item.Amount);
     }
 
     private void InventoryOnRemovedItem(Item item)
     {
-        _vBoxContainer.GetChildren()[0].QueueFree();
+        _container.GetChildren()[0].QueueFree();
     }
 
     private void InventoryOnAddedItem(Item item)
@@ -48,7 +48,7 @@ public partial class InventoryInterface : Control
         Button slot = CreateItemSlot();
         slot.Text = string.Format(_formatBall, item.Amount);
         slot.Icon = item.Resource.Icon;
-        _vBoxContainer.AddChild(slot);
+        _container.AddChild(slot);
     }
 
 

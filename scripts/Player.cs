@@ -10,7 +10,9 @@ namespace StepToStep;
 
 public partial class Player : StaticBody2D, IHealth
 {
-    public event Action<StepType> ChangeStep;
+    // [Signal] delegate void OnDead();
+
+    public event Action<AttackType> AttackedStep;
 
     public IInventory Inventory => _inventory;
 
@@ -23,34 +25,41 @@ public partial class Player : StaticBody2D, IHealth
 
     public override void _Ready()
     {
-        _sight.CalculatedDirection += OnSightOnCalculatedDirection;
         _health = GetNode<Health>("%Health");
         _inventory = GetNode<Inventory>("%Inventory");
+    }
 
-        return;
+    private void OnSightOnCalculatedDirection(Vector2 direction)
+    {
+        Item ball = Inventory.GetBall();
 
-        void OnSightOnCalculatedDirection(Vector2 direction)
-        {
-            Item ball = Inventory.GetBall();
-
-            if(ball == null){
-                GD.Print("Fuck");
-                return;
-            }
-
-            Ball instance = ball.Resource.PackedScene.Instantiate<Ball>();
-            _spawnBalls.AddChild(instance);
-            instance.Position = Vector2.Zero;
-            instance.Throw(direction, _force);
-            ChangeStep?.Invoke(StepType.Attacked);
-            _sight.Visible = false;
+        if(ball == null){
+            GD.Print("Fuck");
+            return;
         }
+
+        Ball instance = ball.Resource.PackedScene.Instantiate<Ball>();
+        _spawnBalls.AddChild(instance);
+        instance.Position = Vector2.Zero;
+        instance.Throw(direction, _force, ball.Resource.Damage);
+        AttackedStep?.Invoke(AttackType.Attacked);
+        _sight.Visible = false;
+    }
+
+    public override void _EnterTree()
+    {
+        _sight.CalculatedDirection += OnSightOnCalculatedDirection;
+    }
+
+    public override void _ExitTree()
+    {
+        _sight.CalculatedDirection -= OnSightOnCalculatedDirection;
     }
 
     public void Attack()
     {
         bool tryShoot = _sight.TryShoot();
-        ChangeStep?.Invoke(tryShoot ? StepType.End : StepType.Start);
+        AttackedStep?.Invoke(tryShoot ? AttackType.End : AttackType.Start);
         _sight.Visible = !tryShoot;
     }
 
