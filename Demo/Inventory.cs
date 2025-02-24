@@ -13,12 +13,24 @@ namespace StepToStep.InventorySpace
         private Item _currentBall;
 
         private Queue<Item> _balls = new();
+
         private List<Item> _items = new();
+
+        public override void _Ready()
+        {
+        }
 
         public void AddItem(Item item)
         {
-            _balls.Enqueue(item);
             AddedItem?.Invoke(item);
+
+            if(_currentBall == null){
+                _currentBall = item;
+                TakenItem?.Invoke(_currentBall);
+                return;
+            }
+
+            _balls.Enqueue(item);
         }
 
         public void AddItems(Item[] items)
@@ -29,19 +41,28 @@ namespace StepToStep.InventorySpace
 
         public Item GetBall()
         {
-            if(_currentBall == null || _currentBall.Amount == 0){
-                RemovedItem?.Invoke(_currentBall);
+            if(_balls.Count == 0 && _currentBall == null){
+                return null;
+            }
 
-                if(_balls.TryDequeue(out _currentBall)){
-                    GD.Print($"{Name}: Queue is Empty");
-                    return null;
-                }
+            Item result = _currentBall;
+            
+            if(result.Amount > 1){
+                result.Amount--;
+                TakenItem?.Invoke(result);
+                return result;
+            }
+
+            RemovedItem?.Invoke(result);
+            result.Amount--;
+
+            if(!_balls.TryDequeue(out _currentBall)){
+                RemovedItem?.Invoke(result);
+                return result;
             }
 
             TakenItem?.Invoke(_currentBall);
-
-            _currentBall.Amount--;
-            return _currentBall;
+            return result;
         }
     }
 

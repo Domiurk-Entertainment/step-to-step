@@ -50,8 +50,9 @@ text = "Attack"
 [node name="ScrollContainer" parent="UI" instance=ExtResource("2_vytga")]
 layout_mode = 0
 offset_top = 1.0
-offset_right = 98.0
+offset_right = 84.0
 offset_bottom = 213.0
+_formatBall = "({0})"
 
 [node name="Player" parent="." instance=ExtResource("6_myr8e")]
 position = Vector2(150, 131)
