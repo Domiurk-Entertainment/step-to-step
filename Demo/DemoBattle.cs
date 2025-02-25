@@ -20,7 +20,7 @@ public partial class DemoBattle : Node
 		playerAttackButton.Pressed += player.Attack;
 		player.Inventory.AddItem(ball);
 
-		enemy.ChangeStep += EnemyOnChangeStep;
+		enemy.AttackedStep += EnemyOnAttackedStep;
 		player.AttackedStep += PlayerOnAttackedStep;
 		
 		node = player.FindChild("sight") as Sight;
@@ -43,16 +43,13 @@ public partial class DemoBattle : Node
 		}
 	}
 
-	private async void EnemyOnChangeStep(AttackType attackType)
+	private void EnemyOnAttackedStep(AttackType attackType)
 	{
 		switch(attackType){
 			case AttackType.Start:
 				break;
 			case AttackType.End:
 				playerAttackButton.Disabled = false;
-				// SceneTreeTimer timer = GetTree().CreateTimer(1);
-				// await timer.ToSignal(timer,"timeout");
-				// enemy.Attack(player.GlobalPosition);
 				break;
 			case AttackType.Attacked:
 				break;

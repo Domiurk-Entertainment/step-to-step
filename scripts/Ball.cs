@@ -10,7 +10,7 @@ public partial class Ball : CharacterBody2D
 {
     protected event Action<Node2D> Hit;
 
-    [Export] private float _damage = 1;
+    private float _damage;
 
     public void Throw(Vector2 direction, float force, float damage)
     {
@@ -41,7 +41,7 @@ public partial class Ball : CharacterBody2D
         if(body is not IHealth health){
             return;
         }
-
+        
         health.TakeDamage(this, _damage);
         Hit?.Invoke(body);
     }

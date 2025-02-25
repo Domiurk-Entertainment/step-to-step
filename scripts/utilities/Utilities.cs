@@ -42,7 +42,7 @@ public static class Utilities
         return self;
     }
 
-    public static T FindNode<T>(this Node self, bool includeInternal = false) where T : Node
+    public static T FindNode<T>(this Node self, bool includeInternal = false) where T :  Node
     {
         T result = null;
 

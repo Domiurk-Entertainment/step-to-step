@@ -1,7 +1,6 @@
 using Godot;
 using StepToStep.Battle;
 using StepToStep.InventorySpace;
-using StepToStep.scripts;
 using StepToStep.Utilities;
 using StepToStep.Utils;
 using System;
@@ -10,12 +9,14 @@ namespace StepToStep;
 
 public partial class Player : StaticBody2D, IHealth
 {
-    // [Signal] delegate void OnDead();
-
     public event Action<AttackType> AttackedStep;
+
+    [Signal] public delegate void DeadEventHandler();
 
     public IInventory Inventory => _inventory;
 
+    [Export] public float ChanceToRun;
+    
     [Export] private Node2D _spawnBalls;
     [Export] private Sight _sight;
     [Export] private float _force = 500;
@@ -27,6 +28,9 @@ public partial class Player : StaticBody2D, IHealth
     {
         _health = GetNode<Health>("%Health");
         _inventory = GetNode<Inventory>("%Inventory");
+
+        _sight.CalculatedDirection += OnSightOnCalculatedDirection;
+        _health.ChangedValue += HealthOnChangedValue;
     }
 
     private void OnSightOnCalculatedDirection(Vector2 direction)
@@ -46,11 +50,6 @@ public partial class Player : StaticBody2D, IHealth
         _sight.Visible = false;
     }
 
-    public override void _EnterTree()
-    {
-        _sight.CalculatedDirection += OnSightOnCalculatedDirection;
-    }
-
     public override void _ExitTree()
     {
         _sight.CalculatedDirection -= OnSightOnCalculatedDirection;
@@ -68,5 +67,12 @@ public partial class Player : StaticBody2D, IHealth
         if(damage <= 0)
             return;
         _health.Subtract(sender, damage);
+    }
+
+    private void HealthOnChangedValue(float newValue)
+    {
+        if(newValue > _health.MinValue)
+            return;
+        EmitSignal(SignalName.Dead);
     }
 }

@@ -1,6 +1,5 @@
-[gd_scene load_steps=21 format=3 uid="uid://dwvhlj2ouj5t6"]
+[gd_scene load_steps=20 format=3 uid="uid://dwvhlj2ouj5t6"]
 
-[ext_resource type="Script" path="res://scripts/animation_controller.gd" id="1_u00xq"]
 [ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/cave_fg_lower.png" id="2_38trd"]
 [ext_resource type="Texture2D" uid="uid://5c0u7thmvt0g" path="res://sprites/cave_stones_upper.png" id="3_r5f8p"]
 [ext_resource type="Texture2D" uid="uid://ck3t7x12t4klr" path="res://sprites/blum.png" id="4_15efe"]
@@ -82,18 +81,6 @@ shader_parameter/amount = 3.118
 
 [node name="Cave" type="Node2D"]
 position = Vector2(-1, 0)
-script = ExtResource("1_u00xq")
-node_paths = {
-NodePath("front_top_bottom_cave2/Animatedblum10"): "default",
-NodePath("front_top_bottom_cave2/Animatedblum13"): "default",
-NodePath("front_top_bottom_cave2/Animatedblum11"): "default",
-NodePath("front_top_bottom_cave2/Animatedblum9"): "default",
-NodePath("front_top_bottom_cave2/Animatedblum5"): "default",
-NodePath("front_top_bottom_cave2/Animatedblum14"): "default",
-NodePath("front_top_bottom_cave2/Animatedblum2"): "default",
-NodePath("front_top_bottom_cave2/Animatedblum4"): "default",
-NodePath("front_top_bottom_cave2/Animatedblum12"): "default"
-}
 
 [node name="front_top_bottom_cave2" type="Node2D" parent="."]
 z_index = 5

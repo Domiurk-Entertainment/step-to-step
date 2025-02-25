@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb7jteiamjcsj"]
+
+[ext_resource type="Script" path="res://Demo/DemoTransition.cs" id="1_rnul1"]
+
+[node name="Demo Transition" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_rnul1")

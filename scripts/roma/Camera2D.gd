@@ -1,10 +1,10 @@
 extends Camera2D
 
 
-var shake_duration = 0.2
-var shake_amplitude = 6.5
-var shake_timer = 0.1
-var original_position = Vector2(82, 35)
+@export var shake_duration = 0.2
+@export var shake_amplitude = 6.5
+@export var shake_timer = 0.1
+@export var original_position:Vector2
 
 func start_shake():
 	original_position = position

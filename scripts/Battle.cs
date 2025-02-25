@@ -1,57 +1,106 @@
 using Godot;
 using StepToStep.Level;
 using StepToStep.scripts;
+using StepToStep.Utilities;
 using StepToStep.Utils;
+using System;
 using System.Linq;
 
 namespace StepToStep.Battle
 {
     public partial class Battle : Node2D
     {
+        private const float COOLDOWN_ATTACKS = 2;
+
         [ExportCategory("Global Config Level")]
-        [Export] private Node2D playerSpawnPoint;
-        [Export] private Node2D enemySpawnPoint;
+        [Export] private Button _playerAttackButton;
+        [Export] private Node2D _playerSpawnPoint;
+        [Export] private Node2D _enemySpawnPoint;
 
-        private bool playerTurn = true;
         private Player _player;
-
         private Enemy _enemy;
 
         public override void _Ready()
         {
             BattleConfig config = SceneTransition.Data[GetTree().CurrentScene.SceneFilePath].As<BattleConfig>();
+
             _player = config.PlayerPackedScene.Instantiate<Player>();
             _enemy = config.EnemiesPackedScene.Instantiate<Enemy>();
+
+            _player.AttackedStep += PlayerOnAttackedStep;
+            _player.Dead += PlayerOnDead;
+            _enemy.AttackedStep += EnemyOnAttackedStep;
+            _enemy.Dead += EnemyOnDead;
 
             AddChild(_player);
             AddChild(_enemy);
 
-            _player.GlobalPosition = playerSpawnPoint.GlobalPosition;
-            _enemy.GlobalPosition = enemySpawnPoint.GlobalPosition;
-            
             _player.Inventory.AddItems(config.Items.ToArray());
+            _player.GlobalPosition = _playerSpawnPoint.GlobalPosition;
+            _enemy.GlobalPosition = _enemySpawnPoint.GlobalPosition;
+        }
+
+        public override void _ExitTree()
+        {
+            _player.AttackedStep -= PlayerOnAttackedStep;
+            _player.Dead += PlayerOnDead;
+
+            _enemy.AttackedStep -= EnemyOnAttackedStep;
+            _enemy.Dead += EnemyOnDead;
+        }
+
+        private void EnemyOnAttackedStep(AttackType step)
+        {
+            switch(step){
+                case AttackType.Start:
+                    break;
+                case AttackType.Attacked:
+                    break;
+                case AttackType.End:
+                    _playerAttackButton.Show();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(step), step, null);
+            }
+        }
+
+        private void PlayerOnAttackedStep(AttackType step)
+        {
+            switch(step){
+                case AttackType.Start:
+                    break;
+                case AttackType.End:
+                    _playerAttackButton.Hide();
+                    SceneTreeTimer timer = GetTree().CreateTimer(COOLDOWN_ATTACKS);
+                    timer.Timeout += () => _enemy.Attack(_player.GlobalPosition);
+                    break;
+                case AttackType.Attacked:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(step), step, null);
+            }
+        }
+
+        private void EnemyOnDead()
+        {
+            _enemy.QueueFree();
+        }
+
+        private void PlayerOnDead()
+        {
+            _player.QueueFree();
         }
 
         private bool tryingRunOff;
+
         [Export] private int chanceToRunOff = 4;
 
-        public async void TryRunOff()
+        public void TryRunOff()
         {
-            if(tryingRunOff)
-                return;
+            float value = GD.Randf();
 
-            tryingRunOff = true;
-
-            for(int i = chanceToRunOff; i > 0; i--){
-                SceneTreeTimer timer = GetTree().CreateTimer(1);
-                await ToSignal(timer, "timeout");
-                GD.Print(i + "...");
-            }
-
-            SceneTreeTimer timerAfter = GetTree().CreateTimer(1);
-            await ToSignal(timerAfter, "timeout");
-            GD.Print("Ви спробували втікти але натрапили на пастку");
-            tryingRunOff = false;
+            if(_player.ChanceToRun > value)
+                SceneTransition.Instance.ChangeScene(SceneTransition.ScenesHistory.Pop());
         }
 
         public void PlayerAttack()

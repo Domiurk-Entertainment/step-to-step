@@ -15,12 +15,12 @@ public partial class InventoryInterface : Control
 
     public override void _EnterTree()
     {
-        _inventory = GetTree().CurrentScene.FindChild(NODE_NAME) as IInventory;
+        _inventory = GetTree().CurrentScene.FindChild(NODE_NAME, owned: false) as IInventory;
 
         if(_inventory == null){
             throw new NullReferenceException("Inventory Interface is null");
         }
-        
+
         _inventory.AddedItem += InventoryOnAddedItem;
         _inventory.RemovedItem += InventoryOnRemovedItem;
         _inventory.TakenItem += InventoryOnTakenItem;
@@ -50,7 +50,6 @@ public partial class InventoryInterface : Control
         slot.Icon = item.Resource.Icon;
         _container.AddChild(slot);
     }
-
 
     private Button CreateItemSlot()
     {

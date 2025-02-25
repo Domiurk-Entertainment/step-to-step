@@ -1,18 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://bj5p4xaeaqj8h"]
+[gd_scene load_steps=3 format=3 uid="uid://bj5p4xaeaqj8h"]
 
 [ext_resource type="Script" path="res://scripts/Battle.cs" id="1_pq8jr"]
+[ext_resource type="Script" path="res://scripts/roma/Camera2D.gd" id="2_y7g03"]
 
-[node name="Battle" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "enemySpawnPoint")]
+[node name="Battle" type="Node2D" node_paths=PackedStringArray("_playerAttackButton", "_playerSpawnPoint", "_enemySpawnPoint")]
 position = Vector2(0, 1)
 script = ExtResource("1_pq8jr")
-playerSpawnPoint = NodePath("Player spawn")
-enemySpawnPoint = NodePath("Enemy Spawn")
+_playerAttackButton = NodePath("Control/Attack")
+_playerSpawnPoint = NodePath("Player spawn")
+_enemySpawnPoint = NodePath("Enemy Spawn")
 
 [node name="Player spawn" type="Node2D" parent="."]
-position = Vector2(215, 154)
+position = Vector2(225, 150)
 
 [node name="Enemy Spawn" type="Node2D" parent="."]
-position = Vector2(408, 158)
+position = Vector2(375, 150)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -29,7 +31,7 @@ offset_right = 344.0
 offset_bottom = 83.0
 text = "Run Off"
 
-[node name="Button" type="Button" parent="Control"]
+[node name="Attack" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = 186.0
 offset_top = 254.0
@@ -40,6 +42,7 @@ text = "Attack"
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(304, 165)
 zoom = Vector2(3, 3)
+script = ExtResource("2_y7g03")
 
 [connection signal="pressed" from="Control/Run Off" to="." method="TryRunOff"]
-[connection signal="pressed" from="Control/Button" to="." method="PlayerAttack"]
+[connection signal="pressed" from="Control/Attack" to="." method="PlayerAttack"]

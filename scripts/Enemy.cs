@@ -8,7 +8,9 @@ namespace StepToStep.scripts;
 
 public partial class Enemy : Node2D, IHealth
 {
-    public event Action<AttackType> ChangeStep;
+    public event Action<AttackType> AttackedStep;
+    [Signal] public delegate void DeadEventHandler();
+
 
     [Export, Category("Tween")] private float _duration = 1;
     [Export] private Tween.TransitionType _transitionType = Tween.TransitionType.Linear;
@@ -23,13 +25,16 @@ public partial class Enemy : Node2D, IHealth
     public override void _Ready()
     {
         _health = GetNode<Health>("%Health");
-        ChangeStep += OnChangeStep;
+        
+        _health.ChangedValue += HealthOnChangedValue;
+        AttackedStep += OnAttackedStep;
+        
     }
 
     public void Attack(Vector2 playerPosition)
     {
-        Vector2 newPosition = new Vector2(playerPosition.X + _attackRange * 2, playerPosition.Y);
-        ChangeStep?.Invoke(AttackType.Start);
+        Vector2 newPosition = new Vector2(playerPosition.X + _attackRange, playerPosition.Y);
+        AttackedStep?.Invoke(AttackType.Start);
         _position = GlobalPosition;
 
         _movingTween?.Kill();
@@ -61,12 +66,12 @@ public partial class Enemy : Node2D, IHealth
             _movingTween.TweenProperty(this, "global_position", _position, _duration)
                         .From(GlobalPosition)
                         .SetTrans(_transitionType);
-            _movingTween.Finished += () => ChangeStep?.Invoke(AttackType.End);
+            _movingTween.Finished += () => AttackedStep?.Invoke(AttackType.End);
         }
 
         void Attacked()
         {
-            ChangeStep?.Invoke(AttackType.Attacked);
+            AttackedStep?.Invoke(AttackType.Attacked);
             CreateFromPlayer();
         }
     }
@@ -78,7 +83,7 @@ public partial class Enemy : Node2D, IHealth
                     .SetTrans(_transitionType);
     }
 
-    private void OnChangeStep(AttackType attackType)
+    private void OnAttackedStep(AttackType attackType)
     {
         switch(attackType){
             case AttackType.Start:
@@ -100,5 +105,12 @@ public partial class Enemy : Node2D, IHealth
         if(damage <= 0)
             return;
         _health.Subtract(sender, damage);
+    }
+
+    private void HealthOnChangedValue(float newValue)
+    {
+        if(newValue > _health.MinValue)
+            return;
+        EmitSignal(SignalName.Dead);
     }
 }

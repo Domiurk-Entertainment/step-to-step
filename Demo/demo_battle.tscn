@@ -32,16 +32,8 @@ size = Vector2(32, 32)
 script = ExtResource("1_uhltu")
 playerAttackButton = NodePath("Attack2")
 player = NodePath("Player")
-enemy = NodePath("EnemySmile")
+enemy = NodePath("Smile")
 ball = SubResource("Resource_0yfa1")
-
-[node name="Player" parent="." instance=ExtResource("1_wu163")]
-position = Vector2(285, 164)
-scale = Vector2(3.48, 3.48)
-
-[node name="EnemySmile" parent="." instance=ExtResource("2_n2nw5")]
-position = Vector2(495, 170)
-scale = Vector2(5, 5)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(354, 186)
@@ -82,3 +74,11 @@ offset_left = 16.0
 offset_top = -270.0
 offset_right = 86.0
 offset_bottom = -171.0
+
+[node name="Player" parent="." instance=ExtResource("1_wu163")]
+position = Vector2(81, 161)
+scale = Vector2(5.36423, 5.36423)
+
+[node name="Smile" parent="." instance=ExtResource("2_n2nw5")]
+position = Vector2(533, 144)
+scale = Vector2(7.53237, 7.53237)
