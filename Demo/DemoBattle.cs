@@ -11,7 +11,6 @@ public partial class DemoBattle : Node
 	[Export] private Button playerAttackButton;
 	[Export] private Player player;
 	[Export] private Enemy enemy;
-	[Export] private Label debugLabel;
 	[Export] private Item ball; 
 
 	private Sight node;
@@ -26,15 +25,7 @@ public partial class DemoBattle : Node
 		
 		node = player.FindChild("sight") as Sight;
 	}
-
-	public override void _Process(double delta)
-	{
-		if(debugLabel == null){
-			return;
-		}
-		debugLabel.Text = $"Rotation({node}):{node.RotationDegrees}";
-	}
-
+	
 	private void PlayerOnAttackedStep(AttackType attackType)
 	{
 		switch(attackType){

@@ -4,12 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://qxp1xt6p3mcx" path="res://scenes/player.tscn" id="1_wu163"]
 [ext_resource type="PackedScene" uid="uid://difadwed472d1" path="res://scenes/balls/base_ball.tscn" id="2_42jwc"]
 [ext_resource type="PackedScene" uid="uid://c0tod7yw4sold" path="res://scenes/enemy_smile.tscn" id="2_n2nw5"]
-[ext_resource type="Texture2D" uid="uid://c0iblicaaxwue" path="res://sprites/Ball.png" id="3_86hcl"]
+[ext_resource type="Texture2D" uid="uid://c0iblicaaxwue" path="res://sprites/ball.png" id="3_86hcl"]
 [ext_resource type="Script" path="res://scripts/inventory/BallResource.cs" id="3_p31ar"]
 [ext_resource type="Script" path="res://scripts/inventory/Item.cs" id="4_gdggx"]
-[ext_resource type="Texture2D" uid="uid://b3ew8w0gexdkq" path="res://sprites/Tilemap.png" id="4_h7jjj"]
+[ext_resource type="Texture2D" uid="uid://b3ew8w0gexdkq" path="res://sprites/forest_tilemap.png" id="4_h7jjj"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="4_o46bu"]
-[ext_resource type="Texture2D" uid="uid://ci2p0yqc435sn" path="res://sprites/tile.png" id="5_piia0"]
+[ext_resource type="Texture2D" uid="uid://ci2p0yqc435sn" path="res://sprites/cave_point.png" id="5_piia0"]
 [ext_resource type="PackedScene" uid="uid://c4nbdoxbpqjuh" path="res://scenes/inventory.tscn" id="10_7lcsu"]
 
 [sub_resource type="Resource" id="Resource_6q6oa"]
@@ -28,12 +28,11 @@ Amount = 100
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2d2t"]
 size = Vector2(32, 32)
 
-[node name="DemoBattle" type="Node2D" node_paths=PackedStringArray("playerAttackButton", "player", "enemy", "debugLabel")]
+[node name="DemoBattle" type="Node2D" node_paths=PackedStringArray("playerAttackButton", "player", "enemy")]
 script = ExtResource("1_uhltu")
 playerAttackButton = NodePath("Attack2")
 player = NodePath("Player")
 enemy = NodePath("EnemySmile")
-debugLabel = NodePath("Label")
 ball = SubResource("Resource_0yfa1")
 
 [node name="Player" parent="." instance=ExtResource("1_wu163")]
@@ -79,7 +78,7 @@ offset_right = 354.0
 offset_bottom = 24.0
 
 [node name="Inventory" parent="." instance=ExtResource("10_7lcsu")]
-offset_left = 11.0
-offset_top = -282.0
-offset_right = 261.0
-offset_bottom = -212.0
+offset_left = 16.0
+offset_top = -270.0
+offset_right = 86.0
+offset_bottom = -171.0

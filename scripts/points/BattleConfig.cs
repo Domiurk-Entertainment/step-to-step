@@ -1,14 +1,14 @@
 using Godot;
+using StepToStep.InventorySpace;
+using System.Collections.Generic;
 
 namespace StepToStep.Level;
 
 [GlobalClass]
 public partial class BattleConfig : Resource
 {
-    public PackedScene PlayerPackedScene => _playerPackedScene;
-    public PackedScene EnemiesPackedScene => _enemiesPackedScene;
-    [Export] private PackedScene _playerPackedScene;
-    [Export] private PackedScene _enemiesPackedScene;
-    [Export] private int enemyCount;
-
+    public IReadOnlyCollection<Item> Items => _items;
+    [Export] public PackedScene PlayerPackedScene { get; private set; }
+    [Export] public PackedScene EnemiesPackedScene { get; private set; }
+    [Export] private Item[] _items;
 }

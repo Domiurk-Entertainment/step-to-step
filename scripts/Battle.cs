@@ -2,6 +2,7 @@ using Godot;
 using StepToStep.Level;
 using StepToStep.scripts;
 using StepToStep.Utils;
+using System.Linq;
 
 namespace StepToStep.Battle
 {
@@ -27,9 +28,11 @@ namespace StepToStep.Battle
 
             _player.GlobalPosition = playerSpawnPoint.GlobalPosition;
             _enemy.GlobalPosition = enemySpawnPoint.GlobalPosition;
+            
+            _player.Inventory.AddItems(config.Items.ToArray());
         }
 
-        private bool tryingRunOff = false;
+        private bool tryingRunOff;
         [Export] private int chanceToRunOff = 4;
 
         public async void TryRunOff()

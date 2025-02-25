@@ -25,12 +25,13 @@ texture_margin_bottom = 10.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
-[node name="Inventory" type="Panel"]
+[node name="Inventory" type="Panel" node_paths=PackedStringArray("_container")]
 offset_right = 70.0
 offset_bottom = 99.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_fkkss")
 script = ExtResource("1_xcg8t")
+_container = NodePath("ScrollContainer/BoxContainer")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1

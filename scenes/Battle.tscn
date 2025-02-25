@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmgwugih11gy2"]
+[gd_scene load_steps=2 format=3 uid="uid://bj5p4xaeaqj8h"]
 
-[ext_resource type="Script" path="res://scripts/Battle.cs" id="1_jm0jn"]
+[ext_resource type="Script" path="res://scripts/Battle.cs" id="1_pq8jr"]
 
 [node name="Battle" type="Node2D" node_paths=PackedStringArray("playerSpawnPoint", "enemySpawnPoint")]
 position = Vector2(0, 1)
-script = ExtResource("1_jm0jn")
+script = ExtResource("1_pq8jr")
 playerSpawnPoint = NodePath("Player spawn")
 enemySpawnPoint = NodePath("Enemy Spawn")
 

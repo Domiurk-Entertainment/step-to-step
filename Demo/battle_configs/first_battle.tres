@@ -1,11 +1,34 @@
-[gd_resource type="Resource" script_class="BattleConfig" load_steps=4 format=3 uid="uid://j175cel0uce3"]
+[gd_resource type="Resource" script_class="BattleConfig" load_steps=11 format=3 uid="uid://j175cel0uce3"]
 
+[ext_resource type="Resource" uid="uid://cap5872uxghgs" path="res://Demo/balls/ball.tres" id="1_7fdv4"]
 [ext_resource type="PackedScene" uid="uid://c0tod7yw4sold" path="res://scenes/enemy_smile.tscn" id="1_7gpdw"]
 [ext_resource type="Script" path="res://scripts/points/BattleConfig.cs" id="1_jm6qh"]
 [ext_resource type="PackedScene" uid="uid://qxp1xt6p3mcx" path="res://scenes/player.tscn" id="2_0bm78"]
+[ext_resource type="Script" path="res://scripts/inventory/Item.cs" id="2_pqrqd"]
+[ext_resource type="Resource" uid="uid://uevbbfoqa5wv" path="res://Demo/balls/ice_ball.tres" id="3_1e0wr"]
+
+[sub_resource type="Resource" id="Resource_lc6gw"]
+script = ExtResource("2_pqrqd")
+Resource = ExtResource("1_7fdv4")
+Amount = 4
+
+[sub_resource type="Resource" id="Resource_tvgsq"]
+script = ExtResource("2_pqrqd")
+Resource = ExtResource("3_1e0wr")
+Amount = 1
+
+[sub_resource type="Resource" id="Resource_jnncs"]
+script = ExtResource("2_pqrqd")
+Resource = ExtResource("1_7fdv4")
+Amount = 2
+
+[sub_resource type="Resource" id="Resource_o3ycy"]
+script = ExtResource("2_pqrqd")
+Resource = ExtResource("3_1e0wr")
+Amount = 3
 
 [resource]
 script = ExtResource("1_jm6qh")
-_playerPackedScene = ExtResource("2_0bm78")
-_enemiesPackedScene = ExtResource("1_7gpdw")
-enemyCount = 1
+PlayerPackedScene = ExtResource("2_0bm78")
+EnemiesPackedScene = ExtResource("1_7gpdw")
+_items = Array[Object]([SubResource("Resource_lc6gw"), SubResource("Resource_tvgsq"), SubResource("Resource_jnncs"), SubResource("Resource_o3ycy")])

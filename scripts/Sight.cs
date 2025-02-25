@@ -45,6 +45,7 @@ public partial class Sight : Node2D
 			return true;
 		}
 
+		RotationDegrees = minValue;
 		tween = ContinueTween();
 		state = PLAY;
 		return false;

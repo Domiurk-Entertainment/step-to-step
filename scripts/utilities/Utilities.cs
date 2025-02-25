@@ -41,4 +41,17 @@ public static class Utilities
 
         return self;
     }
+
+    public static T FindNode<T>(this Node self, bool includeInternal = false) where T : Node
+    {
+        T result = null;
+
+        foreach(Node child in self.GetChildren(includeInternal)){
+            if(typeof(T) != child.GetType())
+                continue;
+            result = child as T;
+        }
+
+        return result;
+    }
 }
