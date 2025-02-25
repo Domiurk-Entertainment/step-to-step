@@ -10,9 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://7s5uw7p7xydu" path="res://sprites/the right wall of the cave.png" id="7_7iuju"]
 [ext_resource type="Resource" uid="uid://j175cel0uce3" path="res://resources/battle_configs/first_battle.tres" id="7_jsnjo"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="8_iohnm"]
-[ext_resource type="PackedScene" uid="uid://cmgwugih11gy2" path="res://scenes/battle.tscn" id="8_jjjf4"]
+[ext_resource type="PackedScene" uid="uid://cmgwugih11gy2" path="res://scenes/Battle.tscn" id="8_jjjf4"]
 [ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="8_oyity"]
-[ext_resource type="PackedScene" uid="uid://bste1dma5c0dp" path="res://scenes/point.tscn" id="11_sgnt7"]
+[ext_resource type="PackedScene" uid="uid://bste1dma5c0dp" path="res://scenes/Point.tscn" id="11_sgnt7"]
 [ext_resource type="AudioStream" uid="uid://cgbx3x6pnvhqn" path="res://sound/Pixel Music Pack/Wav/Pixel 7.wav" id="13_hky7r"]
 [ext_resource type="Shader" path="res://scripts/utilities/blur.gdshader" id="13_tmlm8"]
 [ext_resource type="AudioStream" uid="uid://3ei5c4shcb46" path="res://sound/UI Soundpack/WAV/Minimalist7.wav" id="19_inug1"]
@@ -467,17 +467,19 @@ Config = ExtResource("7_jsnjo")
 SceneToLoad = ExtResource("8_jjjf4")
 _pointsUnlock = [NodePath("../Point4")]
 
-[node name="Point3" parent="Points" groups=["Points"] instance=ExtResource("11_sgnt7")]
+[node name="Point3" parent="Points" node_paths=PackedStringArray("_pointsUnlock") groups=["Points"] instance=ExtResource("11_sgnt7")]
 offset_left = -26.25
 offset_top = -32.75
 offset_right = -2.25
 offset_bottom = -8.75
+_pointsUnlock = [NodePath("../Point4")]
 
-[node name="Point4" parent="Points" groups=["Points"] instance=ExtResource("11_sgnt7")]
+[node name="Point4" parent="Points" node_paths=PackedStringArray("_pointsUnlock") groups=["Points"] instance=ExtResource("11_sgnt7")]
 offset_left = 0.0
 offset_top = -66.25
 offset_right = 24.0
 offset_bottom = -42.25
+_pointsUnlock = [NodePath("../Point5"), NodePath("../Point6")]
 
 [node name="Point5" parent="Points" groups=["Points"] instance=ExtResource("11_sgnt7")]
 offset_left = 40.5
@@ -788,5 +790,5 @@ text = "dssd"
 [connection signal="pressed" from="Control/Pause Panel/MainMenu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="Control/Pause Panel/MainMenu" to="." method="_on_button_pressed_sound"]
 [connection signal="mouse_entered" from="Control/Pause" to="." method="_on_button_hover_sound"]
-[connection signal="pressed" from="Control/Pause" to="." method="_on_button_pressed_sound"]
 [connection signal="pressed" from="Control/Pause" to="." method="_on_paus_pressed"]
+[connection signal="pressed" from="Control/Pause" to="." method="_on_button_pressed_sound"]
