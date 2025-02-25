@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0iblicaaxwue"
-path="res://.godot/imported/ball.png-dbfca04ee0bd630c71df985dd5b09bcc.ctex"
+uid="uid://dgpk2e2b2snrq"
+path="res://.godot/imported/chest_closed.png-0575cbc262039828b1462283d6a73573.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ball.png"
-dest_files=["res://.godot/imported/ball.png-dbfca04ee0bd630c71df985dd5b09bcc.ctex"]
+source_file="res://sprites/chest_closed.png"
+dest_files=["res://.godot/imported/chest_closed.png-0575cbc262039828b1462283d6a73573.ctex"]
 
 [params]
 

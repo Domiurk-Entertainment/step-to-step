@@ -7,7 +7,7 @@ public partial class InventoryInterface : Control
 {
     private const string NODE_NAME = "Inventory";
 
-    [Export] private Container _container;
+    private Container _container;
     [Export] private string _formatBall = "{0}";
 
     private readonly Vector2 _slotSizeConst = new Vector2(50, 31);

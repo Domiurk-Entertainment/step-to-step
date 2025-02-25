@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0iblicaaxwue"
-path="res://.godot/imported/ball.png-dbfca04ee0bd630c71df985dd5b09bcc.ctex"
+uid="uid://b3ew8w0gexdkq"
+path="res://.godot/imported/forest_tilemap.png-b0c35ba21242fbc48ea565d15d178ea2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ball.png"
-dest_files=["res://.godot/imported/ball.png-dbfca04ee0bd630c71df985dd5b09bcc.ctex"]
+source_file="res://sprites/forest_tilemap.png"
+dest_files=["res://.godot/imported/forest_tilemap.png-b0c35ba21242fbc48ea565d15d178ea2.ctex"]
 
 [params]
 

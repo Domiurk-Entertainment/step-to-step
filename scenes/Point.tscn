@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bste1dma5c0dp"]
 
-[ext_resource type="Texture2D" uid="uid://ci2p0yqc435sn" path="res://sprites/tile.png" id="1_77c2x"]
+[ext_resource type="Texture2D" uid="uid://ci2p0yqc435sn" path="res://sprites/cave_point.png" id="1_77c2x"]
 [ext_resource type="Script" path="res://scripts/points/Point.cs" id="2_tjyex"]
 
 [node name="Point" type="Button"]

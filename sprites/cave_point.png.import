@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0iblicaaxwue"
-path="res://.godot/imported/ball.png-dbfca04ee0bd630c71df985dd5b09bcc.ctex"
+uid="uid://ci2p0yqc435sn"
+path="res://.godot/imported/cave_point.png-8d2c6043bdf1e853fe0134ac23017c11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ball.png"
-dest_files=["res://.godot/imported/ball.png-dbfca04ee0bd630c71df985dd5b09bcc.ctex"]
+source_file="res://sprites/cave_point.png"
+dest_files=["res://.godot/imported/cave_point.png-8d2c6043bdf1e853fe0134ac23017c11.ctex"]
 
 [params]
 

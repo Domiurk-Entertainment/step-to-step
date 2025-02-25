@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0iblicaaxwue"
-path="res://.godot/imported/ball.png-dbfca04ee0bd630c71df985dd5b09bcc.ctex"
+uid="uid://xh7ql7nmox2b"
+path="res://.godot/imported/smile_idle.png-de43c2e0361f0c54555bf46b0ad92d35.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ball.png"
-dest_files=["res://.godot/imported/ball.png-dbfca04ee0bd630c71df985dd5b09bcc.ctex"]
+source_file="res://sprites/smile_idle.png"
+dest_files=["res://.godot/imported/smile_idle.png-de43c2e0361f0c54555bf46b0ad92d35.ctex"]
 
 [params]
 

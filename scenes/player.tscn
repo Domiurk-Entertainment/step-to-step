@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://qxp1xt6p3mcx"]
 
 [ext_resource type="Script" path="res://scripts/Player.cs" id="1_8sdka"]
-[ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/PixelLight.png" id="2_g178e"]
+[ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/white_circle.png" id="2_g178e"]
 [ext_resource type="Script" path="res://scripts/inventory/Inventory.cs" id="2_u13nr"]
 [ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="2_v4bmy"]
 [ext_resource type="Script" path="res://scripts/stats/Health.cs" id="3_p1h7q"]

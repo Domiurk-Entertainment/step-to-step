@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0iblicaaxwue"
-path="res://.godot/imported/ball.png-dbfca04ee0bd630c71df985dd5b09bcc.ctex"
+uid="uid://dssgaqodgixcx"
+path="res://.godot/imported/forest_ui_button.png-2357a4cc5cb028f6654d845506cb3f19.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ball.png"
-dest_files=["res://.godot/imported/ball.png-dbfca04ee0bd630c71df985dd5b09bcc.ctex"]
+source_file="res://sprites/forest_ui_button.png"
+dest_files=["res://.godot/imported/forest_ui_button.png-2357a4cc5cb028f6654d845506cb3f19.ctex"]
 
 [params]
 

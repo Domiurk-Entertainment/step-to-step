@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://clmilqy74vthm"]
 
 [ext_resource type="Script" path="res://scripts/Ball.cs" id="1_p583f"]
-[ext_resource type="Texture2D" uid="uid://csyj57hj33op7" path="res://sprites/IceBall.png" id="3_k8ylr"]
+[ext_resource type="Texture2D" uid="uid://csyj57hj33op7" path="res://sprites/ball_ice.png" id="3_k8ylr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_04qkt"]
 radius = 3.0
