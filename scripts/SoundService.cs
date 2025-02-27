@@ -15,7 +15,6 @@ public partial class SoundService : Node
         foreach(Node child in GetChildren()){
             
             string name = child.Name.ToString().ToLower();
-            GD.Print(name);
             sounds.Add(name,child as AudioStreamPlayer);
         }
     }

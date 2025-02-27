@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c3745i6iabcxo"]
+[gd_scene load_steps=38 format=3 uid="uid://c3745i6iabcxo"]
 
 [ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/cave_fg_lower.png" id="1_bes3c"]
 [ext_resource type="Script" path="res://scripts/levels/CaveMap.cs" id="1_gwvut"]

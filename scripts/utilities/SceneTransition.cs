@@ -45,6 +45,7 @@ namespace StepToStep.Utils
         {
             ScenesHistory.Push(currentPackedScene);
             currentPackedScene = target;
+            GD.Print(target.ResourcePath);
             _animationPlayer.Play(ANIMATION_NAME_ENTER);
         }
     }
