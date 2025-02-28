@@ -1,6 +1,4 @@
 using Godot;
-using Godot.Collections;
-using StepToStep.Utils;
 using System;
 
 public partial class DemoTransition : Control

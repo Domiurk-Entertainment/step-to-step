@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://pttfbhrqycix"]
+
+[ext_resource type="Script" path="res://scripts/levels/Battle.cs" id="1_ri0lh"]
+[ext_resource type="PackedScene" uid="uid://c4nbdoxbpqjuh" path="res://scenes/ui_interface/inventory.tscn" id="2_nk542"]
+
+[node name="Battle" type="Node2D" node_paths=PackedStringArray("_playerAttackButton", "_playerSpawnPoint", "_enemySpawnPoint", "_inventory")]
+script = ExtResource("1_ri0lh")
+_playerAttackButton = NodePath("UI/AttackButton")
+_playerSpawnPoint = NodePath("PlayerSpawnPoint")
+_enemySpawnPoint = NodePath("EnemySpawnPoint")
+_inventory = NodePath("Inventory")
+
+[node name="PlayerSpawnPoint" type="Node2D" parent="."]
+position = Vector2(100, 400)
+
+[node name="EnemySpawnPoint" type="Node2D" parent="."]
+position = Vector2(550, 400)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 698.0
+offset_bottom = 998.0
+mouse_filter = 2
+
+[node name="AttackButton" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.788
+anchor_right = 1.0
+anchor_bottom = 0.929
+offset_top = -0.424072
+offset_bottom = -0.142029
+grow_horizontal = 2
+grow_vertical = 0
+text = "Attack"
+
+[node name="TunOffButton" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.927
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.146057
+grow_horizontal = 2
+grow_vertical = 0
+text = "Run off"
+
+[node name="Inventory" parent="." instance=ExtResource("2_nk542")]
+offset_left = 44.0
+offset_top = 42.0
+offset_right = 114.0
+offset_bottom = 141.0
+
+[connection signal="pressed" from="UI/AttackButton" to="." method="PlayerAttack"]
+[connection signal="pressed" from="UI/TunOffButton" to="." method="TryRunOff"]

@@ -10,12 +10,12 @@ public partial class InventoryInterface : Control
     [Export] private Container _container;
     [Export] private string _formatBall = "{0}";
 
-    private readonly Vector2 _slotSizeConst = new Vector2(50, 31);
+    [Export] private Vector2 _slotSizeConst = new Vector2(50, 31);
     private IInventory _inventory;
-
-    public override void _EnterTree()
+    
+    public void Initialize(IInventory inventory)
     {
-        _inventory = GetTree().CurrentScene.FindChild(NODE_NAME, owned: false) as IInventory;
+        _inventory = inventory;
 
         if(_inventory == null){
             throw new NullReferenceException("Inventory Interface is null");

@@ -16,5 +16,9 @@ func _process(delta):
 		if shake_timer <= 0:
 			position = original_position
 		else:
-			var offset = Vector2(randf_range(-shake_amplitude, shake_amplitude), randf_range(-shake_amplitude, shake_amplitude))
-			position = original_position + offset
+			position = original_position + get_random()
+
+func get_random():
+	var x = randf_range(-shake_amplitude, shake_amplitude)
+	var y = randf_range(-shake_amplitude, shake_amplitude)
+	return Vector2(x, y)

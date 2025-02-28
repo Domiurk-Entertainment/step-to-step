@@ -6,7 +6,7 @@ using StepToStep.Utils;
 using System;
 
 namespace StepToStep;
-
+[GlobalClass,Icon("res://sprites/player_mini.png")]
 public partial class Player : StaticBody2D, IHealth
 {
     public event Action<AttackType> AttackedStep;

@@ -122,7 +122,7 @@ light_mask = 2
 visibility_layer = 2
 collision_layer = 512
 script = ExtResource("1_8sdka")
-ChanceToRun = 0.1
+ChanceToRun = 0.5
 _spawnBalls = NodePath("Node2D")
 _sight = NodePath("sight")
 

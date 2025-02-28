@@ -1,4 +1,5 @@
 using Godot;
+using StepToStep.InventorySpace;
 using StepToStep.Level;
 using StepToStep.scripts;
 using StepToStep.Utilities;
@@ -16,7 +17,7 @@ namespace StepToStep.Battle
         [Export] private Button _playerAttackButton;
         [Export] private Node2D _playerSpawnPoint;
         [Export] private Node2D _enemySpawnPoint;
-
+        [Export] private InventoryInterface _inventory;
         private Player _player;
         private Enemy _enemy;
 
@@ -35,6 +36,7 @@ namespace StepToStep.Battle
             AddChild(_player);
             AddChild(_enemy);
 
+            _inventory.Initialize(_player.Inventory);
             _player.Inventory.AddItems(config.Items.ToArray());
             _player.GlobalPosition = _playerSpawnPoint.GlobalPosition;
             _enemy.GlobalPosition = _enemySpawnPoint.GlobalPosition;
@@ -97,6 +99,12 @@ namespace StepToStep.Battle
 
         public void TryRunOff()
         {
+            if(chanceToRunOff > 0){
+                chanceToRunOff /= 100;
+                TryRunOff();
+                return;
+            }
+            
             float value = GD.Randf();
 
             if(_player.ChanceToRun > value)

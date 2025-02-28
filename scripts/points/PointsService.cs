@@ -1,5 +1,7 @@
 ﻿using Godot;
+using StepToStep.Systems;
 using StepToStep.Utils;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace StepToStep.Level;
@@ -8,55 +10,56 @@ public partial class PointsService : Node2D
 {
     private const string GROUP = "Points";
 
-    public PointsService Instance;
+    [Export] private Node2D _miniPlayer;
+    [Export] private Vector2 _pointOffset = new(50, 50);
+    [Export] private Point _currentPoint;
+    [ExportCategory("Tween Setting")]
+    [Export] private float _duration = 1;
+    [Export] private Tween.TransitionType _transitionType = Tween.TransitionType.Linear;
 
-    [Export] private Node2D miniPlayer;
-    [Export] private Point startPoint;
-    [Export] private float duration = 1;
-    [Export] private Tween.TransitionType transitionType = Tween.TransitionType.Linear;
-    [Export] private Vector2 pointOffset = new Vector2(50, 50);
+    private TypeConfiguration _saveConfigurationType = TypeConfiguration.Level;
+    private readonly List<Point> _points = new();
+    private Point _lastPoint;
 
-    private Point lastPoint;
+    private string GetKey() => $"{GetTree().CurrentScene.SceneFilePath.GetBaseName()}/{Name}";
 
     public override void _Ready()
     {
-        if(Instance == null)
-            Instance = this;
-        else{
-            GD.PrintErr($"{this} is dublicated in {GetTree().CurrentScene.Name} scene");
-            QueueFree();
-        }
+        _points.Clear();
+        _points.AddRange(GetTree().GetNodesInGroup(GROUP).Cast<Point>());
 
-        Point[] points = GetTree().GetNodesInGroup(GROUP).Cast<Point>().ToArray();
-
-        foreach(Point point in points){
+        foreach(Point point in _points){
             point.Pressed += () => PointOnPressed(point);
             point.ChangePointVisible(false);
         }
 
-        startPoint ??= points[0];
-        lastPoint = startPoint;
-        miniPlayer.GlobalPosition = startPoint.GlobalPosition + pointOffset;
-        startPoint.ChangePointVisible(false);
-        ActivateClickedPoint(startPoint);
+        int index = SaveSystem.Instance.LoadIntData(_saveConfigurationType, GetKey(), _points.IndexOf(_currentPoint));
+
+        _currentPoint = _points[index];
+        _lastPoint = _currentPoint;
+        _miniPlayer.GlobalPosition = _currentPoint.GlobalPosition + _pointOffset;
+        _currentPoint.ChangePointVisible(false);
+        ActivateClickedPoint(_currentPoint);
     }
 
     private void PointOnPressed(Point point)
     {
-        foreach(Point lastPointChild in lastPoint.Points)
+        _currentPoint = point;
+
+        foreach(Point lastPointChild in _lastPoint.Points)
             lastPointChild.ChangePointVisible(false);
 
         Tween tween =
-            miniPlayer.CreateToTween(miniPlayer.GlobalPosition, point.GlobalPosition + pointOffset,
-                                     "global_position",
-                                     duration, transitionType);
+            _miniPlayer.CreateToTween(_miniPlayer.GlobalPosition, point.GlobalPosition + _pointOffset,
+                                      "global_position",
+                                      _duration, _transitionType);
 
         tween.Finished += TweenOnFinished;
         return;
 
         void TweenOnFinished()
         {
-            lastPoint = point;
+            _lastPoint = point;
             ActivateClickedPoint(point);
             tween.Kill();
         }
@@ -67,8 +70,10 @@ public partial class PointsService : Node2D
         if(point.SceneToLoad != null)
             SceneTransition.Data.Add(point.SceneToLoad.ResourcePath, point.Config);
 
-        if(point.SceneToLoad != null)
+        if(point.SceneToLoad != null){
             SceneTransition.Instance.ChangeScene(point.SceneToLoad);
+            SaveSystem.Instance.SaveData(_saveConfigurationType, GetKey(), _points.IndexOf(_currentPoint));
+        }
 
         foreach(Point childPoint in point.Points)
             childPoint.ChangePointVisible(true);

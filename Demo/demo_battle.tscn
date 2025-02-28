@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Demo/DemoBattle.cs" id="1_uhltu"]
 [ext_resource type="PackedScene" uid="uid://qxp1xt6p3mcx" path="res://scenes/player.tscn" id="1_wu163"]
 [ext_resource type="PackedScene" uid="uid://difadwed472d1" path="res://scenes/balls/base_ball.tscn" id="2_42jwc"]
-[ext_resource type="PackedScene" uid="uid://c0tod7yw4sold" path="res://scenes/enemy_smile.tscn" id="2_n2nw5"]
+[ext_resource type="PackedScene" uid="uid://c0tod7yw4sold" path="res://scenes/entity/enemy_smile.tscn" id="2_n2nw5"]
 [ext_resource type="Texture2D" uid="uid://c0iblicaaxwue" path="res://sprites/ball.png" id="3_86hcl"]
 [ext_resource type="Script" path="res://scripts/inventory/BallResource.cs" id="3_p31ar"]
 [ext_resource type="Script" path="res://scripts/inventory/Item.cs" id="4_gdggx"]
