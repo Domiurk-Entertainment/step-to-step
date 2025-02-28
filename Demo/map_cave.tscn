@@ -449,13 +449,12 @@ energy = 4.0
 texture = ExtResource("4_7e35n")
 texture_scale = 0.02
 
-[node name="Points" type="Node2D" parent="." node_paths=PackedStringArray("_miniPlayer", "_currentPoint")]
+[node name="Points" type="Node2D" parent="." node_paths=PackedStringArray("_miniPlayer")]
 modulate = Color(0.807843, 0.807843, 0.807843, 1)
 position = Vector2(217, 139)
 scale = Vector2(4, 4)
 script = ExtResource("5_mpkdr")
 _miniPlayer = NodePath("../PlayerMenu")
-_currentPoint = NodePath("Point")
 
 [node name="Point" parent="Points" node_paths=PackedStringArray("_pointsUnlock") groups=["Points"] instance=ExtResource("6_jdqao")]
 offset_left = 0.0

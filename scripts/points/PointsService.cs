@@ -6,19 +6,19 @@ using System.Linq;
 
 namespace StepToStep.Level;
 
-public partial class PointsService : Node2D
+public partial class PointsService : Node
 {
     private const string GROUP = "Points";
 
     [Export] private Node2D _miniPlayer;
     [Export] private Vector2 _pointOffset = new(50, 50);
-    [Export] private Point _currentPoint;
     [ExportCategory("Tween Setting")]
     [Export] private float _duration = 1;
     [Export] private Tween.TransitionType _transitionType = Tween.TransitionType.Linear;
 
     private TypeConfiguration _saveConfigurationType = TypeConfiguration.Level;
     private readonly List<Point> _points = new();
+    private Point _currentPoint;
     private Point _lastPoint;
 
     private string GetKey() => $"{GetTree().CurrentScene.SceneFilePath.GetBaseName()}/{Name}";
@@ -26,14 +26,14 @@ public partial class PointsService : Node2D
     public override void _Ready()
     {
         _points.Clear();
-        _points.AddRange(GetTree().GetNodesInGroup(GROUP).Cast<Point>());
+        _points.AddRange(GetChildren().Cast<Point>());
 
         foreach(Point point in _points){
             point.Pressed += () => PointOnPressed(point);
             point.ChangePointVisible(false);
         }
 
-        int index = SaveSystem.Instance.LoadIntData(_saveConfigurationType, GetKey(), _points.IndexOf(_currentPoint));
+        int index = SaveSystem.Instance.LoadIntData(_saveConfigurationType, GetKey(), 0);
 
         _currentPoint = _points[index];
         _lastPoint = _currentPoint;

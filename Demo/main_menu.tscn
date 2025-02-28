@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://v1bwsg58hh8u"]
+[gd_scene load_steps=14 format=3 uid="uid://v1bwsg58hh8u"]
 
 [ext_resource type="Script" path="res://scripts/levels/MainMenu.cs" id="1_idvv3"]
+[ext_resource type="PackedScene" uid="uid://cfjwwgwa5hice" path="res://Demo/demo_map_cave.tscn" id="2_82i4k"]
 [ext_resource type="Texture2D" uid="uid://cu4we4jjrtiid" path="res://sprites/cave_main_menu_bg.png" id="3_5gi3u"]
 [ext_resource type="Texture2D" uid="uid://dnjxmb3w8e2m4" path="res://sprites/cave_ui_button_pause.png" id="4_h8eb1"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="5_eogju"]
@@ -25,6 +26,7 @@ point_count = 5
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_idvv3")
+_sceneToPlay = ExtResource("2_82i4k")
 
 [node name="PixelMainMenu" type="Sprite2D" parent="."]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)

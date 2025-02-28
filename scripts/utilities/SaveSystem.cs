@@ -35,15 +35,8 @@ public partial class SaveSystem : Node
     public Variant LoadData(TypeConfiguration typeConfiguration, string key, Variant defaultData = new Variant())
     {
         ConfigFile config = GetConfigFile();
-        Variant result = defaultData;
-
-        foreach(string section in config.GetSections()){
-            if(section != typeConfiguration.ToString())
-                continue;
-            result = config.GetValue(section, key, defaultData);
-        }
-
-        return result;
+        
+        return config.GetValue(typeConfiguration.ToString(), key, defaultData);
     }
 
     public int LoadIntData(TypeConfiguration typeConfiguration, string key, int defaultData = 0)
