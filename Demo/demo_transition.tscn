@@ -1,8 +1,66 @@
-[gd_scene load_steps=2 format=3 uid="uid://bb7jteiamjcsj"]
+[gd_scene load_steps=4 format=3 uid="uid://bb7jteiamjcsj"]
 
 [ext_resource type="Script" path="res://Demo/DemoTransition.cs" id="1_rnul1"]
+[ext_resource type="Texture2D" uid="uid://b0k8jct3ojy3n" path="res://icon.svg" id="2_ybiog"]
 
-[node name="Demo Transition" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bsf0"]
+
+[node name="Demo Transition" type="Control" node_paths=PackedStringArray("_element", "_container")]
 layout_mode = 3
 anchors_preset = 0
+offset_right = 698.0
+offset_bottom = 998.0
 script = ExtResource("1_rnul1")
+_element = NodePath("VSplitContainer")
+_container = NodePath("ScrollContainer/VBoxContainer")
+
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -674.0
+offset_right = 8.0
+offset_bottom = -536.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="VSplitContainer"]
+visible = false
+custom_minimum_size = Vector2(15, 100)
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_6bsf0")
+
+[node name="boy" type="TextureRect" parent="VSplitContainer/Panel"]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 89.0
+offset_bottom = 79.0
+texture = ExtResource("2_ybiog")
+expand_mode = 5
+
+[node name="slider" type="HSlider" parent="VSplitContainer"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="VSplitContainer"]
+layout_mode = 2
+text = "Transition type stttttttt"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+alignment = 1
