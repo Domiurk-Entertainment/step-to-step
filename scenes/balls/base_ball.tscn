@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://difadwed472d1"]
+[gd_scene load_steps=6 format=3 uid="uid://difadwed472d1"]
 
 [ext_resource type="Script" path="res://scripts/Ball.cs" id="1_ljjeo"]
 [ext_resource type="Texture2D" uid="uid://c0iblicaaxwue" path="res://sprites/ball.png" id="2_ed653"]
+[ext_resource type="AudioStream" uid="uid://4wl607uwkikx" path="res://sounds/UI Soundpack/WAV/African1.wav" id="3_hh3gx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sb65q"]
 radius = 3.0
@@ -28,5 +29,9 @@ rect = Rect2(-2, -2, 4, 4)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_l47th")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hh3gx")
+
+[connection signal="Touch" from="." to="AudioStreamPlayer" method="play" binds= [0.0]]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="OnVisibilityNotifier2DScreenExited"]
 [connection signal="body_entered" from="Area2D" to="." method="OnHit"]

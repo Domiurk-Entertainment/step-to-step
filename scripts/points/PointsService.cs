@@ -8,8 +8,6 @@ namespace StepToStep.Level;
 
 public partial class PointsService : Node
 {
-    private const string GROUP = "Points";
-
     [Export] private Node2D _miniPlayer;
     [Export] private Vector2 _pointOffset = new(50, 50);
     [ExportCategory("Tween Setting")]
@@ -30,15 +28,16 @@ public partial class PointsService : Node
 
         foreach(Point point in _points){
             point.Pressed += () => PointOnPressed(point);
-            point.ChangePointVisible(false);
+            point.Disabled = true;
         }
 
         int index = SaveSystem.Instance.LoadIntData(_saveConfigurationType, GetKey(), 0);
 
         _currentPoint = _points[index];
-        _lastPoint = _currentPoint;
+         _currentPoint.Visited= SaveSystem.Instance.LoadIntData(_saveConfigurationType, GetKey() + nameof(_currentPoint.Visited));
+         _lastPoint = _currentPoint;
         _miniPlayer.GlobalPosition = _currentPoint.GlobalPosition + _pointOffset;
-        _currentPoint.ChangePointVisible(false);
+        _currentPoint.Disabled = true;
         ActivateClickedPoint(_currentPoint);
     }
 
@@ -47,7 +46,7 @@ public partial class PointsService : Node
         _currentPoint = point;
 
         foreach(Point lastPointChild in _lastPoint.Points)
-            lastPointChild.ChangePointVisible(false);
+            lastPointChild.Disabled = true;
 
         Tween tween =
             _miniPlayer.CreateToTween(_miniPlayer.GlobalPosition, point.GlobalPosition + _pointOffset,
@@ -67,15 +66,20 @@ public partial class PointsService : Node
 
     private void ActivateClickedPoint(Point point)
     {
-        if(point.SceneToLoad != null)
-            SceneTransition.Data.Add(point.SceneToLoad.ResourcePath, point.Config);
+        if(point.CanVisit()){
+            point.Visited++;
+            SaveSystem.Instance.SaveData(_saveConfigurationType, GetKey() + nameof(point.Visited), point.Visited);
 
-        if(point.SceneToLoad != null){
-            SceneTransition.Instance.ChangeScene(point.SceneToLoad);
-            SaveSystem.Instance.SaveData(_saveConfigurationType, GetKey(), _points.IndexOf(_currentPoint));
+            if(point.SceneToLoad != null)
+                SceneTransition.Data.Add(point.SceneToLoad.ResourcePath, point.Config);
+
+            if(point.SceneToLoad != null){
+                SceneTransition.Instance.ChangeScene(point.SceneToLoad);
+                SaveSystem.Instance.SaveData(_saveConfigurationType, GetKey(), _points.IndexOf(_currentPoint));
+            }
         }
 
         foreach(Point childPoint in point.Points)
-            childPoint.ChangePointVisible(true);
+            childPoint.Disabled = false;
     }
 }

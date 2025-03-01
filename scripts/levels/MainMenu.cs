@@ -3,12 +3,12 @@ using StepToStep.Utils;
 
 namespace StepToStep.Level;
 
-public partial class MainMenu : Node2D
+public partial class MainMenu : Node
 {
-	[Export] private PackedScene _sceneToPlay;
+	[Export(PropertyHint.File)] private string _sceneToPlay;
 	public void StartGame()
 	{
-		SceneTransition.Instance.ChangeScene(_sceneToPlay);
+		SceneTransition.Instance.ChangeScene(GD.Load<PackedScene>(_sceneToPlay));
 	}
 
 	public void ExitGame()

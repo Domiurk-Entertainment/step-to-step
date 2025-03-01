@@ -3,7 +3,7 @@ using StepToStep.Utils;
 
 namespace StepToStep.Level;
 
-public partial class Level : Node2D
+public partial class Level : Node
 {
     public void BackToLastScene()
     {

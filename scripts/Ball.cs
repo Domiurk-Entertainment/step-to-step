@@ -6,6 +6,8 @@ namespace StepToStep;
 
 public partial class Ball : CharacterBody2D
 {
+    [Signal] public delegate void TouchEventHandler();
+    
     protected event Action<Node2D> Hit;
 
     private float _damage;
@@ -26,6 +28,7 @@ public partial class Ball : CharacterBody2D
         if(collision == null)
             return;
         Vector2 normal = collision.GetNormal();
+        EmitSignal(SignalName.Touch);
         Velocity = Velocity.Bounce(normal.Normalized());
     }
 

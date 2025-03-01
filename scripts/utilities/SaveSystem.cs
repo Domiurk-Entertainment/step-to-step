@@ -10,6 +10,7 @@ public partial class SaveSystem : Node
 
     [Export] private string pathConfig = "user://";
     [Export] private string fileName = "config.cfg";
+    [Export] private bool canSave = true;
 
     public override void _Ready()
     {
@@ -28,14 +29,18 @@ public partial class SaveSystem : Node
 
     public void SaveData(TypeConfiguration typeConfiguration, string key, Variant data)
     {
+        if(!canSave)
+            return;
+        
         ConfigFile config = GetConfigFile();
+
         config.SetValue(typeConfiguration.ToString(), key, data);
+        config.Save(GetConfigPath());
     }
 
     public Variant LoadData(TypeConfiguration typeConfiguration, string key, Variant defaultData = new Variant())
     {
         ConfigFile config = GetConfigFile();
-        
         return config.GetValue(typeConfiguration.ToString(), key, defaultData);
     }
 

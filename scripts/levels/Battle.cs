@@ -86,11 +86,13 @@ namespace StepToStep.Battle
         private void EnemyOnDead()
         {
             _enemy.QueueFree();
+            SceneTransition.Instance.LoadLastScene();
         }
 
         private void PlayerOnDead()
         {
             _player.QueueFree();
+            SceneTransition.Instance.LoadLastScene();
         }
 
         private bool tryingRunOff;
@@ -108,7 +110,7 @@ namespace StepToStep.Battle
             float value = GD.Randf();
 
             if(_player.ChanceToRun > value)
-                SceneTransition.Instance.ChangeScene(SceneTransition.ScenesHistory.Pop());
+                SceneTransition.Instance.LoadLastScene();
         }
 
         public void PlayerAttack()

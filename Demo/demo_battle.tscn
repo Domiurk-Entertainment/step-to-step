@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b3ew8w0gexdkq" path="res://sprites/forest_tilemap.png" id="4_h7jjj"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="4_o46bu"]
 [ext_resource type="Texture2D" uid="uid://ci2p0yqc435sn" path="res://sprites/cave_point.png" id="5_piia0"]
-[ext_resource type="PackedScene" uid="uid://c4nbdoxbpqjuh" path="res://scenes/inventory.tscn" id="10_7lcsu"]
+[ext_resource type="PackedScene" uid="uid://c4nbdoxbpqjuh" path="res://scenes/ui_interface/inventory.tscn" id="10_7lcsu"]
 
 [sub_resource type="Resource" id="Resource_6q6oa"]
 script = ExtResource("3_p31ar")

@@ -47,5 +47,10 @@ namespace StepToStep.Utils
             currentPackedScene = target;
             _animationPlayer.Play(ANIMATION_NAME_ENTER);
         }
+
+        public void LoadLastScene()
+        {
+            ChangeScene(ScenesHistory.Pop());
+        }
     }
 }

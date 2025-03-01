@@ -11,10 +11,10 @@ _enemySpawnPoint = NodePath("EnemySpawnPoint")
 _inventory = NodePath("Inventory")
 
 [node name="PlayerSpawnPoint" type="Node2D" parent="."]
-position = Vector2(100, 400)
+position = Vector2(277, 404)
 
 [node name="EnemySpawnPoint" type="Node2D" parent="."]
-position = Vector2(550, 400)
+position = Vector2(406, 398)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3

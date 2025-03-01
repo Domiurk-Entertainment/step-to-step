@@ -7,13 +7,16 @@ namespace StepToStep.Level;
 public partial class Point : Button
 {
     public IReadOnlyCollection<Point> Points => _pointsUnlock;
-    [Export] public BattleConfig Config;
-    [Export(PropertyHint.Dir)] public PackedScene SceneToLoad;
-    
-    [Export] private Point[] _pointsUnlock = Array.Empty<Point>();
+    public int Visited;
 
-    public void ChangePointVisible(bool visible)
+    [Export(PropertyHint.Dir)] public PackedScene SceneToLoad;
+    [Export] public BattleConfig Config;
+
+    [Export] private Point[] _pointsUnlock = Array.Empty<Point>();
+    [Export] private int _canVisited = 1;
+
+    public bool CanVisit()
     {
-        Disabled = !visible;
+        return _canVisited == -1 || _canVisited > Visited;
     }
 }
