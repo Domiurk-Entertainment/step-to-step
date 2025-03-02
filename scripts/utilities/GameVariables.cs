@@ -1,4 +1,4 @@
-﻿namespace StepToStep.Utilities;
+﻿namespace StepToStep.Utils;
 
 public enum AttackType
 {

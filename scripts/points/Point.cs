@@ -19,4 +19,8 @@ public partial class Point : Button
     {
         return _canVisited == -1 || _canVisited > Visited;
     }
+
+    public IReadOnlyDictionary<string, string> KeysForSave => new Dictionary<string, string>(){
+        { nameof(Visited), $"/{Name}/{nameof(Visited)}" },
+    };
 }

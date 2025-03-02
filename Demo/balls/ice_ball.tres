@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BallResource" load_steps=4 format=3 uid="uid://uevbbfoqa5wv"]
 
 [ext_resource type="Texture2D" uid="uid://csyj57hj33op7" path="res://sprites/ball_ice.png" id="1_qjui1"]
-[ext_resource type="PackedScene" uid="uid://clmilqy74vthm" path="res://scenes/balls/ice_ball.tscn" id="1_s51ke"]
+[ext_resource type="PackedScene" uid="uid://dd8a6ugycn6di" path="res://scenes/balls/ball_ice.tscn" id="1_s51ke"]
 [ext_resource type="Script" path="res://scripts/inventory/BallResource.cs" id="2_nnsog"]
 
 [resource]

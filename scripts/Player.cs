@@ -1,7 +1,6 @@
 using Godot;
 using StepToStep.Battle;
 using StepToStep.InventorySpace;
-using StepToStep.Utilities;
 using StepToStep.Utils;
 using System;
 
@@ -16,7 +15,7 @@ public partial class Player : StaticBody2D, IHealth
     public IInventory Inventory => _inventory;
 
     [Export] public float ChanceToRun;
-    
+
     [Export] private Node2D _spawnBalls;
     [Export] private Sight _sight;
     [Export] private float _force = 500;
