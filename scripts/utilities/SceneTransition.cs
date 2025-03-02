@@ -48,6 +48,8 @@ namespace StepToStep.Utils
             _animationPlayer.Play(ANIMATION_NAME_ENTER);
         }
 
+        public static Variant GetData(string key) => !Data.Remove(key, out Variant result) ? default : result;
+
         public void LoadLastScene()
         {
             ChangeScene(ScenesHistory.Pop());

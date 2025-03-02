@@ -3,7 +3,7 @@ using StepToStep;
 using StepToStep.Battle;
 using StepToStep.InventorySpace;
 using StepToStep.scripts;
-using StepToStep.Utilities;
+using StepToStep.Utils;
 using System;
 
 public partial class DemoBattle : Node

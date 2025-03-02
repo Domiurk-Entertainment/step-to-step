@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://2mlf2dqr4joo"]
+
+[ext_resource type="Script" path="res://scripts/UserInterfaceSystem.cs" id="1_bok0e"]
+[ext_resource type="Script" path="res://scripts/Modal.cs" id="2_6g6rv"]
+
+[node name="UserInterface" type="Control" node_paths=PackedStringArray("Modal")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bok0e")
+Modal = NodePath("Modal")
+
+[node name="Modal" type="PanelContainer" parent="." node_paths=PackedStringArray("_title", "_content", "_actionButtonOne", "_actionButtonTwo")]
+visible = false
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -75.0
+offset_right = 150.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_6g6rv")
+_title = NodePath("Container/Header/Title")
+_content = NodePath("Container/Description")
+_actionButtonOne = NodePath("Container/Actions/Action1")
+_actionButtonTwo = NodePath("Container/Actions/Action2")
+
+[node name="Container" type="VBoxContainer" parent="Modal"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="HSplitContainer" parent="Modal/Container"]
+layout_mode = 2
+split_offset = 250
+dragger_visibility = 2
+
+[node name="Title" type="Label" parent="Modal/Container/Header"]
+layout_mode = 2
+text = "<<<<<Title>>>>>"
+horizontal_alignment = 1
+
+[node name="Hide" type="Button" parent="Modal/Container/Header"]
+layout_mode = 2
+text = "x"
+
+[node name="Description" type="Label" parent="Modal/Container"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Hello what are you? Today we did not a single match and an play game with the "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Actions" type="HSplitContainer" parent="Modal/Container"]
+layout_mode = 2
+dragger_visibility = 1
+
+[node name="Action1" type="Button" parent="Modal/Container/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Action 1"
+
+[node name="Action2" type="Button" parent="Modal/Container/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Action 2"
+
+[connection signal="pressed" from="Modal/Container/Header/Hide" to="Modal" method="Close"]
+[connection signal="pressed" from="Modal/Container/Actions/Action1" to="Modal" method="Close"]
+[connection signal="pressed" from="Modal/Container/Actions/Action2" to="Modal" method="Close"]

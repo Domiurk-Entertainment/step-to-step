@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://3ei5c4shcb46" path="res://sounds/ui_hover.wav" id="3_osdno"]
 [ext_resource type="Texture2D" uid="uid://dnjxmb3w8e2m4" path="res://sprites/cave_ui_button_pause.png" id="3_qp255"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="4_6ue5j"]
-[ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/minimal_pixelv2.ttf" id="6_0t0jh"]
+[ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="6_0t0jh"]
 [ext_resource type="Texture2D" uid="uid://cw7fnbcsld1pd" path="res://sprites/ui_settings.png" id="6_5vkfw"]
 [ext_resource type="AudioStream" uid="uid://ccy1cdibnmy84" path="res://sounds/Pixel Music Pack/Wav/Pixel 1.wav" id="8_i8ai4"]
 
@@ -309,7 +309,7 @@ volume_db = 8.418
 
 [node name="Click" type="AudioStreamPlayer" parent="SoundService"]
 
-[connection signal="pressed" from="Control/Settings" to="Control/SettingsMenu" method="show"]
-[connection signal="pressed" from="Control/SettingsMenu/Button" to="Control/SettingsMenu" method="hide"]
+[connection signal="button_up" from="Control/Settings" to="Control/SettingsMenu" method="show"]
+[connection signal="button_up" from="Control/SettingsMenu/Button" to="Control/SettingsMenu" method="hide"]
 [connection signal="pressed" from="Control/VBoxContainer/Play" to="." method="StartGame"]
 [connection signal="pressed" from="Control/VBoxContainer/Quit" to="." method="ExitGame"]
