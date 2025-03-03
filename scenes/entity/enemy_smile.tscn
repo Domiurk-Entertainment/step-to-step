@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://c0tod7yw4sold"]
+[gd_scene load_steps=13 format=3 uid="uid://c0tod7yw4sold"]
 
 [ext_resource type="Script" path="res://scripts/Enemy.cs" id="1_g11nf"]
 [ext_resource type="Script" path="res://scripts/stats/Health.cs" id="2_fi316"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="2_vtf8y"]
+[ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="3_t2teq"]
 [ext_resource type="Texture2D" uid="uid://xh7ql7nmox2b" path="res://sprites/smile_idle.png" id="3_t75gp"]
 [ext_resource type="AudioStream" uid="uid://eq3gkecp6ghb" path="res://sounds/death.wav" id="5_triy1"]
 
@@ -49,7 +50,7 @@ unique_name_in_owner = true
 light_mask = 2
 offset_left = -12.0
 offset_top = -15.0
-offset_right = 14.0
+offset_right = 13.0
 offset_bottom = -11.0
 rotation = -0.00068116
 theme_override_styles/background = SubResource("StyleBoxFlat_4mats")
@@ -58,6 +59,9 @@ max_value = 10.0
 value = 10.0
 show_percentage = false
 script = ExtResource("2_fi316")
+_length = 30.0
+_font = ExtResource("3_t2teq")
+_transitionType = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.741176, 0.741176, 0.741176, 1)
