@@ -49,6 +49,7 @@ shape = SubResource("RectangleShape2D_e2d2t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(350, 210)
+zoom = Vector2(0.5, 0.5)
 
 [node name="Attack2" type="Button" parent="."]
 offset_left = 139.0
@@ -82,4 +83,5 @@ scale = Vector2(5.36423, 5.36423)
 [node name="Smile" parent="." instance=ExtResource("2_n2nw5")]
 position = Vector2(533, 169)
 scale = Vector2(7.53237, 7.53237)
-_stepCount = 4
+_attackRange = 25.0
+_damage = 20.0

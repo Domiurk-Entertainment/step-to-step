@@ -61,7 +61,7 @@ public partial class Player : StaticBody2D, IHealth
         _sight.Visible = !tryShoot;
     }
 
-    public void TakeDamage(object sender, float damage)
+    public void TakeDamage(Node sender, float damage)
     {
         if(damage <= 0)
             return;

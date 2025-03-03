@@ -7,16 +7,6 @@ namespace StepToStep.scripts;
 
 public partial class Enemy : Node2D, IHealth
 {
-    private enum Direction
-    {
-        left,
-        right,
-        leftUp,
-        leftDown,
-        rightUp,
-        rightDown
-    };
-
     public event Action<AttackType> AttackedStep;
 
     [Signal] public delegate void DeadEventHandler();
@@ -38,7 +28,6 @@ public partial class Enemy : Node2D, IHealth
         _health = GetNode<Health>("%Health");
 
         _health.ChangedValue += HealthOnChangedValue;
-        AttackedStep += OnAttackedStep;
     }
 
     public void ReadyToAttack(Vector2 playerPosition)
@@ -47,7 +36,9 @@ public partial class Enemy : Node2D, IHealth
             return;
 
         _steps = new Vector2[_stepCount + 1];
-        Vector2 step = (playerPosition - GlobalPosition) / _stepCount;
+        Vector2 way = (playerPosition - GlobalPosition) / _stepCount;
+        way = new Vector2(way.X + _attackRange, way.Y);
+        _rayCast2D.TargetPosition = new Vector2(way.Normalized().X * _attackRange, way.Normalized().Y);
 
         for(int i = 0; i <= _stepCount; i++){
             if(i == 0){
@@ -55,8 +46,10 @@ public partial class Enemy : Node2D, IHealth
                 continue;
             }
 
-            _steps[i] = GlobalPosition + step * i;
+            _steps[i] = GlobalPosition + way * i;
         }
+
+        _steps[_stepCount] = new Vector2(_steps[_stepCount].X, _steps[_stepCount].Y);
     }
 
     public void Attack()
@@ -65,8 +58,6 @@ public partial class Enemy : Node2D, IHealth
         AttackedStep?.Invoke(AttackType.Start);
 
         Move(_steps[_currentStep]);
-
-        AttackedStep?.Invoke(AttackType.End);
 
         return;
 
@@ -84,16 +75,23 @@ public partial class Enemy : Node2D, IHealth
 
             void CheckReturnOnFinished()
             {
-                if(_currentStep != _stepCount)
+                if(_currentStep != _stepCount){
+                    AttackedStep?.Invoke(AttackType.End);
                     return;
+                }
+
                 Attacked();
                 Move(_steps[_currentStep = 0]);
+                AttackedStep?.Invoke(AttackType.End);
             }
         }
 
         void Attacked()
         {
+            if(_rayCast2D.GetCollider() is not IHealth health)
+                return;
             AttackedStep?.Invoke(AttackType.Attacked);
+            health.TakeDamage(this, _damage);
         }
     }
 
@@ -104,24 +102,7 @@ public partial class Enemy : Node2D, IHealth
                     .SetTrans(_transitionType);
     }
 
-    private void OnAttackedStep(AttackType attackType)
-    {
-        switch(attackType){
-            case AttackType.Start:
-                break;
-            case AttackType.Attacked:
-                // if(_rayCast2D.GetCollider() is IHealth health)
-                    // health.TakeDamage(this, _damage);
- 
-                break;
-            case AttackType.End:
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(attackType), attackType, null);
-        }
-    }
-
-    public void TakeDamage(object sender, float damage)
+    public void TakeDamage(Node sender, float damage)
     {
         if(damage <= 0)
             return;

@@ -8,7 +8,7 @@ public partial class Health : ProgressBar
 {
     public event Action<float> ChangedValue;
 
-    public void Subtract(object sender, double value)
+    public void Subtract(Node sender, double value)
     {
         if(value < 0)
             throw new Exception($"{sender} sending failure value ({value})");
