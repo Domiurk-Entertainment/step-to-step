@@ -27,11 +27,36 @@ public partial class SaveSystem : Node
             new ConfigFile().Save(GetConfigPath());
     }
 
+    public void RemoveDataFromKey(TypeConfiguration typeConfiguration, string key)
+    {
+        ConfigFile config = GetConfigFile();
+        ConfigFile newConfig = new ConfigFile();
+
+        foreach(string section in config.GetSections()){
+            foreach(string sectionKey in config.GetSectionKeys(section)){
+                if(section == typeConfiguration.ToString() && key == sectionKey){
+                    continue;
+                }
+
+                Variant data = config.GetValue(section, sectionKey);
+                newConfig.SetValue(section, sectionKey, data);
+            }
+        }
+        newConfig.Save(GetConfigPath());
+    }
+    
+    public void RemoveAllData()
+    {
+        ConfigFile config = GetConfigFile();
+        config.Clear();
+        config.Save(GetConfigPath());
+    }
+
     public void SaveData(TypeConfiguration typeConfiguration, string key, Variant data)
     {
         if(!canSave)
             return;
-        
+
         ConfigFile config = GetConfigFile();
 
         config.SetValue(typeConfiguration.ToString(), key, data);

@@ -20,6 +20,11 @@ namespace StepToStep.Interface
                          Action oneAction = null,
                          Action twoAction = null)
         {
+            if(Visible){
+                GD.PrintErr("Can't open");
+                return;
+            }
+
             if(!string.IsNullOrEmpty(title)){
                 _title.Text = title;
                 _title.Show();
@@ -35,14 +40,14 @@ namespace StepToStep.Interface
             else{
                 _content.Hide();
             }
-        
+
             _oneAction = oneAction;
             _twoAction = twoAction;
             _actionButtonOne.Text = textOneAction;
             _actionButtonTwo.Text = textTwoAction;
 
             if(_oneAction != null){
-                _actionButtonOne.Pressed += oneAction;
+                _actionButtonOne.Pressed += _oneAction;
                 _actionButtonOne.Show();
             }
             else{
@@ -62,10 +67,15 @@ namespace StepToStep.Interface
 
         public void Close()
         {
-            if(_oneAction != null)
+            if(_oneAction != null){
                 _actionButtonOne.Pressed -= _oneAction;
-            if(_twoAction != null)
+                _oneAction = null;
+            }
+
+            if(_twoAction != null){
                 _actionButtonTwo.Pressed -= _twoAction;
+                _twoAction = null;
+            }
 
             Hide();
         }

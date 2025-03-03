@@ -1,19 +1,36 @@
 using Godot;
+using StepToStep.Systems;
 using StepToStep.Utils;
 
 namespace StepToStep.Level;
 
 public partial class MainMenu : Node
 {
-	[Export(PropertyHint.File)] private string _sceneToPlay;
-	public void StartGame()
-	{
-		PackedScene scene = GD.Load<PackedScene>(_sceneToPlay);
-		SceneTransition.Instance.ChangeScene(scene);
-	}
+    [Export(PropertyHint.File)] private string _sceneToPlay;
 
-	public void ExitGame()
-	{
-		GetTree().Quit();
-	}
+    public void Start()
+    {
+        UserInterfaceSystem.Instance.Modal.Open("Start New Game", 
+                                                "Are you sure you want to start the new game?", 
+                                                "Yes", "No",
+                                                StartGame);
+        return;
+
+        void StartGame()
+        {
+            SaveSystem.Instance.RemoveAllData();
+            Continue();
+        }
+    }
+
+    public void Exit()
+    {
+        GetTree().Quit();
+    }
+
+    public void Continue()
+    {
+        PackedScene scene = GD.Load<PackedScene>(_sceneToPlay);
+        SceneTransition.Instance.ChangeScene(scene);
+    }
 }

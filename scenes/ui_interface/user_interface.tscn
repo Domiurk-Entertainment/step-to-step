@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://2mlf2dqr4joo"]
+[gd_scene load_steps=3 format=3 uid="uid://cswmidelxr7fk"]
 
 [ext_resource type="Script" path="res://scripts/UserInterfaceSystem.cs" id="1_bok0e"]
 [ext_resource type="Script" path="res://scripts/Modal.cs" id="2_6g6rv"]
 
 [node name="UserInterface" type="Control" node_paths=PackedStringArray("Modal")]
+z_index = 50
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,6 +16,7 @@ Modal = NodePath("Modal")
 
 [node name="Modal" type="PanelContainer" parent="." node_paths=PackedStringArray("_title", "_content", "_actionButtonOne", "_actionButtonTwo")]
 visible = false
+z_index = 50
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 1
 anchors_preset = 8

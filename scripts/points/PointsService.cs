@@ -42,10 +42,6 @@ public partial class PointsService : Node
         int index = SaveSystem.Instance.LoadIntData(_saveConfigurationType, GetKey(), 0);
 
         _currentPoint = _points[index];
-        _currentPoint.Visited = SaveSystem.Instance.LoadIntData(_saveConfigurationType,
-                                                                GetKey() +
-                                                                _currentPoint
-                                                                    .KeysForSave[nameof(_currentPoint.Visited)]);
         _lastPoint = _currentPoint;
         _miniPlayer.GlobalPosition = _currentPoint.GlobalPosition + _pointOffset;
         _currentPoint.Disabled = true;
@@ -83,9 +79,6 @@ public partial class PointsService : Node
     {
         if(point.CanVisit()){
             point.Visited++;
-            SaveSystem.Instance.SaveData(_saveConfigurationType,
-                                         GetKey() + point.KeysForSave[nameof(point.Visited)],
-                                         point.Visited);
 
             SaveSystem.Instance.SaveData(_saveConfigurationType, GetKey(), _points.IndexOf(_currentPoint));
             
