@@ -24,6 +24,8 @@ public partial class DemoBattle : Node
 		player.AttackedStep += PlayerOnAttackedStep;
 		
 		node = player.FindChild("sight") as Sight;
+		
+		enemy.ReadyToAttack(player.GlobalPosition);
 	}
 	
 	private void PlayerOnAttackedStep(AttackType attackType)
@@ -34,7 +36,7 @@ public partial class DemoBattle : Node
 			case AttackType.End:
 				playerAttackButton.Disabled = true;
 				SceneTreeTimer timer = GetTree().CreateTimer(2);
-				timer.Timeout += () => enemy.Attack(player.GlobalPosition);
+				timer.Timeout += enemy.Attack;
 				break;
 			case AttackType.Attacked:
 				break;

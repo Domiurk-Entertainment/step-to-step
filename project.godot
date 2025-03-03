@@ -25,6 +25,7 @@ UserInterface="*res://scenes/user_interface.tscn"
 
 window/size/viewport_width=700
 window/size/viewport_height=1000
+window/size/initial_position_type=0
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 window/handheld/orientation=1

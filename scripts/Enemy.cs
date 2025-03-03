@@ -7,71 +7,93 @@ namespace StepToStep.scripts;
 
 public partial class Enemy : Node2D, IHealth
 {
-    public event Action<AttackType> AttackedStep;
-    [Signal] public delegate void DeadEventHandler();
+    private enum Direction
+    {
+        left,
+        right,
+        leftUp,
+        leftDown,
+        rightUp,
+        rightDown
+    };
 
+    public event Action<AttackType> AttackedStep;
+
+    [Signal] public delegate void DeadEventHandler();
 
     [Export, Category("Tween")] private float _duration = 1;
     [Export] private Tween.TransitionType _transitionType = Tween.TransitionType.Linear;
     [Export] private float _attackRange = 15;
     [Export] private float _damage = 10;
     [Export] private RayCast2D _rayCast2D;
+    [Export] private int _stepCount = 2;
 
     private Tween _movingTween;
-    private Vector2 _position;
     private Health _health;
+    private Vector2[] _steps;
+    private int _currentStep;
 
     public override void _Ready()
     {
         _health = GetNode<Health>("%Health");
-        
+
         _health.ChangedValue += HealthOnChangedValue;
         AttackedStep += OnAttackedStep;
-        
     }
 
-    public void Attack(Vector2 playerPosition)
+    public void ReadyToAttack(Vector2 playerPosition)
     {
-        Vector2 newPosition = new Vector2(playerPosition.X + _attackRange, playerPosition.Y);
+        if(_steps != null && _steps.Length < _stepCount)
+            return;
+
+        _steps = new Vector2[_stepCount + 1];
+        Vector2 step = (playerPosition - GlobalPosition) / _stepCount;
+
+        for(int i = 0; i <= _stepCount; i++){
+            if(i == 0){
+                _steps[i] = GlobalPosition;
+                continue;
+            }
+
+            _steps[i] = GlobalPosition + step * i;
+        }
+    }
+
+    public void Attack()
+    {
+        _currentStep++;
         AttackedStep?.Invoke(AttackType.Start);
-        _position = GlobalPosition;
 
-        _movingTween?.Kill();
-        _movingTween = CreateTween();
+        Move(_steps[_currentStep]);
 
-        _movingTween.TweenProperty(this, "global_position", newPosition,
-                                   _duration)
-                    .From(GlobalPosition)
-                    .SetTrans(_transitionType);
-
-        CreateToPlayer();
+        AttackedStep?.Invoke(AttackType.End);
 
         return;
 
-        void CreateToPlayer()
+        void Move(Vector2 toPosition)
         {
             _movingTween?.Kill();
             _movingTween = CreateTween();
 
-            MoveToPlayer(newPosition);
-            _movingTween.Finished += Attacked;
-        }
-
-        void CreateFromPlayer()
-        {
-            _movingTween?.Kill();
-            _movingTween = CreateTween();
-
-            _movingTween.TweenProperty(this, "global_position", _position, _duration)
+            _movingTween.TweenProperty(this, "global_position", toPosition,
+                                       _duration)
                         .From(GlobalPosition)
                         .SetTrans(_transitionType);
-            _movingTween.Finished += () => AttackedStep?.Invoke(AttackType.End);
+            _movingTween.Finished += CheckReturnOnFinished;
+            return;
+
+            void CheckReturnOnFinished()
+            {
+                if(_currentStep != _stepCount)
+                    return;
+                Attacked();
+                Move(_steps[_currentStep = 0]);
+            }
         }
 
         void Attacked()
         {
             AttackedStep?.Invoke(AttackType.Attacked);
-            CreateFromPlayer();
         }
     }
 
@@ -88,9 +110,9 @@ public partial class Enemy : Node2D, IHealth
             case AttackType.Start:
                 break;
             case AttackType.Attacked:
-                if(_rayCast2D.GetCollider() is IHealth health)
-                    health.TakeDamage(this, _damage);
-
+                // if(_rayCast2D.GetCollider() is IHealth health)
+                    // health.TakeDamage(this, _damage);
+ 
                 break;
             case AttackType.End:
                 break;

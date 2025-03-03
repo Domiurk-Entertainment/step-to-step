@@ -41,7 +41,6 @@ height = 19.9999
 [node name="Smile" type="StaticBody2D" node_paths=PackedStringArray("_rayCast2D")]
 collision_layer = 513
 script = ExtResource("1_g11nf")
-_transitionType = 6
 _damage = 1.0
 _rayCast2D = NodePath("RayCast2D")
 

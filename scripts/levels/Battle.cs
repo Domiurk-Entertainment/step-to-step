@@ -42,6 +42,7 @@ namespace StepToStep.Battle
             _player.Inventory.AddItems(config.Items.ToArray());
             _player.GlobalPosition = _playerSpawnPoint.GlobalPosition;
             _enemy.GlobalPosition = _enemySpawnPoint.GlobalPosition;
+            _enemy.ReadyToAttack(_player.GlobalPosition);
         }
 
         public override void _ExitTree()
@@ -95,7 +96,7 @@ namespace StepToStep.Battle
             {
                 if(_isEnd)
                     return;
-                _enemy.Attack(_player.GlobalPosition);
+                _enemy.Attack();
             }
         }
 

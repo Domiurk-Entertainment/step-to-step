@@ -80,5 +80,6 @@ position = Vector2(81, 161)
 scale = Vector2(5.36423, 5.36423)
 
 [node name="Smile" parent="." instance=ExtResource("2_n2nw5")]
-position = Vector2(533, 144)
+position = Vector2(533, 169)
 scale = Vector2(7.53237, 7.53237)
+_stepCount = 4
