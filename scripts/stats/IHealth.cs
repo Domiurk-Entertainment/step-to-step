@@ -1,6 +1,8 @@
-﻿namespace StepToStep.Utils;
+﻿using Godot;
+
+namespace StepToStep.Utils;
 
 public interface IHealth
 {
-    void TakeDamage(object sender, float damage);
+    void TakeDamage(Node sender, float damage);
 }

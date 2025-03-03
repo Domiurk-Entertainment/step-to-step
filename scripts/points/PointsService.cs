@@ -8,6 +8,9 @@ namespace StepToStep.Level;
 
 public partial class PointsService : Node
 {
+    private const string PLAYER_IDLE_ANIMATION_NAME = "idle";
+    private const string PLAYER_RUN_ANIMATION_NAME = "run";
+    
     [Export] private Node2D _miniPlayer;
     [Export] private Vector2 _pointOffset = new(50, 50);
     [ExportCategory("Tween Setting")]
@@ -18,11 +21,14 @@ public partial class PointsService : Node
     private readonly List<Point> _points = new();
     private Point _currentPoint;
     private Point _lastPoint;
+    private AnimatedSprite2D _animation;
 
     private string GetKey() => $"{GetTree().CurrentScene.SceneFilePath.GetBaseName()}/{Name}";
 
     public override void _Ready()
     {
+        _animation = _miniPlayer.GetNode<AnimatedSprite2D>("Animations");
+        
         _points.Clear();
         _points.AddRange(GetChildren().Cast<Point>());
 
@@ -46,6 +52,7 @@ public partial class PointsService : Node
 
     private void PointOnPressed(Point point)
     {
+        _animation.Play(PLAYER_RUN_ANIMATION_NAME);
         _currentPoint = point;
 
         foreach(Point lastPointChild in _lastPoint.Points)
@@ -63,6 +70,7 @@ public partial class PointsService : Node
         {
             _lastPoint = point;
             ActivateClickedPoint(point);
+            _animation.Play(PLAYER_IDLE_ANIMATION_NAME);
             tween.Kill();
         }
     }

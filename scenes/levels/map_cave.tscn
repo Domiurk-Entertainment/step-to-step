@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://c3745i6iabcxo"]
+[gd_scene load_steps=43 format=4 uid="uid://c3745i6iabcxo"]
 
 [ext_resource type="Script" path="res://scripts/levels/CaveMap.cs" id="1_l1e6v"]
 [ext_resource type="Script" path="res://scripts/points/PointsService.cs" id="1_pqqoo"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://7s5uw7p7xydu" path="res://sprites/cave_fg_right.png" id="11_572kt"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/white_circle.png" id="12_30pgs"]
 [ext_resource type="Script" path="res://scripts/SoundService.cs" id="14_qn73w"]
+[ext_resource type="Texture2D" uid="uid://cwfqk0vtqa4g5" path="res://sprites/player_run.png" id="15_cajgf"]
 [ext_resource type="AudioStream" uid="uid://cgbx3x6pnvhqn" path="res://sounds/Pixel Music Pack/Wav/Pixel 7.wav" id="15_qaqjn"]
 [ext_resource type="AudioStream" uid="uid://3ei5c4shcb46" path="res://sounds/ui_hover.wav" id="16_75nbs"]
 [ext_resource type="AudioStream" uid="uid://bsnbaujlbcd2h" path="res://sounds/ui_click.wav" id="17_lpkjg"]
@@ -108,6 +109,26 @@ region = Rect2(64, 0, 16, 16)
 atlas = ExtResource("2_t2gvh")
 region = Rect2(80, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2vc0"]
+atlas = ExtResource("15_cajgf")
+region = Rect2(0, 14, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0x67"]
+atlas = ExtResource("15_cajgf")
+region = Rect2(16, 14, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nfwc"]
+atlas = ExtResource("15_cajgf")
+region = Rect2(48, 14, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iklek"]
+atlas = ExtResource("15_cajgf")
+region = Rect2(64, 14, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whacb"]
+atlas = ExtResource("15_cajgf")
+region = Rect2(80, 14, 16, 18)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_a15pq"]
 animations = [{
 "frames": [{
@@ -133,7 +154,22 @@ animations = [{
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2vc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0x67")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nfwc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iklek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whacb")
+}],
 "loop": true,
 "name": &"run",
 "speed": 5.0
@@ -688,13 +724,16 @@ scale = Vector2(1.36, 1.36)
 color = Color(1, 0.94902, 0.298039, 1)
 texture = ExtResource("12_30pgs")
 
-[node name="PlayerAnimMenu" type="AnimatedSprite2D" parent="PlayerMenu"]
+[node name="Animations" type="AnimatedSprite2D" parent="PlayerMenu"]
 modulate = Color(0.992157, 1, 0.866667, 1)
 light_mask = 2
 z_index = 6
 position = Vector2(-1.36877, -7.93)
 sprite_frames = SubResource("SpriteFrames_a15pq")
-animation = &"idle"
+animation = &"run"
+autoplay = "idle"
+frame = 2
+frame_progress = 0.142211
 
 [node name="PointLight2D2" type="PointLight2D" parent="PlayerMenu"]
 light_mask = 2
