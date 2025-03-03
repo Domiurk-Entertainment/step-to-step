@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 SceneTransition="*res://scenes/scene_transition.tscn"
 SaveSystem="*res://scenes/save_system.tscn"
-UserInterface="*res://scenes/user_interface.tscn"
+UserInterface="*res://scenes/ui_interface/user_interface.tscn"
 
 [display]
 

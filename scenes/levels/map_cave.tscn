@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://c3745i6iabcxo"]
+[gd_scene load_steps=43 format=4 uid="uid://c3745i6iabcxo"]
 
 [ext_resource type="Script" path="res://scripts/levels/CaveMap.cs" id="1_l1e6v"]
 [ext_resource type="Script" path="res://scripts/points/PointsService.cs" id="1_pqqoo"]
@@ -109,21 +109,25 @@ region = Rect2(64, 0, 16, 16)
 atlas = ExtResource("2_t2gvh")
 region = Rect2(80, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xbods"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2vc0"]
 atlas = ExtResource("15_cajgf")
 region = Rect2(0, 14, 16, 18)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u4o5n"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0x67"]
 atlas = ExtResource("15_cajgf")
 region = Rect2(16, 14, 16, 18)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xicu4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nfwc"]
 atlas = ExtResource("15_cajgf")
 region = Rect2(48, 14, 16, 18)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e4j3p"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_iklek"]
 atlas = ExtResource("15_cajgf")
 region = Rect2(64, 14, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whacb"]
+atlas = ExtResource("15_cajgf")
+region = Rect2(80, 14, 16, 18)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a15pq"]
 animations = [{
@@ -152,16 +156,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xbods")
+"texture": SubResource("AtlasTexture_r2vc0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u4o5n")
+"texture": SubResource("AtlasTexture_w0x67")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xicu4")
+"texture": SubResource("AtlasTexture_8nfwc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e4j3p")
+"texture": SubResource("AtlasTexture_iklek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whacb")
 }],
 "loop": true,
 "name": &"run",
@@ -725,8 +732,8 @@ position = Vector2(-1.36877, -7.93)
 sprite_frames = SubResource("SpriteFrames_a15pq")
 animation = &"run"
 autoplay = "idle"
-frame = 1
-frame_progress = 0.132322
+frame = 2
+frame_progress = 0.142211
 
 [node name="PointLight2D2" type="PointLight2D" parent="PlayerMenu"]
 light_mask = 2
