@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://c3745i6iabcxo"]
+[gd_scene load_steps=44 format=4 uid="uid://c3745i6iabcxo"]
 
 [ext_resource type="Script" path="res://scripts/levels/CaveMap.cs" id="1_l1e6v"]
 [ext_resource type="Script" path="res://scripts/points/PointsService.cs" id="1_pqqoo"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://scripts/SoundService.cs" id="14_qn73w"]
 [ext_resource type="Texture2D" uid="uid://cwfqk0vtqa4g5" path="res://sprites/player_run.png" id="15_cajgf"]
 [ext_resource type="AudioStream" uid="uid://cgbx3x6pnvhqn" path="res://sounds/Pixel Music Pack/Wav/Pixel 7.wav" id="15_qaqjn"]
+[ext_resource type="AudioStream" uid="uid://bm0iiuexlmvmd" path="res://sounds/walk.mp3" id="16_3boqe"]
 [ext_resource type="AudioStream" uid="uid://3ei5c4shcb46" path="res://sounds/ui_hover.wav" id="16_75nbs"]
 [ext_resource type="AudioStream" uid="uid://bsnbaujlbcd2h" path="res://sounds/ui_click.wav" id="17_lpkjg"]
 [ext_resource type="Shader" path="res://scripts/utilities/blur.gdshader" id="19_gh716"]
@@ -743,6 +744,10 @@ color = Color(1, 1, 0.243137, 1)
 energy = 7.87
 texture = ExtResource("4_pt5ys")
 texture_scale = 0.01
+
+[node name="Walk" type="AudioStreamPlayer" parent="PlayerMenu"]
+unique_name_in_owner = true
+stream = ExtResource("16_3boqe")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 6

@@ -22,12 +22,14 @@ public partial class PointsService : Node
     private Point _currentPoint;
     private Point _lastPoint;
     private AnimatedSprite2D _animation;
+    private AudioStreamPlayer _walkSound;
 
     private string GetKey() => $"{GetTree().CurrentScene.SceneFilePath.GetBaseName()}/{Name}";
 
     public override void _Ready()
     {
         _animation = _miniPlayer.GetNode<AnimatedSprite2D>("Animations");
+        _walkSound = GetNode<AudioStreamPlayer>("%Walk");
         
         _points.Clear();
         _points.AddRange(GetChildren().Cast<Point>());
@@ -53,6 +55,7 @@ public partial class PointsService : Node
     private void PointOnPressed(Point point)
     {
         _animation.Play(PLAYER_RUN_ANIMATION_NAME);
+        _walkSound.Play();
         _currentPoint = point;
 
         foreach(Point lastPointChild in _lastPoint.Points)
@@ -71,6 +74,7 @@ public partial class PointsService : Node
             _lastPoint = point;
             ActivateClickedPoint(point);
             _animation.Play(PLAYER_IDLE_ANIMATION_NAME);
+            _walkSound.Stop();
             tween.Kill();
         }
     }

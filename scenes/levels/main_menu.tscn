@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://v1bwsg58hh8u"]
+[gd_scene load_steps=15 format=3 uid="uid://v1bwsg58hh8u"]
 
 [ext_resource type="Script" path="res://scripts/levels/MainMenu.cs" id="1_2vmud"]
 [ext_resource type="Texture2D" uid="uid://cu4we4jjrtiid" path="res://sprites/cave_main_menu_bg.png" id="2_luoqy"]
@@ -20,6 +20,13 @@ particles_anim_loop = true
 max_value = 200.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0893372, 195.789), 0.0, 0.0, 0, 0, Vector2(0.331412, 14.7368), 0.0, 0.0, 0, 0, Vector2(0.472622, 193.684), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_jpsty"]
+color = Color(0.871407, 0.000465136, 0.842068, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_06xtx"]
+font = ExtResource("6_0t0jh")
+font_size = 14
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hp82c"]
 
@@ -245,20 +252,47 @@ text = "Demo v 0.1"
 [node name="SettingsMenu" type="ColorRect" parent="Control"]
 visible = false
 layout_mode = 0
-offset_left = 40.0
+offset_left = 13.0
 offset_top = 42.0
-offset_right = 116.0
+offset_right = 153.0
 offset_bottom = 131.0
 color = Color(0, 0, 0, 0.545098)
 
 [node name="Button" type="Button" parent="Control/SettingsMenu"]
 layout_mode = 0
-offset_left = 60.0
-offset_top = -1.0
-offset_right = 75.0
-offset_bottom = 21.0
+offset_left = 122.0
+offset_top = 1.0
+offset_right = 137.0
+offset_bottom = 23.0
 theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxLine_jpsty")
 text = "x"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/SettingsMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/SettingsMenu/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Control/SettingsMenu/ScrollContainer/PanelContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Це ще поки не налаштування, але будуть ними в наступному оновленні так як і багато інших нових функцій.
+ "
+label_settings = SubResource("LabelSettings_06xtx")
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 0
