@@ -1,0 +1,183 @@
+[gd_scene load_steps=13 format=3 uid="uid://ddijx4tts7cj0"]
+
+[ext_resource type="Script" path="res://scripts/Chest.cs" id="1_0sry2"]
+[ext_resource type="Texture2D" uid="uid://dgpk2e2b2snrq" path="res://sprites/chest_closed.png" id="1_koe7o"]
+[ext_resource type="Resource" uid="uid://uevbbfoqa5wv" path="res://Demo/balls/ice_ball.tres" id="2_e4uxy"]
+[ext_resource type="Texture2D" uid="uid://c2goa0w8tiqxt" path="res://sprites/chest_opened.png" id="2_wcmka"]
+[ext_resource type="Script" path="res://scripts/inventory/Item.cs" id="3_1nmer"]
+[ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="6_tcfuy"]
+
+[sub_resource type="Resource" id="Resource_u3u35"]
+script = ExtResource("3_1nmer")
+Resource = ExtResource("2_e4uxy")
+Amount = 1
+
+[sub_resource type="Animation" id="Animation_pabm7"]
+resource_name = "close"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_koe7o")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.872665, -0.25, 0, 0.2, 20.1273, -0.523599, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.6, 1)
+}
+
+[sub_resource type="Animation" id="Animation_r10mw"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_wcmka")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visible:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.872665, -0.25, 0, 0.2, 20.1273, -0.523599, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.6, 1)
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"BackToMap"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_7ydbq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:icon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_wcmka")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visible:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.413643, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jsx64"]
+_data = {
+"RESET": SubResource("Animation_7ydbq"),
+"close": SubResource("Animation_pabm7"),
+"open": SubResource("Animation_r10mw")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_damej"]
+font = ExtResource("6_tcfuy")
+font_size = 32
+
+[node name="Chest" type="Node" node_paths=PackedStringArray("_animation", "_itemSprite")]
+script = ExtResource("1_0sry2")
+_itemReward = SubResource("Resource_u3u35")
+_animation = NodePath("Animation")
+_itemSprite = NodePath("Visible")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 162.0
+offset_top = 343.0
+offset_right = 512.0
+offset_bottom = 573.0
+pivot_offset = Vector2(175, 230)
+icon = ExtResource("2_wcmka")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Visible" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(333, 430)
+scale = Vector2(6, 6)
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jsx64")
+}
+autoplay = "close"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 242.0
+offset_top = 119.0
+offset_right = 442.0
+offset_bottom = 219.0
+rotation = 0.413643
+pivot_offset = Vector2(100, 50)
+text = "Tap !!!"
+label_settings = SubResource("LabelSettings_damej")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="Open"]

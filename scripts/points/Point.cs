@@ -13,6 +13,7 @@ public partial class Point : Button
         get => _visited;
         set{
             _visited = value;
+            GD.Print($"Visited: {_visited} [{Name}]");
             SaveSystem.Instance.SaveData(TypeConfiguration.Level,
                                          GetKey() + separator + Name + separator + nameof(Visited), _visited);
         }
@@ -26,19 +27,16 @@ public partial class Point : Button
     private int _visited;
     private char separator = '/';
 
-    private string GetKey() => GetTree().CurrentScene.Name;
+    private string GetKey() => GetTree().CurrentScene.GetPath();
 
     public override void _Ready()
     {
         Visited = SaveSystem.Instance.LoadIntData(TypeConfiguration.Level, GetKey() + nameof(Visited), _visited);
+        GD.Print($"{Name} visited:{Visited}/{_canVisited}");
     }
 
     public bool CanVisit()
     {
         return _canVisited == -1 || _canVisited > Visited;
     }
-
-    public IReadOnlyDictionary<string, string> KeysForSave => new Dictionary<string, string>(){
-        { nameof(Visited), $"/{Name}/{nameof(Visited)}" },
-    };
 }

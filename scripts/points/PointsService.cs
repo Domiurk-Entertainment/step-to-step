@@ -10,7 +10,7 @@ public partial class PointsService : Node
 {
     private const string PLAYER_IDLE_ANIMATION_NAME = "idle";
     private const string PLAYER_RUN_ANIMATION_NAME = "run";
-    
+
     [Export] private Node2D _miniPlayer;
     [Export] private Vector2 _pointOffset = new(50, 50);
     [ExportCategory("Tween Setting")]
@@ -30,7 +30,7 @@ public partial class PointsService : Node
     {
         _animation = _miniPlayer.GetNode<AnimatedSprite2D>("Animations");
         _walkSound = GetNode<AudioStreamPlayer>("%Walk");
-        
+
         _points.Clear();
         _points.AddRange(GetChildren().Cast<Point>());
 
@@ -45,7 +45,8 @@ public partial class PointsService : Node
         _lastPoint = _currentPoint;
         _miniPlayer.GlobalPosition = _currentPoint.GlobalPosition + _pointOffset;
         _currentPoint.Disabled = true;
-        ActivateClickedPoint(_currentPoint);
+        if(index == 0)
+            ActivateClickedPoint(_currentPoint);
     }
 
     private void PointOnPressed(Point point)
@@ -81,7 +82,7 @@ public partial class PointsService : Node
             point.Visited++;
 
             SaveSystem.Instance.SaveData(_saveConfigurationType, GetKey(), _points.IndexOf(_currentPoint));
-            
+
             if(point.Config != null)
                 SceneTransition.Data.Add(point.SceneToLoad.ResourcePath, point.Config);
 
