@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://difadwed472d1"]
+
+[ext_resource type="Script" path="res://scripts/Ball.cs" id="1_jrbs2"]
+[ext_resource type="Texture2D" uid="uid://c0iblicaaxwue" path="res://sprites/ball.png" id="2_ovxvs"]
+[ext_resource type="AudioStream" uid="uid://4wl607uwkikx" path="res://sounds/UI Soundpack/WAV/African1.wav" id="3_xgg4p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sb65q"]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l47th"]
+radius = 3.0
+
+[sub_resource type="Gradient" id="Gradient_pmq4a"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_5j1kl"]
+colors = PackedColorArray(0.2283, 0.134173, 0.0404501, 1, 0.388846, 0.266419, 0.0140899, 1)
+metadata/_snap_enabled = true
+
+[node name="Ball" type="CharacterBody2D"]
+script = ExtResource("1_jrbs2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ovxvs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sb65q")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(1.5, 1.5)
+rect = Rect2(-2, -2, 4, 4)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_l47th")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xgg4p")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 10
+one_shot = true
+explosiveness = 0.9
+gravity = Vector2(0, 0)
+initial_velocity_max = 60.0
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+color_ramp = SubResource("Gradient_pmq4a")
+color_initial_ramp = SubResource("Gradient_5j1kl")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[connection signal="Touch" from="." to="CPUParticles2D" method="restart"]
+[connection signal="Touch" from="." to="AudioStreamPlayer" method="play" binds= [0.0]]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="OnVisibilityNotifier2DScreenExited"]
+[connection signal="body_entered" from="Area2D" to="." method="OnHit"]

@@ -41,7 +41,7 @@ color = Color(0.871407, 0.000465136, 0.842068, 1)
 font = ExtResource("6_0t0jh")
 font_size = 32
 
-[node name="MainMenu" type="Node2D"]
+[node name="MainMenu" type="Node"]
 script = ExtResource("1_2vmud")
 _sceneToPlay = "res://scenes/levels/map_cave.tscn"
 

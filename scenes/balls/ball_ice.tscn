@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dd8a6ugycn6di"]
 
-[ext_resource type="PackedScene" uid="uid://difadwed472d1" path="res://scenes/balls/base_ball.tscn" id="1_lnjof"]
+[ext_resource type="PackedScene" uid="uid://difadwed472d1" path="res://scenes/balls/ball_base.tscn" id="1_lnjof"]
 [ext_resource type="Texture2D" uid="uid://csyj57hj33op7" path="res://sprites/ball_ice.png" id="2_jdecl"]
 
 [node name="Ball" instance=ExtResource("1_lnjof")]

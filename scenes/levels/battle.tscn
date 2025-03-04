@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/levels/Battle.cs" id="1_ri0lh"]
 [ext_resource type="PackedScene" uid="uid://c4nbdoxbpqjuh" path="res://scenes/ui_interface/inventory.tscn" id="2_nk542"]
 
-[node name="Battle" type="Node2D" node_paths=PackedStringArray("_playerAttackButton", "_playerSpawnPoint", "_enemySpawnPoint", "_inventory")]
+[node name="Battle" type="Node" node_paths=PackedStringArray("_playerAttackButton", "_playerSpawnPoint", "_enemySpawnPoint", "_inventory")]
 script = ExtResource("1_ri0lh")
 _playerAttackButton = NodePath("UI/AttackButton")
 _playerSpawnPoint = NodePath("PlayerSpawnPoint")
@@ -29,8 +29,8 @@ anchors_preset = -1
 anchor_top = 0.788
 anchor_right = 1.0
 anchor_bottom = 0.929
-offset_top = -0.424072
-offset_bottom = -0.142029
+offset_top = -3.42401
+offset_bottom = -3.14197
 grow_horizontal = 2
 grow_vertical = 0
 text = "Attack"

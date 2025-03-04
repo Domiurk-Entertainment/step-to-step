@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c0iblicaaxwue" path="res://sprites/ball.png" id="1_q171c"]
 [ext_resource type="Script" path="res://scripts/inventory/BallResource.cs" id="1_sc8ab"]
-[ext_resource type="PackedScene" uid="uid://difadwed472d1" path="res://scenes/balls/base_ball.tscn" id="1_xdxkt"]
+[ext_resource type="PackedScene" uid="uid://difadwed472d1" path="res://scenes/balls/ball_base.tscn" id="1_xdxkt"]
 
 [resource]
 script = ExtResource("1_sc8ab")

@@ -125,6 +125,7 @@ script = ExtResource("1_8sdka")
 ChanceToRun = 0.5
 _spawnBalls = NodePath("Node2D")
 _sight = NodePath("sight")
+_force = 100.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
