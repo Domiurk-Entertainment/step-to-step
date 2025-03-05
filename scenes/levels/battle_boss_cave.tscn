@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://2eol4dtbmydh"]
+[gd_scene load_steps=2 format=3 uid="uid://2eol4dtbmydh"]
+
+[ext_resource type="Script" path="res://scripts/levels/BattleBossCave.cs" id="1_7ixti"]
 
 [node name="BattleBossCave" type="Node"]
+script = ExtResource("1_7ixti")
