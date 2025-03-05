@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0ruhoogsh74"]
+
+[ext_resource type="Script" path="res://scripts/entity/BossCave.cs" id="1_82im3"]
+[ext_resource type="Texture2D" uid="uid://bb36f70q3yrpe" path="res://sprites/Bat_Sprite_Sheet.png" id="2_rvyga"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtg8p"]
+atlas = ExtResource("2_rvyga")
+region = Rect2(64, 2, 16, 11)
+
+[node name="BossCave" type="Node2D"]
+script = ExtResource("1_82im3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -12)
+scale = Vector2(4.72727, 4.72727)
+texture = SubResource("AtlasTexture_xtg8p")

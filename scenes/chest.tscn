@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://ddijx4tts7cj0"]
 
-[ext_resource type="Script" path="res://scripts/Chest.cs" id="1_0sry2"]
+[ext_resource type="Script" path="res://scripts/entity/Chest.cs" id="1_0sry2"]
 [ext_resource type="Texture2D" uid="uid://dgpk2e2b2snrq" path="res://sprites/chest_closed.png" id="1_koe7o"]
 [ext_resource type="Resource" uid="uid://uevbbfoqa5wv" path="res://Demo/balls/ice_ball.tres" id="2_e4uxy"]
 [ext_resource type="Texture2D" uid="uid://c2goa0w8tiqxt" path="res://sprites/chest_opened.png" id="2_wcmka"]

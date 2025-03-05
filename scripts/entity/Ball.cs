@@ -2,12 +2,12 @@ using Godot;
 using StepToStep.Utils;
 using System;
 
-namespace StepToStep;
+namespace StepToStep.Entity;
 
 public partial class Ball : CharacterBody2D
 {
     [Signal] public delegate void TouchEventHandler();
-    
+
     protected event Action<Node2D> Hit;
 
     private float _damage;
@@ -42,7 +42,7 @@ public partial class Ball : CharacterBody2D
         if(body is not IHealth health){
             return;
         }
-        
+
         health.TakeDamage(this, _damage);
         Hit?.Invoke(body);
         QueueFree();

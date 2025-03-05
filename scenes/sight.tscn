@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bwixc66257oaw"]
 
-[ext_resource type="Script" path="res://scripts/Sight.cs" id="1_1nrio"]
+[ext_resource type="Script" path="res://scripts/entity/Sight.cs" id="1_1nrio"]
 [ext_resource type="Texture2D" uid="uid://c7skxpom30yda" path="res://sprites/cave_bg.png" id="2_c85kr"]
 
 [node name="sight" type="Node2D" node_paths=PackedStringArray("startPoint", "endPoint")]

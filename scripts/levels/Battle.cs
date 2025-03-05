@@ -1,7 +1,7 @@
 using Godot;
+using StepToStep.Entity;
 using StepToStep.InventorySpace;
 using StepToStep.Level;
-using StepToStep.scripts;
 using StepToStep.Systems;
 using StepToStep.Utils;
 using System;
@@ -33,6 +33,7 @@ namespace StepToStep.Battle
             _player.AttackedStep += PlayerOnAttackedStep;
             _player.Dead += PlayerOnDead;
             _enemy.AttackedStep += EnemyOnAttackedStep;
+            _enemy.Connect(Enemy.SignalName.Dead, Callable.From(EnemyOnDead));
             _enemy.Dead += EnemyOnDead;
 
             AddChild(_player);
@@ -42,16 +43,17 @@ namespace StepToStep.Battle
             _player.Inventory.AddItems(config.Items.ToArray());
             _player.GlobalPosition = _playerSpawnPoint.GlobalPosition;
             _enemy.GlobalPosition = _enemySpawnPoint.GlobalPosition;
-            _enemy.ReadyToAttack(_player.GlobalPosition);
+            _enemy.InitialTarget(_player.GlobalPosition);
         }
 
         public override void _ExitTree()
         {
             _player.AttackedStep -= PlayerOnAttackedStep;
-            _player.Dead += PlayerOnDead;
+            _player.Dead -= PlayerOnDead;
 
             _enemy.AttackedStep -= EnemyOnAttackedStep;
-            _enemy.Dead += EnemyOnDead;
+            _enemy.Connect(Enemy.SignalName.Dead, Callable.From(EnemyOnDead));
+
         }
 
         private void EnemyOnAttackedStep(AttackType step)

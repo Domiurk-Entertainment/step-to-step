@@ -3,6 +3,8 @@ using StepToStep.InventorySpace;
 using StepToStep.Utils;
 using System;
 
+namespace StepToStep.Entity;
+
 public partial class Chest : Node
 {
     private const string ANIMATION = "open";

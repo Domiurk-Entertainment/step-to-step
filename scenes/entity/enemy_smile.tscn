@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://c0tod7yw4sold"]
 
-[ext_resource type="Script" path="res://scripts/Enemy.cs" id="1_g11nf"]
+[ext_resource type="Script" path="res://scripts/entity/Enemy.cs" id="1_g11nf"]
 [ext_resource type="Script" path="res://scripts/stats/Health.cs" id="2_fi316"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="2_vtf8y"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="3_t2teq"]

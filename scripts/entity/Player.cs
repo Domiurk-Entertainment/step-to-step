@@ -4,7 +4,8 @@ using StepToStep.InventorySpace;
 using StepToStep.Utils;
 using System;
 
-namespace StepToStep;
+namespace StepToStep.Entity;
+
 [GlobalClass,Icon("res://sprites/player_mini.png")]
 public partial class Player : StaticBody2D, IHealth
 {

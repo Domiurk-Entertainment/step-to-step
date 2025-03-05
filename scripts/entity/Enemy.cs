@@ -3,7 +3,7 @@ using StepToStep.Utils;
 using System;
 using System.ComponentModel;
 
-namespace StepToStep.scripts;
+namespace StepToStep.Entity;
 
 public partial class Enemy : Node2D, IHealth
 {
@@ -30,13 +30,13 @@ public partial class Enemy : Node2D, IHealth
         _health.ChangedValue += HealthOnChangedValue;
     }
 
-    public void ReadyToAttack(Vector2 playerPosition)
+    public void InitialTarget(Vector2 targetPosition)
     {
         if(_steps != null && _steps.Length < _stepCount)
             return;
 
         _steps = new Vector2[_stepCount + 1];
-        Vector2 way = (playerPosition - GlobalPosition) / _stepCount;
+        Vector2 way = (targetPosition - GlobalPosition) / _stepCount;
         way = new Vector2(way.X + _attackRange, way.Y);
         _rayCast2D.TargetPosition = new Vector2(way.Normalized().X * _attackRange, way.Normalized().Y);
 
