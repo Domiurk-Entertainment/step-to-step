@@ -45,5 +45,6 @@ public partial class Ball : CharacterBody2D
         
         health.TakeDamage(this, _damage);
         Hit?.Invoke(body);
+        QueueFree();
     }
 }

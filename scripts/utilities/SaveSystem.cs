@@ -58,7 +58,6 @@ public partial class SaveSystem : Node
             return;
 
         ConfigFile config = GetConfigFile();
-
         config.SetValue(typeConfiguration.ToString(), key, data);
         config.Save(GetConfigPath());
     }

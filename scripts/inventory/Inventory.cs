@@ -21,6 +21,10 @@ namespace StepToStep.InventorySpace
 
         public void AddItem(Item item)
         {
+            if(item.Amount <= 0){
+                return;
+            }
+            
             AddedItem?.Invoke(item);
 
             if(_currentBall == null){

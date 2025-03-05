@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace StepToStep.Battle
 {
-    public partial class Battle : Node2D
+    public partial class Battle : Node
     {
         private const float COOLDOWN_ATTACKS = 2;
 

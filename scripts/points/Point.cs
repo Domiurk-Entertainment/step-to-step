@@ -8,31 +8,20 @@ namespace StepToStep.Level;
 public partial class Point : Button
 {
     public IReadOnlyCollection<Point> Points => _pointsUnlock;
-    public int Visited
-    {
-        get => _visited;
-        set{
-            _visited = value;
-            GD.Print($"Visited: {_visited} [{Name}]");
-            SaveSystem.Instance.SaveData(TypeConfiguration.Level,
-                                         GetKey() + separator + Name + separator + nameof(Visited), _visited);
-        }
-    }
+    public int Visited { get; set; }
 
     [Export(PropertyHint.Dir)] public PackedScene SceneToLoad;
     [Export] public BattleConfig Config;
 
     [Export] private Point[] _pointsUnlock = Array.Empty<Point>();
-    [Export] private int _canVisited = 1;
-    private int _visited;
+    [Export] public int _canVisited = 1;
     private char separator = '/';
 
     private string GetKey() => GetTree().CurrentScene.GetPath();
 
-    public override void _Ready()
+    public override void _EnterTree()
     {
-        Visited = SaveSystem.Instance.LoadIntData(TypeConfiguration.Level, GetKey() + nameof(Visited), _visited);
-        GD.Print($"{Name} visited:{Visited}/{_canVisited}");
+        Visited = SaveSystem.Instance.LoadIntData(TypeConfiguration.Level, GetKey() + nameof(Visited), Visited);
     }
 
     public bool CanVisit()
