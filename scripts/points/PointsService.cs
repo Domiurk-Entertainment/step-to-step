@@ -45,6 +45,7 @@ public partial class PointsService : Node
             point.Pressed += () => PointOnPressed(point);
             point.Disabled = true;
         }
+
         _lastPoint = _currentPoint;
         _miniPlayer.GlobalPosition = _currentPoint.GlobalPosition + _pointOffset;
         _currentPoint.Disabled = true;
@@ -55,7 +56,7 @@ public partial class PointsService : Node
     {
         _points.Clear();
         _points.AddRange(GetChildren().Cast<Point>());
-        
+
         int index = SaveSystem.Instance.LoadIntData(_saveConfigurationType, GetKey(), 0);
         _currentPoint = _points[index];
         _currentPoint.Visited = SaveSystem.Instance.LoadIntData(_saveConfigurationType, GetKey(_currentPoint.Name), 0);
@@ -70,6 +71,7 @@ public partial class PointsService : Node
     private void PointOnPressed(Point point)
     {
         _animation.Play(PLAYER_RUN_ANIMATION_NAME);
+        _animation.FlipH = (point.GlobalPosition - _currentPoint.GlobalPosition).Normalized().X < 0;
         _walkSound.Play();
         _currentPoint = point;
 
