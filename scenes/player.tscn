@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://qxp1xt6p3mcx"]
+[gd_scene load_steps=27 format=3 uid="uid://qxp1xt6p3mcx"]
 
 [ext_resource type="Script" path="res://scripts/entity/Player.cs" id="1_8sdka"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/white_circle.png" id="2_g178e"]
 [ext_resource type="Script" path="res://scripts/inventory/Inventory.cs" id="2_u13nr"]
 [ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="2_v4bmy"]
 [ext_resource type="Script" path="res://scripts/stats/Health.cs" id="3_p1h7q"]
+[ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/minimal_pixelv2.ttf" id="4_3aiy8"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="4_vrrox"]
 [ext_resource type="Script" path="res://scripts/stats/StatHandler.cs" id="7_q77xg"]
 [ext_resource type="Script" path="res://scripts/stats/Stat.cs" id="8_6j1gn"]
@@ -124,7 +125,7 @@ z_index = 10
 scale = Vector2(4, 4)
 collision_layer = 512
 script = ExtResource("1_8sdka")
-ChanceToRun = 0.5
+ChanceToRun = 0.1
 _spawnBalls = NodePath("Node2D")
 _sight = NodePath("sight")
 _force = 400.0
@@ -149,6 +150,7 @@ max_value = 60.0
 value = 60.0
 show_percentage = false
 script = ExtResource("3_p1h7q")
+_font = ExtResource("4_3aiy8")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 visible = false

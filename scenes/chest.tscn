@@ -174,9 +174,9 @@ _itemSprite = NodePath("Visible")
 [node name="Button" type="Button" parent="."]
 z_index = 6
 offset_left = 162.0
-offset_top = 343.0
+offset_top = 423.0
 offset_right = 512.0
-offset_bottom = 573.0
+offset_bottom = 653.0
 pivot_offset = Vector2(175, 230)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_t83oj")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vodag")
@@ -197,7 +197,7 @@ expand_icon = true
 [node name="Visible" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 z_index = 6
-position = Vector2(333, 430)
+position = Vector2(333, 530)
 scale = Vector2(6, 6)
 
 [node name="Animation" type="AnimationPlayer" parent="."]
