@@ -13,7 +13,6 @@ public partial class BattleBossCave : Node
 {
     private const float COOLDOWN_ATTACKS = 2;
 
-    [ExportCategory("Global Config Level")]
     [Export] private Button _playerAttackButton;
     [Export] private Node2D _playerSpawnPoint;
     [Export] private Node2D _enemySpawnPoint;
@@ -33,7 +32,6 @@ public partial class BattleBossCave : Node
         _player.AttackedStep += PlayerOnAttackedStep;
         _player.Dead += PlayerOnDead;
         _enemy.AttackedStep += EnemyOnAttackedStep;
-        _enemy.Connect(Enemy.SignalName.Dead, Callable.From(EnemyOnDead));
         _enemy.Dead += EnemyOnDead;
 
         AddChild(_player);
@@ -52,7 +50,7 @@ public partial class BattleBossCave : Node
         _player.Dead -= PlayerOnDead;
 
         _enemy.AttackedStep -= EnemyOnAttackedStep;
-        _enemy.Connect(Enemy.SignalName.Dead, Callable.From(EnemyOnDead));
+        _enemy.Dead -= EnemyOnDead;
     }
 
     private void EnemyOnAttackedStep(AttackType step)
