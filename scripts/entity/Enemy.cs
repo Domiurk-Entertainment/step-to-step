@@ -56,9 +56,6 @@ public partial class Enemy : Node2D, IHealth
     {
         
         AttackedStep?.Invoke(AttackType.Start);
-        if(_currentStep >= _steps.Length){
-            CheckReturnOnFinished();
-            return;}
         _currentStep++;
         Move(_steps[_currentStep]);
 
@@ -84,7 +81,6 @@ void CheckReturnOnFinished()
                 }
 
                 Attacked();
-                Move(_steps[_currentStep = 0]);
                 AttackedStep?.Invoke(AttackType.End);
             }
 
