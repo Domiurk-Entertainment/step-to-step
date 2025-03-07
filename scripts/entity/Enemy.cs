@@ -74,9 +74,9 @@ public partial class Enemy : Node2D, IHealth
                         .From(GlobalPosition)
                         .SetTrans(_transitionType);
             _movingTween.Finished += CheckReturnOnFinished;
-            return;
-
-            void CheckReturnOnFinished()
+            
+        }
+void CheckReturnOnFinished()
             {
                 if(_currentStep != _stepCount){
                     AttackedStep?.Invoke(AttackType.End);
@@ -87,7 +87,6 @@ public partial class Enemy : Node2D, IHealth
                 Move(_steps[_currentStep = 0]);
                 AttackedStep?.Invoke(AttackType.End);
             }
-        }
 
         void Attacked()
         {
