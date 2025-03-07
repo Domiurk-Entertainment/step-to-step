@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://pttfbhrqycix"]
+[gd_scene load_steps=4 format=3 uid="uid://pttfbhrqycix"]
 
 [ext_resource type="Script" path="res://scripts/levels/Battle.cs" id="1_ri0lh"]
+[ext_resource type="PackedScene" uid="uid://dwvhlj2ouj5t6" path="res://scenes/location/location_cave.tscn" id="2_byhvl"]
 [ext_resource type="PackedScene" uid="uid://c4nbdoxbpqjuh" path="res://scenes/ui_interface/inventory.tscn" id="2_nk542"]
 
 [node name="Battle" type="Node" node_paths=PackedStringArray("_playerAttackButton", "_playerSpawnPoint", "_enemySpawnPoint", "_inventory")]
@@ -10,15 +11,21 @@ _playerSpawnPoint = NodePath("PlayerSpawnPoint")
 _enemySpawnPoint = NodePath("EnemySpawnPoint")
 _inventory = NodePath("UI/Inventory")
 
+[node name="Cave" parent="." instance=ExtResource("2_byhvl")]
+
 [node name="PlayerSpawnPoint" type="Node2D" parent="."]
-position = Vector2(277, 404)
+z_index = 10
+position = Vector2(91, 583)
 
 [node name="EnemySpawnPoint" type="Node2D" parent="."]
-position = Vector2(406, 398)
+z_index = 10
+position = Vector2(491, 586)
 
 [node name="UI" type="Control" parent="."]
+z_index = 4
 layout_mode = 3
 anchors_preset = 0
+offset_top = 4.0
 offset_right = 698.0
 offset_bottom = 998.0
 mouse_filter = 2
@@ -49,14 +56,14 @@ text = "Run off"
 [node name="Inventory" parent="UI" instance=ExtResource("2_nk542")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.063
-anchor_top = 0.042
-anchor_right = 0.163
-anchor_bottom = 0.141
-offset_left = 0.026001
-offset_top = 0.0839958
-offset_right = 0.225998
-offset_bottom = 0.281998
+anchor_left = 0.069
+anchor_top = 0.623
+anchor_right = 0.169
+anchor_bottom = 0.722
+offset_left = -0.162003
+offset_top = -0.430054
+offset_right = 0.0379868
+offset_bottom = -0.232117
 
 [connection signal="pressed" from="UI/AttackButton" to="." method="PlayerAttack"]
 [connection signal="pressed" from="UI/TunOffButton" to="." method="TryRunOff"]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/entity/Enemy.cs" id="1_g11nf"]
 [ext_resource type="Script" path="res://scripts/stats/Health.cs" id="2_fi316"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="2_vtf8y"]
-[ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="3_t2teq"]
+[ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/minimal_pixelv2.ttf" id="3_t2teq"]
 [ext_resource type="Texture2D" uid="uid://xh7ql7nmox2b" path="res://sprites/smile_idle.png" id="3_t75gp"]
 [ext_resource type="AudioStream" uid="uid://eq3gkecp6ghb" path="res://sounds/death.wav" id="5_triy1"]
 
@@ -36,10 +36,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_23ccu"]
-radius = 7.99994
-height = 19.9999
+radius = 2.99998
+height = 9.99993
 
 [node name="Smile" type="StaticBody2D" node_paths=PackedStringArray("_rayCast2D")]
+z_index = 10
+scale = Vector2(4, 4)
 collision_layer = 513
 script = ExtResource("1_g11nf")
 _damage = 1.0
@@ -48,9 +50,9 @@ _rayCast2D = NodePath("RayCast2D")
 [node name="Health" type="ProgressBar" parent="."]
 unique_name_in_owner = true
 light_mask = 2
-offset_left = -12.0
-offset_top = -15.0
-offset_right = 13.0
+offset_left = -11.0
+offset_top = -14.0
+offset_right = 12.0
 offset_bottom = -11.0
 rotation = -0.00068116
 theme_override_styles/background = SubResource("StyleBoxFlat_4mats")
@@ -65,30 +67,28 @@ _transitionType = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.741176, 0.741176, 0.741176, 1)
-position = Vector2(-2, -14)
-scale = Vector2(1.75, 1.75)
+position = Vector2(-1, -6)
 sprite_frames = SubResource("SpriteFrames_pkpm7")
 animation = &"idle"
 frame = 1
 frame_progress = 0.613635
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-3, -1)
-scale = Vector2(2.53029, 1.96647)
+scale = Vector2(2.02, 2.02)
 color = Color(0.258824, 0.678431, 1, 1)
 energy = 2.45
 texture = ExtResource("2_vtf8y")
 texture_scale = 0.01
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -8)
+position = Vector2(1, -1)
 rotation = 1.57464
 shape = SubResource("CapsuleShape2D_23ccu")
 one_way_collision = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(0, -5)
-target_position = Vector2(-22, 0)
+position = Vector2(-2, -1)
+target_position = Vector2(-21, 0)
 collision_mask = 512
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

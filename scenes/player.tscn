@@ -120,12 +120,14 @@ height = 16.0
 [node name="Player" type="StaticBody2D" node_paths=PackedStringArray("_spawnBalls", "_sight")]
 light_mask = 2
 visibility_layer = 2
+z_index = 10
+scale = Vector2(4, 4)
 collision_layer = 512
 script = ExtResource("1_8sdka")
 ChanceToRun = 0.5
 _spawnBalls = NodePath("Node2D")
 _sight = NodePath("sight")
-_force = 100.0
+_force = 300.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
@@ -183,6 +185,7 @@ position = Vector2(10, -8)
 [node name="sight" parent="." instance=ExtResource("10_8va8p")]
 visible = false
 position = Vector2(9, -6)
+scale = Vector2(0.86, 0.86)
 duration = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
