@@ -127,13 +127,13 @@ script = ExtResource("1_8sdka")
 ChanceToRun = 0.5
 _spawnBalls = NodePath("Node2D")
 _sight = NodePath("sight")
-_force = 300.0
+_force = 400.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_1jh8v")
-animation = &"animIdleandStik"
+animation = &"idle_notWeapon"
 
 [node name="Health" type="ProgressBar" parent="."]
 unique_name_in_owner = true

@@ -29,6 +29,7 @@ window/size/initial_position_type=0
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 window/handheld/orientation=1
+mouse_cursor/custom_image="res://sprites/kursor.png"
 
 [dotnet]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://difadwed472d1"]
+[gd_scene load_steps=8 format=3 uid="uid://cw080dwflwjri"]
 
 [ext_resource type="Script" path="res://scripts/entity/Ball.cs" id="1_jrbs2"]
 [ext_resource type="Texture2D" uid="uid://c0iblicaaxwue" path="res://sprites/ball.png" id="2_ovxvs"]
@@ -14,7 +14,7 @@ radius = 3.0
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Gradient" id="Gradient_5j1kl"]
-colors = PackedColorArray(0.2283, 0.134173, 0.0404501, 1, 0.388846, 0.266419, 0.0140899, 1)
+colors = PackedColorArray(0.604222, 0.639628, 0.689441, 1, 1, 1, 1, 1)
 metadata/_snap_enabled = true
 
 [node name="Ball" type="CharacterBody2D"]
