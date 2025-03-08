@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/entity/Ball.cs" id="1_jrbs2"]
 [ext_resource type="Texture2D" uid="uid://c0iblicaaxwue" path="res://sprites/ball.png" id="2_ovxvs"]
-[ext_resource type="AudioStream" uid="uid://4wl607uwkikx" path="res://sounds/UI Soundpack/WAV/African1.wav" id="3_xgg4p"]
+[ext_resource type="AudioStream" uid="uid://wrpmt8mhbovl" path="res://sounds/UI Soundpack/WAV/Wood Block2.wav" id="3_oe1tr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sb65q"]
 radius = 3.0
@@ -37,7 +37,7 @@ rect = Rect2(-2, -2, 4, 4)
 shape = SubResource("CircleShape2D_l47th")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_xgg4p")
+stream = ExtResource("3_oe1tr")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
