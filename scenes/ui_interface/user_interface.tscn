@@ -117,13 +117,16 @@ flat = true
 
 [node name="PauseButton" type="Button" parent="."]
 visible = false
+modulate = Color(0.718381, 0.718381, 0.718381, 1)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.886
+anchor_left = 0.779
 anchor_right = 1.014
-anchor_bottom = 0.09
-offset_left = -0.200012
-offset_right = 0.199951
+anchor_bottom = 0.145
+offset_left = -4.30005
+offset_top = 10.0
+offset_right = -17.8
+offset_bottom = -1.52588e-05
 grow_horizontal = 0
 icon = ExtResource("5_kg5oo")
 flat = true

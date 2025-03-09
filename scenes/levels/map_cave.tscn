@@ -178,12 +178,12 @@ script = ExtResource("1_l1e6v")
 
 [node name="TileMap" type="TileMap" parent="."]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
-position = Vector2(109.971, 665.32)
+position = Vector2(100.971, 663.32)
 rotation = 0.0033744
 scale = Vector2(4, 4)
 tile_set = SubResource("TileSet_c0n3n")
 format = 2
-layer_0/tile_data = PackedInt32Array(-262145, 65536, 0, -196609, 65536, 0, -131073, 65536, 0, -65537, 65536, 0, -1, 65536, 0, 65535, 65536, 0, 131071, 65536, 0, 196607, 65536, 0, 262143, 65536, 0, -327680, 131072, 0, -262144, 131072, 1, -196608, 131072, 2, -131072, 65536, 0, -65536, 65536, 0, 0, 65536, 0, 65536, 0, 0, 131072, 65536, 0, 196608, 65536, 0, -327679, 0, 1, -262143, 196608, 1, -196607, 196608, 2, -131071, 131072, 0, 65537, 65536, 0, 131073, 0, 0, 196609, 65536, 0, -327678, 262144, 1, -262142, 65536, 1, -196606, 0, 2, -131070, 0, 1, 65538, 131072, 1, 131074, 131072, 2, 196610, 65536, 0, -327677, 65536, 0, -262141, 196608, 0, -196605, 196608, 1, -131069, 65536, 2, -65533, 262144, 1, 3, 65536, 1, 65539, 196608, 1, 131075, 196608, 2, 196611, 65536, 0, -327676, 65536, 0, -262140, 196608, 0, -196604, 196608, 1, -131068, 0, 2, -65532, 131072, 1, 4, 0, 1, 65540, 196608, 1, 131076, 196608, 2, 196612, 65536, 0, -327675, 131072, 1, -262139, 0, 1, -196603, 65536, 2, -131067, 65536, 1, -65531, 196608, 1, 5, 65536, 2, 65541, 262144, 1, 131077, 262144, 2, 196613, 65536, 0, -327674, 65536, 1, -262138, 196608, 1, -196602, 196608, 2, -131066, 262144, 0, -65530, 262144, 1, 6, 262144, 2, 65542, 65536, 0, 131078, 65536, 0, 196614, 65536, 0, -327673, 262144, 0, -262137, 262144, 1, -65529, 65536, 0, 7, 65536, 0, 65543, 65536, 0, 196615, 65536, 0, -327672, 65536, 0, -262136, 65536, 0, -196600, 65536, 0, 8, 65536, 0, 65544, 65536, 0, 131080, 65536, 0, 196616, 65536, 0, 2, 0, 2, 1, 131072, 2, -65535, 131072, 1, -65534, 196608, 1, 131079, 0, 0, -65528, 0, 0, -131064, 65536, 0, -131065, 65536, 0, -196601, 262144, 2, -589825, 65536, 0, -524289, 65536, 0, -458753, 65536, 0, -393217, 65536, 0, -327681, 65536, 0, -655360, 65536, 0, -589824, 65536, 0, -524288, 65536, 0, -458752, 65536, 0, -393216, 0, 0, -655359, 65536, 0, -589823, 65536, 0, -524287, 0, 0, -458751, 131072, 0, -393215, 131072, 1, -655358, 65536, 0, -589822, 65536, 0, -524286, 131072, 0, -458750, 0, 1, -393214, 65536, 2, -655357, 65536, 0, -589821, 65536, 0, -524285, 196608, 0, -458749, 196608, 1, -393213, 196608, 2, -655356, 65536, 0, -589820, 65536, 0, -524284, 196608, 0, -458748, 196608, 1, -393212, 196608, 2, -655355, 65536, 0, -589819, 0, 0, -524283, 262144, 0, -458747, 65536, 1, -393211, 0, 2, -655354, 65536, 0, -589818, 65536, 0, -524282, 65536, 0, -458746, 262144, 0, -393210, 262144, 1, -655353, 65536, 0, -589817, 65536, 0, -524281, 65536, 0, -458745, 0, 0, -393209, 65536, 0, -655352, 65536, 0, -589816, 65536, 0, -524280, 65536, 0, -458744, 65536, 0, -393208, 65536, 0, 327679, 65536, 0, 262144, 65536, 0, 262145, 65536, 0, 262146, 65536, 0, 262147, 65536, 0, 262148, 65536, 0, 262149, 65536, 0, 262150, 65536, 0, 262151, 65536, 0, 262152, 65536, 0, -589826, 65536, 0, -524290, 65536, 0, -458754, 65536, 0, -393218, 65536, 0, -327682, 65536, 0, -262146, 65536, 0, -196610, 65536, 0, -131074, 65536, 0, -65538, 65536, 0, -2, 65536, 0, 65534, 65536, 0, 131070, 65536, 0, 196606, 65536, 0, 262142, 65536, 0, 327678, 65536, 0, -655362, 65536, 0, -655361, 65536, 0, -720896, 65536, 0, -720895, 65536, 0, -720894, 65536, 0, -720893, 65536, 0, -720892, 65536, 0, -720891, 65536, 0, -720890, 65536, 0, -720889, 65536, 0, -720888, 65536, 0, -720887, 65536, 0, -655351, 65536, 0, -589815, 65536, 0, -524279, 65536, 0, -458743, 65536, 0, -393207, 65536, 0, -327671, 65536, 0, -262135, 65536, 0, -196599, 65536, 0, -131063, 65536, 0, -65527, 65536, 0, 9, 65536, 0, 65545, 65536, 0, 131081, 65536, 0, 196617, 65536, 0, 262153, 65536, 0)
+layer_0/tile_data = PackedInt32Array(-262145, 65536, 0, -196609, 65536, 0, -131073, 65536, 0, -65537, 65536, 0, -1, 65536, 0, 65535, 65536, 0, 131071, 65536, 0, 196607, 65536, 0, 262143, 65536, 0, -327680, 131072, 0, -262144, 131072, 1, -196608, 131072, 2, -131072, 65536, 0, -65536, 65536, 0, 0, 65536, 0, 65536, 0, 0, 131072, 65536, 0, 196608, 65536, 0, -327679, 0, 1, -262143, 196608, 1, -196607, 196608, 2, -131071, 131072, 0, 65537, 65536, 0, 131073, 0, 0, 196609, 65536, 0, -327678, 262144, 1, -262142, 65536, 1, -196606, 0, 2, -131070, 0, 1, 65538, 131072, 1, 131074, 131072, 2, 196610, 65536, 0, -327677, 65536, 0, -262141, 196608, 0, -196605, 196608, 1, -131069, 65536, 2, -65533, 262144, 1, 3, 65536, 1, 65539, 196608, 1, 131075, 196608, 2, 196611, 65536, 0, -327676, 65536, 0, -262140, 196608, 0, -196604, 196608, 1, -131068, 0, 2, -65532, 131072, 1, 4, 0, 1, 65540, 196608, 1, 131076, 196608, 2, 196612, 65536, 0, -327675, 131072, 1, -262139, 0, 1, -196603, 65536, 2, -131067, 65536, 1, -65531, 196608, 1, 5, 65536, 2, 65541, 262144, 1, 131077, 262144, 2, 196613, 65536, 0, -327674, 65536, 1, -262138, 196608, 1, -196602, 196608, 2, -131066, 262144, 0, -65530, 262144, 1, 6, 262144, 2, 65542, 65536, 0, 131078, 65536, 0, 196614, 65536, 0, -327673, 262144, 0, -262137, 262144, 1, -65529, 65536, 0, 7, 65536, 0, 65543, 65536, 0, 196615, 65536, 0, -327672, 65536, 0, -262136, 65536, 0, -196600, 65536, 0, 8, 65536, 0, 65544, 65536, 0, 131080, 65536, 0, 196616, 65536, 0, 2, 0, 2, 1, 131072, 2, -65535, 131072, 1, -65534, 196608, 1, 131079, 0, 0, -65528, 0, 0, -131064, 65536, 0, -131065, 65536, 0, -196601, 262144, 2, -589825, 65536, 0, -524289, 65536, 0, -458753, 65536, 0, -393217, 65536, 0, -327681, 65536, 0, -655360, 65536, 0, -589824, 65536, 0, -524288, 65536, 0, -458752, 65536, 0, -393216, 0, 0, -655359, 65536, 0, -589823, 65536, 0, -524287, 0, 0, -458751, 131072, 0, -393215, 131072, 1, -655358, 65536, 0, -589822, 65536, 0, -524286, 131072, 0, -458750, 0, 1, -393214, 65536, 2, -655357, 65536, 0, -589821, 65536, 0, -524285, 196608, 0, -458749, 196608, 1, -393213, 196608, 2, -655356, 65536, 0, -589820, 65536, 0, -524284, 196608, 0, -458748, 196608, 1, -393212, 196608, 2, -655355, 65536, 0, -589819, 0, 0, -524283, 262144, 0, -458747, 65536, 1, -393211, 0, 2, -655354, 65536, 0, -589818, 65536, 0, -524282, 65536, 0, -458746, 262144, 0, -393210, 262144, 1, -655353, 65536, 0, -589817, 65536, 0, -524281, 65536, 0, -458745, 0, 0, -393209, 65536, 0, -655352, 65536, 0, -589816, 65536, 0, -524280, 65536, 0, -458744, 65536, 0, -393208, 65536, 0, 327679, 65536, 0, 262144, 65536, 0, 262145, 65536, 0, 262146, 65536, 0, 262147, 65536, 0, 262148, 65536, 0, 262149, 65536, 0, 262150, 65536, 0, 262151, 65536, 0, 262152, 65536, 0, -589826, 65536, 0, -524290, 65536, 0, -458754, 65536, 0, -393218, 65536, 0, -327682, 65536, 0, -262146, 65536, 0, -196610, 65536, 0, -131074, 65536, 0, -65538, 65536, 0, -2, 65536, 0, 65534, 65536, 0, 131070, 65536, 0, 196606, 65536, 0, 262142, 65536, 0, 327678, 65536, 0, -655362, 65536, 0, -655361, 65536, 0, -720896, 65536, 0, -720895, 65536, 0, -720894, 65536, 0, -720893, 65536, 0, -720892, 65536, 0, -720891, 65536, 0, -720890, 65536, 0, -720889, 65536, 0, -720888, 65536, 0, -720887, 65536, 0, -655351, 65536, 0, -589815, 65536, 0, -524279, 65536, 0, -458743, 65536, 0, -393207, 65536, 0, -327671, 65536, 0, -262135, 65536, 0, -196599, 65536, 0, -131063, 65536, 0, -65527, 65536, 0, 9, 65536, 0, 65545, 65536, 0, 131081, 65536, 0, 196617, 65536, 0, 262153, 65536, 0, 393214, 65536, 0, 393215, 65536, 0, 327680, 65536, 0, 327681, 65536, 0, 327682, 65536, 0, 327683, 65536, 0, 327684, 65536, 0, 327685, 65536, 0, 327686, 65536, 0, 327687, 65536, 0, 327688, 65536, 0, 327689, 65536, 0)
 
 [node name="Blum_anim" type="Node2D" parent="TileMap"]
 visible = false
@@ -480,15 +480,16 @@ texture_scale = 0.02
 
 [node name="Points" type="Node2D" parent="." node_paths=PackedStringArray("_miniPlayer")]
 modulate = Color(0.807843, 0.807843, 0.807843, 1)
-position = Vector2(319.971, 722.32)
+position = Vector2(310.971, 720.32)
 scale = Vector2(4, 4)
 script = ExtResource("1_pqqoo")
 _miniPlayer = NodePath("../PlayerMenu")
 
 [node name="Point" parent="Points" node_paths=PackedStringArray("_pointsUnlock") instance=ExtResource("2_ger5s")]
-offset_top = -1.0
-offset_right = 24.0
-offset_bottom = 23.0
+offset_left = -5.74282
+offset_top = -1.08002
+offset_right = 30.2572
+offset_bottom = 22.92
 _pointsUnlock = [NodePath("../Point2"), NodePath("../Point3")]
 
 [node name="Point2" parent="Points" node_paths=PackedStringArray("_pointsUnlock") instance=ExtResource("2_ger5s")]
@@ -542,24 +543,24 @@ SceneToLoad = ExtResource("10_xx7b8")
 Config = ExtResource("11_sk06p")
 
 [node name="front_top_bottom_cave" type="Node2D" parent="."]
-position = Vector2(85.9713, 339.32)
+position = Vector2(76.9716, 337.32)
 scale = Vector2(4, 4)
 
 [node name="TheFrontLowerPartOfTheCave" type="Sprite2D" parent="front_top_bottom_cave"]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
 z_index = 5
-position = Vector2(43, 143)
+position = Vector2(41.5071, 158.17)
 texture = ExtResource("9_7yp77")
 
 [node name="TheFrontLowerPartOfTheCave2" type="Sprite2D" parent="front_top_bottom_cave"]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
 z_index = 5
-position = Vector2(104, 143)
+position = Vector2(102.507, 158.17)
 texture = ExtResource("9_7yp77")
 
 [node name="Animatedblum10" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
 z_index = 6
-position = Vector2(46, 151)
+position = Vector2(44.5071, 166.17)
 sprite_frames = SubResource("SpriteFrames_8koel")
 frame_progress = 0.19797
 
@@ -571,7 +572,7 @@ texture_scale = 0.02
 
 [node name="Animatedblum13" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
 z_index = 6
-position = Vector2(143, 144)
+position = Vector2(141.507, 159.17)
 sprite_frames = SubResource("SpriteFrames_8koel")
 frame_progress = 0.19797
 
@@ -583,7 +584,7 @@ texture_scale = 0.02
 
 [node name="Animatedblum12" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
 z_index = 6
-position = Vector2(120, 147)
+position = Vector2(118.507, 162.17)
 sprite_frames = SubResource("SpriteFrames_8koel")
 frame_progress = 0.19797
 
@@ -595,7 +596,7 @@ texture_scale = 0.02
 
 [node name="Animatedblum11" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
 z_index = 6
-position = Vector2(22, 145)
+position = Vector2(20.5071, 160.17)
 sprite_frames = SubResource("SpriteFrames_8koel")
 frame_progress = 0.19797
 
@@ -607,7 +608,7 @@ texture_scale = 0.02
 
 [node name="Animatedblum9" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
 z_index = 6
-position = Vector2(84, 143)
+position = Vector2(82.5071, 158.17)
 sprite_frames = SubResource("SpriteFrames_8koel")
 frame_progress = 0.19797
 
@@ -619,7 +620,7 @@ texture_scale = 0.02
 
 [node name="Animatedblum5" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
 z_index = 6
-position = Vector2(24, -69.5)
+position = Vector2(24.0071, -69.58)
 sprite_frames = SubResource("SpriteFrames_8koel")
 frame_progress = 0.19797
 
@@ -631,7 +632,7 @@ texture_scale = 0.02
 
 [node name="Animatedblum14" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
 z_index = 6
-position = Vector2(123, -69)
+position = Vector2(123.007, -69.08)
 sprite_frames = SubResource("SpriteFrames_8koel")
 frame_progress = 0.19797
 
@@ -643,7 +644,7 @@ texture_scale = 0.02
 
 [node name="Animatedblum2" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
 z_index = 6
-position = Vector2(85, -67.75)
+position = Vector2(85.0071, -67.83)
 sprite_frames = SubResource("SpriteFrames_8koel")
 frame_progress = 0.464069
 
@@ -655,7 +656,7 @@ texture_scale = 0.02
 
 [node name="Animatedblum4" type="AnimatedSprite2D" parent="front_top_bottom_cave"]
 z_index = 6
-position = Vector2(61, -67.75)
+position = Vector2(61.0071, -67.83)
 sprite_frames = SubResource("SpriteFrames_8koel")
 frame_progress = 0.19797
 
@@ -672,7 +673,7 @@ position = Vector2(35, -76.75)
 texture = ExtResource("10_i28d5")
 
 [node name="FrontUpperPartOfTheCave2" type="Sprite2D" parent="front_top_bottom_cave"]
-modulate = Color(0.627451, 0.627451, 0.627451, 1)
+modulate = Color(0.627451, 0.627451, 0.627451, 0.980392)
 z_index = 5
 position = Vector2(100, -76.75)
 texture = ExtResource("10_i28d5")
@@ -680,7 +681,7 @@ flip_h = true
 
 [node name="wallCave" type="Node2D" parent="."]
 light_mask = 3
-position = Vector2(91.9713, 334.32)
+position = Vector2(81, 332)
 scale = Vector2(4, 4)
 
 [node name="TheRightWallOfTheCave" type="Sprite2D" parent="wallCave"]
@@ -697,11 +698,18 @@ z_index = 6
 position = Vector2(146.25, 87)
 texture = ExtResource("11_572kt")
 
-[node name="TheRightWallOfTheCave3" type="Sprite2D" parent="wallCave"]
+[node name="TheRightWallOfTheCave5" type="Sprite2D" parent="wallCave"]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
 light_mask = 3
 z_index = 6
-position = Vector2(-6, -26.75)
+position = Vector2(148.25, 187.75)
+texture = ExtResource("11_572kt")
+
+[node name="TheRightWallOfTheCave3" type="Sprite2D" parent="wallCave"]
+modulate = Color(0.627451, 0.627451, 0.627451, 0.980392)
+light_mask = 3
+z_index = 6
+position = Vector2(-12.75, -26.75)
 texture = ExtResource("11_572kt")
 flip_h = true
 
@@ -709,12 +717,20 @@ flip_h = true
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
 light_mask = 3
 z_index = 6
-position = Vector2(-5.75, 87)
+position = Vector2(-12.5, 87)
+texture = ExtResource("11_572kt")
+flip_h = true
+
+[node name="TheRightWallOfTheCave6" type="Sprite2D" parent="wallCave"]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
+light_mask = 3
+z_index = 6
+position = Vector2(-12.75, 207.75)
 texture = ExtResource("11_572kt")
 flip_h = true
 
 [node name="PlayerMenu" type="Node2D" parent="."]
-position = Vector2(417.971, 668.32)
+position = Vector2(455, 666)
 scale = Vector2(4, 4)
 
 [node name="Animations" type="AnimatedSprite2D" parent="PlayerMenu"]
