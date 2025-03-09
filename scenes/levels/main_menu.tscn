@@ -373,10 +373,7 @@ volume_db = 8.418
 [node name="Click" type="AudioStreamPlayer" parent="SoundService"]
 
 [connection signal="button_up" from="Control/Settings" to="Control/SettingsMenu" method="show"]
-[connection signal="mouse_entered" from="Control/VBoxContainer/Play" to="SoundService" method="Play" binds= ["hover"]]
 [connection signal="pressed" from="Control/VBoxContainer/Play" to="." method="Start"]
-[connection signal="mouse_entered" from="Control/VBoxContainer/Continue" to="SoundService" method="Play" binds= ["hover"]]
 [connection signal="pressed" from="Control/VBoxContainer/Continue" to="." method="Continue"]
-[connection signal="pressed" from="Control/VBoxContainer/Continue" to="SoundService" method="Play" binds= ["click"]]
 [connection signal="pressed" from="Control/VBoxContainer/Quit" to="." method="Exit"]
 [connection signal="button_up" from="Control/SettingsMenu/Button" to="Control/SettingsMenu" method="hide"]
