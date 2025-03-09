@@ -22,7 +22,7 @@ namespace StepToStep.Utils
                 QueueFree();
             else
                 Instance = this;
-
+            
             _animationPlayer.AnimationFinished += OnAnimationFinished;
             currentPackedScene =
                 GD.Load<PackedScene>(ProjectSettings.GetSetting("application/run/main_scene").AsString());
@@ -49,17 +49,6 @@ namespace StepToStep.Utils
         }
 
         public static Variant GetData(string key) => !Data.Remove(key, out Variant result) ? default : result;
-
-        public override void _Input(InputEvent @event)
-        {
-            if(Input.IsKeyPressed(Key.L)){
-                GD.Print(ScenesHistory.Count);
-
-                foreach(PackedScene packedScene in ScenesHistory){
-                    GD.Print(packedScene.ResourcePath);
-                }
-            }
-        }
 
         public void LoadLastScene()
         {

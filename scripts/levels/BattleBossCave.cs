@@ -41,6 +41,7 @@ public partial class BattleBossCave : Node
         _player.GlobalPosition = _playerSpawnPoint.GlobalPosition;
         _enemy.GlobalPosition = _enemySpawnPoint.GlobalPosition;
         _enemy.InitialTarget(_player.GlobalPosition);
+        UserInterfaceSystem.Instance.ShowPauseButton();
     }
 
     public override void _ExitTree()
@@ -50,6 +51,7 @@ public partial class BattleBossCave : Node
 
         _enemy.AttackedStep -= EnemyOnAttackedStep;
         _enemy.Dead -= EnemyOnDead;
+        UserInterfaceSystem.Instance.HidePauseButton();
     }
 
     private void EnemyOnAttackedStep(AttackType step)

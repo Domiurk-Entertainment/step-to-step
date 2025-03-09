@@ -46,6 +46,8 @@ public partial class Enemy : Node2D, IHealth
     {
         if(_animatedSprite.GetAnimation() != attackAnimationName || _animatedSprite.Frame != 2)
             return;
+        GD.Print("Attacked");
+
         Attacked();
     }
 
@@ -76,12 +78,12 @@ public partial class Enemy : Node2D, IHealth
         _currentStep++;
         AttackedStep?.Invoke(AttackType.Start);
 
-        Move(_steps[_currentStep]);
+        MoveTo(_steps[_currentStep]);
 
         return;
     }
 
-    private void Move(Vector2 toPosition)
+    protected void MoveTo(Vector2 toPosition)
     {
         _movingTween?.Kill();
         _movingTween = CreateTween();
@@ -112,15 +114,8 @@ public partial class Enemy : Node2D, IHealth
 
         AttackedStep?.Invoke(AttackType.Attacked);
         health.TakeDamage(this, _damage);
-        Move(_steps[_currentStep = 0]);
+        MoveTo(_steps[_currentStep = 0]);
         AttackedStep?.Invoke(AttackType.End);
-    }
-
-    private void MoveToPlayer(Vector2 playerPosition)
-    {
-        _movingTween.TweenProperty(this, "global_position", playerPosition, _duration)
-                    .From(GlobalPosition)
-                    .SetTrans(_transitionType);
     }
 
     public void TakeDamage(Node sender, float damage)

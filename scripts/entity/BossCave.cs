@@ -14,7 +14,10 @@ public partial class BossCave : Enemy
         _player = GetTree().CurrentScene.GetNode<Player>("Player");
     }
 
-    public override void Attack() { }
+    public override void Attack()
+    {
+        
+    }
 
     private void FinishAnimationAttack()
     {

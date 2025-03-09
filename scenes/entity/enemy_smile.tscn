@@ -93,7 +93,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yl0t1")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 5.0
 }, {
@@ -180,6 +180,7 @@ modulate = Color(0.741176, 0.741176, 0.741176, 1)
 position = Vector2(2.75, -8)
 sprite_frames = SubResource("SpriteFrames_pkpm7")
 animation = &"attack"
+autoplay = "idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 scale = Vector2(2.02, 2.02)
