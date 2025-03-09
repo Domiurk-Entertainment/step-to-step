@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/levels/CaveMap.cs" id="1_l1e6v"]
 [ext_resource type="Script" path="res://scripts/points/PointsService.cs" id="1_pqqoo"]
-[ext_resource type="PackedScene" uid="uid://bste1dma5c0dp" path="res://scenes/point.tscn" id="2_ger5s"]
+[ext_resource type="PackedScene" uid="uid://bste1dma5c0dp" path="res://scenes/entity/point.tscn" id="2_ger5s"]
 [ext_resource type="Texture2D" uid="uid://bfdu30qcxdvj5" path="res://sprites/cave_tilemap.png" id="2_ort48"]
 [ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="2_t2gvh"]
 [ext_resource type="Texture2D" uid="uid://ck3t7x12t4klr" path="res://sprites/blum.png" id="3_85kg1"]
@@ -490,7 +490,7 @@ offset_left = -5.74282
 offset_top = -1.08002
 offset_right = 30.2572
 offset_bottom = 22.92
-_pointsUnlock = [NodePath("../Point2"), NodePath("../Point3")]
+_pointsUnlock = [NodePath("../Point2"), NodePath("../Point3"), NodePath("../Point7")]
 
 [node name="Point2" parent="Points" node_paths=PackedStringArray("_pointsUnlock") instance=ExtResource("2_ger5s")]
 offset_left = 25.0
@@ -509,7 +509,6 @@ offset_bottom = -8.75
 _pointsUnlock = [NodePath("../Point4"), NodePath("../Point6")]
 
 [node name="Point4" parent="Points" node_paths=PackedStringArray("_pointsUnlock") instance=ExtResource("2_ger5s")]
-visible = false
 offset_left = -7.49275
 offset_top = -66.83
 offset_right = 28.5072
@@ -543,7 +542,7 @@ SceneToLoad = ExtResource("10_xx7b8")
 Config = ExtResource("11_sk06p")
 
 [node name="front_top_bottom_cave" type="Node2D" parent="."]
-position = Vector2(76.9716, 337.32)
+position = Vector2(77, 337.32)
 scale = Vector2(4, 4)
 
 [node name="TheFrontLowerPartOfTheCave" type="Sprite2D" parent="front_top_bottom_cave"]

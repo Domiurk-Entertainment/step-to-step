@@ -16,7 +16,7 @@ public partial class Enemy : Node2D, IHealth
     [Export, Category("Tween")] private float _duration = 1;
     [Export] private Tween.TransitionType _transitionType = Tween.TransitionType.Linear;
     [Export] private float _attackRange = 15;
-    [Export] private float _damage = 10;
+    [Export] protected float Damage = 10;
     [Export] private RayCast2D _rayCast2D;
     [Export] private int _stepCount = 2;
 
@@ -51,7 +51,7 @@ public partial class Enemy : Node2D, IHealth
         Attacked();
     }
 
-    public void InitialTarget(Vector2 targetPosition)
+    public virtual void InitialTarget(Vector2 targetPosition)
     {
         if(_steps != null && _steps.Length < _stepCount)
             return;
@@ -95,7 +95,7 @@ public partial class Enemy : Node2D, IHealth
         _movingTween.Finished += CheckReturnOnFinished;
         return;
 
-        async void CheckReturnOnFinished()
+        void CheckReturnOnFinished()
         {
             if(_currentStep != _stepCount){
                 AttackedStep?.Invoke(AttackType.End);
@@ -113,7 +113,7 @@ public partial class Enemy : Node2D, IHealth
             return;
 
         AttackedStep?.Invoke(AttackType.Attacked);
-        health.TakeDamage(this, _damage);
+        health.TakeDamage(this, Damage);
         MoveTo(_steps[_currentStep = 0]);
         AttackedStep?.Invoke(AttackType.End);
     }

@@ -1,13 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://cswmidelxr7fk"]
+[gd_scene load_steps=35 format=3 uid="uid://cswmidelxr7fk"]
 
 [ext_resource type="Script" path="res://scripts/UserInterfaceSystem.cs" id="1_bok0e"]
 [ext_resource type="Script" path="res://scripts/Modal.cs" id="2_6g6rv"]
 [ext_resource type="Texture2D" uid="uid://dslaqll0yjmml" path="res://sprites/ui.png" id="2_q7gma"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/minimal_pixelv2.ttf" id="3_ow8nw"]
-[ext_resource type="Texture2D" uid="uid://gmdoa0rrucpv" path="res://sprites/ui_pause.tres" id="5_4lqln"]
+[ext_resource type="Texture2D" path="res://sprites/ui_pause.tres" id="5_4lqln"]
+[ext_resource type="Texture2D" uid="uid://bkn15av8my80s" path="res://sprites/cave_ui_button.png" id="5_dt8iw"]
 [ext_resource type="Texture2D" uid="uid://dnjxmb3w8e2m4" path="res://sprites/cave_ui_button_pause.png" id="5_kg5oo"]
 [ext_resource type="Shader" path="res://scripts/utilities/blur.gdshader" id="6_1bs1f"]
 [ext_resource type="AudioStream" uid="uid://3ei5c4shcb46" path="res://sounds/ui_hover.wav" id="8_0g4hc"]
+[ext_resource type="Texture2D" uid="uid://dagjp57mc74my" path="res://sprites/cave_ui_button_small.png" id="8_kl1h7"]
 [ext_resource type="AudioStream" uid="uid://bsnbaujlbcd2h" path="res://sounds/ui_click.wav" id="9_4j0xh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i2wbu"]
@@ -20,6 +22,90 @@ expand_margin_bottom = 10.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2m38e"]
 shader = ExtResource("6_1bs1f")
 shader_parameter/amount = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hnawm"]
+texture = ExtResource("5_dt8iw")
+modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_skxga"]
+texture = ExtResource("5_dt8iw")
+modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_68yqp"]
+texture = ExtResource("5_dt8iw")
+modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hpqtd"]
+texture = ExtResource("5_dt8iw")
+modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tgf1s"]
+texture = ExtResource("5_dt8iw")
+modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p3nl1"]
+texture = ExtResource("5_dt8iw")
+modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oe4po"]
+texture = ExtResource("5_dt8iw")
+modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_33226"]
+texture = ExtResource("5_dt8iw")
+modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f4kve"]
+texture = ExtResource("5_dt8iw")
+modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vvbjf"]
+texture = ExtResource("5_dt8iw")
+modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mll5g"]
+content_margin_top = 7.0
+texture = ExtResource("8_kl1h7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kw1ev"]
+texture = ExtResource("5_dt8iw")
+modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8yhfa"]
+texture = ExtResource("5_dt8iw")
+modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gwu2c"]
+texture = ExtResource("5_dt8iw")
+modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fer3e"]
+texture = ExtResource("5_dt8iw")
+modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d5qee"]
+texture = ExtResource("5_dt8iw")
+modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kri82"]
+texture = ExtResource("5_dt8iw")
+modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_koso1"]
+texture = ExtResource("5_dt8iw")
+modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0m3xt"]
+texture = ExtResource("5_dt8iw")
+modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rg5cb"]
+texture = ExtResource("5_dt8iw")
+modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_er1pu"]
+texture = ExtResource("5_dt8iw")
+modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
 
 [node name="UserInterface" type="Control" node_paths=PackedStringArray("Modal", "_pausePanel", "_pauseButton")]
 z_index = 50
@@ -103,7 +189,7 @@ dragger_visibility = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_ow8nw")
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 21
 text = "Action 1"
 flat = true
 
@@ -111,7 +197,7 @@ flat = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_ow8nw")
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 21
 text = "Action 2"
 flat = true
 
@@ -177,11 +263,39 @@ grow_vertical = 2
 alignment = 1
 
 [node name="Resume" type="Button" parent="PausePanel/Container"]
+custom_minimum_size = Vector2(150, 75)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ow8nw")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/focus = SubResource("StyleBoxTexture_hnawm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_skxga")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_68yqp")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_hpqtd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_tgf1s")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_p3nl1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_oe4po")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_33226")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f4kve")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_vvbjf")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mll5g")
 text = "Resume"
 
 [node name="Quit" type="Button" parent="PausePanel/Container"]
+custom_minimum_size = Vector2(150, 75)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ow8nw")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/focus = SubResource("StyleBoxTexture_kw1ev")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_8yhfa")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_gwu2c")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_fer3e")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_d5qee")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_kri82")
+theme_override_styles/hover = SubResource("StyleBoxTexture_koso1")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_0m3xt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rg5cb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_er1pu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mll5g")
 text = "Back"
 
 [node name="Sounds" type="Node" parent="."]

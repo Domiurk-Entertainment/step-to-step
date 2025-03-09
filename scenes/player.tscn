@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="4_vrrox"]
 [ext_resource type="Script" path="res://scripts/stats/StatHandler.cs" id="7_q77xg"]
 [ext_resource type="Script" path="res://scripts/stats/Stat.cs" id="8_6j1gn"]
-[ext_resource type="PackedScene" uid="uid://bwixc66257oaw" path="res://scenes/sight.tscn" id="10_8va8p"]
+[ext_resource type="PackedScene" uid="uid://bwixc66257oaw" path="res://scenes/entity/sight.tscn" id="10_8va8p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pw5i8"]
 atlas = ExtResource("2_v4bmy")
@@ -76,7 +76,7 @@ light_mask = 2
 visibility_layer = 2
 z_index = 10
 scale = Vector2(4, 4)
-collision_layer = 512
+collision_layer = 513
 script = ExtResource("1_8sdka")
 ChanceToRun = 0.1
 _spawnBalls = NodePath("Node2D")

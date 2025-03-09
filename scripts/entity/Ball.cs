@@ -39,9 +39,8 @@ public partial class Ball : CharacterBody2D
 
     private void OnHit(Node2D body)
     {
-        if(body is not IHealth health){
+        if(body is not IHealth health)
             return;
-        }
 
         health.TakeDamage(this, _damage);
         Hit?.Invoke(body);

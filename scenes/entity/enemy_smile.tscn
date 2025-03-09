@@ -153,7 +153,6 @@ z_index = 10
 scale = Vector2(4, 4)
 collision_layer = 513
 script = ExtResource("1_g11nf")
-_damage = 1.0
 _rayCast2D = NodePath("RayCast2D")
 
 [node name="Health" type="ProgressBar" parent="."]

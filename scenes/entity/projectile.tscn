@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxjh4c28ey5vi"]
+
+[ext_resource type="Texture2D" uid="uid://uxv4tpb8s4lp" path="res://sprites/spit.png" id="1_e72yd"]
+[ext_resource type="Script" path="res://scripts/entity/Projectile.cs" id="1_v7oav"]
+[ext_resource type="AudioStream" uid="uid://d3ooi2iphmxgw" path="res://sounds/hit.wav" id="3_cdmkv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h5dw7"]
+radius = 9.0
+height = 32.0
+
+[node name="Projectile" type="Area2D"]
+z_index = 20
+collision_layer = 513
+script = ExtResource("1_v7oav")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4, -2)
+scale = Vector2(4, 4)
+texture = ExtResource("1_e72yd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 1)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_h5dw7")
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_cdmkv")
+
+[connection signal="Hit" from="." to="Hit" method="play" binds= [0.0]]
