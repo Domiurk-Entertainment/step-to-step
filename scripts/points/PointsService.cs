@@ -17,7 +17,7 @@ public partial class PointsService : Node
     [Export] private float _duration = 1;
     [Export] private Tween.TransitionType _transitionType = Tween.TransitionType.Linear;
 
-    private static TypeConfiguration _saveConfigurationType = TypeConfiguration.Level;
+    private TypeConfiguration _saveConfigurationType = TypeConfiguration.Level;
     private readonly List<Point> _points = new();
     private Point _currentPoint;
     private Point _lastPoint;
