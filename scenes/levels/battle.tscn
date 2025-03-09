@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://pttfbhrqycix"]
+[gd_scene load_steps=13 format=3 uid="uid://pttfbhrqycix"]
 
 [ext_resource type="Script" path="res://scripts/levels/Battle.cs" id="1_ri0lh"]
 [ext_resource type="PackedScene" uid="uid://dwvhlj2ouj5t6" path="res://scenes/location/location_cave.tscn" id="2_byhvl"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/minimal_pixelv2.ttf" id="3_1wxay"]
 [ext_resource type="Texture2D" uid="uid://bkn15av8my80s" path="res://sprites/cave_ui_button.png" id="3_4qm51"]
 [ext_resource type="Texture2D" uid="uid://dagjp57mc74my" path="res://sprites/cave_ui_button_small.png" id="3_834lr"]
+[ext_resource type="Script" path="res://scripts/roma/Camera2D.gd" id="7_3nq8h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qqc74"]
 size = Vector2(780, 250)
@@ -23,15 +24,17 @@ texture = ExtResource("3_834lr")
 modulate_color = Color(0.577008, 0.577008, 0.577008, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3i03d"]
+content_margin_top = 10.0
 texture = ExtResource("3_834lr")
 modulate_color = Color(0.68101, 0.68101, 0.68101, 1)
 
-[node name="Battle" type="Node" node_paths=PackedStringArray("_playerAttackButton", "_playerSpawnPoint", "_enemySpawnPoint", "_inventory")]
+[node name="Battle" type="Node" node_paths=PackedStringArray("_playerAttackButton", "_playerSpawnPoint", "_enemySpawnPoint", "_inventory", "_camera")]
 script = ExtResource("1_ri0lh")
 _playerAttackButton = NodePath("UI/AttackButton")
 _playerSpawnPoint = NodePath("PlayerSpawnPoint")
 _enemySpawnPoint = NodePath("EnemySpawnPoint")
 _inventory = NodePath("UI/Inventory")
+_camera = NodePath("Camera2D")
 
 [node name="Cave" parent="." instance=ExtResource("2_byhvl")]
 
@@ -41,7 +44,6 @@ energy = 0.12
 blend_mode = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(380, 115)
@@ -136,6 +138,10 @@ offset_top = -0.484009
 offset_right = -62.64
 offset_bottom = -228.51
 scale = Vector2(3.31, 3.31)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(350, 490)
+script = ExtResource("7_3nq8h")
 
 [connection signal="pressed" from="UI/AttackButton" to="." method="PlayerAttack"]
 [connection signal="pressed" from="UI/TunOffButton" to="." method="TryRunOff"]

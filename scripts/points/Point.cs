@@ -14,7 +14,7 @@ public partial class Point : Button
 	[Export] public BattleConfig Config;
 
 	[Export] private Point[] _pointsUnlock = Array.Empty<Point>();
-	[Export] public int _canVisited = 1;
+	[Export] private int _canVisited = 1;
 	private char separator = '/';
 
 	private string GetKey() => GetTree().CurrentScene.GetPath();

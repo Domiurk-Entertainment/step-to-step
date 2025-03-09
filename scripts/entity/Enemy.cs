@@ -8,8 +8,8 @@ namespace StepToStep.Entity;
 public partial class Enemy : Node2D, IHealth
 {
     public event Action<AttackType> AttackedStep;
-
     [Signal] public delegate void DeadEventHandler();
+    [Signal] public delegate void HitEventHandler();
 
     [Export, Category("Tween")] private float _duration = 1;
     [Export] private Tween.TransitionType _transitionType = Tween.TransitionType.Linear;
@@ -28,6 +28,11 @@ public partial class Enemy : Node2D, IHealth
         _health = GetNode<Health>("%Health");
 
         _health.ChangedValue += HealthOnChangedValue;
+        _health.DecreasedValue += DecreasedValue;
+        return;
+
+        void DecreasedValue()
+            => EmitSignal(SignalName.Hit);
     }
 
     public void InitialTarget(Vector2 targetPosition)
@@ -54,9 +59,9 @@ public partial class Enemy : Node2D, IHealth
 
     public void Attack()
     {
-        
-        AttackedStep?.Invoke(AttackType.Start);
         _currentStep++;
+        AttackedStep?.Invoke(AttackType.Start);
+
         Move(_steps[_currentStep]);
 
         return;
@@ -71,9 +76,9 @@ public partial class Enemy : Node2D, IHealth
                         .From(GlobalPosition)
                         .SetTrans(_transitionType);
             _movingTween.Finished += CheckReturnOnFinished;
-            
-        }
-void CheckReturnOnFinished()
+            return;
+
+            void CheckReturnOnFinished()
             {
                 if(_currentStep != _stepCount){
                     AttackedStep?.Invoke(AttackType.End);
@@ -81,8 +86,10 @@ void CheckReturnOnFinished()
                 }
 
                 Attacked();
+                Move(_steps[_currentStep = 0]);
                 AttackedStep?.Invoke(AttackType.End);
             }
+        }
 
         void Attacked()
         {

@@ -22,6 +22,8 @@ namespace StepToStep.Battle
 		private Player _player;
 		private Enemy _enemy;
 		private bool _isEnd;
+		
+		[Export] private Camera2D _camera;
 
 		public override void _Ready()
 		{
@@ -44,6 +46,7 @@ namespace StepToStep.Battle
 			_player.GlobalPosition = _playerSpawnPoint.GlobalPosition;
 			_enemy.GlobalPosition = _enemySpawnPoint.GlobalPosition;
 			_enemy.InitialTarget(_player.GlobalPosition);
+			UserInterfaceSystem.Instance.ShowPauseButton();
 		}
 
 		public override void _ExitTree()
@@ -52,8 +55,7 @@ namespace StepToStep.Battle
 			_player.Dead -= PlayerOnDead;
 
 			_enemy.AttackedStep -= EnemyOnAttackedStep;
-			_enemy.Connect(Enemy.SignalName.Dead, Callable.From(EnemyOnDead));
-
+			UserInterfaceSystem.Instance.HidePauseButton();
 		}
 
 		private void EnemyOnAttackedStep(AttackType step)
@@ -65,6 +67,7 @@ namespace StepToStep.Battle
 				case AttackType.Start:
 					break;
 				case AttackType.Attacked:
+					_camera.Call("start_shake");
 					break;
 				case AttackType.End:
 					_playerAttackButton.Disabled = false;

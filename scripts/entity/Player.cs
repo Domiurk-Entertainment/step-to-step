@@ -6,12 +6,14 @@ using System;
 
 namespace StepToStep.Entity;
 
-[GlobalClass,Icon("res://sprites/player_mini.png")]
+[GlobalClass, Icon("res://sprites/player_mini.png")]
 public partial class Player : StaticBody2D, IHealth
 {
     public event Action<AttackType> AttackedStep;
 
     [Signal] public delegate void DeadEventHandler();
+
+    [Signal] public delegate void HitEventHandler();
 
     public IInventory Inventory => _inventory;
 
@@ -31,6 +33,11 @@ public partial class Player : StaticBody2D, IHealth
 
         _sight.CalculatedDirection += OnSightOnCalculatedDirection;
         _health.ChangedValue += HealthOnChangedValue;
+        _health.DecreasedValue += DecreasedValue;
+        return;
+
+        void DecreasedValue()
+            => EmitSignal(SignalName.Hit);
     }
 
     private void OnSightOnCalculatedDirection(Vector2 direction)

@@ -20,10 +20,6 @@ namespace StepToStep.Interface
                          Action oneAction = null,
                          Action twoAction = null)
         {
-            if(Visible){
-                GD.PrintErr("Can't open");
-                return;
-            }
 
             if(!string.IsNullOrEmpty(title)){
                 _title.Text = title;

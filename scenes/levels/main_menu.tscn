@@ -45,6 +45,20 @@ font_size = 32
 script = ExtResource("1_2vmud")
 _sceneToPlay = "res://scenes/levels/map_cave.tscn"
 
+[node name="SoundService" type="Node" parent="."]
+script = ExtResource("2_sit7n")
+
+[node name="Music" type="AudioStreamPlayer" parent="SoundService"]
+stream = ExtResource("8_i8ai4")
+volume_db = -5.0
+autoplay = true
+
+[node name="Hover" type="AudioStreamPlayer" parent="SoundService"]
+stream = ExtResource("3_osdno")
+volume_db = 8.418
+
+[node name="Click" type="AudioStreamPlayer" parent="SoundService"]
+
 [node name="PixelMainMenu" type="Sprite2D" parent="."]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
 light_mask = 3
@@ -255,13 +269,15 @@ anchor_top = 0.664
 anchor_right = 1.0
 anchor_bottom = 0.958
 offset_left = 1.0
-offset_right = -50.85
-offset_bottom = -2.0
+offset_top = -61.0
+offset_right = -51.0
+offset_bottom = -44.0
 scale = Vector2(1.09, 1.09)
 alignment = 1
 
 [node name="Play" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 1
 theme_override_fonts/font = ExtResource("6_0t0jh")
 theme_override_font_sizes/font_size = 42
@@ -272,6 +288,7 @@ text_overrun_behavior = 2
 
 [node name="Continue" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 1
 theme_override_fonts/font = ExtResource("6_0t0jh")
 theme_override_font_sizes/font_size = 42
@@ -280,6 +297,7 @@ flat = true
 
 [node name="Quit" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 1
 theme_override_fonts/font = ExtResource("6_0t0jh")
 theme_override_font_sizes/font_size = 42
@@ -358,25 +376,18 @@ label_settings = SubResource("LabelSettings_06xtx")
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="SoundService" type="Node" parent="."]
-script = ExtResource("2_sit7n")
-
-[node name="Music" type="AudioStreamPlayer" parent="SoundService"]
-stream = ExtResource("8_i8ai4")
-volume_db = -5.0
-autoplay = true
-
-[node name="Hover" type="AudioStreamPlayer" parent="SoundService"]
-stream = ExtResource("3_osdno")
-volume_db = 8.418
-
-[node name="Click" type="AudioStreamPlayer" parent="SoundService"]
-
 [connection signal="button_up" from="Control/Settings" to="Control/SettingsMenu" method="show"]
-[connection signal="mouse_entered" from="Control/VBoxContainer/Play" to="SoundService" method="Play" binds= ["hover"]]
+[connection signal="mouse_entered" from="Control/Settings" to="SoundService/Hover" method="play"]
+[connection signal="pressed" from="Control/Settings" to="SoundService/Click" method="play" binds= [0.0]]
+[connection signal="mouse_entered" from="Control/VBoxContainer/Play" to="SoundService/Hover" method="play" binds= [0.0]]
 [connection signal="pressed" from="Control/VBoxContainer/Play" to="." method="Start"]
-[connection signal="mouse_entered" from="Control/VBoxContainer/Continue" to="SoundService" method="Play" binds= ["hover"]]
+[connection signal="pressed" from="Control/VBoxContainer/Play" to="SoundService/Click" method="play" binds= [0.0]]
+[connection signal="mouse_entered" from="Control/VBoxContainer/Continue" to="SoundService/Hover" method="play" binds= [0.0]]
 [connection signal="pressed" from="Control/VBoxContainer/Continue" to="." method="Continue"]
-[connection signal="pressed" from="Control/VBoxContainer/Continue" to="SoundService" method="Play" binds= ["click"]]
+[connection signal="pressed" from="Control/VBoxContainer/Continue" to="SoundService/Click" method="play" binds= [0.0]]
+[connection signal="mouse_entered" from="Control/VBoxContainer/Quit" to="SoundService/Hover" method="play" binds= [0.0]]
 [connection signal="pressed" from="Control/VBoxContainer/Quit" to="." method="Exit"]
+[connection signal="pressed" from="Control/VBoxContainer/Quit" to="SoundService/Click" method="play" binds= [0.0]]
 [connection signal="button_up" from="Control/SettingsMenu/Button" to="Control/SettingsMenu" method="hide"]
+[connection signal="mouse_entered" from="Control/SettingsMenu/Button" to="SoundService/Hover" method="play"]
+[connection signal="pressed" from="Control/SettingsMenu/Button" to="SoundService/Click" method="play"]

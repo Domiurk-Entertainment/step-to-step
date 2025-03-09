@@ -1,5 +1,6 @@
 using Godot;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 
 namespace StepToStep.Utils
 {
@@ -50,9 +51,23 @@ namespace StepToStep.Utils
 
         public static Variant GetData(string key) => !Data.Remove(key, out Variant result) ? default : result;
 
+        public override void _Input(InputEvent @event)
+        {
+            if(Input.IsKeyPressed(Key.L)){
+                GD.Print(ScenesHistory.Count);
+
+                foreach(PackedScene packedScene in ScenesHistory){
+                    GD.Print(packedScene.ResourcePath);
+                }
+            }
+        }
+
         public void LoadLastScene()
         {
-            ChangeScene(ScenesHistory.Pop());
+            if(_animationPlayer.IsPlaying())
+                return;
+            currentPackedScene = ScenesHistory.Pop();
+            _animationPlayer.Play(ANIMATION_NAME_ENTER);
         }
     }
 }

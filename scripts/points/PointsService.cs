@@ -60,12 +60,14 @@ public partial class PointsService : Node
         int index = SaveSystem.Instance.LoadIntData(_saveConfigurationType, GetKey(), 0);
         _currentPoint = _points[index];
         _currentPoint.Visited = SaveSystem.Instance.LoadIntData(_saveConfigurationType, GetKey(_currentPoint.Name), 0);
+        UserInterfaceSystem.Instance.ShowPauseButton();
     }
 
     public override void _ExitTree()
     {
         SaveSystem.Instance.SaveData(_saveConfigurationType, GetKey(_currentPoint.Name), _currentPoint.Visited);
         SaveSystem.Instance.SaveData(_saveConfigurationType, GetKey(), _points.IndexOf(_currentPoint));
+        UserInterfaceSystem.Instance.HidePauseButton();
     }
 
     private void PointOnPressed(Point point)

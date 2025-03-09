@@ -7,6 +7,7 @@ namespace StepToStep;
 public partial class Health : ProgressBar
 {
 	public event Action<float> ChangedValue;
+	public event Action DecreasedValue;
 
 	[ExportCategory("Float Number")]
 	[Export] private float _duration = 1;
@@ -20,6 +21,7 @@ public partial class Health : ProgressBar
 			throw new Exception($"{sender} sending failure value ({value})");
 		Value -= (value);
 		ChangedValue?.Invoke((float)Value);
+		DecreasedValue?.Invoke();
 		CreateFloatNumbers(value);
 	}
 

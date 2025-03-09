@@ -1,29 +1,15 @@
 using Godot;
-using System.Collections.Generic;
+using System;
 
-namespace StepToStep.Sound;
-
-[GlobalClass]
 public partial class SoundService : Node
 {
-    private readonly Dictionary<string,AudioStreamPlayer> sounds = new();
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+	}
 
-    public override void _Ready()
-    {
-        foreach(Node child in GetChildren()){
-            
-            string name = child.Name.ToString().ToLower();
-            sounds.Add(name,child as AudioStreamPlayer);
-        }
-    }
-
-    public void Play(string soundName)
-    {
-
-        if(!sounds.TryGetValue(soundName.ToLower(), out AudioStreamPlayer sound)){
-            GD.PrintErr($"{Name} is not contains {soundName}");
-            return;
-        }
-        sound.Play();
-    }
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
+	}
 }
