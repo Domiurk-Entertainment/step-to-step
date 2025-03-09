@@ -713,13 +713,6 @@ flip_h = true
 position = Vector2(417.971, 668.32)
 scale = Vector2(4, 4)
 
-[node name="PointLight2D" type="PointLight2D" parent="PlayerMenu"]
-light_mask = 2
-position = Vector2(-0.618771, -4.18)
-scale = Vector2(1.36, 1.36)
-color = Color(1, 0.94902, 0.298039, 1)
-texture = ExtResource("12_30pgs")
-
 [node name="Animations" type="AnimatedSprite2D" parent="PlayerMenu"]
 modulate = Color(0.992157, 1, 0.866667, 1)
 light_mask = 2
@@ -730,6 +723,13 @@ animation = &"run"
 autoplay = "idle"
 frame = 2
 frame_progress = 0.142211
+
+[node name="PointLight2D" type="PointLight2D" parent="PlayerMenu"]
+light_mask = 2
+position = Vector2(-0.618774, -4.18)
+scale = Vector2(1.36, 1.36)
+color = Color(1, 0.94902, 0.298039, 1)
+texture = ExtResource("12_30pgs")
 
 [node name="PointLight2D2" type="PointLight2D" parent="PlayerMenu"]
 position = Vector2(-6.36877, -3.68)
