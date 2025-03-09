@@ -168,4 +168,4 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gyuf3")
 animation = &"hit"
-frame_progress = 0.337149
+frame_progress = 0.545995

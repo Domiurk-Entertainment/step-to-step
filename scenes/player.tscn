@@ -136,6 +136,22 @@ position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_1jh8v")
 animation = &"idle_notWeapon"
 
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
+light_mask = 2
+position = Vector2(0.5, 2.25)
+scale = Vector2(1.36, 1.36)
+color = Color(1, 0.94902, 0.298039, 1)
+texture = ExtResource("2_g178e")
+
+[node name="PointLight2D2" type="PointLight2D" parent="AnimatedSprite2D"]
+light_mask = 2
+position = Vector2(-5.5, 4.5)
+scale = Vector2(1.69893, 1.68039)
+color = Color(1, 1, 0.243137, 1)
+energy = 7.87
+texture = ExtResource("4_vrrox")
+texture_scale = 0.01
+
 [node name="Health" type="ProgressBar" parent="."]
 unique_name_in_owner = true
 light_mask = 2
