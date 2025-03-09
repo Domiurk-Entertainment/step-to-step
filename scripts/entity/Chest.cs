@@ -1,7 +1,6 @@
 using Godot;
 using StepToStep.InventorySpace;
 using StepToStep.Utils;
-using System;
 
 namespace StepToStep.Entity;
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://c3745i6iabcxo"]
+[gd_scene load_steps=39 format=3 uid="uid://c3745i6iabcxo"]
 
 [ext_resource type="Script" path="res://scripts/levels/CaveMap.cs" id="1_l1e6v"]
 [ext_resource type="Script" path="res://scripts/points/PointsService.cs" id="1_pqqoo"]
@@ -6,14 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://bfdu30qcxdvj5" path="res://sprites/cave_tilemap.png" id="2_ort48"]
 [ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="2_t2gvh"]
 [ext_resource type="Texture2D" uid="uid://ck3t7x12t4klr" path="res://sprites/blum.png" id="3_85kg1"]
-[ext_resource type="PackedScene" uid="uid://v1bwsg58hh8u" path="res://scenes/levels/main_menu.tscn" id="3_iy8ft"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="4_pt5ys"]
 [ext_resource type="Resource" uid="uid://j175cel0uce3" path="res://Demo/battle_configs/first_battle.tres" id="7_dybo4"]
 [ext_resource type="PackedScene" uid="uid://pttfbhrqycix" path="res://scenes/levels/battle.tscn" id="8_tibap"]
 [ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/cave_fg_lower.png" id="9_7yp77"]
 [ext_resource type="PackedScene" uid="uid://ddijx4tts7cj0" path="res://scenes/chest.tscn" id="9_ty62m"]
 [ext_resource type="Texture2D" uid="uid://5c0u7thmvt0g" path="res://sprites/cave_stones_upper.png" id="10_i28d5"]
+[ext_resource type="PackedScene" uid="uid://2eol4dtbmydh" path="res://scenes/levels/battle_boss_cave.tscn" id="10_xx7b8"]
 [ext_resource type="Texture2D" uid="uid://7s5uw7p7xydu" path="res://sprites/cave_fg_right.png" id="11_572kt"]
+[ext_resource type="Resource" uid="uid://cryvk742v6glb" path="res://Demo/battle_configs/boss_battle.tres" id="11_sk06p"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/white_circle.png" id="12_30pgs"]
 [ext_resource type="Texture2D" uid="uid://cwfqk0vtqa4g5" path="res://sprites/player_run.png" id="15_cajgf"]
 [ext_resource type="AudioStream" uid="uid://bm0iiuexlmvmd" path="res://sounds/walk.mp3" id="16_3boqe"]
@@ -504,12 +505,14 @@ offset_left = -26.25
 offset_top = -32.75
 offset_right = -2.25
 offset_bottom = -8.75
-_pointsUnlock = [NodePath("../Point4")]
+_pointsUnlock = [NodePath("../Point4"), NodePath("../Point6")]
 
 [node name="Point4" parent="Points" node_paths=PackedStringArray("_pointsUnlock") instance=ExtResource("2_ger5s")]
-offset_top = -66.25
-offset_right = 24.0
-offset_bottom = -42.25
+visible = false
+offset_left = -7.49275
+offset_top = -66.83
+offset_right = 28.5072
+offset_bottom = -42.83
 SceneToLoad = ExtResource("9_ty62m")
 _pointsUnlock = [NodePath("../Point5"), NodePath("../Point6")]
 
@@ -535,7 +538,8 @@ offset_top = -130.75
 offset_right = 21.25
 offset_bottom = -106.75
 pivot_offset = Vector2(11.25, 12)
-SceneToLoad = ExtResource("3_iy8ft")
+SceneToLoad = ExtResource("10_xx7b8")
+Config = ExtResource("11_sk06p")
 
 [node name="front_top_bottom_cave" type="Node2D" parent="."]
 position = Vector2(85.9713, 339.32)

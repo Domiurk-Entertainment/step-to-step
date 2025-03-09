@@ -8,7 +8,9 @@ namespace StepToStep.Entity;
 public partial class Enemy : Node2D, IHealth
 {
     public event Action<AttackType> AttackedStep;
+
     [Signal] public delegate void DeadEventHandler();
+
     [Signal] public delegate void HitEventHandler();
 
     [Export, Category("Tween")] private float _duration = 1;
@@ -22,17 +24,29 @@ public partial class Enemy : Node2D, IHealth
     private Health _health;
     private Vector2[] _steps;
     private int _currentStep;
+    private AnimatedSprite2D _animatedSprite;
 
     public override void _Ready()
     {
         _health = GetNode<Health>("%Health");
+        _animatedSprite = (AnimatedSprite2D)FindChild("Visual");
 
         _health.ChangedValue += HealthOnChangedValue;
         _health.DecreasedValue += DecreasedValue;
+        _animatedSprite.SpriteFramesChanged += AnimatedSpriteOnSpriteFramesChanged;
         return;
 
         void DecreasedValue()
             => EmitSignal(SignalName.Hit);
+    }
+
+    private string attackAnimationName = "attack";
+
+    private void AnimatedSpriteOnSpriteFramesChanged()
+    {
+        if(_animatedSprite.GetAnimation() != attackAnimationName || _animatedSprite.Frame != 2)
+            return;
+        Attacked();
     }
 
     public void InitialTarget(Vector2 targetPosition)
@@ -57,7 +71,7 @@ public partial class Enemy : Node2D, IHealth
         _steps[_stepCount] = new Vector2(_steps[_stepCount].X, _steps[_stepCount].Y);
     }
 
-    public void Attack()
+    public virtual void Attack()
     {
         _currentStep++;
         AttackedStep?.Invoke(AttackType.Start);
@@ -65,39 +79,41 @@ public partial class Enemy : Node2D, IHealth
         Move(_steps[_currentStep]);
 
         return;
+    }
 
-        void Move(Vector2 toPosition)
+    private void Move(Vector2 toPosition)
+    {
+        _movingTween?.Kill();
+        _movingTween = CreateTween();
+
+        _movingTween.TweenProperty(this, "global_position", toPosition,
+                                   _duration)
+                    .From(GlobalPosition)
+                    .SetTrans(_transitionType);
+        _movingTween.Finished += CheckReturnOnFinished;
+        return;
+
+        async void CheckReturnOnFinished()
         {
-            _movingTween?.Kill();
-            _movingTween = CreateTween();
+            if(_currentStep != _stepCount){
+                AttackedStep?.Invoke(AttackType.End);
+                return;
+            }
 
-            _movingTween.TweenProperty(this, "global_position", toPosition,
-                                       _duration)
-                        .From(GlobalPosition)
-                        .SetTrans(_transitionType);
-            _movingTween.Finished += CheckReturnOnFinished;
+            _animatedSprite.Play(attackAnimationName);
+            // AttackedStep?.Invoke(AttackType.End);
+        }
+    }
+
+    private void Attacked()
+    {
+        if(_rayCast2D.GetCollider() is not IHealth health)
             return;
 
-            void CheckReturnOnFinished()
-            {
-                if(_currentStep != _stepCount){
-                    AttackedStep?.Invoke(AttackType.End);
-                    return;
-                }
-
-                Attacked();
-                Move(_steps[_currentStep = 0]);
-                AttackedStep?.Invoke(AttackType.End);
-            }
-        }
-
-        void Attacked()
-        {
-            if(_rayCast2D.GetCollider() is not IHealth health)
-                return;
-            AttackedStep?.Invoke(AttackType.Attacked);
-            health.TakeDamage(this, _damage);
-        }
+        AttackedStep?.Invoke(AttackType.Attacked);
+        health.TakeDamage(this, _damage);
+        Move(_steps[_currentStep = 0]);
+        AttackedStep?.Invoke(AttackType.End);
     }
 
     private void MoveToPlayer(Vector2 playerPosition)

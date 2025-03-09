@@ -265,17 +265,19 @@ expand_icon = true
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.664
-anchor_right = 1.0
-anchor_bottom = 0.958
-offset_left = 1.0
-offset_right = -50.85
-offset_bottom = -2.0
+anchor_left = 0.001
+anchor_top = 0.618
+anchor_right = 1.011
+anchor_bottom = 0.898
+offset_left = 0.299
+offset_right = -58.711
+offset_bottom = -23.0001
 scale = Vector2(1.09, 1.09)
 alignment = 1
 
 [node name="Play" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 1
 theme_override_fonts/font = ExtResource("6_0t0jh")
 theme_override_font_sizes/font_size = 42
@@ -286,6 +288,7 @@ text_overrun_behavior = 2
 
 [node name="Continue" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 1
 theme_override_fonts/font = ExtResource("6_0t0jh")
 theme_override_font_sizes/font_size = 42
@@ -294,6 +297,7 @@ flat = true
 
 [node name="Quit" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 1
 theme_override_fonts/font = ExtResource("6_0t0jh")
 theme_override_font_sizes/font_size = 42
@@ -336,11 +340,11 @@ color = Color(0, 0, 0, 0.545098)
 
 [node name="Button" type="Button" parent="Control/SettingsMenu"]
 layout_mode = 0
-offset_left = 562.0
+offset_left = 528.0
 offset_top = 1.0
 offset_right = 596.0
-offset_bottom = 29.0
-theme_override_font_sizes/font_size = 10
+offset_bottom = 57.0
+theme_override_font_sizes/font_size = 37
 theme_override_styles/normal = SubResource("StyleBoxLine_jpsty")
 text = "X"
 
@@ -350,8 +354,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 22.0
-offset_bottom = -4.0
+offset_top = 57.0
+offset_right = -0.26001
+offset_bottom = -4.02002
 grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 3
@@ -372,27 +377,11 @@ label_settings = SubResource("LabelSettings_06xtx")
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="SoundService" type="Node" parent="."]
+[node name="SoundService2" type="Node" parent="."]
 script = ExtResource("2_sit7n")
-
-[node name="Music" type="AudioStreamPlayer" parent="SoundService"]
-stream = ExtResource("8_i8ai4")
-volume_db = -5.0
-autoplay = true
-
-[node name="Hover" type="AudioStreamPlayer" parent="SoundService"]
-stream = ExtResource("3_osdno")
-volume_db = 8.418
-
-[node name="Click" type="AudioStreamPlayer" parent="SoundService"]
 
 [connection signal="button_up" from="Control/Settings" to="Control/SettingsMenu" method="show"]
 [connection signal="pressed" from="Control/VBoxContainer/Play" to="." method="Start"]
 [connection signal="pressed" from="Control/VBoxContainer/Continue" to="." method="Continue"]
-[connection signal="pressed" from="Control/VBoxContainer/Continue" to="SoundService/Click" method="play" binds= [0.0]]
-[connection signal="mouse_entered" from="Control/VBoxContainer/Quit" to="SoundService/Hover" method="play" binds= [0.0]]
 [connection signal="pressed" from="Control/VBoxContainer/Quit" to="." method="Exit"]
-[connection signal="pressed" from="Control/VBoxContainer/Quit" to="SoundService/Click" method="play" binds= [0.0]]
 [connection signal="button_up" from="Control/SettingsMenu/Button" to="Control/SettingsMenu" method="hide"]
-[connection signal="mouse_entered" from="Control/SettingsMenu/Button" to="SoundService/Hover" method="play"]
-[connection signal="pressed" from="Control/SettingsMenu/Button" to="SoundService/Click" method="play"]

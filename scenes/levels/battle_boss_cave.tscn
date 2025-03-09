@@ -1,6 +1,116 @@
-[gd_scene load_steps=2 format=3 uid="uid://2eol4dtbmydh"]
+[gd_scene load_steps=9 format=3 uid="uid://2eol4dtbmydh"]
 
 [ext_resource type="Script" path="res://scripts/levels/BattleBossCave.cs" id="1_7ixti"]
+[ext_resource type="PackedScene" uid="uid://dwvhlj2ouj5t6" path="res://scenes/location/location_cave.tscn" id="2_jmpef"]
+[ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/minimal_pixelv2.ttf" id="3_l7be1"]
+[ext_resource type="Texture2D" uid="uid://dagjp57mc74my" path="res://sprites/cave_ui_button_small.png" id="5_uh50q"]
+[ext_resource type="PackedScene" uid="uid://c4nbdoxbpqjuh" path="res://scenes/ui_interface/inventory.tscn" id="6_cppyu"]
 
-[node name="BattleBossCave" type="Node"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gp1qa"]
+texture = ExtResource("5_uh50q")
+modulate_color = Color(0.633757, 0.633757, 0.633757, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xvhbs"]
+texture = ExtResource("5_uh50q")
+modulate_color = Color(0.577008, 0.577008, 0.577008, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oie4e"]
+content_margin_top = 10.0
+texture = ExtResource("5_uh50q")
+modulate_color = Color(0.68101, 0.68101, 0.68101, 1)
+
+[node name="BattleBossCave" type="Node" node_paths=PackedStringArray("_playerAttackButton", "_playerSpawnPoint", "_enemySpawnPoint", "_inventory")]
 script = ExtResource("1_7ixti")
+_playerAttackButton = NodePath("UI/Attack")
+_playerSpawnPoint = NodePath("PlayerSpawnpoint")
+_enemySpawnPoint = NodePath("EnemySpawnpoint")
+_inventory = NodePath("UI/Inventory")
+
+[node name="Cave" parent="." instance=ExtResource("2_jmpef")]
+
+[node name="PlayerSpawnpoint" type="Node2D" parent="."]
+position = Vector2(128, 597)
+
+[node name="EnemySpawnpoint" type="Node2D" parent="."]
+position = Vector2(543, 597)
+
+[node name="UI" type="Control" parent="."]
+z_index = 4
+layout_mode = 3
+anchor_right = 0.997
+anchor_bottom = 0.998
+offset_top = 4.0
+offset_right = 0.0999756
+mouse_filter = 2
+
+[node name="Attack" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.44
+anchor_top = 0.79
+anchor_right = 0.84
+anchor_bottom = 0.923
+offset_left = -0.119965
+offset_top = -147.26
+offset_right = -0.319946
+offset_bottom = -147.462
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_l7be1")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxTexture_gp1qa")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_xvhbs")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_xvhbs")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_xvhbs")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_xvhbs")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_xvhbs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xvhbs")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_xvhbs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gp1qa")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_xvhbs")
+theme_override_styles/normal = SubResource("StyleBoxTexture_oie4e")
+text = "Attack"
+
+[node name="TunOffButton" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.44
+anchor_top = 0.79
+anchor_right = 0.84
+anchor_bottom = 0.923
+offset_left = -0.119995
+offset_top = -0.26001
+offset_right = -0.319946
+offset_bottom = -0.462036
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_l7be1")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxTexture_gp1qa")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_xvhbs")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_xvhbs")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_xvhbs")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_xvhbs")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_xvhbs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xvhbs")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_xvhbs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gp1qa")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_xvhbs")
+theme_override_styles/normal = SubResource("StyleBoxTexture_oie4e")
+text = "Run off"
+
+[node name="Inventory" parent="UI" instance=ExtResource("6_cppyu")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.052
+anchor_top = 0.586
+anchor_right = 0.18
+anchor_bottom = 0.915
+offset_left = -0.296001
+offset_top = -0.484009
+offset_right = -62.64
+offset_bottom = -228.51
+scale = Vector2(3.31, 3.31)
+
+[connection signal="pressed" from="UI/Attack" to="." method="PlayerAttack"]
+[connection signal="pressed" from="UI/TunOffButton" to="." method="TryRunOff"]

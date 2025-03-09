@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://qxp1xt6p3mcx"]
+[gd_scene load_steps=21 format=3 uid="uid://qxp1xt6p3mcx"]
 
 [ext_resource type="Script" path="res://scripts/entity/Player.cs" id="1_8sdka"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/white_circle.png" id="2_g178e"]
@@ -10,30 +10,6 @@
 [ext_resource type="Script" path="res://scripts/stats/StatHandler.cs" id="7_q77xg"]
 [ext_resource type="Script" path="res://scripts/stats/Stat.cs" id="8_6j1gn"]
 [ext_resource type="PackedScene" uid="uid://bwixc66257oaw" path="res://scenes/sight.tscn" id="10_8va8p"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_amdg8"]
-atlas = ExtResource("2_v4bmy")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p8aby"]
-atlas = ExtResource("2_v4bmy")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h6wi4"]
-atlas = ExtResource("2_v4bmy")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_imb1v"]
-atlas = ExtResource("2_v4bmy")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k3lkc"]
-atlas = ExtResource("2_v4bmy")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s1h68"]
-atlas = ExtResource("2_v4bmy")
-region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pw5i8"]
 atlas = ExtResource("2_v4bmy")
@@ -63,29 +39,6 @@ region = Rect2(80, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_amdg8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p8aby")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h6wi4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_imb1v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k3lkc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s1h68")
-}],
-"loop": true,
-"name": &"animIdleandStik",
-"speed": 7.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_pw5i8")
 }, {
 "duration": 1.0,
@@ -104,7 +57,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_7ygbr")
 }],
 "loop": true,
-"name": &"idle_notWeapon",
+"name": &"idle",
 "speed": 7.0
 }]
 
@@ -134,9 +87,11 @@ _force = 400.0
 light_mask = 2
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_1jh8v")
-animation = &"idle_notWeapon"
+animation = &"idle"
+autoplay = "idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
+visible = false
 light_mask = 2
 position = Vector2(0.5, 2.25)
 scale = Vector2(1.36, 1.36)
@@ -144,6 +99,7 @@ color = Color(1, 0.94902, 0.298039, 1)
 texture = ExtResource("2_g178e")
 
 [node name="PointLight2D2" type="PointLight2D" parent="AnimatedSprite2D"]
+visible = false
 light_mask = 2
 position = Vector2(-5.5, 4.5)
 scale = Vector2(1.69893, 1.68039)

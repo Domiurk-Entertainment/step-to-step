@@ -173,10 +173,10 @@ _itemSprite = NodePath("Visible")
 
 [node name="Button" type="Button" parent="."]
 z_index = 6
-offset_left = 162.0
-offset_top = 423.0
-offset_right = 512.0
-offset_bottom = 653.0
+offset_left = 191.0
+offset_top = 442.0
+offset_right = 483.0
+offset_bottom = 634.0
 pivot_offset = Vector2(175, 230)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_t83oj")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vodag")

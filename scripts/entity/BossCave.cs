@@ -1,38 +1,24 @@
 using Godot;
-using StepToStep.scripts;
-using StepToStep.Utils;
-using System;
-using Range = System.Range;
 
 namespace StepToStep.Entity;
 
-public partial class BossCave : Node2D
+public partial class BossCave : Enemy
 {
-    [Signal] public delegate void DeadEventHandler();
-
-    public event Action<AttackType> AttackedStep;
-
-    [Export] private string[] _attackAnimationNames = Array.Empty<string>();
-
-    private AnimationPlayer _animationPlayer;
-
-    private Vector2 _targetPosition;
+    [Export] private AnimatedSprite2D _animatedSprite;
+    [Export] private string attackAnimationName = "attack";
+    private Player _player;
 
     public override void _Ready()
     {
-        _animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+        base._Ready();
+        _player = GetTree().CurrentScene.GetNode<Player>("Player");
     }
 
-    public void InitialTarget(Vector2 targetPosition)
+    public override void Attack() { }
+
+    private void FinishAnimationAttack()
     {
-        _targetPosition = targetPosition;
+        _animatedSprite.Play(attackAnimationName);
     }
 
-    public void Attack()
-    {
-        if(_attackAnimationNames.Length == 0)
-            GD.PrintErr($"{Name} Boss is not animations attack names in property ({nameof(_attackAnimationNames)})");
-
-        _animationPlayer.Play(_attackAnimationNames[GD.RandRange(0, _attackAnimationNames.Length - 1)].ToLower());
-    }
 }
