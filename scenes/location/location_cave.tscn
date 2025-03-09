@@ -286,13 +286,13 @@ layer_0/tile_data = PackedInt32Array(524288, 65536, 0, 524289, 131072, 0, 524290
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = -1
-anchor_left = -0.317143
-anchor_right = 0.265714
-anchor_bottom = 0.769
-offset_left = 35.0
-offset_top = -91.0
-offset_right = 685.0
-offset_bottom = 390.0
+anchor_left = -0.337
+anchor_top = -0.091
+anchor_right = 1.441
+anchor_bottom = 1.192
+offset_left = -0.0999908
+offset_right = 0.299927
+mouse_filter = 2
 color = Color(0.164706, 0.188235, 0.294118, 1)
 metadata/_edit_use_anchors_ = true
 
@@ -300,13 +300,13 @@ metadata/_edit_use_anchors_ = true
 modulate = Color(1, 1, 1, 0.305882)
 z_index = 40
 anchors_preset = -1
-anchor_left = 0.09
-anchor_right = 0.21
-anchor_bottom = 0.102
-offset_left = 541.0
-offset_top = 59.0
-offset_right = 557.0
-offset_bottom = 76.0
+anchor_left = 0.863
+anchor_top = 0.059
+anchor_right = 0.974
+anchor_bottom = 0.159
+offset_left = -0.100037
+offset_right = 22.2
+offset_bottom = 19.0
 scale = Vector2(0.78, 0.69)
 metadata/_edit_use_anchors_ = true
 
@@ -329,25 +329,26 @@ z_index = 80
 material = SubResource("ShaderMaterial_2pnyb")
 offset_left = -197.0
 offset_top = -300.0
-offset_right = 368.0
-offset_bottom = 397.0
+offset_right = 898.0
+offset_bottom = 1241.0
+mouse_filter = 2
 
 [node name="ff" type="Button" parent="pausBlur"]
 layout_mode = 0
-offset_left = 248.0
-offset_top = 296.0
-offset_right = 405.0
-offset_bottom = 335.0
-scale = Vector2(0.39, 0.39)
+offset_left = 422.0
+offset_top = 682.0
+offset_right = 635.48
+offset_bottom = 721.0
+scale = Vector2(1.54, 1.54)
 text = "Retrum"
 
 [node name="ff2" type="Button" parent="pausBlur"]
 layout_mode = 0
-offset_left = 239.0
-offset_top = 318.0
-offset_right = 461.0
-offset_bottom = 365.0
-scale = Vector2(0.39, 0.39)
+offset_left = 423.0
+offset_top = 760.0
+offset_right = 636.48
+offset_bottom = 807.0
+scale = Vector2(1.54, 1.54)
 text = "Back to menu"
 
 [connection signal="pressed" from="paus" to="." method="_on_paus_pressed"]

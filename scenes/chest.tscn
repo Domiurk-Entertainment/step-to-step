@@ -1,16 +1,39 @@
-[gd_scene load_steps=13 format=3 uid="uid://ddijx4tts7cj0"]
+[gd_scene load_steps=25 format=3 uid="uid://ddijx4tts7cj0"]
 
 [ext_resource type="Script" path="res://scripts/entity/Chest.cs" id="1_0sry2"]
 [ext_resource type="Texture2D" uid="uid://dgpk2e2b2snrq" path="res://sprites/chest_closed.png" id="1_koe7o"]
 [ext_resource type="Resource" uid="uid://uevbbfoqa5wv" path="res://Demo/balls/ice_ball.tres" id="2_e4uxy"]
 [ext_resource type="Texture2D" uid="uid://c2goa0w8tiqxt" path="res://sprites/chest_opened.png" id="2_wcmka"]
 [ext_resource type="Script" path="res://scripts/inventory/Item.cs" id="3_1nmer"]
-[ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/MinimalPixel v2.ttf" id="6_tcfuy"]
+[ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/minimal_pixelv2.ttf" id="6_tcfuy"]
+[ext_resource type="PackedScene" uid="uid://dwvhlj2ouj5t6" path="res://scenes/location/location_cave.tscn" id="7_8dg7h"]
 
 [sub_resource type="Resource" id="Resource_u3u35"]
 script = ExtResource("3_1nmer")
 Resource = ExtResource("2_e4uxy")
 Amount = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t83oj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vodag"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_glojo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0aprn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_il42u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ehuae"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yjlyp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3imnr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4xgxx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fjcon"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fx3ho"]
 
 [sub_resource type="Animation" id="Animation_7ydbq"]
 length = 0.001
@@ -146,12 +169,26 @@ _itemReward = SubResource("Resource_u3u35")
 _animation = NodePath("Animation")
 _itemSprite = NodePath("Visible")
 
+[node name="Cave" parent="." instance=ExtResource("7_8dg7h")]
+
 [node name="Button" type="Button" parent="."]
+z_index = 6
 offset_left = 162.0
-offset_top = 343.0
+offset_top = 423.0
 offset_right = 512.0
-offset_bottom = 573.0
+offset_bottom = 653.0
 pivot_offset = Vector2(175, 230)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t83oj")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vodag")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_glojo")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0aprn")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_il42u")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ehuae")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yjlyp")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_3imnr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4xgxx")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_fjcon")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fx3ho")
 icon = ExtResource("2_wcmka")
 flat = true
 icon_alignment = 1
@@ -159,7 +196,8 @@ expand_icon = true
 
 [node name="Visible" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-position = Vector2(333, 430)
+z_index = 6
+position = Vector2(333, 530)
 scale = Vector2(6, 6)
 
 [node name="Animation" type="AnimationPlayer" parent="."]
@@ -169,6 +207,7 @@ libraries = {
 autoplay = "close"
 
 [node name="Label" type="Label" parent="."]
+z_index = 6
 offset_left = 242.0
 offset_top = 119.0
 offset_right = 442.0

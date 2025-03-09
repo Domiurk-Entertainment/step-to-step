@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://difadwed472d1"]
+[gd_scene load_steps=8 format=3 uid="uid://cw080dwflwjri"]
 
 [ext_resource type="Script" path="res://scripts/entity/Ball.cs" id="1_jrbs2"]
 [ext_resource type="Texture2D" uid="uid://c0iblicaaxwue" path="res://sprites/ball.png" id="2_ovxvs"]
-[ext_resource type="AudioStream" uid="uid://4wl607uwkikx" path="res://sounds/UI Soundpack/WAV/African1.wav" id="3_xgg4p"]
+[ext_resource type="AudioStream" uid="uid://wrpmt8mhbovl" path="res://sounds/UI Soundpack/WAV/Wood Block2.wav" id="3_oe1tr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sb65q"]
 radius = 3.0
@@ -14,7 +14,7 @@ radius = 3.0
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Gradient" id="Gradient_5j1kl"]
-colors = PackedColorArray(0.2283, 0.134173, 0.0404501, 1, 0.388846, 0.266419, 0.0140899, 1)
+colors = PackedColorArray(0.604222, 0.639628, 0.689441, 1, 1, 1, 1, 1)
 metadata/_snap_enabled = true
 
 [node name="Ball" type="CharacterBody2D"]
@@ -37,7 +37,7 @@ rect = Rect2(-2, -2, 4, 4)
 shape = SubResource("CircleShape2D_l47th")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_xgg4p")
+stream = ExtResource("3_oe1tr")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
