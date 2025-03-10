@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("2_nnsog")
-_damage = 10.0
+_damage = 6.0
 PackedScene = ExtResource("1_s51ke")
 _id = "Ice Ball"
 _description = "This Ball is freeze enemy"

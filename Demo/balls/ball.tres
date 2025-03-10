@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_sc8ab")
-_damage = 1.0
+_damage = 2.0
 PackedScene = ExtResource("1_xdxkt")
 _id = "Ball"
 _description = "This is a base ba"

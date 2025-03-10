@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://u6bb877r42ti"]
+
+[ext_resource type="PackedScene" uid="uid://c0tod7yw4sold" path="res://scenes/entity/enemy_smile.tscn" id="1_7cl17"]
+
+[node name="Smile" instance=ExtResource("1_7cl17")]
+
+[node name="Health" parent="." index="0"]
+max_value = 15.0
+value = 15.0
+
+[node name="Visual" parent="." index="1"]
+self_modulate = Color(0.747293, 0.973684, 0, 1)

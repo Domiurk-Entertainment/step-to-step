@@ -11,6 +11,10 @@ config_version=5
 [application]
 
 config/name="StepToStep"
+config/name_localized={
+"uk_UA": "Крок за кроком"
+}
+config/version="0.0.1"
 run/main_scene="res://scenes/levels/main_menu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://sprites/game_icon.png"
@@ -39,6 +43,10 @@ project/assembly_name="StepToStep"
 
 enable_blend_file_import=false
 
+[internationalization]
+
+locale/locale_filter_mode=0
+
 [layer_names]
 
 2d_render/layer_1="Background 1"
@@ -56,3 +64,4 @@ enable_blend_file_import=false
 
 textures/canvas_textures/default_texture_filter=0
 textures/canvas_textures/default_texture_repeat=1
+textures/vram_compression/import_etc2_astc=true
