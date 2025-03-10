@@ -12,6 +12,7 @@ public partial class Projectile : Area2D
     [Export] private Vector2 offset = new(0, -20);
     private Tween _moveTween;
     private float _damage;
+
     public override void _Ready()
     {
         BodyEntered += OnBodyEntered;
@@ -19,9 +20,10 @@ public partial class Projectile : Area2D
 
     private void OnBodyEntered(Node2D body)
     {
-        GD.Print(body.Name);
-        if(body is not IHealth health)
+        if(body is not IHealth health){
             return;
+        }
+
         health.TakeDamage(this, _damage);
         EmitSignal(SignalName.Hit);
         QueueFree();

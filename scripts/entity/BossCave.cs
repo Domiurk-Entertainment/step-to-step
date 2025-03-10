@@ -12,7 +12,7 @@ public partial class BossCave : Node2D, IHealth
 
 	[Signal] public delegate void HitEventHandler();
 
-	[Export] private float Damage;
+	[Export] private float Damage = 5;
 	[Export] private AnimatedSprite2D _animatedSprite;
 	[Export] private string attackAnimationName = "attack";
 	[Export] private Node2D _pointToShoot;

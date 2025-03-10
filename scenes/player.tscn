@@ -123,6 +123,7 @@ value = 60.0
 show_percentage = false
 script = ExtResource("3_p1h7q")
 _font = ExtResource("4_3aiy8")
+_fontSize = 7
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 visible = false

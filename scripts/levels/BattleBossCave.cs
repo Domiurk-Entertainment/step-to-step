@@ -11,6 +11,7 @@ namespace StepToStep.Level;
 public partial class BattleBossCave : Node
 {
     private const float COOLDOWN_ATTACKS = 2;
+    private const float COOLDOWN_SHOW_MENU = 2;
 
     [Export] private Button _playerAttackButton;
     [Export] private Node2D _playerSpawnPoint;
@@ -89,8 +90,7 @@ public partial class BattleBossCave : Node
                 if(_enemy == null)
                     return;
                 _playerAttackButton.Disabled = true;
-                SceneTreeTimer timer = GetTree().CreateTimer(COOLDOWN_ATTACKS);
-                timer.Timeout += EnemyAttack;
+                CreateTimer(COOLDOWN_ATTACKS, EnemyAttack);
                 break;
             case AttackType.Attacked:
                 break;
@@ -108,17 +108,28 @@ public partial class BattleBossCave : Node
         }
     }
 
+    private void CreateTimer(float duration, Action callback)
+    {
+        SceneTreeTimer timer = GetTree().CreateTimer(duration);
+        timer.Timeout += callback;
+    }
+
     private void EnemyOnDead()
     {
-        _enemy.QueueFree();
-        UserInterfaceSystem.Instance.Modal.Open("You win", textOneAction: "Back To Map",
-                                                oneAction: BackToLastScene);
+        CreateTimer(COOLDOWN_SHOW_MENU, ShowModal);
         _isEnd = true;
         return;
 
         void BackToLastScene()
         {
             SceneTransition.Instance.LoadLastScene();
+        }
+
+        void ShowModal()
+        {
+            _enemy.QueueFree();
+            UserInterfaceSystem.Instance.Modal.Open("You win", textOneAction: "Back To Map",
+                                                    oneAction: BackToLastScene);
         }
     }
 

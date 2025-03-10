@@ -21,10 +21,10 @@ namespace StepToStep.Systems
             }
 
             Instance = this;
-            
             _pauseButton.Pressed += PauseButtonOnPressed;
             var resumeButton = (Button)FindChild("Resume");
             var quitButton = (Button)FindChild("Quit");
+            
             resumeButton.Pressed+= ResumeButtonOnPressed;
             quitButton.Pressed+= QuitButtonOnPressed;
 

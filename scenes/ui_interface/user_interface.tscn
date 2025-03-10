@@ -1,10 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://cswmidelxr7fk"]
+[gd_scene load_steps=37 format=3 uid="uid://cswmidelxr7fk"]
 
 [ext_resource type="Script" path="res://scripts/UserInterfaceSystem.cs" id="1_bok0e"]
 [ext_resource type="Script" path="res://scripts/Modal.cs" id="2_6g6rv"]
 [ext_resource type="Texture2D" uid="uid://dslaqll0yjmml" path="res://sprites/ui.png" id="2_q7gma"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/minimal_pixelv2.ttf" id="3_ow8nw"]
-[ext_resource type="Texture2D" uid="uid://gmdoa0rrucpv" path="res://sprites/ui_pause.tres" id="5_4lqln"]
+[ext_resource type="Texture2D" path="res://sprites/ui_pause.tres" id="5_4lqln"]
 [ext_resource type="Texture2D" uid="uid://bkn15av8my80s" path="res://sprites/cave_ui_button.png" id="5_dt8iw"]
 [ext_resource type="Texture2D" uid="uid://dnjxmb3w8e2m4" path="res://sprites/cave_ui_button_pause.png" id="5_kg5oo"]
 [ext_resource type="Shader" path="res://scripts/utilities/blur.gdshader" id="6_1bs1f"]
@@ -15,10 +15,13 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i2wbu"]
 texture = ExtResource("2_q7gma")
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
+expand_margin_left = 11.0
+expand_margin_top = 11.0
+expand_margin_right = 11.0
+expand_margin_bottom = 11.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mngn"]
+bg_color = Color(0.541176, 0.541176, 0.541176, 0.231373)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2m38e"]
 shader = ExtResource("6_1bs1f")
@@ -114,8 +117,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -8.0
-offset_right = -8.0
+offset_left = -2.0
+offset_top = -3.0
+offset_right = -2.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bok0e")
@@ -125,7 +130,7 @@ _pauseButton = NodePath("PauseButton")
 
 [node name="Modal" type="PanelContainer" parent="." node_paths=PackedStringArray("_title", "_content", "_actionButtonOne", "_actionButtonTwo")]
 visible = false
-custom_minimum_size = Vector2(300, 100)
+custom_minimum_size = Vector2(400, 150)
 layout_direction = 1
 layout_mode = 1
 anchors_preset = 8
@@ -151,6 +156,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Header" type="HSplitContainer" parent="Modal/Container"]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 split_offset = 250
 dragger_visibility = 2
@@ -158,14 +164,14 @@ dragger_visibility = 2
 [node name="Title" type="Label" parent="Modal/Container/Header"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_ow8nw")
-theme_override_font_sizes/font_size = 21
+theme_override_font_sizes/font_size = 28
 text = "<<<<<Title>>>>>"
 horizontal_alignment = 1
 
 [node name="Hide" type="Button" parent="Modal/Container/Header"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_ow8nw")
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 28
 text = "X"
 flat = true
 
@@ -182,7 +188,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Actions" type="HSplitContainer" parent="Modal/Container"]
-custom_minimum_size = Vector2(0, 35)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 dragger_visibility = 1
 
@@ -190,17 +196,17 @@ dragger_visibility = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_ow8nw")
-theme_override_font_sizes/font_size = 21
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_5mngn")
 text = "Action 1"
-flat = true
 
 [node name="Action2" type="Button" parent="Modal/Container/Actions"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_ow8nw")
-theme_override_font_sizes/font_size = 21
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_5mngn")
 text = "Action 2"
-flat = true
 
 [node name="PauseButton" type="Button" parent="."]
 visible = false

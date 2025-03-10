@@ -20,7 +20,6 @@ namespace StepToStep.Interface
                          Action oneAction = null,
                          Action twoAction = null)
         {
-
             if(!string.IsNullOrEmpty(title)){
                 _title.Text = title;
                 _title.Show();
@@ -37,12 +36,13 @@ namespace StepToStep.Interface
                 _content.Hide();
             }
 
-            _oneAction = oneAction;
-            _twoAction = twoAction;
             _actionButtonOne.Text = textOneAction;
             _actionButtonTwo.Text = textTwoAction;
 
-            if(_oneAction != null){
+            if(oneAction != null){
+                if(_oneAction != null)
+                    _actionButtonOne.Pressed -= _oneAction;
+                _oneAction = oneAction;
                 _actionButtonOne.Pressed += _oneAction;
                 _actionButtonOne.Show();
             }
@@ -50,7 +50,10 @@ namespace StepToStep.Interface
                 _actionButtonOne.Hide();
             }
 
-            if(_twoAction != null){
+            if(twoAction != null){
+                if(_twoAction != null)
+                    _actionButtonTwo.Pressed -= twoAction;
+                _twoAction = twoAction;
                 _actionButtonTwo.Pressed += twoAction;
                 _actionButtonTwo.Show();
             }

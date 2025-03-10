@@ -264,8 +264,8 @@ max_value = 75.0
 value = 75.0
 show_percentage = false
 script = ExtResource("4_mqro5")
-_length = 30.0
 _font = ExtResource("5_f3157")
+_length = 30.0
 _transitionType = 0
 
 [node name="Visual" type="AnimatedSprite2D" parent="."]

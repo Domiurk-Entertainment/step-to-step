@@ -210,15 +210,16 @@ max_value = 15.0
 value = 15.0
 show_percentage = false
 script = ExtResource("2_fi316")
-_length = 30.0
 _font = ExtResource("3_t2teq")
+_fontSize = 7
+_length = 30.0
 _transitionType = 0
 
 [node name="Visual" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.741176, 0.741176, 0.741176, 1)
 position = Vector2(2.75, -8)
 sprite_frames = SubResource("SpriteFrames_pkpm7")
-animation = &"attack"
+animation = &"hit"
 autoplay = "idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
@@ -247,4 +248,5 @@ stream = ExtResource("7_lkvkk")
 
 [connection signal="Dead" from="." to="Visual" method="play" binds= ["dead"]]
 [connection signal="Dead" from="." to="Death" method="play" binds= [0.0]]
+[connection signal="Hit" from="." to="Visual" method="play" binds= ["attack"]]
 [connection signal="Hit" from="." to="Hit" method="play" binds= [0.0]]

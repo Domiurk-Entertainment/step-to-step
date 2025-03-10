@@ -102,7 +102,7 @@ public partial class PointsService : Node
             point.Visited++;
 
             if(point.Config != null)
-                SceneTransition.Data.Add(point.SceneToLoad.ResourcePath, point.Config);
+                SceneTransition.Data.Add(point.SceneToLoad.ResourcePath, point.Config.Duplicate());
 
             if(point.SceneToLoad != null){
                 SceneTransition.Instance.ChangeScene(point.SceneToLoad);
