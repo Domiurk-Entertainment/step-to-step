@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c3745i6iabcxo"]
+[gd_scene load_steps=40 format=3 uid="uid://c3745i6iabcxo"]
 
 [ext_resource type="Script" path="res://scripts/levels/CaveMap.cs" id="1_l1e6v"]
 [ext_resource type="Script" path="res://scripts/points/PointsService.cs" id="1_pqqoo"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/white_circle.png" id="12_30pgs"]
 [ext_resource type="Texture2D" uid="uid://cwfqk0vtqa4g5" path="res://sprites/player_run.png" id="15_cajgf"]
 [ext_resource type="AudioStream" uid="uid://bm0iiuexlmvmd" path="res://sounds/walk.mp3" id="16_3boqe"]
+[ext_resource type="AudioStream" uid="uid://cdtba75mepgsr" path="res://sounds/Pixel Music Pack/Wav/Pixel 10.wav" id="19_cundv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6pai"]
 texture = ExtResource("2_ort48")
@@ -761,3 +762,7 @@ texture_scale = 0.01
 [node name="Walk" type="AudioStreamPlayer" parent="PlayerMenu"]
 unique_name_in_owner = true
 stream = ExtResource("16_3boqe")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_cundv")
+autoplay = true

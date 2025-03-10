@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/Modal.cs" id="2_6g6rv"]
 [ext_resource type="Texture2D" uid="uid://dslaqll0yjmml" path="res://sprites/ui.png" id="2_q7gma"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/minimal_pixelv2.ttf" id="3_ow8nw"]
-[ext_resource type="Texture2D" path="res://sprites/ui_pause.tres" id="5_4lqln"]
+[ext_resource type="Texture2D" uid="uid://gmdoa0rrucpv" path="res://sprites/ui_pause.tres" id="5_4lqln"]
 [ext_resource type="Texture2D" uid="uid://bkn15av8my80s" path="res://sprites/cave_ui_button.png" id="5_dt8iw"]
 [ext_resource type="Texture2D" uid="uid://dnjxmb3w8e2m4" path="res://sprites/cave_ui_button_pause.png" id="5_kg5oo"]
 [ext_resource type="Shader" path="res://scripts/utilities/blur.gdshader" id="6_1bs1f"]
@@ -237,6 +237,7 @@ texture = ExtResource("5_4lqln")
 
 [node name="PausePanel" type="Panel" parent="."]
 visible = false
+light_mask = 2
 material = SubResource("ShaderMaterial_2m38e")
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 1
@@ -245,7 +246,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 
 [node name="Container" type="VBoxContainer" parent="PausePanel"]
 custom_minimum_size = Vector2(100, 50)

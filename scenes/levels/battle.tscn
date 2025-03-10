@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://pttfbhrqycix"]
+[gd_scene load_steps=12 format=3 uid="uid://pttfbhrqycix"]
 
 [ext_resource type="Script" path="res://scripts/levels/Battle.cs" id="1_ri0lh"]
 [ext_resource type="PackedScene" uid="uid://dwvhlj2ouj5t6" path="res://scenes/location/location_cave.tscn" id="2_byhvl"]
@@ -7,9 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bkn15av8my80s" path="res://sprites/cave_ui_button.png" id="3_4qm51"]
 [ext_resource type="Texture2D" uid="uid://dagjp57mc74my" path="res://sprites/cave_ui_button_small.png" id="3_834lr"]
 [ext_resource type="Script" path="res://scripts/roma/Camera2D.gd" id="7_3nq8h"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqc74"]
-size = Vector2(780, 250)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yfhp6"]
 texture = ExtResource("3_4qm51")
@@ -42,16 +39,6 @@ _camera = NodePath("Camera2D")
 visible = false
 energy = 0.12
 blend_mode = 1
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(380, 115)
-shape = SubResource("RectangleShape2D_qqc74")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(380, 714)
-shape = SubResource("RectangleShape2D_qqc74")
 
 [node name="PlayerSpawnPoint" type="Node2D" parent="."]
 z_index = 10
