@@ -19,7 +19,7 @@ public partial class Projectile : Area2D
 
     private void OnBodyEntered(Node2D body)
     {
-        GD.Print($"{body.Name}");
+        GD.Print(body.Name);
         if(body is not IHealth health)
             return;
         health.TakeDamage(this, _damage);

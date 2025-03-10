@@ -262,13 +262,12 @@ animations = [{
 radius = 77.0
 height = 204.0
 
-[node name="BossCave" type="StaticBody2D" node_paths=PackedStringArray("_animatedSprite", "_pointToShoot", "_rayCast2D")]
+[node name="BossCave" type="StaticBody2D" node_paths=PackedStringArray("_animatedSprite", "_pointToShoot", "_health")]
 script = ExtResource("1_82im3")
 _animatedSprite = NodePath("Visual")
 _pointToShoot = NodePath("PointToShoot")
 _projectile = ExtResource("2_ljr11")
-_attackRange = 40.0
-_rayCast2D = NodePath("RayCast2D")
+_health = NodePath("Health")
 
 [node name="Health" type="ProgressBar" parent="."]
 unique_name_in_owner = true
@@ -282,8 +281,8 @@ rotation = -0.00068116
 mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_5hgpm")
 theme_override_styles/fill = SubResource("StyleBoxFlat_4qbn2")
-max_value = 10.0
-value = 10.0
+max_value = 75.0
+value = 75.0
 show_percentage = false
 script = ExtResource("4_mqro5")
 _length = 30.0
@@ -295,10 +294,8 @@ z_index = 10
 position = Vector2(41, -129)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_3rqrh")
-animation = &"attack"
+animation = &"idle"
 autoplay = "idle"
-frame = 6
-frame_progress = 0.670631
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(44, -74)
@@ -322,4 +319,6 @@ stream = ExtResource("7_gngag")
 z_index = 30
 position = Vector2(-99, -69)
 
+[connection signal="Dead" from="." to="Death" method="play"]
+[connection signal="Hit" from="." to="Hit" method="play"]
 [connection signal="Hit" from="." to="Visual" method="play" binds= ["hit"]]

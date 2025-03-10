@@ -48,16 +48,16 @@ _sceneToPlay = "res://scenes/levels/map_cave.tscn"
 [node name="SoundService" type="Node" parent="."]
 script = ExtResource("2_sit7n")
 
-[node name="Music" type="AudioStreamPlayer" parent="SoundService"]
-stream = ExtResource("8_i8ai4")
-volume_db = -5.0
-autoplay = true
-
 [node name="Hover" type="AudioStreamPlayer" parent="SoundService"]
 stream = ExtResource("3_osdno")
 volume_db = 8.418
 
 [node name="Click" type="AudioStreamPlayer" parent="SoundService"]
+
+[node name="Music" type="AudioStreamPlayer" parent="SoundService"]
+stream = ExtResource("8_i8ai4")
+volume_db = -5.0
+autoplay = true
 
 [node name="PixelMainMenu" type="Sprite2D" parent="."]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
@@ -349,7 +349,7 @@ theme_override_styles/normal = SubResource("StyleBoxLine_jpsty")
 text = "X"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control/SettingsMenu"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -363,6 +363,7 @@ horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 
 [node name="PanelContainer" type="PanelContainer" parent="Control/SettingsMenu/ScrollContainer"]
+custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -376,9 +377,6 @@ text = "Це ще поки не налаштування, але будуть н
 label_settings = SubResource("LabelSettings_06xtx")
 horizontal_alignment = 1
 autowrap_mode = 2
-
-[node name="SoundService2" type="Node" parent="."]
-script = ExtResource("2_sit7n")
 
 [connection signal="button_up" from="Control/Settings" to="Control/SettingsMenu" method="show"]
 [connection signal="pressed" from="Control/VBoxContainer/Play" to="." method="Start"]

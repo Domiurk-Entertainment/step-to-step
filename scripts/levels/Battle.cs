@@ -32,6 +32,7 @@ namespace StepToStep.Battle
 			_player = config.PlayerPackedScene.Instantiate<Player>();
 			_enemy = config.EnemiesPackedScene.Instantiate<Enemy>();
 
+			_player.Hit += PlayerOnHit;
 			_player.AttackedStep += PlayerOnAttackedStep;
 			_player.Dead += PlayerOnDead;
 			_enemy.AttackedStep += EnemyOnAttackedStep;
@@ -47,6 +48,13 @@ namespace StepToStep.Battle
 			_enemy.GlobalPosition = _enemySpawnPoint.GlobalPosition;
 			_enemy.InitialTarget(_player.GlobalPosition);
 			UserInterfaceSystem.Instance.ShowPauseButton();
+			return;
+
+			void PlayerOnHit()
+			{
+				_camera.Call("start_shake");
+			}
+
 		}
 
 		public override void _ExitTree()

@@ -33,25 +33,32 @@ public partial class Enemy : Node2D, IHealth
 
         _health.ChangedValue += HealthOnChangedValue;
         _health.DecreasedValue += DecreasedValue;
-        _animatedSprite.SpriteFramesChanged += AnimatedSpriteOnSpriteFramesChanged;
+        _animatedSprite.FrameChanged += AnimatedSpriteOnSpriteFramesChanged;
+        _animatedSprite.AnimationFinished += AnimatedSpriteOnAnimationFinished;
         return;
 
         void DecreasedValue()
             => EmitSignal(SignalName.Hit);
     }
 
-    private string attackAnimationName = "attack";
+    private void AnimatedSpriteOnAnimationFinished()
+    {
+        if(_animatedSprite.GetAnimation() != _attackAnimationName)
+            return;
+        AttackedStep?.Invoke(AttackType.End);
+        _animatedSprite.Play("idle");
+    }
+
+    private string _attackAnimationName = "attack";
 
     private void AnimatedSpriteOnSpriteFramesChanged()
     {
-        if(_animatedSprite.GetAnimation() != attackAnimationName || _animatedSprite.Frame != 2)
+        if(_animatedSprite.GetAnimation() != _attackAnimationName || _animatedSprite.Frame != 2)
             return;
-        GD.Print("Attacked");
-
         Attacked();
     }
 
-    public virtual void InitialTarget(Vector2 targetPosition)
+    public void InitialTarget(Vector2 targetPosition)
     {
         if(_steps != null && _steps.Length < _stepCount)
             return;
@@ -79,8 +86,6 @@ public partial class Enemy : Node2D, IHealth
         AttackedStep?.Invoke(AttackType.Start);
 
         MoveTo(_steps[_currentStep]);
-
-        return;
     }
 
     protected void MoveTo(Vector2 toPosition)
@@ -102,8 +107,7 @@ public partial class Enemy : Node2D, IHealth
                 return;
             }
 
-            _animatedSprite.Play(attackAnimationName);
-            // AttackedStep?.Invoke(AttackType.End);
+            _animatedSprite.Play(_attackAnimationName);
         }
     }
 
@@ -115,7 +119,6 @@ public partial class Enemy : Node2D, IHealth
         AttackedStep?.Invoke(AttackType.Attacked);
         health.TakeDamage(this, Damage);
         MoveTo(_steps[_currentStep = 0]);
-        AttackedStep?.Invoke(AttackType.End);
     }
 
     public void TakeDamage(Node sender, float damage)
@@ -123,6 +126,7 @@ public partial class Enemy : Node2D, IHealth
         if(damage <= 0)
             return;
         _health.Subtract(sender, damage);
+        _animatedSprite.Play("hit");
     }
 
     private void HealthOnChangedValue(float newValue)

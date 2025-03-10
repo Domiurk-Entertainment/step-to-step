@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://2eol4dtbmydh"]
+[gd_scene load_steps=10 format=3 uid="uid://2eol4dtbmydh"]
 
 [ext_resource type="Script" path="res://scripts/levels/BattleBossCave.cs" id="1_7ixti"]
 [ext_resource type="PackedScene" uid="uid://dwvhlj2ouj5t6" path="res://scenes/location/location_cave.tscn" id="2_jmpef"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/minimal_pixelv2.ttf" id="3_l7be1"]
 [ext_resource type="Texture2D" uid="uid://dagjp57mc74my" path="res://sprites/cave_ui_button_small.png" id="5_uh50q"]
 [ext_resource type="PackedScene" uid="uid://c4nbdoxbpqjuh" path="res://scenes/ui_interface/inventory.tscn" id="6_cppyu"]
+[ext_resource type="Script" path="res://scripts/roma/Camera2D.gd" id="6_ycab4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gp1qa"]
 texture = ExtResource("5_uh50q")
@@ -19,12 +20,13 @@ content_margin_top = 10.0
 texture = ExtResource("5_uh50q")
 modulate_color = Color(0.68101, 0.68101, 0.68101, 1)
 
-[node name="BattleBossCave" type="Node" node_paths=PackedStringArray("_playerAttackButton", "_playerSpawnPoint", "_enemySpawnPoint", "_inventory")]
+[node name="BattleBossCave" type="Node" node_paths=PackedStringArray("_playerAttackButton", "_playerSpawnPoint", "_enemySpawnPoint", "_inventory", "_camera")]
 script = ExtResource("1_7ixti")
 _playerAttackButton = NodePath("UI/Attack")
 _playerSpawnPoint = NodePath("PlayerSpawnpoint")
 _enemySpawnPoint = NodePath("EnemySpawnpoint")
 _inventory = NodePath("UI/Inventory")
+_camera = NodePath("Camera2D")
 
 [node name="Cave" parent="." instance=ExtResource("2_jmpef")]
 
@@ -111,6 +113,10 @@ offset_top = -0.484009
 offset_right = -62.64
 offset_bottom = -228.51
 scale = Vector2(3.31, 3.31)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(352, 499)
+script = ExtResource("6_ycab4")
 
 [connection signal="pressed" from="UI/Attack" to="." method="PlayerAttack"]
 [connection signal="pressed" from="UI/TunOffButton" to="." method="TryRunOff"]

@@ -20,6 +20,7 @@ public partial class BattleBossCave : Node
     private Player _player;
     private BossCave _enemy;
     private bool _isEnd;
+    [Export] private Camera2D _camera;
 
     public override void _Ready()
     {
@@ -28,6 +29,7 @@ public partial class BattleBossCave : Node
         _player = config.PlayerPackedScene.Instantiate<Player>();
         _enemy = config.EnemiesPackedScene.Instantiate<BossCave>();
 
+        _player.Hit += PlayerOnHit;
         _player.AttackedStep += PlayerOnAttackedStep;
         _player.Dead += PlayerOnDead;
         _enemy.AttackedStep += EnemyOnAttackedStep;
@@ -42,6 +44,12 @@ public partial class BattleBossCave : Node
         _enemy.GlobalPosition = _enemySpawnPoint.GlobalPosition;
         _enemy.InitialTarget(_player.GlobalPosition);
         UserInterfaceSystem.Instance.ShowPauseButton();
+        return;
+
+        void PlayerOnHit()
+        {
+            _camera.Call("start_shake");
+        }
     }
 
     public override void _ExitTree()

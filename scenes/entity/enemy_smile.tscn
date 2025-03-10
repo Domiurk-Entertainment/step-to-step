@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c0tod7yw4sold"]
+[gd_scene load_steps=33 format=3 uid="uid://c0tod7yw4sold"]
 
 [ext_resource type="Script" path="res://scripts/entity/Enemy.cs" id="1_g11nf"]
 [ext_resource type="Script" path="res://scripts/stats/Health.cs" id="2_fi316"]
@@ -61,6 +61,26 @@ region = Rect2(0, 64, 42, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_l13kn"]
 atlas = ExtResource("4_hv78v")
 region = Rect2(46, 64, 41, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80jlx"]
+atlas = ExtResource("4_hv78v")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mb8ja"]
+atlas = ExtResource("4_hv78v")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3str"]
+atlas = ExtResource("4_hv78v")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kob63"]
+atlas = ExtResource("4_hv78v")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7l54l"]
+atlas = ExtResource("4_hv78v")
+region = Rect2(0, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_86omx"]
 atlas = ExtResource("4_hv78v")
@@ -128,6 +148,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_80jlx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mb8ja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3str")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kob63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7l54l")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_86omx")
 }, {
 "duration": 1.0,
@@ -166,8 +206,8 @@ rotation = -0.00068116
 mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_4mats")
 theme_override_styles/fill = SubResource("StyleBoxFlat_06usy")
-max_value = 10.0
-value = 10.0
+max_value = 15.0
+value = 15.0
 show_percentage = false
 script = ExtResource("2_fi316")
 _length = 30.0
@@ -208,4 +248,3 @@ stream = ExtResource("7_lkvkk")
 [connection signal="Dead" from="." to="Visual" method="play" binds= ["dead"]]
 [connection signal="Dead" from="." to="Death" method="play" binds= [0.0]]
 [connection signal="Hit" from="." to="Hit" method="play" binds= [0.0]]
-[connection signal="changed" from="Health" to="Hit" method="play" binds= [0.0]]
