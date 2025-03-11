@@ -509,7 +509,7 @@ offset_left = -26.25
 offset_top = -32.75
 offset_right = -2.25
 offset_bottom = -8.75
-_pointsUnlock = [NodePath("../Point4"), NodePath("../Point6")]
+_pointsUnlock = [NodePath("../Point4")]
 
 [node name="Point4" parent="Points" node_paths=PackedStringArray("_pointsUnlock") instance=ExtResource("2_ger5s")]
 offset_left = -7.49275

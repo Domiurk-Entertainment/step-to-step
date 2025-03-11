@@ -1,30 +1,67 @@
-[gd_resource type="Resource" script_class="BattleConfig" load_steps=15 format=3 uid="uid://cryvk742v6glb"]
+[gd_resource type="Resource" script_class="BattleConfig" load_steps=24 format=3 uid="uid://cryvk742v6glb"]
 
 [ext_resource type="PackedScene" uid="uid://d0ruhoogsh74" path="res://scenes/entity/boss_cave.tscn" id="1_y2oo4"]
 [ext_resource type="PackedScene" uid="uid://qxp1xt6p3mcx" path="res://scenes/player.tscn" id="2_faqym"]
 [ext_resource type="Resource" uid="uid://uevbbfoqa5wv" path="res://Demo/balls/ice_ball.tres" id="3_smnaa"]
+[ext_resource type="PackedScene" uid="uid://dd8a6ugycn6di" path="res://scenes/balls/ball_ice.tscn" id="3_voxut"]
+[ext_resource type="Texture2D" uid="uid://csyj57hj33op7" path="res://sprites/ball_ice.png" id="4_j3chh"]
 [ext_resource type="Script" path="res://scripts/inventory/Item.cs" id="4_o7q2b"]
 [ext_resource type="Resource" uid="uid://cap5872uxghgs" path="res://Demo/balls/ball.tres" id="5_l2ltw"]
+[ext_resource type="Script" path="res://scripts/inventory/BallResource.cs" id="5_rhuln"]
 [ext_resource type="Script" path="res://scripts/points/BattleConfig.cs" id="6_nhhaf"]
+[ext_resource type="PackedScene" uid="uid://difadwed472d1" path="res://scenes/balls/ball_base.tscn" id="7_ch8wx"]
+[ext_resource type="Texture2D" uid="uid://c0iblicaaxwue" path="res://sprites/ball.png" id="8_qpnq7"]
+
+[sub_resource type="Resource" id="Resource_d8rpe"]
+script = ExtResource("5_rhuln")
+_damage = 15.0
+PackedScene = ExtResource("3_voxut")
+_id = "Ice Ball"
+_description = "This Ball is freeze enemy"
+_icon = ExtResource("4_j3chh")
 
 [sub_resource type="Resource" id="Resource_t8esq"]
 script = ExtResource("4_o7q2b")
-Resource = ExtResource("3_smnaa")
-Amount = 2
+Resource = SubResource("Resource_d8rpe")
+Amount = 1
+
+[sub_resource type="Resource" id="Resource_tgvp4"]
+script = ExtResource("5_rhuln")
+_damage = 3.0
+PackedScene = ExtResource("7_ch8wx")
+_id = "Ball"
+_description = "This is a base ba"
+_icon = ExtResource("8_qpnq7")
 
 [sub_resource type="Resource" id="Resource_0gusp"]
 script = ExtResource("4_o7q2b")
-Resource = ExtResource("5_l2ltw")
+Resource = SubResource("Resource_tgvp4")
 Amount = 5
+
+[sub_resource type="Resource" id="Resource_g3rtc"]
+script = ExtResource("5_rhuln")
+_damage = 6.0
+PackedScene = ExtResource("7_ch8wx")
+_id = "Ball"
+_description = "This is a base ba"
+_icon = ExtResource("8_qpnq7")
 
 [sub_resource type="Resource" id="Resource_ipy6l"]
 script = ExtResource("4_o7q2b")
-Resource = ExtResource("5_l2ltw")
-Amount = 5
+Resource = SubResource("Resource_g3rtc")
+Amount = 2
+
+[sub_resource type="Resource" id="Resource_1y8uw"]
+script = ExtResource("5_rhuln")
+_damage = 6.0
+PackedScene = ExtResource("3_voxut")
+_id = "Ice Ball"
+_description = "This Ball is freeze enemy"
+_icon = ExtResource("4_j3chh")
 
 [sub_resource type="Resource" id="Resource_vy6qj"]
 script = ExtResource("4_o7q2b")
-Resource = ExtResource("3_smnaa")
+Resource = SubResource("Resource_1y8uw")
 Amount = 1
 
 [sub_resource type="Resource" id="Resource_mvl6x"]
