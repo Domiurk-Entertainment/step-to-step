@@ -10,12 +10,12 @@ config_version=5
 
 [application]
 
-config/name="StepToStep"
+config/name="Step By Step"
 config/name_localized={
 "uk_UA": "Крок за кроком"
 }
 config/version="0.0.1"
-run/main_scene="res://scenes/levels/main_menu.tscn"
+run/main_scene="res://scenes/levels/main_menu_ui.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://sprites/game_icon.png"
 
@@ -29,7 +29,7 @@ UserInterface="*res://scenes/ui_interface/user_interface.tscn"
 
 window/size/viewport_width=700
 window/size/viewport_height=1000
-window/size/initial_position_type=0
+window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 window/handheld/orientation=1
@@ -39,9 +39,17 @@ mouse_cursor/custom_image="res://sprites/kursor.png"
 
 project/assembly_name="StepToStep"
 
+[gui]
+
+theme/custom_font="res://TXT/minimal_pixelv2.ttf"
+
 [import]
 
 enable_blend_file_import=false
+
+[input_devices]
+
+pointing/android/enable_long_press_as_right_click=true
 
 [internationalization]
 
@@ -64,4 +72,5 @@ locale/locale_filter_mode=0
 
 textures/canvas_textures/default_texture_filter=0
 textures/canvas_textures/default_texture_repeat=1
+renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true

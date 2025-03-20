@@ -1,116 +1,137 @@
 using Godot;
 using Godot.Collections;
-using FileAccess = Godot.FileAccess;
+using System;
+using System.IO;
+using Array = Godot.Collections.Array;
 
 namespace StepToStep.Systems;
 
 public partial class SaveSystem : Node
 {
-	public static SaveSystem Instance;
+    public static SaveSystem Instance;
 
-	[Export] private string pathConfig = "user://";
-	[Export] private string fileName = "config.cfg";
-	[Export] private bool canSave = true;
+    [Export] private string pathConfig = "user://";
+    [Export] private string fileName = "config.cfg";
+    [Export] private bool canSave = true;
 
-	public override void _Ready()
-	{
-		if(Instance != null && Instance != this){
-			GD.PrintErr($"{Name} is duplicate. {Instance.Name} is original.");
-			QueueFree();
-			return;
-		}
-		else{
-			Instance = this;
-		}
+    private Dictionary<string, Dictionary<string, Variant>> _dataToSave = new();
 
-		if(!FileAccess.FileExists(GetConfigPath()))
-			new ConfigFile().Save(GetConfigPath());
-	}
+    public override void _Ready()
+    {
+        if(Instance != null && Instance != this){
+            GD.PrintErr($"{Name} is duplicate. {Instance.Name} is original.");
+            QueueFree();
+            return;
+        }
+        else{
+            Instance = this;
+        }
 
-	public void RemoveDataFromKey(TypeConfiguration typeConfiguration, string key)
-	{
-		ConfigFile config = GetConfigFile();
-		ConfigFile newConfig = new ConfigFile();
+        if(_dataToSave.Count == 0)
+            foreach(TypeConfiguration typeConfiguration in Enum.GetValues<TypeConfiguration>())
+                _dataToSave.Add(typeConfiguration.ToString(), new Dictionary<string, Variant>());
 
-		foreach(string section in config.GetSections()){
-			foreach(string sectionKey in config.GetSectionKeys(section)){
-				if(section == typeConfiguration.ToString() && key == sectionKey){
-					continue;
-				}
+        if(!ExistConfig())
+            new ConfigFile().Save(GetFullPath());
+        GD.Print(ExistConfig());
+    }
 
-				Variant data = config.GetValue(section, sectionKey);
-				newConfig.SetValue(section, sectionKey, data);
-			}
-		}
-		newConfig.Save(GetConfigPath());
-	}
-	
-	public void RemoveAllData()
-	{
-		ConfigFile config = GetConfigFile();
-		config.Clear();
-		config.Save(GetConfigPath());
-	}
+    public void RemoveDataFromKey(TypeConfiguration typeConfiguration, string key)
+    {
+        ConfigFile config = GetConfigFile();
+        ConfigFile newConfig = new ConfigFile();
 
-	public void SaveData(TypeConfiguration typeConfiguration, string key, Variant data)
-	{
-		if(!canSave)
-			return;
+        foreach(string section in config.GetSections()){
+            foreach(string sectionKey in config.GetSectionKeys(section)){
+                if(section == typeConfiguration.ToString() && key == sectionKey){
+                    continue;
+                }
 
-		ConfigFile config = GetConfigFile();
-		config.SetValue(typeConfiguration.ToString(), key, data);
-		config.Save(GetConfigPath());
-	}
+                Variant data = config.GetValue(section, sectionKey);
+                newConfig.SetValue(section, sectionKey, data);
+            }
+        }
 
-	public Variant LoadData(TypeConfiguration typeConfiguration, string key, Variant defaultData = new Variant())
-	{
-		ConfigFile config = GetConfigFile();
-		return config.GetValue(typeConfiguration.ToString(), key, defaultData);
-	}
+        newConfig.Save(GetFullPath());
+    }
 
-	public int LoadIntData(TypeConfiguration typeConfiguration, string key, int defaultData = 0)
-		=> LoadData(typeConfiguration, key, defaultData).AsInt32();
+    private bool ExistConfig()
+        => !File.Exists(GetFullPath());
 
-	public string LoadStringData(TypeConfiguration typeConfiguration, string key, string defaultData = "")
-		=> LoadData(typeConfiguration, key, defaultData).AsString();
+    public void RemoveAllData()
+    {
+        ConfigFile config = GetConfigFile();
+        config.Clear();
+        config.Save(GetFullPath());
+    }
 
-	public float LoadFloatData(TypeConfiguration typeConfiguration, string key, float defaultData = 0)
-		=> LoadData(typeConfiguration, key, defaultData).As<float>();
+    public void SaveData(TypeConfiguration typeConfiguration, string key, Variant data)
+    {
+        if(!canSave)
+            return;
 
-	public bool LoadBoolData(TypeConfiguration typeConfiguration, string key, bool defaultData = false)
-		=> LoadData(typeConfiguration, key, defaultData).AsBool();
+        ConfigFile config = GetConfigFile();
+        config.SetValue(typeConfiguration.ToString(), key, data);
+        config.Save(GetFullPath());
+    }
 
-	public Array LoadArrayData(TypeConfiguration typeConfiguration, string key, Array defaultData = default)
-		=> LoadData(typeConfiguration, key, defaultData).AsGodotArray();
+    public Variant LoadData(TypeConfiguration typeConfiguration, string key, Variant defaultData = new Variant())
+    {
+        ConfigFile config = GetConfigFile();
+        return config.GetValue(typeConfiguration.ToString(), key, defaultData);
+    }
 
-	public Dictionary LoadDictionaryData(TypeConfiguration typeConfiguration,
-										 string key,
-										 Dictionary defaultData = default)
-		=> LoadData(typeConfiguration, key, defaultData).AsGodotDictionary();
+    public int LoadIntData(TypeConfiguration typeConfiguration, string key, int defaultData = 0)
+        => LoadData(typeConfiguration, key, defaultData).AsInt32();
 
-	private ConfigFile GetConfigFile()
-	{
-		var result = new ConfigFile();
+    public string LoadStringData(TypeConfiguration typeConfiguration, string key, string defaultData = "")
+        => LoadData(typeConfiguration, key, defaultData).AsString();
 
-		Error error = result.Load(GetConfigPath());
+    public float LoadFloatData(TypeConfiguration typeConfiguration, string key, float defaultData = 0)
+        => LoadData(typeConfiguration, key, defaultData).As<float>();
 
-		if(error == Error.FileNotFound){
-			result.Save(GetConfigPath());
-		}
+    public bool LoadBoolData(TypeConfiguration typeConfiguration, string key, bool defaultData = false)
+        => LoadData(typeConfiguration, key, defaultData).AsBool();
 
-		if(error != Error.Ok){
-			GD.PrintErr(error);
-		}
+    public Array LoadArrayData(TypeConfiguration typeConfiguration, string key, Array defaultData = default)
+        => LoadData(typeConfiguration, key, defaultData).AsGodotArray();
 
-		return result;
-	}
+    public Dictionary LoadDictionaryData(TypeConfiguration typeConfiguration,
+                                         string key,
+                                         Dictionary defaultData = default)
+        => LoadData(typeConfiguration, key, defaultData).AsGodotDictionary();
 
-	private string GetConfigPath() => pathConfig.PathJoin(fileName);
+    private ConfigFile GetConfigFile()
+    {
+        var result = new ConfigFile();
+
+        Error error = result.Load(GetFullPath());
+
+        if(error == Error.FileNotFound){
+            error = result.Save(GetFullPath());
+        }
+
+        if(error != Error.Ok){
+            GD.PrintErr(error);
+        }
+
+        return result;
+    }
+
+    private string GetFullPath()
+    {
+        return Path.Combine(GetFolderPath(), fileName);
+    }
+
+    private string GetFolderPath()
+    {
+        return ProjectSettings.GlobalizePath(pathConfig);
+    }
 }
 
 public enum TypeConfiguration
 {
-	Player,
-	Level,
-	Setting
+    Player,
+    Level,
+    Setting
 }

@@ -33,4 +33,9 @@ public partial class MainMenu : Node
         PackedScene scene = GD.Load<PackedScene>(_sceneToPlay);
         SceneTransition.Instance.ChangeScene(scene);
     }
+
+    public void RemoveSavedData()
+    {
+        SaveSystem.Instance.RemoveAllData();
+    }
 }

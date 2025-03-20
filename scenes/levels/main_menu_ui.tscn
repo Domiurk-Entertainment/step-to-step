@@ -1,81 +1,103 @@
-[gd_scene load_steps=17 format=3 uid="uid://v1bwsg58hh8u"]
+[gd_scene load_steps=17 format=3 uid="uid://cgg3oxwa6v2iu"]
 
-[ext_resource type="Script" path="res://scripts/levels/MainMenu.cs" id="1_2vmud"]
-[ext_resource type="Texture2D" uid="uid://cu4we4jjrtiid" path="res://sprites/cave_main_menu_bg.png" id="2_luoqy"]
-[ext_resource type="Script" path="res://scripts/SoundService.cs" id="2_sit7n"]
-[ext_resource type="AudioStream" uid="uid://3ei5c4shcb46" path="res://sounds/ui_hover.wav" id="3_osdno"]
-[ext_resource type="Texture2D" uid="uid://dnjxmb3w8e2m4" path="res://sprites/cave_ui_button_pause.png" id="3_qp255"]
-[ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="4_6ue5j"]
-[ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/minimal_pixelv2.ttf" id="6_0t0jh"]
-[ext_resource type="Texture2D" uid="uid://cw7fnbcsld1pd" path="res://sprites/ui_settings.png" id="6_5vkfw"]
-[ext_resource type="AudioStream" uid="uid://ccy1cdibnmy84" path="res://sounds/Pixel Music Pack/Wav/Pixel 1.wav" id="8_i8ai4"]
+[ext_resource type="Script" path="res://scripts/levels/MainMenu.cs" id="1_pqpjw"]
+[ext_resource type="Script" path="res://scripts/SoundService.cs" id="2_mmkhw"]
+[ext_resource type="AudioStream" uid="uid://3ei5c4shcb46" path="res://sounds/ui_hover.wav" id="3_3rjk0"]
+[ext_resource type="AudioStream" uid="uid://ccy1cdibnmy84" path="res://sounds/Pixel Music Pack/Wav/Pixel 1.wav" id="4_ugp0h"]
+[ext_resource type="Texture2D" uid="uid://cu4we4jjrtiid" path="res://sprites/cave_main_menu_bg.png" id="5_tl3b4"]
+[ext_resource type="Texture2D" uid="uid://dnjxmb3w8e2m4" path="res://sprites/cave_ui_button_pause.png" id="6_ivhtx"]
+[ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="7_pau42"]
+[ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/minimal_pixelv2.ttf" id="8_c87gw"]
+[ext_resource type="Texture2D" uid="uid://cw7fnbcsld1pd" path="res://sprites/ui_settings.png" id="9_1k3wf"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ar43w"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jm4d8"]
 particles_animation = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="Curve" id="Curve_xxdjp"]
+[sub_resource type="Curve" id="Curve_0wv6h"]
 min_value = -100.0
 max_value = 100.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.194631, 87.7027), 0.0, 0.0, 0, 0, Vector2(0.40604, -98.5135), 0.0, 0.0, 0, 0, Vector2(0.604027, 92.973), 0.0, 0.0, 0, 0, Vector2(0.815436, -100), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 6
 
-[sub_resource type="Curve" id="Curve_gh43t"]
+[sub_resource type="Curve" id="Curve_wvest"]
 min_value = -25.0
 max_value = 25.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.265101, 23.6824), 0.0, 0.0, 0, 0, Vector2(0.536913, -25), -18.6796, -18.6796, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hp82c"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y4yvb"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_n3br3"]
-font = ExtResource("6_0t0jh")
+[sub_resource type="LabelSettings" id="LabelSettings_1kj5h"]
+font = ExtResource("8_c87gw")
 font_size = 36
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_jpsty"]
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ei4sm"]
 color = Color(0.871407, 0.000465136, 0.842068, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_06xtx"]
-font = ExtResource("6_0t0jh")
+[sub_resource type="LabelSettings" id="LabelSettings_jj1hc"]
+font = ExtResource("8_c87gw")
 font_size = 32
 
-[node name="MainMenu" type="Node"]
-script = ExtResource("1_2vmud")
+[node name="MainMenuUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pqpjw")
 _sceneToPlay = "res://scenes/levels/map_cave.tscn"
 
 [node name="SoundService" type="Node" parent="."]
-script = ExtResource("2_sit7n")
+script = ExtResource("2_mmkhw")
 
 [node name="Hover" type="AudioStreamPlayer" parent="SoundService"]
-stream = ExtResource("3_osdno")
+stream = ExtResource("3_3rjk0")
 volume_db = 8.418
 
 [node name="Click" type="AudioStreamPlayer" parent="SoundService"]
 
 [node name="Music" type="AudioStreamPlayer" parent="SoundService"]
-stream = ExtResource("8_i8ai4")
+stream = ExtResource("4_ugp0h")
 volume_db = -5.0
 autoplay = true
 
-[node name="PixelMainMenu" type="Sprite2D" parent="."]
+[node name="PixelMainMenu" type="TextureRect" parent="."]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
 light_mask = 3
 visibility_layer = 3
-position = Vector2(353, 501.172)
-scale = Vector2(7.35417, 6.96072)
-texture = ExtResource("2_luoqy")
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_tl3b4")
+expand_mode = 4
+stretch_mode = 6
 
-[node name="SettingFrame" type="Sprite2D" parent="."]
+[node name="SettingFrame" type="TextureRect" parent="."]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
-position = Vector2(611, 92)
-scale = Vector2(5.65517, 5.5451)
-texture = ExtResource("3_qp255")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.756
+anchor_top = 0.008
+anchor_right = 0.99
+anchor_bottom = 0.185
+offset_left = 7.79999
+offset_top = 13.0
+offset_right = -6.0
+offset_bottom = -14.0
+grow_horizontal = 0
+texture = ExtResource("6_ivhtx")
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
-material = SubResource("CanvasItemMaterial_ar43w")
-position = Vector2(344, 472)
+material = SubResource("CanvasItemMaterial_jm4d8")
+position = Vector2(336, 485)
 amount = 20
 lifetime = 2.0
 randomness = 0.24
@@ -85,12 +107,12 @@ emission_sphere_radius = 50.0
 gravity = Vector2(0, 0)
 initial_velocity_max = 130.0
 angular_velocity_max = 2.0
-orbit_velocity_curve = SubResource("Curve_xxdjp")
+orbit_velocity_curve = SubResource("Curve_0wv6h")
 linear_accel_min = -10.0
 linear_accel_max = 10.0
 radial_accel_min = -25.0
 radial_accel_max = 25.0
-radial_accel_curve = SubResource("Curve_gh43t")
+radial_accel_curve = SubResource("Curve_wvest")
 tangential_accel_min = -50.0
 tangential_accel_max = 50.0
 angle_min = -100.0
@@ -105,140 +127,142 @@ position = Vector2(253, 353)
 [node name="PointLight2D2" type="PointLight2D" parent="Lights"]
 position = Vector2(391, -61)
 energy = 3.88
-texture = ExtResource("4_6ue5j")
+texture = ExtResource("7_pau42")
 texture_scale = 0.2
 
 [node name="PointLight2D3" type="PointLight2D" parent="Lights"]
 position = Vector2(316, 40)
 scale = Vector2(0.699525, 0.652575)
 energy = 3.65
-texture = ExtResource("4_6ue5j")
+texture = ExtResource("7_pau42")
 texture_scale = 0.2
 
 [node name="PointLight2D4" type="PointLight2D" parent="Lights"]
 position = Vector2(394, 29)
 scale = Vector2(0.699525, 0.652575)
 energy = 3.65
-texture = ExtResource("4_6ue5j")
+texture = ExtResource("7_pau42")
 texture_scale = 0.2
 
 [node name="PointLight2D5" type="PointLight2D" parent="Lights"]
 position = Vector2(332, 180)
 scale = Vector2(0.699525, 0.652575)
 energy = 3.65
-texture = ExtResource("4_6ue5j")
+texture = ExtResource("7_pau42")
 texture_scale = 0.2
 
 [node name="PointLight2D6" type="PointLight2D" parent="Lights"]
 position = Vector2(374, 280)
 scale = Vector2(0.699525, 0.652575)
 energy = 3.65
-texture = ExtResource("4_6ue5j")
+texture = ExtResource("7_pau42")
 texture_scale = 0.2
 
 [node name="PointLight2D7" type="PointLight2D" parent="Lights"]
 position = Vector2(301, 317)
 scale = Vector2(0.699525, 0.652575)
 energy = 3.65
-texture = ExtResource("4_6ue5j")
+texture = ExtResource("7_pau42")
 texture_scale = 0.2
 
 [node name="PointLight2D8" type="PointLight2D" parent="Lights"]
 position = Vector2(-61, -42)
 scale = Vector2(0.699525, 0.652575)
 energy = 3.65
-texture = ExtResource("4_6ue5j")
+texture = ExtResource("7_pau42")
 texture_scale = 0.2
 
 [node name="PointLight2D9" type="PointLight2D" parent="Lights"]
 position = Vector2(167, 519)
 scale = Vector2(0.699525, 0.652575)
 energy = 3.65
-texture = ExtResource("4_6ue5j")
+texture = ExtResource("7_pau42")
 texture_scale = 0.2
 
 [node name="PointLight2D10" type="PointLight2D" parent="Lights"]
 position = Vector2(-25, 539)
 scale = Vector2(0.699525, 0.652575)
 energy = 3.65
-texture = ExtResource("4_6ue5j")
+texture = ExtResource("7_pau42")
 texture_scale = 0.2
 
 [node name="PointLight2D11" type="PointLight2D" parent="Lights"]
 position = Vector2(-133, 483)
 scale = Vector2(0.699525, 0.652575)
 energy = 3.65
-texture = ExtResource("4_6ue5j")
+texture = ExtResource("7_pau42")
 texture_scale = 0.2
 
 [node name="PointLight2D13" type="PointLight2D" parent="Lights"]
 position = Vector2(-205, 137)
 scale = Vector2(0.699525, 0.652575)
 energy = 3.65
-texture = ExtResource("4_6ue5j")
+texture = ExtResource("7_pau42")
 texture_scale = 0.2
 
 [node name="PointLight2D14" type="PointLight2D" parent="Lights"]
 position = Vector2(-172, -19)
 scale = Vector2(0.699525, 0.652575)
 energy = 3.65
-texture = ExtResource("4_6ue5j")
+texture = ExtResource("7_pau42")
 texture_scale = 0.2
 
 [node name="PointLight2D15" type="PointLight2D" parent="Lights"]
 position = Vector2(-109, -158)
 scale = Vector2(0.699525, 0.652575)
 energy = 3.65
-texture = ExtResource("4_6ue5j")
+texture = ExtResource("7_pau42")
 texture_scale = 0.2
 
 [node name="PointLight2D16" type="PointLight2D" parent="Lights"]
 position = Vector2(-47, -178)
 scale = Vector2(0.699525, 0.652575)
 energy = 3.65
-texture = ExtResource("4_6ue5j")
+texture = ExtResource("7_pau42")
 texture_scale = 0.2
 
 [node name="PointLight2D17" type="PointLight2D" parent="Lights"]
 position = Vector2(-96, -189)
 scale = Vector2(0.33076, 0.313573)
 energy = 3.65
-texture = ExtResource("4_6ue5j")
+texture = ExtResource("7_pau42")
 texture_scale = 0.2
 
 [node name="PointLight2D18" type="PointLight2D" parent="Lights"]
 position = Vector2(75, -204)
 scale = Vector2(0.596793, 0.466148)
 energy = 3.65
-texture = ExtResource("4_6ue5j")
+texture = ExtResource("7_pau42")
 texture_scale = 0.2
 
 [node name="PointLight2D19" type="PointLight2D" parent="Lights"]
 position = Vector2(75, -280)
 scale = Vector2(0.425772, 0.402575)
 energy = 3.65
-texture = ExtResource("4_6ue5j")
+texture = ExtResource("7_pau42")
 texture_scale = 0.2
 
 [node name="PointLight2D20" type="PointLight2D" parent="Lights"]
 position = Vector2(170, -302)
 scale = Vector2(0.416271, 0.415289)
 energy = 3.65
-texture = ExtResource("4_6ue5j")
+texture = ExtResource("7_pau42")
 texture_scale = 0.2
 
 [node name="PointLight2D21" type="PointLight2D" parent="Lights"]
 position = Vector2(96, 568)
 scale = Vector2(0.416271, 0.415289)
 energy = 3.65
-texture = ExtResource("4_6ue5j")
+texture = ExtResource("7_pau42")
 texture_scale = 0.2
 
 [node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 701.0
-offset_bottom = 1000.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 
 [node name="Settings" type="Button" parent="Control"]
@@ -253,11 +277,11 @@ offset_right = -52.402
 offset_bottom = -25.0
 scale = Vector2(1.3, 1.3)
 focus_mode = 0
-theme_override_fonts/font = ExtResource("6_0t0jh")
+theme_override_fonts/font = ExtResource("8_c87gw")
 theme_override_font_sizes/font_size = 14
 text = "
 "
-icon = ExtResource("6_5vkfw")
+icon = ExtResource("9_1k3wf")
 flat = true
 icon_alignment = 1
 expand_icon = true
@@ -279,9 +303,9 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 focus_mode = 1
-theme_override_fonts/font = ExtResource("6_0t0jh")
+theme_override_fonts/font = ExtResource("8_c87gw")
 theme_override_font_sizes/font_size = 42
-theme_override_styles/focus = SubResource("StyleBoxEmpty_hp82c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y4yvb")
 text = "Play"
 flat = true
 text_overrun_behavior = 2
@@ -290,7 +314,7 @@ text_overrun_behavior = 2
 layout_mode = 2
 size_flags_vertical = 3
 focus_mode = 1
-theme_override_fonts/font = ExtResource("6_0t0jh")
+theme_override_fonts/font = ExtResource("8_c87gw")
 theme_override_font_sizes/font_size = 42
 text = "Continue"
 flat = true
@@ -299,9 +323,9 @@ flat = true
 layout_mode = 2
 size_flags_vertical = 3
 focus_mode = 1
-theme_override_fonts/font = ExtResource("6_0t0jh")
+theme_override_fonts/font = ExtResource("8_c87gw")
 theme_override_font_sizes/font_size = 42
-theme_override_styles/focus = SubResource("StyleBoxEmpty_hp82c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y4yvb")
 text = "Exit"
 flat = true
 text_overrun_behavior = 2
@@ -317,10 +341,10 @@ offset_left = -0.038002
 offset_top = -0.110001
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("6_0t0jh")
+theme_override_fonts/font = ExtResource("8_c87gw")
 theme_override_font_sizes/font_size = 7
 text = "Demo v 0.1"
-label_settings = SubResource("LabelSettings_n3br3")
+label_settings = SubResource("LabelSettings_1kj5h")
 horizontal_alignment = 2
 vertical_alignment = 2
 
@@ -345,7 +369,7 @@ offset_top = 1.0
 offset_right = 596.0
 offset_bottom = 57.0
 theme_override_font_sizes/font_size = 37
-theme_override_styles/normal = SubResource("StyleBoxLine_jpsty")
+theme_override_styles/normal = SubResource("StyleBoxLine_ei4sm")
 text = "X"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control/SettingsMenu"]
@@ -362,7 +386,7 @@ grow_vertical = 2
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="Control/SettingsMenu/ScrollContainer"]
+[node name="PanelContainer" type="VBoxContainer" parent="Control/SettingsMenu/ScrollContainer"]
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -374,12 +398,9 @@ layout_mode = 2
 size_flags_vertical = 1
 text = "Це ще поки не налаштування, але будуть ними в наступному оновленні так як і багато інших нових функцій.
  "
-label_settings = SubResource("LabelSettings_06xtx")
+label_settings = SubResource("LabelSettings_jj1hc")
 horizontal_alignment = 1
 autowrap_mode = 2
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(353, 501)
 
 [connection signal="button_up" from="Control/Settings" to="Control/SettingsMenu" method="show"]
 [connection signal="pressed" from="Control/VBoxContainer/Play" to="." method="Start"]

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/Modal.cs" id="2_6g6rv"]
 [ext_resource type="Texture2D" uid="uid://dslaqll0yjmml" path="res://sprites/ui.png" id="2_q7gma"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/minimal_pixelv2.ttf" id="3_ow8nw"]
-[ext_resource type="Texture2D" path="res://sprites/ui_pause.tres" id="5_4lqln"]
+[ext_resource type="Texture2D" uid="uid://gmdoa0rrucpv" path="res://sprites/ui_pause.tres" id="5_4lqln"]
 [ext_resource type="Texture2D" uid="uid://bkn15av8my80s" path="res://sprites/cave_ui_button.png" id="5_dt8iw"]
 [ext_resource type="Texture2D" uid="uid://dnjxmb3w8e2m4" path="res://sprites/cave_ui_button_pause.png" id="5_kg5oo"]
 [ext_resource type="Shader" path="res://scripts/utilities/blur.gdshader" id="6_1bs1f"]
@@ -111,18 +111,8 @@ modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
 texture = ExtResource("5_dt8iw")
 modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
 
-[node name="UserInterface" type="Control" node_paths=PackedStringArray("Modal", "_pausePanel", "_pauseButton")]
-z_index = 50
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -2.0
-offset_top = -3.0
-offset_right = -2.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="UserInterface" type="CanvasLayer" node_paths=PackedStringArray("Modal", "_pausePanel", "_pauseButton")]
+layer = 10
 script = ExtResource("1_bok0e")
 Modal = NodePath("Modal")
 _pausePanel = NodePath("PausePanel")
@@ -130,9 +120,10 @@ _pauseButton = NodePath("PauseButton")
 
 [node name="Modal" type="PanelContainer" parent="." node_paths=PackedStringArray("_title", "_content", "_actionButtonOne", "_actionButtonTwo")]
 visible = false
+visibility_layer = 529
+z_index = 10
 custom_minimum_size = Vector2(400, 150)
 layout_direction = 1
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -211,7 +202,6 @@ text = "Action 2"
 [node name="PauseButton" type="Button" parent="."]
 visible = false
 modulate = Color(0.718381, 0.718381, 0.718381, 1)
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.779
 anchor_right = 1.014
@@ -246,7 +236,6 @@ visible = false
 light_mask = 2
 material = SubResource("ShaderMaterial_2m38e")
 custom_minimum_size = Vector2(100, 50)
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

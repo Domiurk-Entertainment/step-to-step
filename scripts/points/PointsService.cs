@@ -60,6 +60,7 @@ public partial class PointsService : Node
         int index = SaveSystem.Instance.LoadIntData(_saveConfigurationType, GetKey(), 0);
         _currentPoint = _points[index];
         _currentPoint.Visited = SaveSystem.Instance.LoadIntData(_saveConfigurationType, GetKey(_currentPoint.Name), 0);
+        ActivateClickedPoint(_currentPoint);
     }
 
     public override void _ExitTree()

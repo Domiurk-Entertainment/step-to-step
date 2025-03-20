@@ -4,7 +4,7 @@ using StepToStep.Utils;
 
 namespace StepToStep.Systems
 {
-    public partial class UserInterfaceSystem : Control
+    public partial class UserInterfaceSystem : CanvasLayer
     {
         public static UserInterfaceSystem Instance;
 
