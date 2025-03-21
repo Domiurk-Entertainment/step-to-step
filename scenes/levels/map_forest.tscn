@@ -1,0 +1,261 @@
+[gd_scene load_steps=12 format=3 uid="uid://wiome6sv5leg"]
+
+[ext_resource type="Texture2D" uid="uid://bfdu30qcxdvj5" path="res://sprites/cave_tilemap.png" id="1_oleof"]
+[ext_resource type="Texture2D" uid="uid://d2sv57fy7w2xv" path="res://sprites/tilemap_green_location.png" id="2_an8pw"]
+[ext_resource type="Texture2D" uid="uid://cpd86ba5txyk0" path="res://sprites/forest_fg.png" id="3_8od5g"]
+[ext_resource type="Script" path="res://scripts/points/PointsService.cs" id="4_wy6r0"]
+[ext_resource type="PackedScene" uid="uid://bste1dma5c0dp" path="res://scenes/entity/point.tscn" id="5_7siim"]
+[ext_resource type="Texture2D" uid="uid://i4pdd3uytna8" path="res://sprites/forest_point.png" id="5_uugfc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rumpe"]
+texture = ExtResource("1_oleof")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6be6m"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4owoy"]
+texture = SubResource("CompressedTexture2D_6be6m")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ij8io"]
+texture = ExtResource("2_an8pw")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_cp8kg"]
+sources/0 = SubResource("TileSetAtlasSource_rumpe")
+sources/1 = SubResource("TileSetAtlasSource_4owoy")
+sources/2 = SubResource("TileSetAtlasSource_ij8io")
+
+[node name="map_forest" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(98, 564)
+rotation = 0.0033744
+scale = Vector2(4, 4)
+tile_set = SubResource("TileSet_cp8kg")
+format = 2
+layer_0/tile_data = PackedInt32Array(-262145, 262146, 3, -196609, 131074, 0, -131073, 131074, 0, -65537, 2, 0, -1, 65538, 0, 65535, 131074, 0, 131071, 131074, 0, 196607, 131074, 0, 262143, 131074, 0, -327680, 2, 3, -262144, 196610, 3, -196608, 65538, 0, -131072, 131074, 0, -65536, 65538, 0, 0, 131074, 0, 65536, 65538, 0, 131072, 196610, 1, 196608, 196610, 2, -327679, 65538, 2, -262143, 262146, 3, -196607, 131074, 0, -131071, 196610, 1, 65537, 196610, 1, 131073, 2, 1, 196609, 65538, 2, -327678, 131074, 1, -262142, 2, 3, -196606, 196610, 2, -131070, 2, 1, 65538, 2, 1, 131074, 131074, 3, 196610, 327682, 2, -327677, 327682, 1, -262141, 131074, 1, -196605, 65538, 2, -131069, 131074, 3, -65533, 327682, 2, 3, 131074, 1, 65539, 65538, 2, 131075, 262146, 3, 196611, 131074, 0, -327676, 196610, 1, -262140, 2, 1, -196604, 65538, 2, -131068, 2, 3, -65532, 196610, 2, 4, 2, 1, 65540, 65538, 2, 131076, 262146, 3, 196612, 2, 0, -327675, 2, 1, -262139, 131074, 3, -196603, 327682, 2, -131067, 131074, 1, -65531, 65538, 2, 5, 131074, 3, 65541, 131074, 1, 131077, 2, 3, 196613, 196610, 2, -327674, 65538, 2, -262138, 262146, 3, -196602, 131074, 0, -131066, 327682, 1, -65530, 327682, 2, 6, 327682, 3, 65542, 327682, 1, 131078, 131074, 1, 196614, 65538, 2, -327673, 131074, 3, -262137, 327682, 3, -65529, 131074, 0, 7, 65538, 0, 65543, 2, 0, 196615, 327682, 2, -327672, 262146, 3, -262136, 131074, 0, -196600, 131074, 0, 8, 65538, 0, 65544, 131074, 0, 131080, 131074, 0, 196616, 131074, 0, 2, 2, 3, 1, 196610, 3, -65535, 196610, 2, -65534, 65538, 2, 131079, 327682, 1, -65528, 2, 0, -131064, 2, 0, -131065, 131074, 0, -196601, 65538, 0, -524289, 131074, 0, -458753, 131074, 0, -393217, 262146, 1, -327681, 65538, 2, -589824, 131074, 0, -524288, 196610, 1, -458752, 2, 1, -393216, 65538, 2, -589823, 131074, 0, -524287, 262146, 1, -458751, 131074, 3, -393215, 131074, 1, -589822, 196610, 1, -524286, 2, 1, -458750, 262146, 3, -393214, 327682, 1, -589821, 262146, 1, -524285, 65538, 2, -458749, 262146, 3, -393213, 2, 0, -589820, 262146, 1, -524284, 65538, 2, -458748, 262146, 3, -589819, 327682, 1, -524283, 131074, 1, -458747, 262146, 3, -589818, 131074, 0, -524282, 262146, 1, -458746, 2, 3, -589817, 131074, 0, -524281, 327682, 1, -458745, 131074, 1, -393209, 262146, 2, -589816, 131074, 0, -524280, 2, 0, -458744, 262146, 1, -393208, 65538, 2, 327679, 131074, 0, 262144, 196610, 3, 262145, 2, 3, 262146, 131074, 1, 262147, 262146, 1, 262148, 262146, 1, 262149, 2, 1, 262150, 131074, 3, 262151, 327682, 3, 262152, 2, 0, -524290, 131074, 0, -458754, 131074, 0, -393218, 196610, 1, -327682, 196610, 2, -262146, 196610, 3, -196610, 131074, 0, -131074, 131074, 0, -65538, 131074, 0, -2, 131074, 0, 65534, 131074, 0, 131070, 131074, 0, 196606, 131074, 0, 262142, 131074, 0, 327678, 131074, 0, -589815, 131074, 0, -524279, 131074, 0, -458743, 131074, 0, -393207, 131074, 0, -327671, 131074, 0, -262135, 131074, 0, -196599, 131074, 0, -131063, 131074, 0, -65527, 131074, 0, 9, 131074, 0, 65545, 131074, 0, 131081, 131074, 0, 196617, 131074, 0, 262153, 131074, 0, 393214, 131074, 0, 393215, 65538, 0, 327680, 131074, 0, 327681, 196610, 3, 327682, 2, 3, 327683, 65538, 2, 327684, 65538, 2, 327685, 131074, 3, 327686, 327682, 3, 327687, 65538, 0, 327688, 131074, 0, 327689, 131074, 0, 458750, 131074, 0, 458751, 131074, 0, 393216, 131074, 0, 393217, 131074, 0, 393218, 196610, 3, 393219, 262146, 3, 393220, 262146, 3, 393221, 327682, 3, 393222, 131074, 0, 393223, 131074, 0, 393224, 131074, 0, 393225, 131074, 0, -393212, 131074, 0, -393211, 131074, 0, -393210, 2, 1)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(9.18723, -13.68)
+scale = Vector2(4, 4)
+
+[node name="ForestFg" type="Sprite2D" parent="Node2D"]
+position = Vector2(44.2032, 247.67)
+texture = ExtResource("3_8od5g")
+
+[node name="ForestFg2" type="Sprite2D" parent="Node2D"]
+position = Vector2(133.203, 247.42)
+texture = ExtResource("3_8od5g")
+flip_h = true
+
+[node name="ForestFg6" type="Sprite2D" parent="Node2D"]
+position = Vector2(52.2032, 9.17)
+texture = ExtResource("3_8od5g")
+flip_v = true
+
+[node name="ForestFg7" type="Sprite2D" parent="Node2D"]
+position = Vector2(141.203, 8.92)
+texture = ExtResource("3_8od5g")
+flip_h = true
+flip_v = true
+
+[node name="ForestFg3" type="Sprite2D" parent="Node2D"]
+position = Vector2(2.95319, 196.17)
+rotation = 1.5708
+texture = ExtResource("3_8od5g")
+flip_h = true
+
+[node name="ForestFg4" type="Sprite2D" parent="Node2D"]
+position = Vector2(2.95319, 93.67)
+rotation = 1.5708
+texture = ExtResource("3_8od5g")
+flip_h = true
+
+[node name="ForestFg5" type="Sprite2D" parent="Node2D"]
+position = Vector2(2.95319, -0.0800018)
+rotation = 1.5708
+texture = ExtResource("3_8od5g")
+flip_h = true
+
+[node name="ForestFg8" type="Sprite2D" parent="Node2D"]
+position = Vector2(167.203, 200.67)
+rotation = 1.5708
+texture = ExtResource("3_8od5g")
+flip_h = true
+flip_v = true
+
+[node name="ForestFg9" type="Sprite2D" parent="Node2D"]
+position = Vector2(167.203, 98.17)
+rotation = 1.5708
+texture = ExtResource("3_8od5g")
+flip_h = true
+flip_v = true
+
+[node name="ForestFg10" type="Sprite2D" parent="Node2D"]
+position = Vector2(167.203, 4.42)
+rotation = 1.5708
+texture = ExtResource("3_8od5g")
+flip_h = true
+flip_v = true
+
+[node name="Points" type="Node2D" parent="."]
+position = Vector2(310, 741)
+scale = Vector2(4, 4)
+script = ExtResource("4_wy6r0")
+
+[node name="Point" parent="Points" node_paths=PackedStringArray("_pointsUnlock") instance=ExtResource("5_7siim")]
+offset_left = -7.25
+offset_top = 30.75
+offset_right = 28.75
+offset_bottom = 54.75
+icon = ExtResource("5_uugfc")
+_pointsUnlock = [null, null]
+
+[node name="Point2" parent="Points" node_paths=PackedStringArray("_pointsUnlock") instance=ExtResource("5_7siim")]
+offset_left = 38.25
+offset_top = 0.25
+offset_right = 62.25
+offset_bottom = 24.25
+icon = ExtResource("5_uugfc")
+_pointsUnlock = [null]
+
+[node name="Point3" parent="Points" node_paths=PackedStringArray("_pointsUnlock") instance=ExtResource("5_7siim")]
+offset_left = -41.2428
+offset_top = -1.33
+offset_right = -17.2428
+offset_bottom = 22.67
+icon = ExtResource("5_uugfc")
+_pointsUnlock = [null]
+
+[node name="Point4" parent="Points" node_paths=PackedStringArray("_pointsUnlock") instance=ExtResource("5_7siim")]
+offset_left = -5.99275
+offset_top = -33.33
+offset_right = 30.0072
+offset_bottom = -9.33
+icon = ExtResource("5_uugfc")
+_pointsUnlock = [null, null]
+
+[node name="Point5" parent="Points" node_paths=PackedStringArray("_pointsUnlock") instance=ExtResource("5_7siim")]
+offset_left = 23.0
+offset_top = -63.25
+offset_right = 47.0
+offset_bottom = -39.25
+pivot_offset = Vector2(13.25, 12)
+icon = ExtResource("5_uugfc")
+_pointsUnlock = [null]
+
+[node name="Point6" parent="Points" node_paths=PackedStringArray("_pointsUnlock") instance=ExtResource("5_7siim")]
+offset_left = -23.75
+offset_top = -62.75
+offset_right = 0.25
+offset_bottom = -38.75
+pivot_offset = Vector2(11.5, 12)
+icon = ExtResource("5_uugfc")
+_pointsUnlock = [null]
+
+[node name="Point7" parent="Points" instance=ExtResource("5_7siim")]
+offset_left = -0.742752
+offset_top = -96.33
+offset_right = 23.2572
+offset_bottom = -72.33
+pivot_offset = Vector2(11.25, 12)
+icon = ExtResource("5_uugfc")
+
+[node name="Point8" parent="Points" instance=ExtResource("5_7siim")]
+offset_left = 39.25
+offset_top = -127.5
+offset_right = 63.25
+offset_bottom = -103.5
+pivot_offset = Vector2(11.25, 12)
+icon = ExtResource("5_uugfc")
+
+[node name="Point9" parent="Points" instance=ExtResource("5_7siim")]
+offset_left = 69.25
+offset_top = -145.5
+offset_right = 93.25
+offset_bottom = -121.5
+pivot_offset = Vector2(11.25, 12)
+icon = ExtResource("5_uugfc")
+
+[node name="Point10" parent="Points" instance=ExtResource("5_7siim")]
+offset_left = -1.5
+offset_top = -177.25
+offset_right = 22.5
+offset_bottom = -153.25
+pivot_offset = Vector2(11.25, 12)
+icon = ExtResource("5_uugfc")
+
+[node name="Point11" parent="Points" instance=ExtResource("5_7siim")]
+offset_left = -71.75
+offset_top = -144.0
+offset_right = -47.75
+offset_bottom = -120.0
+pivot_offset = Vector2(11.25, 12)
+icon = ExtResource("5_uugfc")
+
+[node name="Point12" parent="Points" instance=ExtResource("5_7siim")]
+offset_left = -40.7428
+offset_top = -126.83
+offset_right = -16.7428
+offset_bottom = -102.83
+pivot_offset = Vector2(11.25, 12)
+icon = ExtResource("5_uugfc")
