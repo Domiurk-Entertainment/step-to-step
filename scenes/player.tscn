@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://qxp1xt6p3mcx"]
+[gd_scene load_steps=23 format=3 uid="uid://qxp1xt6p3mcx"]
 
+[ext_resource type="Shader" path="res://shader_outline.gdshader" id="1_0gmvj"]
 [ext_resource type="Script" path="res://scripts/entity/Player.cs" id="1_8sdka"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/white_circle.png" id="2_g178e"]
 [ext_resource type="Script" path="res://scripts/inventory/Inventory.cs" id="2_u13nr"]
@@ -11,50 +12,56 @@
 [ext_resource type="Script" path="res://scripts/stats/Stat.cs" id="8_6j1gn"]
 [ext_resource type="PackedScene" uid="uid://bwixc66257oaw" path="res://scenes/entity/sight.tscn" id="10_8va8p"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pw5i8"]
-atlas = ExtResource("2_v4bmy")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_15st8"]
+shader = ExtResource("1_0gmvj")
+shader_parameter/outline_color = Vector4(1, 1, 1, 1)
+shader_parameter/outline_width = 1.0
+shader_parameter/alpha_threshold = 0.5
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1t4ej"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1rpb"]
 atlas = ExtResource("2_v4bmy")
-region = Rect2(16, 0, 16, 16)
+region = Rect2(0, 0, 15, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7knyj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xocb1"]
 atlas = ExtResource("2_v4bmy")
-region = Rect2(32, 0, 16, 16)
+region = Rect2(16, 0, 15, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3c8nc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mlto"]
 atlas = ExtResource("2_v4bmy")
-region = Rect2(48, 0, 16, 16)
+region = Rect2(32, 0, 15, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gc6eg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpyg3"]
 atlas = ExtResource("2_v4bmy")
-region = Rect2(64, 0, 16, 16)
+region = Rect2(48, 0, 15, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7ygbr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx6o2"]
 atlas = ExtResource("2_v4bmy")
-region = Rect2(80, 0, 16, 16)
+region = Rect2(64, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvglu"]
+atlas = ExtResource("2_v4bmy")
+region = Rect2(80, 0, 15, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1jh8v"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pw5i8")
+"texture": SubResource("AtlasTexture_k1rpb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1t4ej")
+"texture": SubResource("AtlasTexture_xocb1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7knyj")
+"texture": SubResource("AtlasTexture_7mlto")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3c8nc")
+"texture": SubResource("AtlasTexture_dpyg3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gc6eg")
+"texture": SubResource("AtlasTexture_kx6o2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7ygbr")
+"texture": SubResource("AtlasTexture_nvglu")
 }],
 "loop": true,
 "name": &"idle",
@@ -85,13 +92,14 @@ _force = 400.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
+material = SubResource("ShaderMaterial_15st8")
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_1jh8v")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.78823
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
-visible = false
 light_mask = 2
 position = Vector2(0.5, 2.25)
 scale = Vector2(1.36, 1.36)
@@ -99,7 +107,6 @@ color = Color(1, 0.94902, 0.298039, 1)
 texture = ExtResource("2_g178e")
 
 [node name="PointLight2D2" type="PointLight2D" parent="AnimatedSprite2D"]
-visible = false
 light_mask = 2
 position = Vector2(-5.5, 4.5)
 scale = Vector2(1.69893, 1.68039)
@@ -125,24 +132,6 @@ script = ExtResource("3_p1h7q")
 _font = ExtResource("4_3aiy8")
 _fontSize = 7
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
-position = Vector2(-2.38419e-07, -3)
-scale = Vector2(1.43, 1.36)
-color = Color(1, 0.945098, 0.419608, 1)
-texture = ExtResource("2_g178e")
-
-[node name="PointLight2D2" type="PointLight2D" parent="."]
-visible = false
-light_mask = 7
-visibility_layer = 7
-position = Vector2(-5, 4)
-scale = Vector2(1.69893, 1.68039)
-color = Color(1, 1, 0.243137, 1)
-energy = 4.59
-texture = ExtResource("4_vrrox")
-texture_scale = 0.01
-
 [node name="Stats" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("7_q77xg")
@@ -164,6 +153,7 @@ scale = Vector2(0.86, 0.86)
 duration = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(1, -8)
 shape = SubResource("CapsuleShape2D_qyung")
 

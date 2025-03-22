@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://pttfbhrqycix"]
+[gd_scene load_steps=13 format=3 uid="uid://pttfbhrqycix"]
 
 [ext_resource type="Script" path="res://scripts/levels/Battle.cs" id="1_ri0lh"]
 [ext_resource type="PackedScene" uid="uid://dwvhlj2ouj5t6" path="res://scenes/location/location_cave.tscn" id="2_byhvl"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bkn15av8my80s" path="res://sprites/cave_ui_button.png" id="3_4qm51"]
 [ext_resource type="Texture2D" uid="uid://dagjp57mc74my" path="res://sprites/cave_ui_button_small.png" id="3_834lr"]
 [ext_resource type="Script" path="res://scripts/roma/Camera2D.gd" id="7_3nq8h"]
+[ext_resource type="PackedScene" uid="uid://dwxmskmb8n12i" path="res://scenes/entity/rock.tscn" id="8_d5on4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yfhp6"]
 texture = ExtResource("3_4qm51")
@@ -129,6 +130,10 @@ scale = Vector2(3.31, 3.31)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(350, 490)
 script = ExtResource("7_3nq8h")
+
+[node name="rock" parent="." instance=ExtResource("8_d5on4")]
+z_index = 5
+position = Vector2(409, 593)
 
 [connection signal="pressed" from="UI/AttackButton" to="." method="PlayerAttack"]
 [connection signal="pressed" from="UI/TunOffButton" to="." method="TryRunOff"]

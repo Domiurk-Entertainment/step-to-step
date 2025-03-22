@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c3745i6iabcxo"]
+[gd_scene load_steps=44 format=3 uid="uid://c3745i6iabcxo"]
 
 [ext_resource type="Script" path="res://scripts/levels/CaveMap.cs" id="1_l1e6v"]
 [ext_resource type="Script" path="res://scripts/points/PointsService.cs" id="1_pqqoo"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/white_circle.png" id="12_30pgs"]
 [ext_resource type="Texture2D" uid="uid://cwfqk0vtqa4g5" path="res://sprites/player_run.png" id="15_cajgf"]
 [ext_resource type="AudioStream" uid="uid://bm0iiuexlmvmd" path="res://sounds/walk.mp3" id="16_3boqe"]
+[ext_resource type="Shader" path="res://shader_outline.gdshader" id="17_2i6ms"]
 [ext_resource type="AudioStream" uid="uid://cdtba75mepgsr" path="res://sounds/Pixel Music Pack/Wav/Pixel 10.wav" id="19_cundv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6pai"]
@@ -85,6 +86,12 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ojdxp"]
+shader = ExtResource("17_2i6ms")
+shader_parameter/outline_color = Vector4(1, 1, 1, 1)
+shader_parameter/outline_width = 1.0
+shader_parameter/alpha_threshold = 0.5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5uihl"]
 atlas = ExtResource("2_t2gvh")
@@ -743,12 +750,13 @@ scale = Vector2(4, 4)
 modulate = Color(0.992157, 1, 0.866667, 1)
 light_mask = 2
 z_index = 6
+material = SubResource("ShaderMaterial_ojdxp")
 position = Vector2(-1.36877, -7.93)
 sprite_frames = SubResource("SpriteFrames_a15pq")
 animation = &"run"
 autoplay = "idle"
-frame = 2
-frame_progress = 0.142211
+frame = 3
+frame_progress = 0.735726
 
 [node name="PointLight2D" type="PointLight2D" parent="PlayerMenu"]
 light_mask = 2

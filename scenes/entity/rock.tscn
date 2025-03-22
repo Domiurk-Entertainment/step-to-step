@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwxmskmb8n12i"]
+
+[ext_resource type="Texture2D" uid="uid://bytj1hrqvbbfu" path="res://sprites/cave_boss_attack_1.png" id="1_cl668"]
+[ext_resource type="Script" path="res://scripts/stats/Health.cs" id="2_2y8fb"]
+[ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/minimal_pixelv2.ttf" id="3_7toyb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vd4e"]
+size = Vector2(14, 15)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1x3dt"]
+bg_color = Color(0, 0, 0, 0.560784)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a3v88"]
+bg_color = Color(0.113725, 0.666667, 0.231373, 1)
+
+[node name="rock" type="StaticBody2D"]
+scale = Vector2(4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_8vd4e")
+
+[node name="CaveBossAttack1" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_cl668")
+
+[node name="Health" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+light_mask = 2
+offset_left = -10.75
+offset_top = -17.0
+offset_right = 12.25
+offset_bottom = -14.0
+rotation = -0.00068116
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_1x3dt")
+theme_override_styles/fill = SubResource("StyleBoxFlat_a3v88")
+max_value = 10.0
+value = 10.0
+show_percentage = false
+script = ExtResource("2_2y8fb")
+_font = ExtResource("3_7toyb")
+_fontSize = 7
+_length = 30.0
+_transitionType = 0
