@@ -7,14 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cu4we4jjrtiid" path="res://sprites/cave_main_menu_bg.png" id="5_tl3b4"]
 [ext_resource type="Texture2D" uid="uid://dnjxmb3w8e2m4" path="res://sprites/cave_ui_button_pause.png" id="6_ivhtx"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="7_pau42"]
+[ext_resource type="Script" path="res://scripts/ElementPosition.cs" id="7_wwnpd"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/minimal_pixelv2.ttf" id="8_c87gw"]
 [ext_resource type="Texture2D" uid="uid://cw7fnbcsld1pd" path="res://sprites/ui_settings.png" id="9_1k3wf"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jm4d8"]
-particles_animation = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = true
 
 [sub_resource type="Curve" id="Curve_0wv6h"]
 min_value = -100.0
@@ -96,14 +91,15 @@ grow_horizontal = 0
 texture = ExtResource("6_ivhtx")
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
-material = SubResource("CanvasItemMaterial_jm4d8")
-position = Vector2(336, 485)
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(350, 475)
 amount = 20
 lifetime = 2.0
 randomness = 0.24
 lifetime_randomness = 0.1
 emission_shape = 1
-emission_sphere_radius = 50.0
+emission_sphere_radius = 25.0
 gravity = Vector2(0, 0)
 initial_velocity_max = 130.0
 angular_velocity_max = 2.0
@@ -120,6 +116,7 @@ angle_max = 100.0
 scale_amount_min = 4.0
 scale_amount_max = 14.0
 color = Color(0.862745, 1, 1, 1)
+script = ExtResource("7_wwnpd")
 
 [node name="Lights" type="Node2D" parent="."]
 position = Vector2(253, 353)

@@ -57,16 +57,22 @@ public partial class PointsService : Node
         _points.Clear();
         _points.AddRange(GetChildren().Cast<Point>());
 
-        int index = SaveSystem.Instance.LoadIntData(_saveConfigurationType, GetKey(), 0);
+        int index = SaveSystem.Instance.Get(_saveConfigurationType, GetKey(), 0).AsInt32();
+        // int index = SaveSystem.Instance.LoadIntData(_saveConfigurationType, GetKey(), 0);
         _currentPoint = _points[index];
-        _currentPoint.Visited = SaveSystem.Instance.LoadIntData(_saveConfigurationType, GetKey(_currentPoint.Name), 0);
+        _currentPoint.Visited =
+            SaveSystem.Instance.Get(_saveConfigurationType, GetKey(_currentPoint.Name), 0).AsInt32();
+        //TODO
+        // _currentPoint.Visited = SaveSystem.Instance.LoadIntData(_saveConfigurationType, GetKey(_currentPoint.Name));
         ActivateClickedPoint(_currentPoint);
     }
 
     public override void _ExitTree()
     {
-        SaveSystem.Instance.SaveData(_saveConfigurationType, GetKey(_currentPoint.Name), _currentPoint.Visited);
-        SaveSystem.Instance.SaveData(_saveConfigurationType, GetKey(), _points.IndexOf(_currentPoint));
+        
+        
+        //TODO SaveSystem.Instance.SaveData(_saveConfigurationType, GetKey(_currentPoint.Name), _currentPoint.Visited);
+        // SaveSystem.Instance.SaveData(_saveConfigurationType, GetKey(), _points.IndexOf(_currentPoint));
     }
 
     private void PointOnPressed(Point point)
@@ -112,5 +118,7 @@ public partial class PointsService : Node
 
         foreach(Point childPoint in point.Points)
             childPoint.Disabled = false;
+        SaveSystem.Instance.Set(_saveConfigurationType, GetKey(_currentPoint.Name), _currentPoint.Visited);
+        SaveSystem.Instance.Set(_saveConfigurationType, GetKey(), _points.IndexOf(_currentPoint));
     }
 }

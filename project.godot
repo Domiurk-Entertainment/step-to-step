@@ -29,7 +29,6 @@ UserInterface="*res://scenes/ui_interface/user_interface.tscn"
 
 window/size/viewport_width=700
 window/size/viewport_height=1000
-window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 window/handheld/orientation=1
@@ -74,3 +73,4 @@ textures/canvas_textures/default_texture_filter=0
 textures/canvas_textures/default_texture_repeat=1
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.0784314, 0.0901961, 0.141176, 1)
