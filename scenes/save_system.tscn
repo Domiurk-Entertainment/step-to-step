@@ -4,4 +4,3 @@
 
 [node name="save_system" type="Node"]
 script = ExtResource("1_ob0dw")
-pathConfig = "res://"

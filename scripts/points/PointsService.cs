@@ -17,7 +17,7 @@ public partial class PointsService : Node
     [Export] private float _duration = 1;
     [Export] private Tween.TransitionType _transitionType = Tween.TransitionType.Linear;
 
-    private TypeConfiguration _saveConfigurationType = TypeConfiguration.Level;
+    private SectionType _saveSectionType = SectionType.Level;
     private readonly List<Point> _points = new();
     private Point _currentPoint;
     private Point _lastPoint;
@@ -57,10 +57,10 @@ public partial class PointsService : Node
         _points.Clear();
         _points.AddRange(GetChildren().Cast<Point>());
 
-        int index = SaveSystem.Instance.Get(_saveConfigurationType, GetKey(), 0).AsInt32();
+        int index = SaveSystem.Instance.Get(_saveSectionType, GetKey(), 0).AsInt32();
         _currentPoint = _points[index];
         _currentPoint.Visited =
-            SaveSystem.Instance.Get(_saveConfigurationType, GetKey(_currentPoint.Name), 0).AsInt32();
+            SaveSystem.Instance.Get(_saveSectionType, GetKey(_currentPoint.Name), 0).AsInt32();
         ActivateClickedPoint(_currentPoint);
     }
     
@@ -107,7 +107,7 @@ public partial class PointsService : Node
 
         foreach(Point childPoint in point.Points)
             childPoint.Disabled = false;
-        SaveSystem.Instance.Set(_saveConfigurationType, GetKey(_currentPoint.Name), _currentPoint.Visited);
-        SaveSystem.Instance.Set(_saveConfigurationType, GetKey(), _points.IndexOf(_currentPoint));
+        SaveSystem.Instance.Set(_saveSectionType, GetKey(_currentPoint.Name), _currentPoint.Visited);
+        SaveSystem.Instance.Set(_saveSectionType, GetKey(), _points.IndexOf(_currentPoint));
     }
 }
