@@ -75,21 +75,6 @@ texture = ExtResource("5_tl3b4")
 expand_mode = 4
 stretch_mode = 6
 
-[node name="SettingFrame" type="TextureRect" parent="."]
-modulate = Color(0.627451, 0.627451, 0.627451, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.756
-anchor_top = 0.008
-anchor_right = 0.99
-anchor_bottom = 0.185
-offset_left = 7.79999
-offset_top = 13.0
-offset_right = -6.0
-offset_bottom = -14.0
-grow_horizontal = 0
-texture = ExtResource("6_ivhtx")
-
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
 texture_filter = 1
 texture_repeat = 1
@@ -262,17 +247,33 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Settings" type="Button" parent="Control"]
-layout_mode = 2
-anchor_left = 0.776
-anchor_top = 0.022
-anchor_right = 1.002
-anchor_bottom = 0.146
-offset_left = 6.02399
-offset_top = 20.0
-offset_right = -52.402
-offset_bottom = -25.0
-scale = Vector2(1.3, 1.3)
+[node name="SettingFrame" type="TextureRect" parent="Control"]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.02
+anchor_right = 0.95
+anchor_bottom = 0.17
+offset_top = 0.399998
+offset_bottom = -33.6
+grow_horizontal = 0
+texture = ExtResource("6_ivhtx")
+stretch_mode = 4
+
+[node name="Settings" type="Button" parent="Control/SettingFrame"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.157
+anchor_top = 0.16
+anchor_right = 0.824
+anchor_bottom = 0.827
+offset_left = 0.0200024
+offset_right = -0.0300064
+offset_bottom = -0.0500031
+grow_horizontal = 2
+grow_vertical = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("8_c87gw")
 theme_override_font_sizes/font_size = 14
@@ -334,8 +335,10 @@ anchor_left = 0.758
 anchor_top = 0.957
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -0.038002
-offset_top = -0.110001
+offset_left = -49.76
+offset_top = -29.96
+offset_right = -28.0
+offset_bottom = -29.85
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("8_c87gw")
@@ -399,7 +402,7 @@ label_settings = SubResource("LabelSettings_jj1hc")
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[connection signal="button_up" from="Control/Settings" to="Control/SettingsMenu" method="show"]
+[connection signal="button_up" from="Control/SettingFrame/Settings" to="Control/SettingsMenu" method="show"]
 [connection signal="pressed" from="Control/VBoxContainer/Play" to="." method="Start"]
 [connection signal="pressed" from="Control/VBoxContainer/Continue" to="." method="Continue"]
 [connection signal="pressed" from="Control/VBoxContainer/Quit" to="." method="Exit"]
