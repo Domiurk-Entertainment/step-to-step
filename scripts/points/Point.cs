@@ -15,14 +15,6 @@ public partial class Point : Button
 
 	[Export] private Point[] _pointsUnlock = Array.Empty<Point>();
 	[Export] private int _canVisited = 1;
-	private char separator = '/';
-
-	private string GetKey() => GetTree().CurrentScene.GetPath();
-
-	public override void _EnterTree()
-	{
-		Visited = SaveSystem.Instance.LoadIntData(TypeConfiguration.Level, GetKey() + nameof(Visited), Visited);
-	}
 
 	public bool CanVisit()
 	{
