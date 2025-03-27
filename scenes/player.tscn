@@ -1,10 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://qxp1xt6p3mcx"]
+[gd_scene load_steps=22 format=3 uid="uid://qxp1xt6p3mcx"]
 
-[ext_resource type="Shader" path="res://shader_outline.gdshader" id="1_0gmvj"]
 [ext_resource type="Script" path="res://scripts/entity/Player.cs" id="1_8sdka"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/white_circle.png" id="2_g178e"]
+[ext_resource type="Texture2D" uid="uid://y1gpju5xypeg" path="res://sprites/sprite_outline.png" id="2_owso6"]
 [ext_resource type="Script" path="res://scripts/inventory/Inventory.cs" id="2_u13nr"]
-[ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="2_v4bmy"]
 [ext_resource type="Script" path="res://scripts/stats/Health.cs" id="3_p1h7q"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/minimal_pixelv2.ttf" id="4_3aiy8"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="4_vrrox"]
@@ -13,55 +12,51 @@
 [ext_resource type="PackedScene" uid="uid://bwixc66257oaw" path="res://scenes/entity/sight.tscn" id="10_8va8p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_15st8"]
-shader = ExtResource("1_0gmvj")
-shader_parameter/outline_color = Vector4(1, 1, 1, 1)
-shader_parameter/outline_width = 1.0
-shader_parameter/alpha_threshold = 0.5
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k1rpb"]
-atlas = ExtResource("2_v4bmy")
-region = Rect2(0, 0, 15, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxkk7"]
+atlas = ExtResource("2_owso6")
+region = Rect2(0, 112, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xocb1"]
-atlas = ExtResource("2_v4bmy")
-region = Rect2(16, 0, 15, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jll2d"]
+atlas = ExtResource("2_owso6")
+region = Rect2(16, 112, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7mlto"]
-atlas = ExtResource("2_v4bmy")
-region = Rect2(32, 0, 15, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_im233"]
+atlas = ExtResource("2_owso6")
+region = Rect2(32, 112, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dpyg3"]
-atlas = ExtResource("2_v4bmy")
-region = Rect2(48, 0, 15, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_kulf0"]
+atlas = ExtResource("2_owso6")
+region = Rect2(48, 112, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kx6o2"]
-atlas = ExtResource("2_v4bmy")
-region = Rect2(64, 0, 15, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hve4c"]
+atlas = ExtResource("2_owso6")
+region = Rect2(64, 112, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nvglu"]
-atlas = ExtResource("2_v4bmy")
-region = Rect2(80, 0, 15, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mbp8"]
+atlas = ExtResource("2_owso6")
+region = Rect2(80, 112, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1jh8v"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k1rpb")
+"texture": SubResource("AtlasTexture_sxkk7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xocb1")
+"texture": SubResource("AtlasTexture_jll2d")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7mlto")
+"texture": SubResource("AtlasTexture_im233")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dpyg3")
+"texture": SubResource("AtlasTexture_kulf0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kx6o2")
+"texture": SubResource("AtlasTexture_hve4c")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nvglu")
+"texture": SubResource("AtlasTexture_6mbp8")
 }],
 "loop": true,
 "name": &"idle",
@@ -93,22 +88,22 @@ _force = 400.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
 material = SubResource("ShaderMaterial_15st8")
-position = Vector2(0, -8)
+position = Vector2(-0.75, -12.75)
 sprite_frames = SubResource("SpriteFrames_1jh8v")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.78823
+frame_progress = 0.829936
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
 light_mask = 2
-position = Vector2(0.5, 2.25)
+position = Vector2(0.75, 4.5)
 scale = Vector2(1.36, 1.36)
 color = Color(1, 0.94902, 0.298039, 1)
 texture = ExtResource("2_g178e")
 
 [node name="PointLight2D2" type="PointLight2D" parent="AnimatedSprite2D"]
 light_mask = 2
-position = Vector2(-5.5, 4.5)
+position = Vector2(-4.75, 10.5)
 scale = Vector2(1.69893, 1.68039)
 color = Color(1, 1, 0.243137, 1)
 energy = 7.87

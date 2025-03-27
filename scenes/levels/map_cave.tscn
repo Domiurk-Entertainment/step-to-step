@@ -1,10 +1,9 @@
-[gd_scene load_steps=44 format=3 uid="uid://c3745i6iabcxo"]
+[gd_scene load_steps=41 format=3 uid="uid://c3745i6iabcxo"]
 
 [ext_resource type="Script" path="res://scripts/levels/CaveMap.cs" id="1_l1e6v"]
 [ext_resource type="Script" path="res://scripts/points/PointsService.cs" id="1_pqqoo"]
 [ext_resource type="PackedScene" uid="uid://bste1dma5c0dp" path="res://scenes/entity/point.tscn" id="2_ger5s"]
 [ext_resource type="Texture2D" uid="uid://bfdu30qcxdvj5" path="res://sprites/cave_tilemap.png" id="2_ort48"]
-[ext_resource type="Texture2D" uid="uid://bfy4ofu5sm1my" path="res://sprites/anim_player.png" id="2_t2gvh"]
 [ext_resource type="Texture2D" uid="uid://ck3t7x12t4klr" path="res://sprites/blum.png" id="3_85kg1"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="4_pt5ys"]
 [ext_resource type="Resource" uid="uid://j175cel0uce3" path="res://Demo/battle_configs/first_battle.tres" id="7_dybo4"]
@@ -18,9 +17,8 @@
 [ext_resource type="Resource" uid="uid://dp7qe4v0pxyuy" path="res://Demo/battle_configs/battle_with_ice.tres" id="11_ml1ws"]
 [ext_resource type="Resource" uid="uid://cryvk742v6glb" path="res://Demo/battle_configs/boss_battle.tres" id="11_sk06p"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/white_circle.png" id="12_30pgs"]
-[ext_resource type="Texture2D" uid="uid://cwfqk0vtqa4g5" path="res://sprites/player_run.png" id="15_cajgf"]
 [ext_resource type="AudioStream" uid="uid://bm0iiuexlmvmd" path="res://sounds/walk.mp3" id="16_3boqe"]
-[ext_resource type="Shader" path="res://shader_outline.gdshader" id="17_2i6ms"]
+[ext_resource type="Texture2D" uid="uid://y1gpju5xypeg" path="res://sprites/sprite_outline.png" id="18_nic24"]
 [ext_resource type="AudioStream" uid="uid://cdtba75mepgsr" path="res://sounds/Pixel Music Pack/Wav/Pixel 10.wav" id="19_cundv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6pai"]
@@ -87,76 +85,70 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ojdxp"]
-shader = ExtResource("17_2i6ms")
-shader_parameter/outline_color = Vector4(1, 1, 1, 1)
-shader_parameter/outline_width = 1.0
-shader_parameter/alpha_threshold = 0.5
+[sub_resource type="AtlasTexture" id="AtlasTexture_cl70g"]
+atlas = ExtResource("18_nic24")
+region = Rect2(0, 112, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5uihl"]
-atlas = ExtResource("2_t2gvh")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pp6g"]
+atlas = ExtResource("18_nic24")
+region = Rect2(16, 112, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ppaes"]
-atlas = ExtResource("2_t2gvh")
-region = Rect2(16, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8e61"]
+atlas = ExtResource("18_nic24")
+region = Rect2(32, 112, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oeayw"]
-atlas = ExtResource("2_t2gvh")
-region = Rect2(32, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8i0y"]
+atlas = ExtResource("18_nic24")
+region = Rect2(48, 112, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2db3l"]
-atlas = ExtResource("2_t2gvh")
-region = Rect2(48, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6x48q"]
+atlas = ExtResource("18_nic24")
+region = Rect2(64, 112, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o54qc"]
-atlas = ExtResource("2_t2gvh")
-region = Rect2(64, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdphj"]
+atlas = ExtResource("18_nic24")
+region = Rect2(80, 112, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w5mbc"]
-atlas = ExtResource("2_t2gvh")
-region = Rect2(80, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_48n2g"]
+atlas = ExtResource("18_nic24")
+region = Rect2(0, 80, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r2vc0"]
-atlas = ExtResource("15_cajgf")
-region = Rect2(0, 14, 16, 18)
+[sub_resource type="AtlasTexture" id="AtlasTexture_baaik"]
+atlas = ExtResource("18_nic24")
+region = Rect2(16, 80, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w0x67"]
-atlas = ExtResource("15_cajgf")
-region = Rect2(16, 14, 16, 18)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx2sx"]
+atlas = ExtResource("18_nic24")
+region = Rect2(32, 80, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8nfwc"]
-atlas = ExtResource("15_cajgf")
-region = Rect2(48, 14, 16, 18)
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr5de"]
+atlas = ExtResource("18_nic24")
+region = Rect2(48, 80, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iklek"]
-atlas = ExtResource("15_cajgf")
-region = Rect2(64, 14, 16, 18)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_whacb"]
-atlas = ExtResource("15_cajgf")
-region = Rect2(80, 14, 16, 18)
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2p4j"]
+atlas = ExtResource("18_nic24")
+region = Rect2(64, 80, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a15pq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5uihl")
+"texture": SubResource("AtlasTexture_cl70g")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ppaes")
+"texture": SubResource("AtlasTexture_8pp6g")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oeayw")
+"texture": SubResource("AtlasTexture_s8e61")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2db3l")
+"texture": SubResource("AtlasTexture_j8i0y")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o54qc")
+"texture": SubResource("AtlasTexture_6x48q")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w5mbc")
+"texture": SubResource("AtlasTexture_pdphj")
 }],
 "loop": true,
 "name": &"idle",
@@ -164,19 +156,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r2vc0")
+"texture": SubResource("AtlasTexture_48n2g")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w0x67")
+"texture": SubResource("AtlasTexture_baaik")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8nfwc")
+"texture": SubResource("AtlasTexture_hx2sx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iklek")
+"texture": SubResource("AtlasTexture_cr5de")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_whacb")
+"texture": SubResource("AtlasTexture_a2p4j")
 }],
 "loop": true,
 "name": &"run",
@@ -819,13 +811,11 @@ scale = Vector2(4, 4)
 modulate = Color(0.992157, 1, 0.866667, 1)
 light_mask = 2
 z_index = 6
-material = SubResource("ShaderMaterial_ojdxp")
-position = Vector2(-1.36877, -7.93)
+position = Vector2(-2.25, -13.75)
 sprite_frames = SubResource("SpriteFrames_a15pq")
 animation = &"run"
 autoplay = "idle"
-frame = 3
-frame_progress = 0.735726
+frame_progress = 0.498276
 
 [node name="PointLight2D" type="PointLight2D" parent="PlayerMenu"]
 light_mask = 2
