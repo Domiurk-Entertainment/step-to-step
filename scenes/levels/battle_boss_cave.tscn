@@ -34,7 +34,7 @@ _camera = NodePath("Camera2D")
 position = Vector2(128, 597)
 
 [node name="EnemySpawnpoint" type="Node2D" parent="."]
-position = Vector2(543, 597)
+position = Vector2(1500, 597)
 
 [node name="UI" type="Control" parent="."]
 z_index = 4
@@ -42,7 +42,8 @@ layout_mode = 3
 anchor_right = 0.997
 anchor_bottom = 0.998
 offset_top = 4.0
-offset_right = 0.0999756
+offset_right = -1216.24
+offset_bottom = -78.8401
 mouse_filter = 2
 
 [node name="Attack" type="Button" parent="UI"]
@@ -52,10 +53,10 @@ anchor_left = 0.44
 anchor_top = 0.79
 anchor_right = 0.84
 anchor_bottom = 0.923
-offset_left = -0.119965
-offset_top = -147.26
-offset_right = -0.319946
-offset_bottom = -147.462
+offset_left = -11.12
+offset_top = -122.05
+offset_right = -11.3199
+offset_bottom = -122.252
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_l7be1")
@@ -80,10 +81,10 @@ anchor_left = 0.44
 anchor_top = 0.79
 anchor_right = 0.84
 anchor_bottom = 0.923
-offset_left = -0.119995
-offset_top = -0.26001
-offset_right = -0.319946
-offset_bottom = -0.462036
+offset_left = -11.12
+offset_top = 24.95
+offset_right = 21.68
+offset_bottom = 24.6151
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_l7be1")
@@ -109,13 +110,14 @@ anchor_top = 0.586
 anchor_right = 0.18
 anchor_bottom = 0.915
 offset_left = -0.296001
-offset_top = -0.484009
+offset_top = 51.93
 offset_right = -62.64
-offset_bottom = -228.51
+offset_bottom = -176.096
 scale = Vector2(3.31, 3.31)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(352, 499)
+z_index = 15
+position = Vector2(841, 539)
 script = ExtResource("6_ycab4")
 
 [connection signal="pressed" from="UI/Attack" to="." method="PlayerAttack"]

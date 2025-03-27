@@ -27,10 +27,10 @@ UserInterface="*res://scenes/ui_interface/user_interface.tscn"
 
 [display]
 
-window/size/viewport_width=700
-window/size/viewport_height=1000
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_width"
+window/stretch/aspect="ignore"
 window/handheld/orientation=1
 mouse_cursor/custom_image="res://sprites/kursor.png"
 
