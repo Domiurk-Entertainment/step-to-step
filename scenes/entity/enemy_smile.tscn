@@ -1,10 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://c0tod7yw4sold"]
+[gd_scene load_steps=33 format=3 uid="uid://c0tod7yw4sold"]
 
 [ext_resource type="Script" path="res://scripts/entity/Enemy.cs" id="1_g11nf"]
 [ext_resource type="Script" path="res://scripts/stats/Health.cs" id="2_fi316"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="2_vtf8y"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/minimal_pixelv2.ttf" id="3_t2teq"]
-[ext_resource type="Shader" path="res://shader_outline.gdshader" id="4_46rdi"]
 [ext_resource type="Texture2D" uid="uid://4xqyag5o5fy5" path="res://sprites/slime_anim.png" id="4_hv78v"]
 [ext_resource type="AudioStream" uid="uid://eq3gkecp6ghb" path="res://sounds/death.wav" id="5_triy1"]
 [ext_resource type="AudioStream" uid="uid://d3ooi2iphmxgw" path="res://sounds/hit.wav" id="7_lkvkk"]
@@ -14,12 +13,6 @@ bg_color = Color(0, 0, 0, 0.560784)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06usy"]
 bg_color = Color(0.113725, 0.666667, 0.231373, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gg3xt"]
-shader = ExtResource("4_46rdi")
-shader_parameter/outline_color = Vector4(1, 1, 1, 1)
-shader_parameter/outline_width = 1.0
-shader_parameter/alpha_threshold = 0.5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_grhlm"]
 atlas = ExtResource("4_hv78v")
@@ -224,7 +217,6 @@ _transitionType = 0
 
 [node name="Visual" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.741176, 0.741176, 0.741176, 1)
-material = SubResource("ShaderMaterial_gg3xt")
 position = Vector2(2.75, -8)
 sprite_frames = SubResource("SpriteFrames_pkpm7")
 animation = &"hit"

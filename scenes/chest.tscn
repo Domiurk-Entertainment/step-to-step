@@ -173,10 +173,10 @@ _itemSprite = NodePath("Visible")
 
 [node name="Button" type="Button" parent="."]
 z_index = 6
-offset_left = 191.0
-offset_top = 442.0
-offset_right = 483.0
-offset_bottom = 634.0
+offset_left = 829.0
+offset_top = 441.978
+offset_right = 1121.0
+offset_bottom = 633.978
 pivot_offset = Vector2(175, 230)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_t83oj")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vodag")
@@ -197,7 +197,7 @@ expand_icon = true
 [node name="Visible" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 z_index = 6
-position = Vector2(333, 530)
+position = Vector2(971, 529.978)
 scale = Vector2(6, 6)
 
 [node name="Animation" type="AnimationPlayer" parent="."]
@@ -208,10 +208,10 @@ autoplay = "close"
 
 [node name="Label" type="Label" parent="."]
 z_index = 6
-offset_left = 242.0
-offset_top = 119.0
-offset_right = 442.0
-offset_bottom = 219.0
+offset_left = 880.0
+offset_top = 118.978
+offset_right = 1080.0
+offset_bottom = 218.978
 rotation = 0.413643
 pivot_offset = Vector2(100, 50)
 text = "Tap !!!"
