@@ -5,7 +5,7 @@ Copyright (c) 2025 Domiurk Entertainment
 **Definitions:**
 
 *   **"Software"**: Refers to the source code, binary files, assets (graphics, audio, etc.), documentation, and any other materials contained within this GitHub repository.
-*   **"Repository Owner"**: Refers to the individual or entity specified in the copyright notice above ([Your Name / Organization Name]).
+*   **"Repository Owner"**: Refers to the individual or entity specified in the copyright notice above (Domiurk Entertainment).
 *   **"Personal Use"**: Means using the Software exclusively for private, non-commercial purposes. This includes, but is not limited to: running the game for personal enjoyment, studying the source code, modifying the Software for personal needs, and creating backups.
 *   **"Commercial Use"**: Means any use of the Software that is primarily intended for or directed towards commercial advantage or monetary compensation. This includes, but is not limited to: selling the Software or parts thereof, using the Software to promote commercial products or services, incorporating the Software into a commercial product, or providing paid services related to the Software.
 
