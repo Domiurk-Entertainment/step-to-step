@@ -39,9 +39,10 @@ Assets/ ├── Demo/              # Scenes, sprites, scripts and other files 
 
 ## 👤 Author
 **Pixel Riot**  
-###GitHub: 
+##GitHub: 
  - [@Domiurk](https://github.com/Domiurk-Entertainment)
  - [@XxktotosxX](https://github.com/XxktotosxX)
-###Itch.io: 
+
+##Itch.io: 
  - [domiurk.itch.io](https://domiurk.itch.io)
  - [@Zvychayna Lyudyna](https://itch.io/profile/zvychayna-lyudyna)
