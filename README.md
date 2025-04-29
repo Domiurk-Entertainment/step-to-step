@@ -44,5 +44,5 @@ Assets/ ├── Demo/              # Scenes, sprites, scripts and other files 
  - [@Zvychayna Lyudyna](https://github.com/XxktotosxX)
 
 ### Itch.io: 
- - [domiurk.itch.io](https://domiurk.itch.io)
+ - [Domiurk](https://domiurk.itch.io)
  - [@Zvychayna Lyudyna](https://itch.io/profile/zvychayna-lyudyna)
