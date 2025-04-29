@@ -22,7 +22,7 @@
 ## 📁 Project Structure
 Assets/ ├── Demo/              # Scenes, sprites, scripts and other files for testing 
         ├── resources/         # Game object templates
-        │  ├──configuration    # Resources files for configuration game nodes
+        │  └──configuration    # Resources files for configuration game nodes
         ├── Scripts/           # Scripts
         │  ├── entity/         # All entities in our project
         │  ├── inventory/      # Inventory system
@@ -39,9 +39,9 @@ Assets/ ├── Demo/              # Scenes, sprites, scripts and other files 
 
 ## 👤 Author
 **Pixel Riot**  
-GitHub: 
+###GitHub: 
  - [@Domiurk](https://github.com/Domiurk-Entertainment)
- - [@XxktotosxX] (https://github.com/XxktotosxX)
-Itch.io: 
+ - [@XxktotosxX](https://github.com/XxktotosxX)
+###Itch.io: 
  - [domiurk.itch.io](https://domiurk.itch.io)
  - [@Zvychayna Lyudyna](https://itch.io/profile/zvychayna-lyudyna)
