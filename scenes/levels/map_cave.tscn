@@ -489,9 +489,9 @@ _miniPlayer = NodePath("../PlayerMenu")
 
 [node name="Point" parent="Points" node_paths=PackedStringArray("_pointsUnlock") instance=ExtResource("2_ger5s")]
 offset_left = -5.74282
-offset_top = -1.08002
+offset_top = -0.83002
 offset_right = 30.2572
-offset_bottom = 22.92
+offset_bottom = 23.17
 _pointsUnlock = [NodePath("../Point2"), NodePath("../Point3")]
 
 [node name="Point2" parent="Points" node_paths=PackedStringArray("_pointsUnlock") instance=ExtResource("2_ger5s")]
@@ -813,9 +813,8 @@ light_mask = 2
 z_index = 6
 position = Vector2(-2.25, -13.75)
 sprite_frames = SubResource("SpriteFrames_a15pq")
-animation = &"run"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.498276
 
 [node name="PointLight2D" type="PointLight2D" parent="PlayerMenu"]
 light_mask = 2

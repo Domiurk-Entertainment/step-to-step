@@ -1,4 +1,5 @@
 using Godot;
+using StepToStep.InventorySpace;
 using StepToStep.Utils;
 using System;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ public partial class Enemy : Node2D, IHealth
 	[Export] protected float Damage = 10;
 	[Export] private RayCast2D _rayCast2D;
 	[Export] private int _stepCount = 2;
+	[Export] public Item Reward;
 
 	private Tween _movingTween;
 	private Health _health;

@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://c0p6u53mqk655" path="res://Demo/coin.png" id="13_5p5ol"]
 [ext_resource type="Script" path="res://scripts/utilities/Currency.cs" id="13_r0n8h"]
 
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i2wbu"]
 texture = ExtResource("2_q7gma")
 expand_margin_left = 11.0
@@ -114,10 +113,11 @@ modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
 texture = ExtResource("5_dt8iw")
 modulate_color = Color(0.635294, 0.635294, 0.635294, 1)
 
-[node name="UserInterface" type="CanvasLayer" node_paths=PackedStringArray("Modal", "_pausePanel", "_pauseButton")]
+[node name="UserInterface" type="CanvasLayer" node_paths=PackedStringArray("Modal", "Currency", "_pausePanel", "_pauseButton")]
 layer = 10
 script = ExtResource("1_bok0e")
 Modal = NodePath("Modal")
+Currency = NodePath("CoinPanel")
 _pausePanel = NodePath("PausePanel")
 _pauseButton = NodePath("PauseButton")
 
@@ -310,7 +310,6 @@ stream = ExtResource("12_8kh8i")
 volume_db = -5.0
 
 [node name="CoinPanel" type="HSplitContainer" parent="."]
-visible = false
 offset_left = 8.0
 offset_top = 10.0
 offset_right = 50.0

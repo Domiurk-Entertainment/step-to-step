@@ -111,7 +111,6 @@ texture_scale = 0.01
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 15
 position = Vector2(82, 35)
-zoom = Vector2(4.35, 4.35)
 script = ExtResource("6_3qxd1")
 
 [node name="ShopBackPack" type="Sprite2D" parent="."]

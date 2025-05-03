@@ -1,7 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://cgg3oxwa6v2iu"]
+[gd_scene load_steps=16 format=3 uid="uid://cgg3oxwa6v2iu"]
 
 [ext_resource type="Script" path="res://scripts/levels/MainMenu.cs" id="1_pqpjw"]
-[ext_resource type="Script" path="res://scripts/SoundService.cs" id="2_mmkhw"]
 [ext_resource type="AudioStream" uid="uid://3ei5c4shcb46" path="res://sounds/ui_hover.wav" id="3_3rjk0"]
 [ext_resource type="AudioStream" uid="uid://ccy1cdibnmy84" path="res://sounds/Pixel Music Pack/Wav/Pixel 1.wav" id="4_ugp0h"]
 [ext_resource type="Texture2D" uid="uid://cu4we4jjrtiid" path="res://sprites/cave_main_menu_bg.png" id="5_tl3b4"]
@@ -48,7 +47,6 @@ _sceneToPlay = "res://scenes/levels/map_cave.tscn"
 continueButton = NodePath("Control/VBoxContainer/Continue")
 
 [node name="SoundService" type="Node" parent="."]
-script = ExtResource("2_mmkhw")
 
 [node name="Hover" type="AudioStreamPlayer" parent="SoundService"]
 stream = ExtResource("3_3rjk0")
@@ -58,7 +56,7 @@ volume_db = 8.418
 
 [node name="Music" type="AudioStreamPlayer" parent="SoundService"]
 stream = ExtResource("4_ugp0h")
-volume_db = -5.0
+volume_db = -10.0
 autoplay = true
 
 [node name="PixelMainMenu" type="TextureRect" parent="."]

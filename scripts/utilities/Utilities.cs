@@ -54,4 +54,12 @@ public static class Utilities
 
         return result;
     }
+
+    public static string GetSaveKey(this Node self,string additional = "")
+    {
+        string result = $"{self.GetTreeString()}";
+        if(string.IsNullOrEmpty(additional))
+            result = $"{result}/{additional}";
+        return result;
+    }
 }

@@ -7,7 +7,8 @@ using FileAccess = Godot.FileAccess;
 
 namespace StepToStep.Systems;
 
-public partial class SaveSystem : Node
+[Serializable]
+public class SaveSystem
 {
     public static SaveSystem Instance { get; private set; }
 
@@ -17,17 +18,6 @@ public partial class SaveSystem : Node
 
     private Dictionary<SectionType, Dictionary<string, Variant>>
         dataToSave = new();
-
-    public override void _Ready()
-    {
-        if(Instance != null && Instance != this){
-            GD.PrintErr($"{Name} is duplicate. {Instance.Name} is original.");
-            QueueFree();
-            return;
-        }
-
-        Instance = this;
-    }
 
     public void RemoveAllData()
     {
@@ -115,15 +105,7 @@ public partial class SaveSystem : Node
     private string GetFolderPath()
         => ProjectSettings.GlobalizePath(pathConfig);
 
-    public override void _EnterTree()
-        => LoadData();
-
-    public override void _Notification(int what)
-    {
-        if(what != NotificationWMCloseRequest)
-            return;
-        SaveDictionary();
-    }
+    
 }
 
 public enum SectionType

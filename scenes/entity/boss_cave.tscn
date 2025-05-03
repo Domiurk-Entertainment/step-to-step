@@ -1,7 +1,7 @@
 [gd_scene load_steps=43 format=3 uid="uid://d0ruhoogsh74"]
 
 [ext_resource type="Script" path="res://scripts/entity/BossCave.cs" id="1_82im3"]
-[ext_resource type="PackedScene" uid="uid://cxjh4c28ey5vi" path="res://scenes/entity/projectile.tscn" id="2_ljr11"]
+[ext_resource type="PackedScene" uid="uid://c5t6uhnakima1" path="res://scenes/balls/projectile_test.tscn" id="2_635hg"]
 [ext_resource type="Texture2D" uid="uid://cur0qy4vruhjg" path="res://sprites/cave_slime_boss_idle.png" id="3_ixpds"]
 [ext_resource type="Texture2D" uid="uid://bgmrehl4ojyyp" path="res://sprites/cave_slime_boss_att.png" id="4_bpxm0"]
 [ext_resource type="Script" path="res://scripts/stats/Health.cs" id="4_mqro5"]
@@ -245,7 +245,7 @@ height = 204.0
 script = ExtResource("1_82im3")
 _animatedSprite = NodePath("Visual")
 _pointToShoot = NodePath("PointToShoot")
-_projectile = ExtResource("2_ljr11")
+_projectile = ExtResource("2_635hg")
 _health = NodePath("Health")
 
 [node name="Health" type="ProgressBar" parent="."]

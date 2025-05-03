@@ -11,25 +11,25 @@ public partial class MainMenu : Node
 
     public override void _Ready()
     {
-        CheckExistData();
+        // CheckExistData();
     }
 
     private void CheckExistData()
     {
-        continueButton.Disabled = !SaveSystem.Instance.ExistSaves();
+        continueButton.Disabled = !Utils.Systems.Instance.SaveSystem.ExistSaves();
     }
 
     public void Start()
     {
-        UserInterfaceSystem.Instance.Modal.Open("Start New Game",
-                                                "Are you sure you want to start the new game?",
-                                                "Yes", "No",
-                                                StartGame);
+        Utils.Systems.Instance.UserInterfaceSystem.Modal.Open("Start New Game",
+                                                                       "Are you sure you want to start the new game?",
+                                                                       "Yes", "No",
+                                                                       StartGame);
         return;
 
         void StartGame()
         {
-            SaveSystem.Instance.RemoveAllData();
+            Utils.Systems.Instance.SaveSystem.RemoveAllData();
             Continue();
         }
     }
@@ -42,12 +42,12 @@ public partial class MainMenu : Node
     public void Continue()
     {
         PackedScene scene = GD.Load<PackedScene>(_sceneToPlay);
-        SceneTransition.Instance.ChangeScene(scene);
+        Utils.Systems.Instance.SceneTransition.ChangeScene(scene);
     }
 
     public void RemoveSavedData()
     {
-        SaveSystem.Instance.RemoveAllData();
+        Utils.Systems.Instance.SaveSystem.RemoveAllData();
         CheckExistData();
     }
 }

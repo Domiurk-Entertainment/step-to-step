@@ -1,4 +1,5 @@
 using Godot;
+using StepToStep.InventorySpace;
 using StepToStep.Utils;
 using System;
 
@@ -9,7 +10,6 @@ public partial class Ball : CharacterBody2D
 	[Signal] public delegate void TouchEventHandler();
 
 	protected event Action<Node2D> Hit;
-
 	private float _damage;
 
 	public void Throw(Vector2 direction, float force, float damage)

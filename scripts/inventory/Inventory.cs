@@ -15,9 +15,6 @@ namespace StepToStep.InventorySpace
 
         private List<Item> _items = new();
 
-        public override void _Ready()
-        {
-        }
 
         public void AddItem(Item item)
         {

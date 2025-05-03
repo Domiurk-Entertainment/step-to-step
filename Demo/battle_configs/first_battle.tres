@@ -1,24 +1,20 @@
-[gd_resource type="Resource" script_class="BattleConfig" load_steps=9 format=3 uid="uid://j175cel0uce3"]
+[gd_resource type="Resource" script_class="BattleConfig" load_steps=8 format=3 uid="uid://j175cel0uce3"]
 
 [ext_resource type="PackedScene" uid="uid://c0tod7yw4sold" path="res://scenes/entity/enemy_smile.tscn" id="1_7gpdw"]
 [ext_resource type="Script" path="res://scripts/points/BattleConfig.cs" id="1_jm6qh"]
 [ext_resource type="PackedScene" uid="uid://qxp1xt6p3mcx" path="res://scenes/player.tscn" id="2_0bm78"]
 [ext_resource type="Script" path="res://scripts/inventory/Item.cs" id="2_pqrqd"]
-[ext_resource type="Resource" uid="uid://cap5872uxghgs" path="res://Demo/balls/ball.tres" id="5_55dtx"]
 
 [sub_resource type="Resource" id="Resource_2jyoh"]
 script = ExtResource("2_pqrqd")
-Resource = ExtResource("5_55dtx")
 Amount = 2
 
 [sub_resource type="Resource" id="Resource_xknul"]
 script = ExtResource("2_pqrqd")
-Resource = ExtResource("5_55dtx")
 Amount = 1
 
 [sub_resource type="Resource" id="Resource_xajo7"]
 script = ExtResource("2_pqrqd")
-Resource = ExtResource("5_55dtx")
 Amount = 3
 
 [resource]

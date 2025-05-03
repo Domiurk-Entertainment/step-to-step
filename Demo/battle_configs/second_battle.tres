@@ -1,30 +1,24 @@
-[gd_resource type="Resource" script_class="BattleConfig" load_steps=11 format=3 uid="uid://c7m341xhumouv"]
+[gd_resource type="Resource" script_class="BattleConfig" load_steps=9 format=3 uid="uid://c7m341xhumouv"]
 
 [ext_resource type="PackedScene" uid="uid://u6bb877r42ti" path="res://scenes/entity/green_smile.tscn" id="1_rpeja"]
 [ext_resource type="PackedScene" uid="uid://qxp1xt6p3mcx" path="res://scenes/player.tscn" id="2_bi437"]
-[ext_resource type="Resource" uid="uid://uevbbfoqa5wv" path="res://Demo/balls/ice_ball.tres" id="3_tnj62"]
-[ext_resource type="Resource" uid="uid://cap5872uxghgs" path="res://Demo/balls/ball.tres" id="3_vact7"]
 [ext_resource type="Script" path="res://scripts/inventory/Item.cs" id="4_3okku"]
 [ext_resource type="Script" path="res://scripts/points/BattleConfig.cs" id="5_x05yn"]
 
 [sub_resource type="Resource" id="Resource_2jyoh"]
 script = ExtResource("4_3okku")
-Resource = ExtResource("3_tnj62")
 Amount = 2
 
 [sub_resource type="Resource" id="Resource_xknul"]
 script = ExtResource("4_3okku")
-Resource = ExtResource("3_vact7")
 Amount = 1
 
 [sub_resource type="Resource" id="Resource_xajo7"]
 script = ExtResource("4_3okku")
-Resource = ExtResource("3_vact7")
 Amount = 3
 
 [sub_resource type="Resource" id="Resource_o00pl"]
 script = ExtResource("4_3okku")
-Resource = ExtResource("3_tnj62")
 Amount = 3
 
 [resource]

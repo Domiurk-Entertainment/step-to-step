@@ -9,7 +9,6 @@ public partial class ItemResource : Resource
     public string ID => _id;
     public string Description => _description;
     public Texture2D Icon => _icon;
-    [field: Export] public int Cost { get; private set; } = 0;
 
     [Export] private string _id;
     [Export] private string _description;

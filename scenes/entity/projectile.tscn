@@ -8,7 +8,7 @@
 radius = 9.0
 height = 32.0
 
-[node name="Projectile" type="Area2D"]
+[node name="Projectile" type="CharacterBody2D"]
 z_index = 20
 collision_layer = 513
 script = ExtResource("1_v7oav")

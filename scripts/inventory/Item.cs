@@ -10,7 +10,7 @@ public partial class Item : Resource
 
     public override string ToString() => $"{Resource.ID}:{Amount}";
 
-    public Item(BallResource resource, int amount, int price)
+    public Item(BallResource resource, int amount)
     {
         Resource = resource;
         Amount = amount;
