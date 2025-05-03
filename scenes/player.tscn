@@ -88,7 +88,7 @@ _force = 400.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
 material = SubResource("ShaderMaterial_15st8")
-position = Vector2(-0.75, -12.75)
+position = Vector2(-0.75, -16.25)
 sprite_frames = SubResource("SpriteFrames_1jh8v")
 animation = &"idle"
 autoplay = "idle"

@@ -5,11 +5,12 @@ namespace StepToStep.InventorySpace;
 [GlobalClass]
 public partial class Item : Resource
 {
-    [Export] public BallResource Resource;
-    [Export] public int Amount;
+    [field: Export] public BallResource Resource { get; private set; }
+    [field: Export] public int Amount;
+
     public override string ToString() => $"{Resource.ID}:{Amount}";
 
-    public Item(BallResource resource, int amount)
+    public Item(BallResource resource, int amount, int price)
     {
         Resource = resource;
         Amount = amount;

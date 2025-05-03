@@ -839,3 +839,6 @@ stream = ExtResource("16_3boqe")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_cundv")
 autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(995, 506)

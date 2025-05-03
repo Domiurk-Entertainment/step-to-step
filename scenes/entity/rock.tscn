@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwxmskmb8n12i"]
+[gd_scene load_steps=7 format=3 uid="uid://d2jvhqiquefnw"]
 
 [ext_resource type="Texture2D" uid="uid://bytj1hrqvbbfu" path="res://sprites/cave_boss_attack_1.png" id="1_cl668"]
 [ext_resource type="Script" path="res://scripts/stats/Health.cs" id="2_2y8fb"]

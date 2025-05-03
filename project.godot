@@ -27,8 +27,8 @@ UserInterface="*res://scenes/ui_interface/user_interface.tscn"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
 window/handheld/orientation=1

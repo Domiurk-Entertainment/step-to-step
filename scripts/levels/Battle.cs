@@ -63,7 +63,7 @@ namespace StepToStep.Battle
 			_player.Dead -= PlayerOnDead;
 
 			_enemy.AttackedStep -= EnemyOnAttackedStep;
-			UserInterfaceSystem.Instance.HidePauseButton();
+			UserInterfaceSystem.Instance.ShowUserInterfaces(UserInterfacesType.PausePanel | UserInterfacesType.CoinSystem);
 		}
 
 		private void EnemyOnAttackedStep(AttackType step)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://drfrpkuwv8uej"]
+[gd_scene load_steps=28 format=3 uid="uid://bs4sq5iqc78n8"]
 
 [ext_resource type="Script" path="res://scripts/entity/Enemy.cs" id="1_wwggh"]
 [ext_resource type="Script" path="res://scripts/stats/Health.cs" id="2_qubqb"]

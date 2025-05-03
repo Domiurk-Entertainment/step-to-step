@@ -7,11 +7,22 @@ namespace StepToStep.Level;
 public partial class MainMenu : Node
 {
     [Export(PropertyHint.File)] private string _sceneToPlay;
+    [Export(PropertyHint.File)] private Button continueButton;
+
+    public override void _Ready()
+    {
+        CheckExistData();
+    }
+
+    private void CheckExistData()
+    {
+        continueButton.Disabled = !SaveSystem.Instance.ExistSaves();
+    }
 
     public void Start()
     {
-        UserInterfaceSystem.Instance.Modal.Open("Start New Game", 
-                                                "Are you sure you want to start the new game?", 
+        UserInterfaceSystem.Instance.Modal.Open("Start New Game",
+                                                "Are you sure you want to start the new game?",
                                                 "Yes", "No",
                                                 StartGame);
         return;
@@ -37,5 +48,6 @@ public partial class MainMenu : Node
     public void RemoveSavedData()
     {
         SaveSystem.Instance.RemoveAllData();
+        CheckExistData();
     }
 }
