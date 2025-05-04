@@ -130,6 +130,7 @@ stretch_mode = 6
 position = Vector2(641.5, 361)
 scale = Vector2(4.47569, 4.15909)
 sprite_frames = SubResource("SpriteFrames_pi1o1")
+autoplay = "default"
 frame_progress = 0.301346
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
@@ -491,6 +492,15 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 24
 text = "Delete All Data"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(448, 293)
+amount = 1
+lifetime = 0.6
+speed_scale = 0.7
+scale_amount_min = 3.0
+scale_amount_max = 7.37
+color = Color(0.231309, 0.371794, 0.593222, 1)
 
 [connection signal="button_up" from="Control/SettingFrame/Settings" to="Control/SettingsMenu" method="show"]
 [connection signal="pressed" from="Control/VBoxContainer/Play" to="." method="Start"]
