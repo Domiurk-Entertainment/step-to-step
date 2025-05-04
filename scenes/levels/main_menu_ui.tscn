@@ -1,14 +1,60 @@
-[gd_scene load_steps=16 format=3 uid="uid://cgg3oxwa6v2iu"]
+[gd_scene load_steps=23 format=3 uid="uid://cgg3oxwa6v2iu"]
 
 [ext_resource type="Script" path="res://scripts/levels/MainMenu.cs" id="1_pqpjw"]
 [ext_resource type="AudioStream" uid="uid://3ei5c4shcb46" path="res://sounds/ui_hover.wav" id="3_3rjk0"]
 [ext_resource type="AudioStream" uid="uid://ccy1cdibnmy84" path="res://sounds/Pixel Music Pack/Wav/Pixel 1.wav" id="4_ugp0h"]
+[ext_resource type="Texture2D" uid="uid://fuyhtyywiawv" path="res://sprites/main_menu_cave.png" id="5_oqr6r"]
 [ext_resource type="Texture2D" uid="uid://cu4we4jjrtiid" path="res://sprites/cave_main_menu_bg.png" id="5_tl3b4"]
 [ext_resource type="Texture2D" uid="uid://dnjxmb3w8e2m4" path="res://sprites/cave_ui_button_pause.png" id="6_ivhtx"]
 [ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="7_pau42"]
 [ext_resource type="Script" path="res://scripts/ElementPosition.cs" id="7_wwnpd"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/minimal_pixelv2.ttf" id="8_c87gw"]
 [ext_resource type="Texture2D" uid="uid://cw7fnbcsld1pd" path="res://sprites/ui_settings.png" id="9_1k3wf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ben2"]
+atlas = ExtResource("5_oqr6r")
+region = Rect2(0, 0, 288, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0by1t"]
+atlas = ExtResource("5_oqr6r")
+region = Rect2(288, 0, 288, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0f17"]
+atlas = ExtResource("5_oqr6r")
+region = Rect2(0, 176, 288, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7qef"]
+atlas = ExtResource("5_oqr6r")
+region = Rect2(288, 176, 288, 176)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pi1o1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ben2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0by1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0f17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7qef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0by1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0f17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7qef")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Curve" id="Curve_0wv6h"]
 min_value = -100.0
@@ -24,9 +70,11 @@ point_count = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y4yvb"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qel5f"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_1kj5h"]
 font = ExtResource("8_c87gw")
-font_size = 36
+font_size = 35
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_ei4sm"]
 color = Color(0.871407, 0.000465136, 0.842068, 1)
@@ -68,8 +116,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -4.0
-offset_top = -503.0
+offset_left = -2.0
+offset_top = -384.0
 offset_right = 26.0
 offset_bottom = 367.0
 grow_horizontal = 2
@@ -78,7 +126,14 @@ texture = ExtResource("5_tl3b4")
 expand_mode = 4
 stretch_mode = 6
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(641.5, 361)
+scale = Vector2(4.47569, 4.15909)
+sprite_frames = SubResource("SpriteFrames_pi1o1")
+frame_progress = 0.301346
+
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+visible = false
 texture_filter = 1
 texture_repeat = 1
 position = Vector2(583, 243)
@@ -247,22 +302,23 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
 [node name="SettingFrame" type="TextureRect" parent="Control"]
-modulate = Color(0.627451, 0.627451, 0.627451, 1)
+modulate = Color(0.875456, 0.875457, 0.875456, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.837
 anchor_top = 0.007
 anchor_right = 0.997
 anchor_bottom = 0.272
-offset_left = -0.359985
+offset_left = 43.64
 offset_top = -0.04
-offset_right = -0.160034
-offset_bottom = 0.159988
+offset_right = -0.159912
+offset_bottom = -44.84
 grow_horizontal = 0
 texture = ExtResource("6_ivhtx")
 
@@ -273,10 +329,10 @@ anchor_left = 0.137
 anchor_top = 0.13
 anchor_right = 0.946
 anchor_bottom = 0.854
-offset_left = -8.565
-offset_top = 0.0199966
-offset_right = -47.77
-offset_bottom = -41.084
+offset_left = 7.943
+offset_top = 15.02
+offset_right = -40.306
+offset_bottom = -28.684
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.3, 1.3)
@@ -320,8 +376,10 @@ size_flags_vertical = 3
 focus_mode = 1
 theme_override_fonts/font = ExtResource("8_c87gw")
 theme_override_font_sizes/font_size = 42
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qel5f")
 text = "Continue"
 flat = true
+text_overrun_behavior = 2
 
 [node name="Quit" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
@@ -361,10 +419,10 @@ anchor_left = 0.758
 anchor_top = 0.957
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -565.24
-offset_top = -652.04
-offset_right = -633.0
-offset_bottom = -647.0
+offset_left = -581.24
+offset_top = -651.04
+offset_right = -649.0
+offset_bottom = -646.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(2, 2)
