@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://u6bb877r42ti" path="res://scenes/entity/green_smile.tscn" id="1_rpeja"]
 [ext_resource type="PackedScene" uid="uid://qxp1xt6p3mcx" path="res://scenes/player.tscn" id="2_bi437"]
 [ext_resource type="Script" path="res://scripts/inventory/Item.cs" id="4_3okku"]
-[ext_resource type="Script" path="res://scripts/points/BattleConfig.cs" id="5_x05yn"]
+[ext_resource type="Script" path="res://scripts/levels/BattleConfig.cs" id="5_x05yn"]
 
 [sub_resource type="Resource" id="Resource_2jyoh"]
 script = ExtResource("4_3okku")

@@ -1,11 +1,11 @@
 using Godot;
+using StepToStep.Utils;
 using System.Collections.Generic;
 
-namespace StepToStep.Utils
+namespace StepToStep.Systems
 {
-    public partial class SceneTransition : Node
+    public partial class SceneTransition : System<SceneTransition>
     {
-        public static SceneTransition Instance;
         public static readonly Stack<PackedScene> ScenesHistory = new();
         public static readonly Dictionary<string, Variant> Data = new();
 
@@ -18,11 +18,7 @@ namespace StepToStep.Utils
 
         public override void _Ready()
         {
-            if(Instance != null && Instance != this)
-                QueueFree();
-            else
-                Instance = this;
-            
+            base._Ready();
             _animationPlayer.AnimationFinished += OnAnimationFinished;
             currentPackedScene =
                 GD.Load<PackedScene>(ProjectSettings.GetSetting("application/run/main_scene").AsString());
@@ -30,6 +26,7 @@ namespace StepToStep.Utils
 
         public override void _ExitTree()
         {
+            GD.Print("Exiting scene");
             _animationPlayer.AnimationFinished -= OnAnimationFinished;
         }
 

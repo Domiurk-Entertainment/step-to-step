@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d0ruhoogsh74" path="res://scenes/entity/boss_cave.tscn" id="1_y2oo4"]
 [ext_resource type="PackedScene" uid="uid://qxp1xt6p3mcx" path="res://scenes/player.tscn" id="2_faqym"]
 [ext_resource type="Script" path="res://scripts/inventory/Item.cs" id="4_o7q2b"]
-[ext_resource type="Script" path="res://scripts/points/BattleConfig.cs" id="6_nhhaf"]
+[ext_resource type="Script" path="res://scripts/levels/BattleConfig.cs" id="6_nhhaf"]
 
 [sub_resource type="Resource" id="Resource_t8esq"]
 script = ExtResource("4_o7q2b")

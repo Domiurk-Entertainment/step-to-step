@@ -9,16 +9,17 @@ namespace StepToStep.Interface
         [Export] private Label _content;
         [Export] private Button _actionButtonOne;
         [Export] private Button _actionButtonTwo;
+        [Export] private Button _actionButtonClose;
 
         private Action _oneAction;
         private Action _twoAction;
 
-        public void Open(string title = "",
-                         string content = "",
-                         string textOneAction = "OK",
-                         string textTwoAction = "Cancel",
-                         Action oneAction = null,
-                         Action twoAction = null)
+        public void Initial(string title = "",
+                            string content = "",
+                            string textOneAction = "OK",
+                            string textTwoAction = "Cancel",
+                            Action oneAction = null,
+                            Action twoAction = null)
         {
             if(!string.IsNullOrEmpty(title)){
                 _title.Text = title;
@@ -61,7 +62,7 @@ namespace StepToStep.Interface
                 _actionButtonTwo.Hide();
             }
 
-            Show();
+            _actionButtonClose.Pressed += Close;
         }
 
         public void Close()
@@ -75,7 +76,6 @@ namespace StepToStep.Interface
                 _actionButtonTwo.Pressed -= _twoAction;
                 _twoAction = null;
             }
-
             Hide();
         }
     }

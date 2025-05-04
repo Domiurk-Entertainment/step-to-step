@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace StepToStep.Level;
 
-public partial class BattleBossCave : Node
+public partial class BattleBossCave : Level<BattleConfig>
 {
     private const float COOLDOWN_ATTACKS = 2;
     private const float COOLDOWN_SHOW_MENU = 2;
@@ -25,10 +25,9 @@ public partial class BattleBossCave : Node
 
     public override void _Ready()
     {
-        BattleConfig config = SceneTransition.GetData(GetTree().CurrentScene.SceneFilePath).As<BattleConfig>();
-
-        _player = config.PlayerPackedScene.Instantiate<Player>();
-        _enemy = config.EnemiesPackedScene.Instantiate<BossCave>();
+        base._Ready();
+        _player = Config.PlayerPackedScene.Instantiate<Player>();
+        _enemy = Config.EnemiesPackedScene.Instantiate<BossCave>();
 
         _player.Hit += PlayerOnHit;
         _player.AttackedStep += PlayerOnAttackedStep;
@@ -40,7 +39,7 @@ public partial class BattleBossCave : Node
         AddChild(_enemy);
 
         _inventory.Initialize(_player.Inventory);
-        _player.Inventory.AddItems(config.Items.ToArray());
+        _player.Inventory.AddItems(Config.Items.ToArray());
         _player.GlobalPosition = _playerSpawnPoint.GlobalPosition;
         _enemy.GlobalPosition = _enemySpawnPoint.GlobalPosition;
         _enemy.InitialTarget(_player.GlobalPosition);
@@ -128,7 +127,7 @@ public partial class BattleBossCave : Node
         void ShowModal()
         {
             _enemy.QueueFree();
-            UserInterfaceSystem.Instance.Modal.Open("You win", textOneAction: "Back To Map",
+            UserInterfaceSystem.Instance.AddModal("You win", textOneAction: "Back To Map",
                                                     oneAction: BackToLastScene);
         }
     }
@@ -136,7 +135,7 @@ public partial class BattleBossCave : Node
     private void PlayerOnDead()
     {
         _player.QueueFree();
-        UserInterfaceSystem.Instance.Modal.Open("You Lose", textOneAction: "Back To Map",
+        UserInterfaceSystem.Instance.AddModal("You Lose", textOneAction: "Back To Map",
                                                 oneAction: BackToLastScene);
         _isEnd = true;
         return;

@@ -2,27 +2,22 @@ using Godot;
 using StepToStep.Interface;
 using StepToStep.Utils;
 using System;
+using System.Collections.Generic;
 
 namespace StepToStep.Systems
 {
-    public partial class UserInterfaceSystem : CanvasLayer
+    public partial class UserInterfaceSystem : System<UserInterfaceSystem>
     {
-        public static UserInterfaceSystem Instance;
+        private readonly Queue<CanvasItem> _queue = new Queue<CanvasItem>();
 
-        [Export] public Modal Modal;
+        [Export] private Modal _modal;
         [Export] public Currency Currency;
         [Export] private Panel _pausePanel;
         [Export] private Button _pauseButton;
 
         public override void _Ready()
         {
-            if(Instance != null && Instance != this){
-                QueueFree();
-                GD.PrintErr("Instance already exists");
-                return;
-            }
-
-            Instance = this;
+            base._Ready();
             _pauseButton.Pressed += PauseButtonOnPressed;
             var resumeButton = (Button)FindChild("Resume");
             var quitButton = (Button)FindChild("Quit");
@@ -36,6 +31,48 @@ namespace StepToStep.Systems
             {
                 _pausePanel.Show();
                 _pauseButton.Hide();
+            }
+        }
+
+        public void AddModal(string title = "",
+                             string content = "",
+                             string textOneAction = "OK",
+                             string textTwoAction = "Cancel",
+                             Action oneAction = null,
+                             Action twoAction = null)
+        {
+            var duplicate = _modal.Duplicate() as Modal;
+            duplicate!.Initial(title, content, textOneAction, textTwoAction,
+                               oneAction == null ? null : OneActionOnPressed,
+                               twoAction == null ? null : TwoActionOnPressed);
+            duplicate.Hidden += DuplicateOnHidden;
+
+            bool open = _queue.Count == 0;
+            AddChild(duplicate);
+
+            _queue.Enqueue(duplicate);
+
+            if(open)
+                _queue.Dequeue().Show();
+            return;
+
+            void OneActionOnPressed()
+            {
+                oneAction?.Invoke();
+                duplicate.Close();
+            }
+
+            void TwoActionOnPressed()
+            {
+                twoAction?.Invoke();
+                duplicate.Close();
+            }
+
+            void DuplicateOnHidden()
+            {
+                if(_queue.Count > 0)
+                    _queue.Dequeue().Show();
+                duplicate.QueueFree();
             }
         }
 
