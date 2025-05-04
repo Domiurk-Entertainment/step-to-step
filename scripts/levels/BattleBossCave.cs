@@ -6,7 +6,7 @@ using StepToStep.Utils;
 using System;
 using System.Linq;
 
-namespace StepToStep.Level;
+namespace StepToStep.Levels;
 
 public partial class BattleBossCave : Level<BattleConfig>
 {

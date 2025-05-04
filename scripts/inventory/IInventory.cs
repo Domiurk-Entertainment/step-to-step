@@ -1,4 +1,6 @@
-﻿namespace StepToStep.InventorySpace;
+﻿using System.Collections.Generic;
+
+namespace StepToStep.InventorySpace;
 
 public interface IInventory
 {
@@ -6,6 +8,9 @@ public interface IInventory
     event InventoryDelegate RemovedItem;
     event InventoryDelegate TakenItem;
 
+    IReadOnlyCollection<Item> Balls { get; }
+    IItem CurrentBall { get; }
+    
     public void AddItems(Item[] items);
     public void AddItem(Item item);
     public Item GetBall();

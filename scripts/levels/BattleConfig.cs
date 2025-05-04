@@ -2,7 +2,7 @@ using Godot;
 using StepToStep.InventorySpace;
 using System.Collections.Generic;
 
-namespace StepToStep.Level;
+namespace StepToStep.Levels;
 
 [GlobalClass]
 public partial class BattleConfig : LevelConfig

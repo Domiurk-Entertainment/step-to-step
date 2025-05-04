@@ -837,6 +837,7 @@ stream = ExtResource("16_3boqe")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_cundv")
+volume_db = -15.0
 autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="."]

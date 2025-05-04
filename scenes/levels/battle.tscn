@@ -20,9 +20,8 @@ content_margin_top = 10.0
 texture = ExtResource("3_834lr")
 modulate_color = Color(0.68101, 0.68101, 0.68101, 1)
 
-[node name="Battle" type="Node" node_paths=PackedStringArray("_playerAttackButton", "_playerSpawnPoint", "_enemySpawnPoint", "_inventory", "_camera")]
+[node name="Battle" type="Node" node_paths=PackedStringArray("_playerSpawnPoint", "_enemySpawnPoint", "_inventory", "_camera")]
 script = ExtResource("1_ri0lh")
-_playerAttackButton = NodePath("UI/Attack")
 _playerSpawnPoint = NodePath("PlayerSpawnPoint")
 _enemySpawnPoint = NodePath("EnemySpawnPoint")
 _inventory = NodePath("UI/Inventory")
@@ -61,14 +60,14 @@ mouse_filter = 2
 [node name="Attack" type="Button" parent="UI"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.42
-anchor_top = 0.664
-anchor_right = 0.616
-anchor_bottom = 0.797
-offset_left = 425.76
-offset_top = -4.07202
-offset_right = 425.448
-offset_bottom = -4.23102
+anchor_left = 0.755
+anchor_top = 0.658
+anchor_right = 0.95
+anchor_bottom = 0.791
+offset_left = -0.360046
+offset_top = 0.26593
+offset_right = 0.600098
+offset_bottom = 0.106995
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_1wxay")
@@ -127,5 +126,9 @@ offset_right = -61.936
 offset_bottom = -223.911
 scale = Vector2(3.31, 3.31)
 
+[connection signal="PlayerEndTurn" from="." to="UI/Attack" method="set_disabled" binds= [false]]
+[connection signal="PlayerEndTurn" from="." to="UI/TunOffButton" method="set_disabled" binds= [false]]
+[connection signal="PlayerStartTurn" from="." to="UI/Attack" method="set_disabled" binds= [true]]
+[connection signal="PlayerStartTurn" from="." to="UI/TunOffButton" method="set_disabled" binds= [true]]
 [connection signal="pressed" from="UI/Attack" to="." method="PlayerAttack"]
 [connection signal="pressed" from="UI/TunOffButton" to="." method="TryRunOff"]

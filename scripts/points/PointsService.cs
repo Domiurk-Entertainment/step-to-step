@@ -4,7 +4,7 @@ using StepToStep.Utils;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace StepToStep.Level;
+namespace StepToStep.Levels;
 
 public partial class PointsService : Node
 {

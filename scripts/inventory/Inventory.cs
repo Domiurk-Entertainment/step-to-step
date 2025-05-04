@@ -11,17 +11,14 @@ namespace StepToStep.InventorySpace
 
         private Item _currentBall;
 
-        private Queue<Item> _balls = new();
-
-        private List<Item> _items = new();
-
+        private readonly Queue<Item> _balls = new();
 
         public void AddItem(Item item)
         {
             if(item.Amount <= 0){
                 return;
             }
-            
+
             AddedItem?.Invoke(item);
 
             if(_currentBall == null){
@@ -32,6 +29,9 @@ namespace StepToStep.InventorySpace
 
             _balls.Enqueue(item);
         }
+
+        public IReadOnlyCollection<Item> Balls => _balls;
+        public IItem CurrentBall => _currentBall;
 
         public void AddItems(Item[] items)
         {
@@ -46,7 +46,7 @@ namespace StepToStep.InventorySpace
             }
 
             Item result = _currentBall;
-            
+
             if(result.Amount > 1){
                 result.Amount--;
                 TakenItem?.Invoke(result);

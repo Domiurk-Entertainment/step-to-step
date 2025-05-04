@@ -3,7 +3,7 @@ using Godot.Collections;
 using StepToStep.InventorySpace;
 using StepToStep.ShopSystem;
 
-namespace StepToStep.scripts.levels;
+namespace StepToStep.Levels;
 
 public partial class Shop : Node
 {

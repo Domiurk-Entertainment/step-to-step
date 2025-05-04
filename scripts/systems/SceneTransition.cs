@@ -20,8 +20,7 @@ namespace StepToStep.Systems
         {
             base._Ready();
             _animationPlayer.AnimationFinished += OnAnimationFinished;
-            currentPackedScene =
-                GD.Load<PackedScene>(ProjectSettings.GetSetting("application/run/main_scene").AsString());
+            currentPackedScene = GD.Load<PackedScene>(GetTree().CurrentScene.GetSceneFilePath());
         }
 
         public override void _ExitTree()

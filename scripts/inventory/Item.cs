@@ -3,10 +3,10 @@
 namespace StepToStep.InventorySpace;
 
 [GlobalClass]
-public partial class Item : Resource
+public partial class Item : Resource, IItem
 {
-    [field: Export] public BallResource Resource { get; private set; }
-    [field: Export] public int Amount;
+    [Export] public BallResource Resource { get; private set; }
+    [Export] public int Amount;
 
     public override string ToString() => $"{Resource.ID}:{Amount}";
 
@@ -21,4 +21,9 @@ public partial class Item : Resource
         Resource = null;
         Amount = 0;
     }
+}
+
+public interface IItem
+{
+    BallResource Resource { get; }
 }

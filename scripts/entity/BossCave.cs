@@ -50,17 +50,19 @@ public partial class BossCave : Node2D, IHealth
 		if(_animatedSprite.GetAnimation() != "attack" || _animatedSprite.Frame != 7)
 			return;
 
+		/*
 		var projectile = _projectile.Instantiate<StepToStep.Projectile>();
 		_pointToShoot.AddChild(projectile);
 		projectile.Position = Vector2.Zero;
 		projectile.Go(_playerPosition - projectile.GlobalPosition, 500, Damage);
 		AttackedStep?.Invoke(AttackType.Attacked);
+		*/
 
-		/*var projectile = _projectile.Instantiate<Projectile>();
+		var projectile = _projectile.Instantiate<Projectile>();
 		_pointToShoot.AddChild(projectile);
 		projectile.Position = Vector2.Zero;
 		projectile.Shoot(_playerPosition, Damage);
-		AttackedStep?.Invoke(AttackType.Attacked);*/
+		AttackedStep?.Invoke(AttackType.Attacked);
 	}
 
 	public void Attack()

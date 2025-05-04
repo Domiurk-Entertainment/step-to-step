@@ -3,7 +3,7 @@ using StepToStep.Systems;
 using System;
 using System.Collections.Generic;
 
-namespace StepToStep.Level;
+namespace StepToStep.Levels;
 
 public partial class Point : Button
 {

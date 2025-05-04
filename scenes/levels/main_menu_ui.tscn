@@ -104,7 +104,7 @@ volume_db = 8.418
 
 [node name="Music" type="AudioStreamPlayer" parent="SoundService"]
 stream = ExtResource("4_ugp0h")
-volume_db = -10.0
+volume_db = -15.0
 autoplay = true
 
 [node name="PixelMainMenu" type="TextureRect" parent="."]
@@ -350,13 +350,14 @@ expand_icon = true
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.631
-anchor_right = 1.0
-anchor_bottom = 0.885
-offset_left = -1.0
-offset_top = -0.320007
-offset_right = -105.0
-offset_bottom = -15.2
+anchor_left = 0.426
+anchor_top = 0.693
+anchor_right = 0.979
+anchor_bottom = 0.947
+offset_left = -0.558044
+offset_top = 0.039978
+offset_right = -59.057
+offset_bottom = -14.84
 scale = Vector2(1.09, 1.09)
 alignment = 1
 

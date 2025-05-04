@@ -308,7 +308,7 @@ stream = ExtResource("11_7cjgc")
 
 [node name="Music" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("12_1dbwj")
-volume_db = -5.0
+volume_db = -48.555
 
 [node name="CoinPanel" type="HSplitContainer" parent="."]
 visible = false

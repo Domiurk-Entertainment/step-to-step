@@ -1,6 +1,6 @@
 ﻿using Godot;
 
-namespace StepToStep.Level;
+namespace StepToStep.Levels;
 
 public partial class LevelConfig : Resource
 {

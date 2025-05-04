@@ -2,7 +2,7 @@
 using StepToStep.Entity;
 using StepToStep.Systems;
 
-namespace StepToStep.Level;
+namespace StepToStep.Levels;
 
 public partial class Level<TConfig> : Node where TConfig : LevelConfig
 {
@@ -10,13 +10,7 @@ public partial class Level<TConfig> : Node where TConfig : LevelConfig
 
     public override void _Ready()
     {
-        if(typeof(TConfig) != typeof(LevelConfig)){
+        if(typeof(TConfig) != typeof(LevelConfig))
             Config = SceneTransition.GetData(GetTree().CurrentScene.SceneFilePath).As<LevelConfig>() as TConfig;
-        }
-        else
-            GD.Print($"Level: Config is LEVEL CONFIG");
-
-        if(Config != null)
-            GD.Print($"Config: {Config.ResourcePath}");
     }
 }

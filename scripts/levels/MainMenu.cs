@@ -2,12 +2,12 @@ using Godot;
 using StepToStep.Systems;
 using StepToStep.Utils;
 
-namespace StepToStep.Level;
+namespace StepToStep.Levels;
 
 public partial class MainMenu : Node
 {
     [Export(PropertyHint.File)] private string _sceneToPlay;
-    [Export()] private Button continueButton;
+    [Export] private Button continueButton;
 
     public override void _Ready()
     {
@@ -21,7 +21,6 @@ public partial class MainMenu : Node
 
     public void Start()
     {
-        // StartGame();
         UserInterfaceSystem.Instance.AddModal("Start New Game",
                                               "Are you sure you want to start the new game?",
                                               "Yes", "No",
@@ -30,9 +29,7 @@ public partial class MainMenu : Node
 
         void StartGame()
         {
-            UserInterfaceSystem.Instance.PrintTree();
-
-            SaveSystem.Instance.RemoveAllData();
+            RemoveSavedData();
             Continue();
         }
     }

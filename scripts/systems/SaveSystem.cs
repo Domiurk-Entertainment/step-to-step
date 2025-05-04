@@ -15,12 +15,23 @@ public partial class SaveSystem : System<SaveSystem>
     private Dictionary<SectionType, Dictionary<string, Variant>>
         dataToSave = new();
 
+    public override void _Ready()
+    {
+        base._Ready();
+        LoadData();
+    }
+
     public void RemoveAllData()
     {
         if(!ExistConfig() || dataToSave.Count == 0)
             return;
 
         foreach(SectionType sectionType in Enum.GetValues<SectionType>()){
+            if(!dataToSave.ContainsKey(sectionType)){
+                dataToSave.Add(sectionType, new Dictionary<string, Variant>());
+                continue;
+            }
+
             dataToSave[sectionType].Clear();
         }
     }
@@ -62,6 +73,7 @@ public partial class SaveSystem : System<SaveSystem>
     public void LoadData()
     {
         if(!ExistConfig()){
+            RemoveAllData();
             return;
         }
 
@@ -93,13 +105,19 @@ public partial class SaveSystem : System<SaveSystem>
     public bool ExistSaves() => ExistConfig() && dataToSave.Keys.All(ExistSave);
 
     public bool ExistSave(SectionType sectionType)
-        => ExistSaves() && dataToSave.ContainsKey(sectionType) && dataToSave[sectionType].Count > 0;
+        => dataToSave.ContainsKey(sectionType) && dataToSave[sectionType].Count > 0;
 
     private string GetFullPath()
         => Path.Combine(GetFolderPath(), fileName);
 
     private string GetFolderPath()
         => ProjectSettings.GlobalizePath(pathConfig);
+
+    public override void _Notification(int what)
+    {
+        if(what == NotificationWMCloseRequest)
+            SaveDictionary();
+    }
 }
 
 public enum SectionType
