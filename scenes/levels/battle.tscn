@@ -131,4 +131,5 @@ scale = Vector2(3.31, 3.31)
 [connection signal="PlayerStartTurn" from="." to="UI/Attack" method="set_disabled" binds= [true]]
 [connection signal="PlayerStartTurn" from="." to="UI/TunOffButton" method="set_disabled" binds= [true]]
 [connection signal="pressed" from="UI/Attack" to="." method="PlayerAttack"]
+[connection signal="pressed" from="UI/Attack" to="." method="PlaySound" binds= ["Click"]]
 [connection signal="pressed" from="UI/TunOffButton" to="." method="TryRunOff"]

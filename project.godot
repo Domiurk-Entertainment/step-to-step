@@ -24,6 +24,7 @@ config/icon="res://sprites/game_icon.png"
 SaveSystem="*res://scenes/systems/save_system.tscn"
 SceneTransition="*res://scenes/systems/scene_transition.tscn"
 UserInterface="*res://scenes/systems/user_interface.tscn"
+SoundSystem="*res://scenes/systems/sound_system.tscn"
 
 [display]
 

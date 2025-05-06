@@ -1,14 +1,16 @@
 using Godot;
+using Godot.Collections;
 using StepToStep.Systems;
 using StepToStep.Utils;
+using System.Reflection;
 
 namespace StepToStep.Levels;
 
-public partial class MainMenu : Node
+public partial class MainMenu : Level<LevelConfig>
 {
     [Export(PropertyHint.File)] private string _sceneToPlay;
     [Export] private Button continueButton;
-
+    
     public override void _Ready()
     {
         CheckExistData();

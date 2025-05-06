@@ -1,13 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://cgg3oxwa6v2iu"]
+[gd_scene load_steps=16 format=3 uid="uid://cgg3oxwa6v2iu"]
 
 [ext_resource type="Script" path="res://scripts/levels/MainMenu.cs" id="1_pqpjw"]
-[ext_resource type="AudioStream" uid="uid://3ei5c4shcb46" path="res://sounds/ui_hover.wav" id="3_3rjk0"]
-[ext_resource type="AudioStream" uid="uid://ccy1cdibnmy84" path="res://sounds/Pixel Music Pack/Wav/Pixel 1.wav" id="4_ugp0h"]
 [ext_resource type="Texture2D" uid="uid://fuyhtyywiawv" path="res://sprites/main_menu_cave.png" id="5_oqr6r"]
-[ext_resource type="Texture2D" uid="uid://cu4we4jjrtiid" path="res://sprites/cave_main_menu_bg.png" id="5_tl3b4"]
 [ext_resource type="Texture2D" uid="uid://dnjxmb3w8e2m4" path="res://sprites/cave_ui_button_pause.png" id="6_ivhtx"]
-[ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="7_pau42"]
-[ext_resource type="Script" path="res://scripts/ElementPosition.cs" id="7_wwnpd"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/minimal_pixelv2.ttf" id="8_c87gw"]
 [ext_resource type="Texture2D" uid="uid://cw7fnbcsld1pd" path="res://sprites/ui_settings.png" id="9_1k3wf"]
 
@@ -56,25 +51,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Curve" id="Curve_0wv6h"]
-min_value = -100.0
-max_value = 100.0
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.194631, 87.7027), 0.0, 0.0, 0, 0, Vector2(0.40604, -98.5135), 0.0, 0.0, 0, 0, Vector2(0.604027, 92.973), 0.0, 0.0, 0, 0, Vector2(0.815436, -100), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 6
-
-[sub_resource type="Curve" id="Curve_wvest"]
-min_value = -25.0
-max_value = 25.0
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.265101, 23.6824), 0.0, 0.0, 0, 0, Vector2(0.536913, -25), -18.6796, -18.6796, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 4
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y4yvb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qel5f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1kj5h"]
 font = ExtResource("8_c87gw")
-font_size = 35
+font_size = 28
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_ei4sm"]
 color = Color(0.871407, 0.000465136, 0.842068, 1)
@@ -94,209 +77,12 @@ script = ExtResource("1_pqpjw")
 _sceneToPlay = "res://scenes/levels/map_cave.tscn"
 continueButton = NodePath("Control/VBoxContainer/Continue")
 
-[node name="SoundService" type="Node" parent="."]
-
-[node name="Hover" type="AudioStreamPlayer" parent="SoundService"]
-stream = ExtResource("3_3rjk0")
-volume_db = 8.418
-
-[node name="Click" type="AudioStreamPlayer" parent="SoundService"]
-
-[node name="Music" type="AudioStreamPlayer" parent="SoundService"]
-stream = ExtResource("4_ugp0h")
-volume_db = -15.0
-autoplay = true
-
-[node name="PixelMainMenu" type="TextureRect" parent="."]
-modulate = Color(0.627451, 0.627451, 0.627451, 1)
-light_mask = 3
-visibility_layer = 3
-layout_direction = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = -335.0
-offset_right = -234.0
-offset_bottom = 416.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_tl3b4")
-expand_mode = 4
-stretch_mode = 6
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(641.5, 361)
 scale = Vector2(4.47569, 4.15909)
 sprite_frames = SubResource("SpriteFrames_pi1o1")
 autoplay = "default"
 frame_progress = 0.301346
-
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
-visible = false
-texture_filter = 1
-texture_repeat = 1
-position = Vector2(583, 243)
-amount = 20
-lifetime = 2.0
-randomness = 0.24
-lifetime_randomness = 0.1
-emission_shape = 1
-emission_sphere_radius = 25.0
-gravity = Vector2(0, 0)
-initial_velocity_max = 130.0
-angular_velocity_max = 2.0
-orbit_velocity_curve = SubResource("Curve_0wv6h")
-linear_accel_min = -10.0
-linear_accel_max = 10.0
-radial_accel_min = -25.0
-radial_accel_max = 25.0
-radial_accel_curve = SubResource("Curve_wvest")
-tangential_accel_min = -50.0
-tangential_accel_max = 50.0
-angle_min = -100.0
-angle_max = 100.0
-scale_amount_min = 10.0
-scale_amount_max = 24.0
-color = Color(0.862745, 1, 1, 1)
-script = ExtResource("7_wwnpd")
-
-[node name="Lights" type="Node2D" parent="."]
-visible = false
-position = Vector2(253, 353)
-
-[node name="PointLight2D2" type="PointLight2D" parent="Lights"]
-position = Vector2(391, -61)
-energy = 3.88
-texture = ExtResource("7_pau42")
-texture_scale = 0.2
-
-[node name="PointLight2D3" type="PointLight2D" parent="Lights"]
-position = Vector2(316, 40)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("7_pau42")
-texture_scale = 0.2
-
-[node name="PointLight2D4" type="PointLight2D" parent="Lights"]
-position = Vector2(394, 29)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("7_pau42")
-texture_scale = 0.2
-
-[node name="PointLight2D5" type="PointLight2D" parent="Lights"]
-position = Vector2(332, 180)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("7_pau42")
-texture_scale = 0.2
-
-[node name="PointLight2D6" type="PointLight2D" parent="Lights"]
-position = Vector2(374, 280)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("7_pau42")
-texture_scale = 0.2
-
-[node name="PointLight2D7" type="PointLight2D" parent="Lights"]
-position = Vector2(301, 317)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("7_pau42")
-texture_scale = 0.2
-
-[node name="PointLight2D8" type="PointLight2D" parent="Lights"]
-position = Vector2(-61, -42)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("7_pau42")
-texture_scale = 0.2
-
-[node name="PointLight2D9" type="PointLight2D" parent="Lights"]
-position = Vector2(167, 519)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("7_pau42")
-texture_scale = 0.2
-
-[node name="PointLight2D10" type="PointLight2D" parent="Lights"]
-position = Vector2(-25, 539)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("7_pau42")
-texture_scale = 0.2
-
-[node name="PointLight2D11" type="PointLight2D" parent="Lights"]
-position = Vector2(-133, 483)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("7_pau42")
-texture_scale = 0.2
-
-[node name="PointLight2D13" type="PointLight2D" parent="Lights"]
-position = Vector2(-205, 137)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("7_pau42")
-texture_scale = 0.2
-
-[node name="PointLight2D14" type="PointLight2D" parent="Lights"]
-position = Vector2(-172, -19)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("7_pau42")
-texture_scale = 0.2
-
-[node name="PointLight2D15" type="PointLight2D" parent="Lights"]
-position = Vector2(-109, -158)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("7_pau42")
-texture_scale = 0.2
-
-[node name="PointLight2D16" type="PointLight2D" parent="Lights"]
-position = Vector2(-47, -178)
-scale = Vector2(0.699525, 0.652575)
-energy = 3.65
-texture = ExtResource("7_pau42")
-texture_scale = 0.2
-
-[node name="PointLight2D17" type="PointLight2D" parent="Lights"]
-position = Vector2(-96, -189)
-scale = Vector2(0.33076, 0.313573)
-energy = 3.65
-texture = ExtResource("7_pau42")
-texture_scale = 0.2
-
-[node name="PointLight2D18" type="PointLight2D" parent="Lights"]
-position = Vector2(75, -204)
-scale = Vector2(0.596793, 0.466148)
-energy = 3.65
-texture = ExtResource("7_pau42")
-texture_scale = 0.2
-
-[node name="PointLight2D19" type="PointLight2D" parent="Lights"]
-position = Vector2(75, -280)
-scale = Vector2(0.425772, 0.402575)
-energy = 3.65
-texture = ExtResource("7_pau42")
-texture_scale = 0.2
-
-[node name="PointLight2D20" type="PointLight2D" parent="Lights"]
-position = Vector2(170, -302)
-scale = Vector2(0.416271, 0.415289)
-energy = 3.65
-texture = ExtResource("7_pau42")
-texture_scale = 0.2
-
-[node name="PointLight2D21" type="PointLight2D" parent="Lights"]
-position = Vector2(96, 568)
-scale = Vector2(0.416271, 0.415289)
-energy = 3.65
-texture = ExtResource("7_pau42")
-texture_scale = 0.2
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
@@ -340,8 +126,6 @@ scale = Vector2(1.3, 1.3)
 focus_mode = 0
 theme_override_fonts/font = ExtResource("8_c87gw")
 theme_override_font_sizes/font_size = 14
-text = "
-"
 icon = ExtResource("9_1k3wf")
 flat = true
 icon_alignment = 1
@@ -421,17 +205,16 @@ anchor_left = 0.758
 anchor_top = 0.957
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -581.24
-offset_top = -651.04
-offset_right = -649.0
-offset_bottom = -646.0
+offset_left = -924.514
+offset_top = -675.04
+offset_right = -1000.0
+offset_bottom = -670.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(2, 2)
 theme_override_fonts/font = ExtResource("8_c87gw")
 text = "Step To Step"
 label_settings = SubResource("LabelSettings_1kj5h")
-horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="SettingsMenu" type="ColorRect" parent="Control"]
@@ -494,7 +277,7 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 24
 text = "Delete All Data"
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="WaterDrop" type="CPUParticles2D" parent="."]
 position = Vector2(448, 293)
 amount = 1
 lifetime = 0.6
@@ -503,10 +286,19 @@ scale_amount_min = 3.0
 scale_amount_max = 7.37
 color = Color(0.231309, 0.371794, 0.593222, 1)
 
-[connection signal="button_up" from="Control/SettingFrame/Settings" to="Control/SettingsMenu" method="show"]
+[connection signal="pressed" from="Control/SettingFrame/Settings" to="Control/SettingsMenu" method="show"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/Play" to="." method="PlaySound" binds= ["Hover"]]
 [connection signal="pressed" from="Control/VBoxContainer/Play" to="." method="Start"]
+[connection signal="pressed" from="Control/VBoxContainer/Play" to="." method="PlaySound" binds= ["Click"]]
+[connection signal="mouse_entered" from="Control/VBoxContainer/Continue" to="." method="PlaySound" binds= ["Hover"]]
 [connection signal="pressed" from="Control/VBoxContainer/Continue" to="." method="Continue"]
+[connection signal="pressed" from="Control/VBoxContainer/Continue" to="." method="PlaySound" binds= ["Click"]]
+[connection signal="mouse_entered" from="Control/VBoxContainer/Quit" to="." method="PlaySound" binds= ["Hover"]]
 [connection signal="pressed" from="Control/VBoxContainer/Quit" to="." method="Exit"]
-[connection signal="button_up" from="Control/SettingsMenu/Button" to="Control/SettingsMenu" method="hide"]
+[connection signal="pressed" from="Control/VBoxContainer/Quit" to="." method="PlaySound" binds= ["Click"]]
+[connection signal="mouse_entered" from="Control/SettingsMenu/Button" to="." method="PlaySound" binds= ["Hover"]]
+[connection signal="pressed" from="Control/SettingsMenu/Button" to="Control/SettingsMenu" method="hide"]
+[connection signal="pressed" from="Control/SettingsMenu/Button" to="." method="PlaySound" binds= ["Click"]]
+[connection signal="mouse_entered" from="Control/SettingsMenu/ScrollContainer/PanelContainer/Button" to="." method="PlaySound" binds= ["Hover"]]
 [connection signal="pressed" from="Control/SettingsMenu/ScrollContainer/PanelContainer/Button" to="." method="RemoveSavedData"]
-[connection signal="pressed" from="Control/SettingsMenu/ScrollContainer/PanelContainer/Button" to="SoundService/Click" method="play" binds= [0.0]]
+[connection signal="pressed" from="Control/SettingsMenu/ScrollContainer/PanelContainer/Button" to="." method="PlaySound" binds= ["Click"]]

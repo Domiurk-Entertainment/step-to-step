@@ -13,4 +13,9 @@ public partial class Level<TConfig> : Node where TConfig : LevelConfig
         if(typeof(TConfig) != typeof(LevelConfig))
             Config = SceneTransition.GetData(GetTree().CurrentScene.SceneFilePath).As<LevelConfig>() as TConfig;
     }
+
+    public void PlaySound(string soundName)
+    {
+        SoundSystem.Instance.TryPlay(soundName);
+    }
 }
