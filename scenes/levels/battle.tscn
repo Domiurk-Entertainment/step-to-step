@@ -44,6 +44,7 @@ position = Vector2(1079, 586)
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 19
 position = Vector2(840, 538)
+zoom = Vector2(0.67, 0.67)
 script = ExtResource("7_3nq8h")
 
 [node name="UI" type="Control" parent="."]
@@ -51,9 +52,9 @@ z_index = 4
 layout_mode = 3
 anchor_right = 0.997
 anchor_bottom = 0.998
-offset_left = 208.0
+offset_left = 195.0
 offset_top = 179.0
-offset_right = 203.84
+offset_right = 190.84
 offset_bottom = 183.44
 mouse_filter = 2
 
@@ -120,10 +121,10 @@ anchor_left = 0.018
 anchor_top = 0.513
 anchor_right = 0.088
 anchor_bottom = 0.957
-offset_left = 0.103998
-offset_top = 0.100983
-offset_right = -61.936
-offset_bottom = -223.911
+offset_left = -242.896
+offset_top = 76.101
+offset_right = -304.936
+offset_bottom = -147.911
 scale = Vector2(3.31, 3.31)
 
 [connection signal="PlayerEndTurn" from="." to="UI/Attack" method="set_disabled" binds= [false]]
