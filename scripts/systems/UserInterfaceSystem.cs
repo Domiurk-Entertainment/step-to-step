@@ -125,6 +125,11 @@ namespace StepToStep.Systems
             if(interfaces.HasFlag(UserInterfacesType.PausePanel) || interfaces.HasFlag(UserInterfacesType.All))
                 _pausePanel.Hide();
         }
+
+        public void PlaySound(string soundName)
+        {
+            SoundSystem.Instance.TryPlay(soundName);
+        }
     }
 
     [Flags]

@@ -1,5 +1,5 @@
 using Godot;
-using StepToStep.InventorySpace;
+using StepToStep.InventorySystem;
 using StepToStep.Utils;
 using System;
 

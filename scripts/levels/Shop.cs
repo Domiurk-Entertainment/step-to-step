@@ -1,6 +1,6 @@
 ﻿using Godot;
 using Godot.Collections;
-using StepToStep.InventorySpace;
+using StepToStep.InventorySystem;
 using StepToStep.ShopSystem;
 
 namespace StepToStep.Levels;

@@ -1,5 +1,5 @@
 using Godot;
-using StepToStep.InventorySpace;
+using StepToStep.InventorySystem;
 using StepToStep.Utils;
 using System;
 using System.ComponentModel;
@@ -8,133 +8,137 @@ namespace StepToStep.Entity;
 
 public partial class Enemy : Node2D, IHealth
 {
-	public event Action<AttackType> AttackedStep;
+    public event Action<AttackType> AttackedStep;
 
-	[Signal] public delegate void DeadEventHandler();
+    [Signal] public delegate void DeadEventHandler();
+    [Signal] public delegate void HitEventHandler();
 
-	[Signal] public delegate void HitEventHandler();
+    [Export] public Item Reward;
+    private Health _health;
+    private AnimatedSprite2D _animatedSprite;
 
-	[Export, Category("Tween")] private float _duration = 1;
-	[Export] private Tween.TransitionType _transitionType = Tween.TransitionType.Linear;
-	[Export] private float _attackRange = 15;
-	[Export] protected float Damage = 10;
-	[Export] private RayCast2D _rayCast2D;
-	[Export] private int _stepCount = 2;
-	[Export] public Item Reward;
+    #region Attack
 
-	private Tween _movingTween;
-	private Health _health;
-	private Vector2[] _steps;
-	private int _currentStep;
-	private AnimatedSprite2D _animatedSprite;
+    [Export]
+    private float Damage = 10;
+    [Export] private float _attackRange = 15;
+    [Export, Category("Tween")] private float _duration = 1;
+    [Export] private Tween.TransitionType _transitionType = Tween.TransitionType.Linear;
+    [Export] private RayCast2D _rayCast2D;
+    [Export] private int _stepCount = 2;
 
-	public override void _Ready()
-	{
-		_health = GetNode<Health>("%Health");
-		_animatedSprite = (AnimatedSprite2D)FindChild("Visual");
+    private string _attackAnimationName = "attack";
+    private Tween _movingTween;
+    private Vector2[] _steps;
+    private int _currentStep;
 
-		_health.ChangedValue += HealthOnChangedValue;
-		_health.DecreasedValue += DecreasedValue;
-		_animatedSprite.FrameChanged += AnimatedSpriteOnSpriteFramesChanged;
-		_animatedSprite.AnimationFinished += AnimatedSpriteOnAnimationFinished;
-		return;
+    public void InitialTarget(Vector2 targetPosition)
+    {
+        if(_steps != null && _steps.Length < _stepCount)
+            return;
 
-		void DecreasedValue()
-			=> EmitSignal(SignalName.Hit);
-	}
+        _steps = new Vector2[_stepCount + 1];
+        Vector2 way = (targetPosition - GlobalPosition) / _stepCount;
+        way = new Vector2(way.X + _attackRange, way.Y);
+        _rayCast2D.TargetPosition = new Vector2(way.Normalized().X * _attackRange, way.Normalized().Y);
 
-	private void AnimatedSpriteOnAnimationFinished()
-	{
-		if(_animatedSprite.GetAnimation() != _attackAnimationName)
-			return;
-		AttackedStep?.Invoke(AttackType.End);
-		_animatedSprite.Play("idle");
-	}
+        for(int i = 0; i <= _stepCount; i++){
+            if(i == 0){
+                _steps[i] = GlobalPosition;
+                continue;
+            }
 
-	private string _attackAnimationName = "attack";
+            _steps[i] = GlobalPosition + way * i;
+        }
 
-	private void AnimatedSpriteOnSpriteFramesChanged()
-	{
-		if(_animatedSprite.GetAnimation() != _attackAnimationName || _animatedSprite.Frame != 2)
-			return;
-		Attacked();
-	}
+        _steps[_stepCount] = new Vector2(_steps[_stepCount].X, _steps[_stepCount].Y);
+    }
 
-	public void InitialTarget(Vector2 targetPosition)
-	{
-		if(_steps != null && _steps.Length < _stepCount)
-			return;
+    private void MoveTo(Vector2 toPosition)
+    {
+        _movingTween?.Kill();
+        _movingTween = CreateTween();
 
-		_steps = new Vector2[_stepCount + 1];
-		Vector2 way = (targetPosition - GlobalPosition) / _stepCount;
-		way = new Vector2(way.X + _attackRange, way.Y);
-		_rayCast2D.TargetPosition = new Vector2(way.Normalized().X * _attackRange, way.Normalized().Y);
+        _movingTween.TweenProperty(this, "global_position", toPosition,
+                                   _duration)
+                    .From(GlobalPosition)
+                    .SetTrans(_transitionType);
+        _movingTween.Finished += CheckReturnOnFinished;
+        return;
 
-		for(int i = 0; i <= _stepCount; i++){
-			if(i == 0){
-				_steps[i] = GlobalPosition;
-				continue;
-			}
+        void CheckReturnOnFinished()
+        {
+            if(_currentStep != _stepCount){
+                AttackedStep?.Invoke(AttackType.End);
+                return;
+            }
 
-			_steps[i] = GlobalPosition + way * i;
-		}
+            _animatedSprite.Play(_attackAnimationName);
+        }
+    }
 
-		_steps[_stepCount] = new Vector2(_steps[_stepCount].X, _steps[_stepCount].Y);
-	}
+    public void Attack()
+    {
+        _currentStep++;
+        AttackedStep?.Invoke(AttackType.Start);
 
-	public virtual void Attack()
-	{
-		_currentStep++;
-		AttackedStep?.Invoke(AttackType.Start);
+        MoveTo(_steps[_currentStep]);
+    }
 
-		MoveTo(_steps[_currentStep]);
-	}
+    private void Attacked()
+    {
+        if(_rayCast2D.GetCollider() is not IHealth health)
+            return;
 
-	protected void MoveTo(Vector2 toPosition)
-	{
-		_movingTween?.Kill();
-		_movingTween = CreateTween();
+        AttackedStep?.Invoke(AttackType.Attacked);
+        health.TakeDamage(this, Damage);
+        MoveTo(_steps[_currentStep = 0]);
+    }
 
-		_movingTween.TweenProperty(this, "global_position", toPosition,
-								   _duration)
-					.From(GlobalPosition)
-					.SetTrans(_transitionType);
-		_movingTween.Finished += CheckReturnOnFinished;
-		return;
+    #endregion
 
-		void CheckReturnOnFinished()
-		{
-			if(_currentStep != _stepCount){
-				AttackedStep?.Invoke(AttackType.End);
-				return;
-			}
+    public override void _Ready()
+    {
+        _health = GetNode<Health>("%Health");
+        _animatedSprite = (AnimatedSprite2D)FindChild("Visual");
 
-			_animatedSprite.Play(_attackAnimationName);
-		}
-	}
+        _health.ChangedValue += HealthOnChangedValue;
+        _health.DecreasedValue += DecreasedValue;
+        _animatedSprite.FrameChanged += AnimatedSpriteOnSpriteFramesChanged;
+        _animatedSprite.AnimationFinished += AnimatedSpriteOnAnimationFinished;
+        return;
 
-	private void Attacked()
-	{
-		if(_rayCast2D.GetCollider() is not IHealth health)
-			return;
+        void DecreasedValue()
+            => EmitSignal(SignalName.Hit);
+    }
 
-		AttackedStep?.Invoke(AttackType.Attacked);
-		health.TakeDamage(this, Damage);
-		MoveTo(_steps[_currentStep = 0]);
-	}
+    private void AnimatedSpriteOnAnimationFinished()
+    {
+        if(_animatedSprite.GetAnimation() != _attackAnimationName)
+            return;
+        AttackedStep?.Invoke(AttackType.End);
+        _animatedSprite.Play("idle");
+    }
 
-	public void TakeDamage(Node sender, float damage)
-	{
-		if(damage <= 0)
-			return;
-		_health.Subtract(sender, damage);
-		_animatedSprite.Play("hit");
-	}
+    private void AnimatedSpriteOnSpriteFramesChanged()
+    {
+        if(_animatedSprite.GetAnimation() != _attackAnimationName || _animatedSprite.Frame != 2)
+            return;
+        Attacked();
+    }
 
-	private void HealthOnChangedValue(float newValue)
-	{
-		if(newValue > _health.MinValue)
-			return;
-		EmitSignal(SignalName.Dead);
-	}
+    public void TakeDamage(Node sender, float damage)
+    {
+        if(damage <= 0)
+            return;
+        _health.Subtract(sender, damage);
+        _animatedSprite.Play("hit");
+    }
+
+    private void HealthOnChangedValue(float newValue)
+    {
+        if(newValue > _health.MinValue)
+            return;
+        EmitSignal(SignalName.Dead);
+    }
 }

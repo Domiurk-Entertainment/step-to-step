@@ -36,7 +36,10 @@ public partial class Sight : Node2D
 		direction = UP;
 	}
 
-	private Vector2 Calculate() => (endPoint.GlobalPosition - startPoint.GlobalPosition).Normalized();
+	private Vector2 Calculate()
+	{
+		return (endPoint.GlobalPosition - startPoint.GlobalPosition).Normalized();
+	}
 
 	public bool TryShoot()
 	{

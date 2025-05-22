@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace StepToStep.InventorySpace;
+namespace StepToStep.InventorySystem;
 
 public interface IInventory
 {

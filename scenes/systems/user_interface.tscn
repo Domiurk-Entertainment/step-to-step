@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cswmidelxr7fk"]
+[gd_scene load_steps=36 format=3 uid="uid://cswmidelxr7fk"]
 
 [ext_resource type="Script" path="res://scripts/systems/UserInterfaceSystem.cs" id="1_1v4uh"]
 [ext_resource type="Texture2D" uid="uid://dslaqll0yjmml" path="res://sprites/ui.png" id="2_6ioqe"]
@@ -9,9 +9,6 @@
 [ext_resource type="Shader" path="res://scripts/utilities/blur.gdshader" id="7_jtfi6"]
 [ext_resource type="Texture2D" uid="uid://bkn15av8my80s" path="res://sprites/cave_ui_button.png" id="8_nq7ha"]
 [ext_resource type="Texture2D" uid="uid://dagjp57mc74my" path="res://sprites/cave_ui_button_small.png" id="9_m4nf1"]
-[ext_resource type="AudioStream" uid="uid://3ei5c4shcb46" path="res://sounds/ui_hover.wav" id="10_hejui"]
-[ext_resource type="AudioStream" uid="uid://bsnbaujlbcd2h" path="res://sounds/ui_click.wav" id="11_7cjgc"]
-[ext_resource type="AudioStream" uid="uid://ccy1cdibnmy84" path="res://sounds/Pixel Music Pack/Wav/Pixel 1.wav" id="12_1dbwj"]
 [ext_resource type="Script" path="res://scripts/utilities/Currency.cs" id="13_1x6sw"]
 [ext_resource type="Texture2D" uid="uid://c0p6u53mqk655" path="res://Demo/coin.png" id="14_4ckya"]
 
@@ -207,14 +204,17 @@ text = "Action 2"
 visible = false
 modulate = Color(0.718381, 0.718381, 0.718381, 1)
 anchors_preset = -1
-anchor_left = 0.886
-anchor_right = 1.014
-anchor_bottom = 0.145
-offset_left = -1.07996
-offset_top = 10.0
-offset_right = -17.92
-offset_bottom = 50.6
+anchor_left = 0.92
+anchor_top = 0.022
+anchor_right = 0.988
+anchor_bottom = 0.143
+offset_left = 0.400024
+offset_top = 0.159999
+offset_right = 0.359985
+offset_bottom = 0.0399933
 grow_horizontal = 0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
 icon = ExtResource("5_qftvp")
 flat = true
 icon_alignment = 1
@@ -297,19 +297,6 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_er1pu")
 theme_override_styles/normal = SubResource("StyleBoxTexture_mll5g")
 text = "Back"
 
-[node name="Sounds" type="Node" parent="."]
-
-[node name="Hover" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("10_hejui")
-volume_db = 8.418
-
-[node name="Click" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("11_7cjgc")
-
-[node name="Music" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("12_1dbwj")
-volume_db = -48.555
-
 [node name="CoinPanel" type="HSplitContainer" parent="."]
 visible = false
 offset_left = 8.0
@@ -332,11 +319,5 @@ text = "0"
 [connection signal="pressed" from="Modal/Container/Header/Hide" to="Modal" method="Close"]
 [connection signal="pressed" from="Modal/Container/Actions/Action1" to="Modal" method="Close"]
 [connection signal="pressed" from="Modal/Container/Actions/Action2" to="Modal" method="Close"]
-[connection signal="mouse_entered" from="PauseButton" to="Sounds/Hover" method="play" binds= [0.0]]
-[connection signal="pressed" from="PauseButton" to="Sounds/Click" method="play" binds= [0.0]]
-[connection signal="mouse_entered" from="PausePanel/Container/Resume" to="Sounds/Hover" method="play" binds= [0.0]]
-[connection signal="pressed" from="PausePanel/Container/Resume" to="." method="HideUserInterfaces" binds= [0]]
-[connection signal="pressed" from="PausePanel/Container/Resume" to="Sounds/Click" method="play" binds= [0.0]]
-[connection signal="mouse_entered" from="PausePanel/Container/Quit" to="Sounds/Hover" method="play" binds= [0.0]]
-[connection signal="pressed" from="PausePanel/Container/Quit" to="." method="QuitButtonOnPressed"]
-[connection signal="pressed" from="PausePanel/Container/Quit" to="Sounds/Click" method="play" binds= [0.0]]
+[connection signal="mouse_entered" from="PauseButton" to="." method="PlaySound" binds= ["Hover"]]
+[connection signal="pressed" from="PauseButton" to="." method="PlaySound" binds= ["Click"]]

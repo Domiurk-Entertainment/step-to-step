@@ -1,15 +1,16 @@
 using Godot;
 using System.Collections.Generic;
 
-namespace StepToStep.InventorySpace
+namespace StepToStep.InventorySystem
 {
+    [GlobalClass]
     public partial class Inventory : Node, IInventory
     {
         public event InventoryDelegate AddedItem;
         public event InventoryDelegate RemovedItem;
         public event InventoryDelegate TakenItem;
 
-        private Item _currentBall;
+        [Export] private Item _currentBall;
 
         private readonly Queue<Item> _balls = new();
 

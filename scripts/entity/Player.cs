@@ -1,19 +1,16 @@
-using Godot;
+ using Godot;
 using StepToStep.Battle;
-using StepToStep.InventorySpace;
+using StepToStep.InventorySystem;
+using StepToStep.scripts.entity;
 using StepToStep.Utils;
 using System;
 
 namespace StepToStep.Entity;
 
 [GlobalClass, Icon("res://sprites/player_mini.png")]
-public partial class Player : StaticBody2D, IHealth
+public partial class Player : EntityBase, IHealth, IAttack
 {
     public event Action<AttackType> AttackedStep;
-
-    [Signal] public delegate void DeadEventHandler();
-
-    [Signal] public delegate void HitEventHandler();
 
     public IInventory Inventory => _inventory;
 
@@ -24,20 +21,13 @@ public partial class Player : StaticBody2D, IHealth
     [Export] private float _force = 500;
 
     private Inventory _inventory;
-    private Health _health;
 
     public override void _Ready()
     {
-        _health = GetNode<Health>("%Health");
-        _inventory = GetNode<Inventory>("%Inventory");
+        base._Ready();
+        _inventory = this.FindNode<Inventory>();
 
         _sight.CalculatedDirection += OnSightOnCalculatedDirection;
-        _health.ChangedValue += HealthOnChangedValue;
-        _health.DecreasedValue += DecreasedValue;
-        return;
-
-        void DecreasedValue()
-            => EmitSignal(SignalName.Hit);
     }
 
     private void OnSightOnCalculatedDirection(Vector2 direction)
@@ -67,19 +57,5 @@ public partial class Player : StaticBody2D, IHealth
         bool tryShoot = _sight.TryShoot();
         AttackedStep?.Invoke(tryShoot ? AttackType.End : AttackType.Start);
         _sight.Visible = !tryShoot;
-    }
-
-    public void TakeDamage(Node sender, float damage)
-    {
-        if(damage <= 0)
-            return;
-        _health.Subtract(sender, damage);
-    }
-
-    private void HealthOnChangedValue(float newValue)
-    {
-        if(newValue > _health.MinValue)
-            return;
-        EmitSignal(SignalName.Dead);
     }
 }

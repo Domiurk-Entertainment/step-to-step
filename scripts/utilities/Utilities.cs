@@ -1,4 +1,6 @@
 ﻿using Godot;
+using System;
+using System.Text.RegularExpressions;
 
 namespace StepToStep.Utils;
 
@@ -42,7 +44,14 @@ public static class Utilities
         return self;
     }
 
-    public static T FindNode<T>(this Node self, bool includeInternal = false) where T :  Node
+    public static TEnum ParseToEnum<TEnum>(this string valueName) where TEnum : struct, Enum
+    {
+        if(!Enum.TryParse(valueName, true, out TEnum state))
+            throw (RegexParseException)new Exception("Invalid state name");
+        return state;
+    }
+
+    public static T FindNode<T>(this Node self, bool includeInternal = false) where T : Node
     {
         T result = null;
 
@@ -55,7 +64,7 @@ public static class Utilities
         return result;
     }
 
-    public static string GetSaveKey(this Node self,string additional = "")
+    public static string GetSaveKey(this Node self, string additional = "")
     {
         string result = $"{self.GetTreeString()}";
         if(string.IsNullOrEmpty(additional))
