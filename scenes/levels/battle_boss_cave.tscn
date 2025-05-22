@@ -109,16 +109,21 @@ anchors_preset = -1
 anchor_top = 0.915
 anchor_right = 0.18
 anchor_bottom = 1.0
-offset_left = 100.0
-offset_top = -298.48
-offset_right = -104.94
-offset_bottom = -260.0
+offset_left = -220.0
+offset_top = -204.48
+offset_right = -424.94
+offset_bottom = -166.0
 scale = Vector2(3.31, 3.31)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 15
 position = Vector2(841, 539)
+zoom = Vector2(0.67, 0.67)
 script = ExtResource("6_ycab4")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.12
+blend_mode = 1
 
 [connection signal="pressed" from="UI/Attack" to="." method="PlayerAttack"]
 [connection signal="pressed" from="UI/TunOffButton" to="." method="TryRunOff"]

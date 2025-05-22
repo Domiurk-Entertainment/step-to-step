@@ -8,48 +8,48 @@ namespace StepToStep.Levels;
 
 public partial class MainMenu : Level<LevelConfig>
 {
-    [Export(PropertyHint.File)] private string _sceneToPlay;
-    [Export] private Button continueButton;
-    
-    public override void _Ready()
-    {
-        CheckExistData();
-    }
+	[Export(PropertyHint.File)] private string _sceneToPlay;
+	[Export] private Button continueButton;
+	
+	public override void _Ready()
+	{
+		CheckExistData();
+	}
 
-    private void CheckExistData()
-    {
-        continueButton.Disabled = !SaveSystem.Instance.ExistSaves();
-    }
+	private void CheckExistData()
+	{
+		continueButton.Disabled = !SaveSystem.Instance.ExistSaves();
+	}
 
-    public void Start()
-    {
-        UserInterfaceSystem.Instance.AddModal("Start New Game",
-                                              "Are you sure you want to start the new game?",
-                                              "Yes", "No",
-                                              StartGame);
-        return;
+	public void Start()
+	{
+		UserInterfaceSystem.Instance.AddModal("Start New Game",
+											  "Are you sure you want to start the new game?",
+											  "Yes", "No",
+											  StartGame);
+		return;
 
-        void StartGame()
-        {
-            RemoveSavedData();
-            Continue();
-        }
-    }
+		void StartGame()
+		{
+			RemoveSavedData();
+			Continue();
+		}
+	}
 
-    public void Exit()
-    {
-        GetTree().Quit();
-    }
+	public void Exit()
+	{
+		GetTree().Quit();
+	}
 
-    public void Continue()
-    {
-        PackedScene scene = GD.Load<PackedScene>(_sceneToPlay);
-        SceneTransition.Instance.ChangeScene(scene);
-    }
+	public void Continue()
+	{
+		PackedScene scene = GD.Load<PackedScene>(_sceneToPlay);
+		SceneTransition.Instance.ChangeScene(scene);
+	}
 
-    public void RemoveSavedData()
-    {
-        SaveSystem.Instance.RemoveAllData();
-        CheckExistData();
-    }
+	public void RemoveSavedData()
+	{
+		SaveSystem.Instance.RemoveAllData();
+		CheckExistData();
+	}
 }

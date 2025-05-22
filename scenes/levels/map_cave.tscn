@@ -805,10 +805,9 @@ flip_h = true
 
 [node name="PlayerMenu" type="Node2D" parent="."]
 position = Vector2(992, 759)
-scale = Vector2(4, 4)
+scale = Vector2(4.63, 4.63)
 
 [node name="Animations" type="AnimatedSprite2D" parent="PlayerMenu"]
-modulate = Color(0.992157, 1, 0.866667, 1)
 light_mask = 2
 z_index = 6
 position = Vector2(-2.25, -13.75)
@@ -841,4 +840,11 @@ volume_db = -15.0
 autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(995, 506)
+z_index = 16
+position = Vector2(959, 539)
+scale = Vector2(1, 1.24)
+zoom = Vector2(0.67, 0.67)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Camera2D"]
+energy = 0.12
+blend_mode = 1
