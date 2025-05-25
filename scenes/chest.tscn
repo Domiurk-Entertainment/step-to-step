@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ddijx4tts7cj0"]
+[gd_scene load_steps=26 format=3 uid="uid://ddijx4tts7cj0"]
 
 [ext_resource type="Script" path="res://scripts/entity/Chest.cs" id="1_0sry2"]
 [ext_resource type="Texture2D" uid="uid://dgpk2e2b2snrq" path="res://sprites/chest_closed.png" id="1_koe7o"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/inventory/Item.cs" id="3_1nmer"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/minimal_pixelv2.ttf" id="6_tcfuy"]
 [ext_resource type="PackedScene" uid="uid://dwvhlj2ouj5t6" path="res://scenes/location/location_cave.tscn" id="7_8dg7h"]
+[ext_resource type="Script" path="res://scripts/roma/Camera2D.gd" id="8_0gssg"]
 
 [sub_resource type="Resource" id="Resource_u3u35"]
 script = ExtResource("3_1nmer")
@@ -169,14 +170,22 @@ _itemReward = SubResource("Resource_u3u35")
 _animation = NodePath("Animation")
 _itemSprite = NodePath("Visible")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 19
+position = Vector2(842, 537)
+rotation = 0.413643
+scale = Vector2(1, 1)
+zoom = Vector2(0.67, 0.67)
+script = ExtResource("8_0gssg")
+
 [node name="Cave" parent="." instance=ExtResource("7_8dg7h")]
 
 [node name="Button" type="Button" parent="."]
 z_index = 6
-offset_left = 829.0
-offset_top = 441.978
-offset_right = 1121.0
-offset_bottom = 633.978
+offset_left = 648.0
+offset_top = 462.978
+offset_right = 940.0
+offset_bottom = 654.978
 pivot_offset = Vector2(175, 230)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_t83oj")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vodag")
@@ -197,7 +206,7 @@ expand_icon = true
 [node name="Visible" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 z_index = 6
-position = Vector2(971, 529.978)
+position = Vector2(790, 550.978)
 scale = Vector2(6, 6)
 
 [node name="Animation" type="AnimationPlayer" parent="."]
@@ -208,10 +217,10 @@ autoplay = "close"
 
 [node name="Label" type="Label" parent="."]
 z_index = 6
-offset_left = 880.0
-offset_top = 118.978
-offset_right = 1080.0
-offset_bottom = 218.978
+offset_left = 699.0
+offset_top = 139.978
+offset_right = 899.0
+offset_bottom = 239.978
 rotation = 0.413643
 pivot_offset = Vector2(100, 50)
 text = "Tap !!!"

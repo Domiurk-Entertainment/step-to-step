@@ -9,8 +9,8 @@
 [ext_resource type="Shader" path="res://scripts/utilities/blur.gdshader" id="7_jtfi6"]
 [ext_resource type="Texture2D" uid="uid://bkn15av8my80s" path="res://sprites/cave_ui_button.png" id="8_nq7ha"]
 [ext_resource type="Texture2D" uid="uid://dagjp57mc74my" path="res://sprites/cave_ui_button_small.png" id="9_m4nf1"]
+[ext_resource type="Texture2D" uid="uid://cgfvpv4hwjlne" path="res://sprites/coin.png" id="11_np1xe"]
 [ext_resource type="Script" path="res://scripts/utilities/Currency.cs" id="13_1x6sw"]
-[ext_resource type="Texture2D" uid="uid://c0p6u53mqk655" path="res://Demo/coin.png" id="14_4ckya"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i2wbu"]
 texture = ExtResource("2_6ioqe")
@@ -298,10 +298,9 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_mll5g")
 text = "Back"
 
 [node name="CoinPanel" type="HSplitContainer" parent="."]
-visible = false
 offset_left = 8.0
 offset_top = 10.0
-offset_right = 50.0
+offset_right = 34.0
 offset_bottom = 50.0
 collapsed = true
 dragger_visibility = 2
@@ -309,7 +308,8 @@ script = ExtResource("13_1x6sw")
 
 [node name="TextureRect" type="TextureRect" parent="CoinPanel"]
 layout_mode = 2
-texture = ExtResource("14_4ckya")
+texture = ExtResource("11_np1xe")
+stretch_mode = 6
 
 [node name="Label" type="Label" parent="CoinPanel"]
 layout_mode = 2

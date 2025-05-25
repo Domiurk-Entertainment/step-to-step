@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://cgg3oxwa6v2iu"]
+[gd_scene load_steps=17 format=3 uid="uid://cgg3oxwa6v2iu"]
 
 [ext_resource type="Script" path="res://scripts/levels/MainMenu.cs" id="1_pqpjw"]
+[ext_resource type="Texture2D" uid="uid://b0eo0e1ei8vph" path="res://sprites/light.png" id="3_4scx7"]
 [ext_resource type="Texture2D" uid="uid://fuyhtyywiawv" path="res://sprites/main_menu_cave.png" id="5_oqr6r"]
 [ext_resource type="Texture2D" uid="uid://dnjxmb3w8e2m4" path="res://sprites/cave_ui_button_pause.png" id="6_ivhtx"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/minimal_pixelv2.ttf" id="8_c87gw"]
@@ -78,11 +79,108 @@ _sceneToPlay = "res://scenes/levels/map_cave.tscn"
 continueButton = NodePath("Control/VBoxContainer/Continue")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.905769, 0.905769, 0.905769, 1)
 position = Vector2(641.5, 361)
 scale = Vector2(4.47569, 4.15909)
 sprite_frames = SubResource("SpriteFrames_pi1o1")
 autoplay = "default"
 frame_progress = 0.301346
+
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(2.56944, 19.235)
+scale = Vector2(0.0332003, 0.029042)
+energy = 1.57
+texture = ExtResource("3_4scx7")
+
+[node name="PointLight2D2" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(32.0621, -59.388)
+scale = Vector2(0.015008, 0.0212465)
+energy = 2.99
+texture = ExtResource("3_4scx7")
+
+[node name="PointLight2D3" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(-16.4221, 56.7432)
+scale = Vector2(0.015008, 0.0212465)
+energy = 2.99
+texture = ExtResource("3_4scx7")
+
+[node name="PointLight2D4" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(-97.5269, 60.3497)
+scale = Vector2(0.015008, 0.0212465)
+energy = 2.99
+texture = ExtResource("3_4scx7")
+
+[node name="PointLight2D5" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(-111.603, 38.2295)
+scale = Vector2(0.015008, 0.0212465)
+energy = 2.99
+texture = ExtResource("3_4scx7")
+
+[node name="PointLight2D6" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(-22.9015, -42.7978)
+scale = Vector2(0.015008, 0.0212465)
+energy = 2.99
+texture = ExtResource("3_4scx7")
+
+[node name="PointLight2D7" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(8.82546, 51.9344)
+scale = Vector2(0.015008, 0.0212465)
+energy = 2.99
+texture = ExtResource("3_4scx7")
+
+[node name="PointLight2D8" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(43.2336, 12.5027)
+scale = Vector2(0.015008, 0.0212465)
+energy = 2.99
+texture = ExtResource("3_4scx7")
+
+[node name="PointLight2D9" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(69.1514, -4.08743)
+scale = Vector2(0.015008, 0.0212465)
+energy = 2.99
+texture = ExtResource("3_4scx7")
+
+[node name="PointLight2D10" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(-72.2794, -37.0273)
+scale = Vector2(0.015008, 0.0212465)
+energy = 2.99
+texture = ExtResource("3_4scx7")
+
+[node name="PointLight2D11" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(-102.219, -6.97268)
+scale = Vector2(0.015008, 0.0212465)
+energy = 2.99
+texture = ExtResource("3_4scx7")
+
+[node name="PointLight2D12" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(103.336, -21.8798)
+scale = Vector2(0.015008, 0.0212465)
+energy = 2.99
+texture = ExtResource("3_4scx7")
+
+[node name="PointLight2D13" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(99.3143, 13.7049)
+scale = Vector2(0.015008, 0.0212465)
+energy = 2.99
+texture = ExtResource("3_4scx7")
+
+[node name="PointLight2D14" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(79.2057, -42.0765)
+scale = Vector2(0.015008, 0.0212465)
+energy = 2.99
+texture = ExtResource("3_4scx7")
+
+[node name="PointLight2D15" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(-27.8169, -60.1093)
+scale = Vector2(0.015008, 0.0212465)
+energy = 2.99
+texture = ExtResource("3_4scx7")
+
+[node name="PointLight2D16" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(10.166, -63.9563)
+scale = Vector2(0.015008, 0.0212465)
+energy = 2.99
+texture = ExtResource("3_4scx7")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
