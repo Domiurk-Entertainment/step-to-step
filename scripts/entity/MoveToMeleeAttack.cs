@@ -59,7 +59,14 @@ public partial class MoveToMeleeAttack : AttackBase
                     .From(Self.GlobalPosition)
                     .SetTrans(_transitionType);
         _movingTween.Finished += CheckReturnOnFinished;
+        _movingTween.StepFinished += CheckToCollide;
+
         return;
+
+        void CheckToCollide(long idx)
+        {
+
+        }
 
         void CheckReturnOnFinished()
         {
@@ -85,12 +92,12 @@ public partial class MoveToMeleeAttack : AttackBase
     private void TryAttack()
     {
 
-        if(_rayCast2D.GetCollider() is not IHealth health)
-            return;
+        if(_rayCast2D.GetCollider() is IHealth health){
+            EmitSignal(AttackBase.SignalName.ChangeAttackStep, nameof(AttackType.Attacked));
+            health.TakeDamage(this, Damage);
+        }
 
-        EmitSignal(AttackBase.SignalName.ChangeAttackStep, nameof(AttackType.Attacked));
-        health.TakeDamage(this, Damage);
-        EmitSignal(AttackBase.SignalName.ChangeAttackStep, nameof(AttackType.End));
         MoveTo(_steps[_currentStep = 0]);
+        EmitSignal(AttackBase.SignalName.ChangeAttackStep, nameof(AttackType.End));
     }
 }

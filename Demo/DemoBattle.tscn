@@ -25,7 +25,7 @@ Player = NodePath("Player")
 
 [node name="Enemy" type="StaticBody2D" parent="." node_paths=PackedStringArray("AttackBase", "Animator")]
 position = Vector2(543, 382)
-collision_layer = 4
+collision_layer = 6
 collision_mask = 4
 script = ExtResource("2_ncpdw")
 AttackBase = NodePath("Attack")
@@ -47,7 +47,8 @@ script = ExtResource("4_asrsr")
 
 [node name="RayCast2D" type="RayCast2D" parent="Enemy"]
 position = Vector2(-11, 0)
-target_position = Vector2(-30, 0)
+target_position = Vector2(-57, 0)
+collision_mask = 5
 
 [node name="Attack" type="Node" parent="Enemy" node_paths=PackedStringArray("_rayCast2D")]
 script = ExtResource("3_s7gd1")
@@ -55,7 +56,7 @@ _rayCast2D = NodePath("../RayCast2D")
 
 [node name="Player" type="StaticBody2D" parent="." node_paths=PackedStringArray("_spawnBalls", "_sight", "Animator")]
 position = Vector2(320, 382)
-collision_layer = 4
+collision_layer = 5
 collision_mask = 4
 script = ExtResource("4_b2dlx")
 _spawnBalls = NodePath("Node2D2")

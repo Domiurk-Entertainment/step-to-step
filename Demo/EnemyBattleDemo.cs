@@ -29,10 +29,13 @@ public partial class EnemyBattleDemo : Node
         Enemy.AttackBase.Connect(AttackBase.SignalName.ChangeAttackStep, Callable.From<string>(EnemyChangeAttackState));
 
         _turns.Enqueue(Player);
+        _turns.Enqueue(Enemy);
         _turns.Enqueue(Player);
+        _turns.Enqueue(Enemy);
         _turns.Enqueue(Player);
+        _turns.Enqueue(Enemy);
         _turns.Enqueue(Player);
-        _turns.Enqueue(Player);
+        _turns.Enqueue(Enemy);
 
         EmitSignal(CheckNextTurn<Player>() ? SignalName.NextTurnPlayer : SignalName.NextTurnEnemy);
     }
@@ -66,6 +69,9 @@ public partial class EnemyBattleDemo : Node
                 break;
             case AttackType.Start:
                 AddRandomTurn();
+                break;
+
+            case AttackType.Attacked:
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
