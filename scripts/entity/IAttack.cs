@@ -1,4 +1,4 @@
-﻿namespace StepToStep.scripts.entity;
+﻿namespace StepToStep.Entity;
 
 public interface IAttack
 {

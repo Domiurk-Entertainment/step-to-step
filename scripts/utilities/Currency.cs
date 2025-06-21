@@ -39,7 +39,7 @@ public partial class Currency : HSplitContainer
 	public override void _EnterTree()
 	{
 		Hide();
-		// Coins = SaveSystem.Instance.Get(_sectionType, GetKey("Coins"), 0).AsInt32();
+		// Coins = SaveSystem.Instance.Get(_sectionType, this.GetSaveKey(), 0).AsInt32();
 	}
 
 	public override void _ExitTree()

@@ -1,6 +1,5 @@
 ﻿using Godot;
 using StepToStep.Entity;
-using StepToStep.scripts.entity;
 using StepToStep.Utils;
 using System;
 using System.Collections.Generic;

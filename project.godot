@@ -15,7 +15,7 @@ config/name_localized={
 "uk_UA": "Крок за кроком"
 }
 config/version="0.0.1"
-run/main_scene="res://Demo/DemoBattle.tscn"
+run/main_scene="res://scenes/levels/main_menu_ui.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://sprites/game_icon.png"
 
@@ -41,7 +41,7 @@ project/assembly_name="StepToStep"
 
 [gui]
 
-theme/custom="res://Demo/resources/Main.tres"
+theme/custom="res://resources/Main.tres"
 theme/custom_font="res://TXT/minimal_pixelv2.ttf"
 
 [import]

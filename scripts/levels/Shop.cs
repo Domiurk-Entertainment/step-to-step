@@ -2,6 +2,7 @@
 using Godot.Collections;
 using StepToStep.InventorySystem;
 using StepToStep.ShopSystem;
+using StepToStep.Utils;
 
 namespace StepToStep.Levels;
 
@@ -19,5 +20,17 @@ public partial class Shop : Node
         Coins -= item.BuyCost;
         OnCoinValueChanged?.Invoke(Coins);*/
         return true;
+    }
+
+    public override void _EnterTree()
+    {
+        base._EnterTree();
+        Currency.Instance.Show();
+    }
+
+    public override void _ExitTree()
+    {
+        base._ExitTree();
+        Currency.Instance.Hide();
     }
 }

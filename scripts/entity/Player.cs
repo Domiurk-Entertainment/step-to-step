@@ -1,14 +1,13 @@
  using Godot;
 using StepToStep.Battle;
 using StepToStep.InventorySystem;
-using StepToStep.scripts.entity;
 using StepToStep.Utils;
 using System;
 
 namespace StepToStep.Entity;
 
 [GlobalClass, Icon("res://sprites/player_mini.png")]
-public partial class Player : EntityBase, IHealth, IAttack
+public partial class Player : EntityBase, IAttack
 {
     public event Action<AttackType> AttackedStep;
 

@@ -6,13 +6,10 @@ using System.ComponentModel;
 
 namespace StepToStep.Entity;
 
-public partial class Enemy : Node2D, IHealth
+public partial class Enemy : EnemyBase, IHealth
 {
-                    .SetTrans(_transitionType);
 	public event Action<AttackType> AttackedStep;
 
-	[Signal] public delegate void DeadEventHandler();
-	[Signal] public delegate void HitEventHandler();
 
 	[Export] public Item Reward;
 	private Health _health;
@@ -21,7 +18,7 @@ public partial class Enemy : Node2D, IHealth
 	#region Attack
 
 	[Export]
-	private float Damage = 10;
+	private float _damage = 10;
 	[Export] private float _attackRange = 15;
 	[Export, Category("Tween")] private float _duration = 1;
 	[Export] private Tween.TransitionType _transitionType = Tween.TransitionType.Linear;
@@ -92,7 +89,7 @@ public partial class Enemy : Node2D, IHealth
 			return;
 
 		AttackedStep?.Invoke(AttackType.Attacked);
-		health.TakeDamage(this, Damage);
+		health.TakeDamage(this, _damage);
 		MoveTo(_steps[_currentStep = 0]);
 	}
 
@@ -128,6 +125,7 @@ public partial class Enemy : Node2D, IHealth
 		Attacked();
 	}
 
+	/*
 	public void TakeDamage(Node sender, float damage)
 	{
 		if(damage <= 0)
@@ -135,6 +133,7 @@ public partial class Enemy : Node2D, IHealth
 		_health.Subtract(sender, damage);
 		_animatedSprite.Play("hit");
 	}
+	*/
 
 	private void HealthOnChangedValue(float newValue)
 	{

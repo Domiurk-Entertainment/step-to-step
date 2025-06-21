@@ -1,5 +1,4 @@
 ﻿using Godot;
-using StepToStep.scripts.entity;
 
 namespace StepToStep.Entity;
 

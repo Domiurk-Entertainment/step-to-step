@@ -3,6 +3,7 @@ using Godot.Collections;
 using System;
 using System.IO;
 using System.Linq;
+using CollectionExtensions = System.Collections.Generic.CollectionExtensions;
 using FileAccess = Godot.FileAccess;
 
 namespace StepToStep.Systems;
@@ -53,10 +54,12 @@ public partial class SaveSystem : System<SaveSystem>
 
     public Variant Get(SectionType sectionType, string key, Variant defaultValue)
     {
-        if(!dataToSave.TryGetValue(sectionType, out Dictionary<string, Variant> section))
-            return defaultValue;
+        if(dataToSave == null)
+            GD.Print("Data is null");
+        return !dataToSave.TryGetValue(sectionType, out Dictionary<string, Variant> section)
+                   ? defaultValue
+                   : CollectionExtensions.GetValueOrDefault(dataToSave[sectionType], key, defaultValue);
 
-        return section.ContainsKey(key) ? dataToSave[sectionType][key] : defaultValue;
     }
 
     public void Set(SectionType sectionType, string key, Variant value)
