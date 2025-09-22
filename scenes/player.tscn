@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://qxp1xt6p3mcx"]
+[gd_scene load_steps=25 format=3 uid="uid://qxp1xt6p3mcx"]
 
 [ext_resource type="Script" path="res://scripts/entity/Player.cs" id="1_8sdka"]
 [ext_resource type="Texture2D" uid="uid://cw4cotfaj4p25" path="res://sprites/white_circle.png" id="2_g178e"]
+[ext_resource type="Texture2D" uid="uid://cwfqk0vtqa4g5" path="res://sprites/player_run.png" id="2_glqd4"]
 [ext_resource type="Texture2D" uid="uid://y1gpju5xypeg" path="res://sprites/sprite_outline.png" id="2_owso6"]
 [ext_resource type="Script" path="res://scripts/inventory/Inventory.cs" id="2_u13nr"]
 [ext_resource type="Script" path="res://scripts/stats/Health.cs" id="3_p1h7q"]
@@ -12,6 +13,14 @@
 [ext_resource type="PackedScene" uid="uid://bwixc66257oaw" path="res://scenes/entity/sight.tscn" id="10_8va8p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_15st8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pknty"]
+atlas = ExtResource("2_glqd4")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnw0f"]
+atlas = ExtResource("2_glqd4")
+region = Rect2(64, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sxkk7"]
 atlas = ExtResource("2_owso6")
@@ -39,6 +48,17 @@ region = Rect2(80, 112, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1jh8v"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pknty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnw0f")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sxkk7")
@@ -73,7 +93,7 @@ bg_color = Color(0.113725, 0.666667, 0.231373, 1)
 radius = 5.0
 height = 16.0
 
-[node name="Player" type="StaticBody2D" node_paths=PackedStringArray("_spawnBalls", "_sight")]
+[node name="Player" type="StaticBody2D" node_paths=PackedStringArray("_spawnBalls", "_sight", "AnimatedSprite")]
 light_mask = 2
 visibility_layer = 2
 z_index = 10
@@ -84,15 +104,16 @@ ChanceToRun = 0.4
 _spawnBalls = NodePath("Node2D")
 _sight = NodePath("sight")
 _force = 400.0
+AnimatedSprite = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
 material = SubResource("ShaderMaterial_15st8")
 position = Vector2(-0.75, -16.25)
 sprite_frames = SubResource("SpriteFrames_1jh8v")
-animation = &"idle"
+animation = &"hit"
 autoplay = "idle"
-frame_progress = 0.829936
+frame_progress = 0.834885
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
 light_mask = 2

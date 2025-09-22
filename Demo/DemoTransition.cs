@@ -6,10 +6,20 @@ public partial class DemoTransition : Control
     [Export] private Control _element;
     [Export] private Container _container;
     [Export] private float _duration = 1f;
-    // 20 -> 450
+    
+    
+    [Export] private AnimatedSprite2D _sprite;
+    [Export] private AnimationPlayer _player;
 
-    public override void _Ready()
-    {
+    public void PlayAnimation(string animation) {
+        _sprite.Play(animation);
+        _player.Play(animation);
+    }
+        
+    public override void _Ready() {
+        _sprite.AnimationFinished += () => GD.Print("Current im Sprite : " +_sprite.GetAnimation());
+        _player.AnimationFinished += (s) => GD.Print("Current im Player : " + s);
+        
         foreach(Tween.TransitionType transitionType in Enum.GetValues<Tween.TransitionType>()){
             _container.AddChild(new HSeparator());
             var node = _element.Duplicate() as VSplitContainer;

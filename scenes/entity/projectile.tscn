@@ -10,7 +10,6 @@ height = 32.0
 
 [node name="Projectile" type="Area2D"]
 z_index = 20
-collision_layer = 513
 script = ExtResource("1_v7oav")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

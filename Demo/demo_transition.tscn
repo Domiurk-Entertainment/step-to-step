@@ -1,20 +1,228 @@
-[gd_scene load_steps=4 format=3 uid="uid://bb7jteiamjcsj"]
+[gd_scene load_steps=30 format=3 uid="uid://bb7jteiamjcsj"]
 
 [ext_resource type="Script" path="res://Demo/DemoTransition.cs" id="1_rnul1"]
 [ext_resource type="Texture2D" uid="uid://b0k8jct3ojy3n" path="res://icon.svg" id="2_ybiog"]
+[ext_resource type="Texture2D" uid="uid://d1l18cub6iu3n" path="res://sprites/arrow.png" id="3_y4nhm"]
+[ext_resource type="Texture2D" uid="uid://c0iblicaaxwue" path="res://sprites/ball.png" id="4_a4a7g"]
+[ext_resource type="Texture2D" uid="uid://c0p6u53mqk655" path="res://Demo/coin.png" id="4_gimii"]
+[ext_resource type="Texture2D" uid="uid://baendohfre7qk" path="res://sprites/backpack_bg.png" id="5_tgkny"]
+[ext_resource type="Texture2D" uid="uid://ck3t7x12t4klr" path="res://sprites/blum.png" id="6_a1row"]
+[ext_resource type="Texture2D" uid="uid://bb36f70q3yrpe" path="res://sprites/bat.png" id="6_j8ydh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bsf0"]
 
-[node name="Demo Transition" type="Control" node_paths=PackedStringArray("_element", "_container")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2c2i"]
+atlas = ExtResource("2_ybiog")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46ip8"]
+atlas = ExtResource("2_ybiog")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd5bh"]
+atlas = ExtResource("2_ybiog")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_543s3"]
+atlas = ExtResource("2_ybiog")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gan1g"]
+atlas = ExtResource("6_j8ydh")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_raeub"]
+atlas = ExtResource("6_j8ydh")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4p4y"]
+atlas = ExtResource("6_j8ydh")
+region = Rect2(32, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arbso"]
+atlas = ExtResource("6_j8ydh")
+region = Rect2(48, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i144q"]
+atlas = ExtResource("6_j8ydh")
+region = Rect2(64, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxayo"]
+atlas = ExtResource("6_j8ydh")
+region = Rect2(0, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85c03"]
+atlas = ExtResource("6_j8ydh")
+region = Rect2(16, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67qxd"]
+atlas = ExtResource("6_j8ydh")
+region = Rect2(32, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yn180"]
+atlas = ExtResource("6_j8ydh")
+region = Rect2(48, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xqqj"]
+atlas = ExtResource("6_j8ydh")
+region = Rect2(64, 48, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o3ohp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2c2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46ip8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hd5bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_543s3")
+}],
+"loop": false,
+"name": &"Anim 1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gan1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_raeub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4p4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arbso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i144q")
+}],
+"loop": false,
+"name": &"Anim 2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxayo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85c03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67qxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yn180")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xqqj")
+}],
+"loop": false,
+"name": &"Anim 3",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_3maq6"]
+resource_name = "Anim 2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 6.28319, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_b0eb4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_gimii")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_hssyt"]
+resource_name = "Anim 1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_gimii"), ExtResource("5_tgkny"), ExtResource("6_a1row")]
+}
+
+[sub_resource type="Animation" id="Animation_4wwv1"]
+resource_name = "Anim 3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.4, 0.566667, 0.7, 0.866667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_gimii"), ExtResource("3_y4nhm"), ExtResource("4_a4a7g"), ExtResource("4_gimii"), ExtResource("3_y4nhm"), ExtResource("4_a4a7g"), ExtResource("4_gimii")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f08bd"]
+_data = {
+"Anim 1": SubResource("Animation_hssyt"),
+"Anim 2": SubResource("Animation_3maq6"),
+"Anim 3": SubResource("Animation_4wwv1"),
+"RESET": SubResource("Animation_b0eb4")
+}
+
+[node name="Demo Transition" type="Node"]
+
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("_element", "_container", "_sprite", "_player")]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 698.0
-offset_bottom = 998.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_rnul1")
 _element = NodePath("VSplitContainer")
 _container = NodePath("ScrollContainer/VBoxContainer")
+_sprite = NodePath("VBoxContainer/HSplitContainer/AnimatedSprite2D")
+_player = NodePath("VBoxContainer/HSplitContainer/Sprite2D/AnimationPlayer")
 
-[node name="VSplitContainer" type="VSplitContainer" parent="."]
+[node name="VSplitContainer" type="VSplitContainer" parent="Control"]
 visible = false
 layout_mode = 1
 anchors_preset = 14
@@ -22,21 +230,20 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = 8.0
-offset_top = -674.0
+offset_top = -195.0
 offset_right = 8.0
-offset_bottom = -536.0
+offset_bottom = -57.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="VSplitContainer"]
-visible = false
+[node name="Panel" type="Panel" parent="Control/VSplitContainer"]
 custom_minimum_size = Vector2(15, 100)
 layout_direction = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_6bsf0")
 
-[node name="boy" type="TextureRect" parent="VSplitContainer/Panel"]
+[node name="boy" type="TextureRect" parent="Control/VSplitContainer/Panel"]
 layout_mode = 2
 offset_left = 20.0
 offset_top = 10.0
@@ -45,15 +252,15 @@ offset_bottom = 79.0
 texture = ExtResource("2_ybiog")
 expand_mode = 5
 
-[node name="slider" type="HSlider" parent="VSplitContainer"]
+[node name="slider" type="HSlider" parent="Control/VSplitContainer"]
 layout_mode = 2
 
-[node name="name" type="Label" parent="VSplitContainer"]
+[node name="name" type="Label" parent="Control/VSplitContainer"]
 layout_mode = 2
 text = "Transition type stttttttt"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,6 +268,54 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer"]
 layout_mode = 2
 alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 689.0
+offset_top = 492.0
+offset_right = 1282.0
+offset_bottom = 718.0
+alignment = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/VBoxContainer/HSplitContainer"]
+position = Vector2(403, -53)
+scale = Vector2(11.84, 11.84)
+sprite_frames = SubResource("SpriteFrames_o3ohp")
+animation = &"Anim 3"
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/VBoxContainer/HSplitContainer"]
+position = Vector2(172, -125)
+scale = Vector2(3.56, 3.56)
+texture = ExtResource("4_gimii")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/VBoxContainer/HSplitContainer/Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_f08bd")
+}
+
+[node name="Button" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Anim 1"
+
+[node name="Button2" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Anim 2 "
+
+[node name="Button3" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Anim 3 "
+
+[connection signal="pressed" from="Control/VBoxContainer/Button" to="Control" method="PlayAnimation" binds= ["Anim 1"]]
+[connection signal="pressed" from="Control/VBoxContainer/Button2" to="Control" method="PlayAnimation" binds= ["Anim 2"]]
+[connection signal="pressed" from="Control/VBoxContainer/Button3" to="Control" method="PlayAnimation" binds= ["Anim 3"]]

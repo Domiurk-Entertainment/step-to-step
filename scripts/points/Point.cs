@@ -11,10 +11,16 @@ public partial class Point : Button
 	public int Visited { get; set; }
 
 	[Export(PropertyHint.Dir)] public PackedScene SceneToLoad;
-	[Export] public BattleConfig Config;
+	[Export] public LevelConfig Config;
 
 	[Export] private Point[] _pointsUnlock = Array.Empty<Point>();
 	[Export] private int _canVisited = 1;
+
+	public override void _Ready() {
+		base._Ready();
+		if(SceneToLoad != null && Config == null)
+			GD.PrintErr($"{GetTree().CurrentScene.SceneFilePath}/{Name}:Config is null");
+	}
 
 	public bool CanVisit()
 	{

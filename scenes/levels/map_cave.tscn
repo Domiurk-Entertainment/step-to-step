@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c3745i6iabcxo"]
+[gd_scene load_steps=42 format=3 uid="uid://c3745i6iabcxo"]
 
 [ext_resource type="Script" path="res://scripts/levels/CaveMap.cs" id="1_l1e6v"]
 [ext_resource type="Script" path="res://scripts/points/PointsService.cs" id="1_pqqoo"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bqadxu82feiq4" path="res://sprites/cave_fg_lower.png" id="9_7yp77"]
 [ext_resource type="PackedScene" uid="uid://ddijx4tts7cj0" path="res://scenes/chest.tscn" id="9_ty62m"]
 [ext_resource type="Texture2D" uid="uid://5c0u7thmvt0g" path="res://sprites/cave_stones_upper.png" id="10_i28d5"]
+[ext_resource type="Resource" uid="uid://c7fw76kwo50g6" path="res://Demo/battle_configs/Ice_Reward.tres" id="10_kpdwu"]
 [ext_resource type="Resource" uid="uid://c7m341xhumouv" path="res://Demo/battle_configs/second_battle.tres" id="10_l5wpg"]
 [ext_resource type="PackedScene" uid="uid://2eol4dtbmydh" path="res://scenes/levels/battle_boss_cave.tscn" id="10_xx7b8"]
 [ext_resource type="Texture2D" uid="uid://7s5uw7p7xydu" path="res://sprites/cave_fg_right.png" id="11_572kt"]
@@ -565,6 +566,7 @@ offset_top = -66.83
 offset_right = 28.5072
 offset_bottom = -42.83
 SceneToLoad = ExtResource("9_ty62m")
+Config = ExtResource("10_kpdwu")
 _pointsUnlock = [NodePath("../Point5"), NodePath("../Point6")]
 
 [node name="Point5" parent="Points" node_paths=PackedStringArray("_pointsUnlock") instance=ExtResource("2_ger5s")]

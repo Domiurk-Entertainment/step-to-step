@@ -10,11 +10,12 @@ namespace StepToStep.Systems;
 
 public partial class SaveSystem : System<SaveSystem>
 {
-    [Export] private string pathConfig = "user://";
-    [Export] private string fileName = "config.cfg";
+    [Export] private string _pathConfig = "user://";
+    [Export] private string _fileName = "config.cfg";
 
+    public static Variant TemporaryData;
     private Dictionary<SectionType, Dictionary<string, Variant>>
-        dataToSave = new();
+        _dataToSave = new();
 
     public override void _Ready()
     {
@@ -24,29 +25,29 @@ public partial class SaveSystem : System<SaveSystem>
 
     public void RemoveAllData()
     {
-        if(!ExistConfig() || dataToSave.Count == 0)
+        if(!ExistConfig() || _dataToSave.Count == 0)
             return;
 
         foreach(SectionType sectionType in Enum.GetValues<SectionType>()){
-            if(!dataToSave.ContainsKey(sectionType)){
-                dataToSave.Add(sectionType, new Dictionary<string, Variant>());
+            if(!_dataToSave.ContainsKey(sectionType)){
+                _dataToSave.Add(sectionType, new());
                 continue;
             }
 
-            dataToSave[sectionType].Clear();
+            _dataToSave[sectionType].Clear();
         }
     }
 
     public void RemoveData(SectionType sectionType, string key)
     {
-        if(!dataToSave[sectionType].ContainsKey(key))
+        if(!_dataToSave[sectionType].ContainsKey(key))
             return;
-        dataToSave[sectionType].Remove(key);
+        _dataToSave[sectionType].Remove(key);
     }
 
-    public void SaveDictionary()
+    public void SaveToFile(Dictionary<SectionType, Dictionary<string, Variant>> dictionaryToFile)
     {
-        string stringify = Json.Stringify(dataToSave, "\t");
+        string stringify = Json.Stringify(dictionaryToFile, "\t");
         FileAccess file = FileAccess.Open(GetFullPath(), FileAccess.ModeFlags.Write);
         file.StoreString(stringify);
         file.Close();
@@ -54,23 +55,22 @@ public partial class SaveSystem : System<SaveSystem>
 
     public Variant Get(SectionType sectionType, string key, Variant defaultValue)
     {
-        if(dataToSave == null)
+        if(_dataToSave == null)
             GD.Print("Data is null");
-        return !dataToSave.TryGetValue(sectionType, out Dictionary<string, Variant> section)
+        return !_dataToSave!.TryGetValue(sectionType, out Dictionary<string, Variant> section)
                    ? defaultValue
-                   : CollectionExtensions.GetValueOrDefault(dataToSave[sectionType], key, defaultValue);
-
+                   : CollectionExtensions.GetValueOrDefault(section, key, defaultValue);
     }
 
     public void Set(SectionType sectionType, string key, Variant value)
     {
-        if(!dataToSave.ContainsKey(sectionType))
-            dataToSave.Add(sectionType, new Dictionary<string, Variant>());
+        if(!_dataToSave.ContainsKey(sectionType))
+            _dataToSave.Add(sectionType, new());
 
-        if(dataToSave[sectionType].ContainsKey(key))
-            dataToSave[sectionType][key] = value;
+        if(_dataToSave[sectionType].ContainsKey(key))
+            _dataToSave[sectionType][key] = value;
         else
-            dataToSave[sectionType].Add(key, value);
+            _dataToSave[sectionType].Add(key, value);
     }
 
     public void LoadData()
@@ -99,27 +99,27 @@ public partial class SaveSystem : System<SaveSystem>
         SectionType[] sections = Enum.GetValues<SectionType>();
 
         foreach(string key in dataDictionary.Keys)
-            dataToSave.Add(sections[int.Parse(key)], dataDictionary[key]);
+            _dataToSave.Add(sections[int.Parse(key)], dataDictionary[key]);
     }
 
     private bool ExistConfig()
         => FileAccess.FileExists(GetFullPath());
 
-    public bool ExistSaves() => ExistConfig() && dataToSave.Keys.All(ExistSave);
+    public bool ExistSaves() => ExistConfig() && _dataToSave.Keys.All(ExistSave);
 
     public bool ExistSave(SectionType sectionType)
-        => dataToSave.ContainsKey(sectionType) && dataToSave[sectionType].Count > 0;
+        => _dataToSave.ContainsKey(sectionType) && _dataToSave[sectionType].Count > 0;
 
     private string GetFullPath()
-        => Path.Combine(GetFolderPath(), fileName);
+        => Path.Combine(GetFolderPath(), _fileName);
 
     private string GetFolderPath()
-        => ProjectSettings.GlobalizePath(pathConfig);
+        => ProjectSettings.GlobalizePath(_pathConfig);
 
-    public override void _Notification(int what)
-    {
+    public override void _Notification(int what) {
+        return;
         if(what == NotificationWMCloseRequest)
-            SaveDictionary();
+            SaveToFile(_dataToSave);
     }
 }
 

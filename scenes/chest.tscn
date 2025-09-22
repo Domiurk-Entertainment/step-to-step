@@ -1,18 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://ddijx4tts7cj0"]
+[gd_scene load_steps=23 format=3 uid="uid://ddijx4tts7cj0"]
 
 [ext_resource type="Script" path="res://scripts/entity/Chest.cs" id="1_0sry2"]
 [ext_resource type="Texture2D" uid="uid://dgpk2e2b2snrq" path="res://sprites/chest_closed.png" id="1_koe7o"]
-[ext_resource type="Resource" uid="uid://uevbbfoqa5wv" path="res://Demo/balls/ice_ball.tres" id="2_e4uxy"]
 [ext_resource type="Texture2D" uid="uid://c2goa0w8tiqxt" path="res://sprites/chest_opened.png" id="2_wcmka"]
-[ext_resource type="Script" path="res://scripts/inventory/Item.cs" id="3_1nmer"]
 [ext_resource type="FontFile" uid="uid://x3hdlvvww3yh" path="res://TXT/minimal_pixelv2.ttf" id="6_tcfuy"]
 [ext_resource type="PackedScene" uid="uid://dwvhlj2ouj5t6" path="res://scenes/location/location_cave.tscn" id="7_8dg7h"]
 [ext_resource type="Script" path="res://scripts/roma/Camera2D.gd" id="8_0gssg"]
-
-[sub_resource type="Resource" id="Resource_u3u35"]
-script = ExtResource("3_1nmer")
-Resource = ExtResource("2_e4uxy")
-Amount = 1
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t83oj"]
 
@@ -166,7 +159,6 @@ font_size = 32
 
 [node name="Chest" type="Node" node_paths=PackedStringArray("_animation", "_itemSprite")]
 script = ExtResource("1_0sry2")
-_itemReward = SubResource("Resource_u3u35")
 _animation = NodePath("Animation")
 _itemSprite = NodePath("Visible")
 
@@ -174,7 +166,6 @@ _itemSprite = NodePath("Visible")
 z_index = 19
 position = Vector2(842, 537)
 rotation = 0.413643
-scale = Vector2(1, 1)
 zoom = Vector2(0.67, 0.67)
 script = ExtResource("8_0gssg")
 

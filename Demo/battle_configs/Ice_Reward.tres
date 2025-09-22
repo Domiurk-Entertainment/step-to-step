@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="RewardConfig" load_steps=5 format=3 uid="uid://c7fw76kwo50g6"]
+
+[ext_resource type="Resource" uid="uid://uevbbfoqa5wv" path="res://Demo/balls/ice_ball.tres" id="1_gjfp8"]
+[ext_resource type="Script" path="res://scripts/levels/RewardConfig.cs" id="1_mf4vp"]
+[ext_resource type="Script" path="res://scripts/inventory/Item.cs" id="2_6hq6g"]
+
+[sub_resource type="Resource" id="Resource_0e5qm"]
+script = ExtResource("2_6hq6g")
+Resource = ExtResource("1_gjfp8")
+Amount = 1
+
+[resource]
+script = ExtResource("1_mf4vp")
+ItemReward = SubResource("Resource_0e5qm")

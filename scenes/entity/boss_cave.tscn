@@ -242,6 +242,7 @@ radius = 77.0
 height = 204.0
 
 [node name="BossCave" type="StaticBody2D" node_paths=PackedStringArray("_animatedSprite", "_pointToShoot", "_health")]
+collision_layer = 513
 script = ExtResource("1_82im3")
 _animatedSprite = NodePath("Visual")
 _pointToShoot = NodePath("PointToShoot")
@@ -273,10 +274,8 @@ z_index = 10
 position = Vector2(41, -129)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_3rqrh")
-animation = &"attack"
+animation = &"idle"
 autoplay = "idle"
-frame = 10
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(44, -74)
